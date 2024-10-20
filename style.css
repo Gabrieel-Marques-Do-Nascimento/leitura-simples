@@ -4,7 +4,7 @@
     width: 50%;
     margin: 10px auto;
     line-height: 1.5em;
-    padding: 10px;
+ 
     border: 1px solid black;
     font-size: 18px;
     word-break: break-word;
@@ -13,7 +13,7 @@
     height: 550px; /* Define uma altura fixa */
     overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
     border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
-    padding: 10px; /* Adiciona espaço interno */
+    padding: 0px 10px 0 10px; /* Adiciona espaço interno */
     display: none; /* Inicialmente escondido */
 }
 header {
@@ -40,6 +40,7 @@ body {
     position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
     justify-content: center;
     overflow: hidden;
+
 
 }
 .highlight {
@@ -127,6 +128,15 @@ body {
     left: 92%;
 }
 
+/* Oculta a barra de rolagem no Chrome/Safari */
+#paragraph ::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem */
+}
+
+/* Oculta a barra de rolagem no Firefox */
+#paragraph{
+    scrollbar-width: none; /* Esconde a barra de rolagem */
+}
 
 @media (max-width: 768px) {
     body {

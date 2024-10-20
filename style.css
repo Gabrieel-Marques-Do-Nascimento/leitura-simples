@@ -1,0 +1,164 @@
+
+
+#paragraph {
+    width: 50%;
+    margin: 10px auto;
+    line-height: 1.5em;
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 18px;
+    word-break: break-word;
+
+
+    height: 550px; /* Define uma altura fixa */
+    overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
+    border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
+    padding: 10px; /* Adiciona espaço interno */
+    display: none; /* Inicialmente escondido */
+}
+header {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+    align-items: center;
+}
+#ler {
+    margin: 20px 0;
+    width: 80%;
+}
+#start{
+margin-top: 2px;
+}
+#reset {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+}
+body {
+    position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
+    justify-content: center;
+    overflow: hidden;
+
+}
+.highlight {
+    position: absolute;
+    top: 250px; /* Altura inicial da linha */
+    left: 0;
+    right: 0;
+    height: 1.5em; /* Altura da linha */
+    background-color: yellow; /* Cor de destaque */
+    z-index: -1; /* Coloca atrás do texto */
+    transition: top 0.2s ease;
+}
+
+
+.arrogante {
+    background-color: #282625; /* Cor vibrante */
+    color: white; /* Texto branco */
+    font-size: 18px; /* Tamanho da fonte grande */
+    padding: 7px 15px; /* Espaçamento interno */
+    border: none; /* Sem bordas */
+    border-radius: 8px; /* Cantos arredondados */
+    cursor: pointer; /* Mão ao passar o mouse */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transições suaves */
+    cursor: pointer;
+}
+
+.arrogante:hover {
+    transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
+    background-color: #0056b3;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5); /* Aumenta a sombra */
+}
+
+.arrogante:active {
+    transform: scale(0.95); /* Diminui o tamanho ao clicar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Diminui a sombra */
+}
+
+#ler {
+    width: 80%;
+    padding: 10px 15px; /* Espaço interno para melhorar a experiência de digitação */
+    font-size: 18px; /* Aumentar o tamanho da fonte */
+    border: 2px solid #ccc; /* Borda mais visível */
+    border-radius: 8px; /* Bordas arredondadas */
+    outline: none; /* Remove o contorno padrão ao focar */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
+}
+
+
+/* Estilo quando o input recebe foco */
+#ler:focus {
+    border-color: #007bff; /* Cor azul ao focar */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
+}
+/* Efeito hover no botão */
+#start:hover {
+    background-color: #0056b3;
+}
+
+/* Reset button styling */
+#reset {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão reset */
+#reset:hover {
+    background-color: #c82333;
+}
+
+
+#seta {
+    position: fixed;
+    top: 50%;
+    left: 92%;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        width: 100%; /* Maximiza o uso da largura da tela */
+        padding: 0 10px;
+    }
+
+    #ler {
+        width: 100%; /* O input ocupa toda a largura no celular */
+        font-size: 14px; /* Fonte menor em telas menores */
+        padding: 10px;
+    }
+
+    #start {
+        width: 100%; /* O botão ocupa toda a largura disponível */
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #reset {
+        left: 4px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #paragraph {
+        width: 78%; /* O parágrafo se ajusta à largura da tela */
+     /*   font-size: 14px;  Fonte um pouco menor para celular */
+  /* Reduz a altura para celulares */
+    }
+}

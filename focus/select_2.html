@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Second Line</title>
+    <style>
+        #paragraph {
+            width: 50%;
+            margin: 20px auto;
+            line-height: 1.5em;
+            padding: 10px;
+            border: 1px solid black;
+            font-size: 18px;
+            word-break: break-word;
+            position: relative;
+        }
+
+        /* Destaca a segunda linha */
+        #paragraph::before {
+            content: '';
+            position: absolute;
+            top: 4em; /* Ajusta para a altura da primeira linha */
+            left: 0;
+            right: 0;
+            height: 1.5em; /* Altura da linha */
+            background-color: yellow; /* Cor de destaque */
+            z-index: -1; /* Coloca atrás do texto */
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph">
+        This is an example paragraph. The first line of this paragraph is not highlighted. However, the second line is automatically selected and highlighted with a yellow background using CSS.
+    </p>
+</body>
+</html>

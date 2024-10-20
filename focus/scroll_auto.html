@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Automático</title>
+    <style>
+        #container {
+            width: 300px;
+            height: 150px;
+            overflow-y: scroll; /* Habilita a barra de rolagem */
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        p {
+            margin: 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <p id="texto">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
+        Vivamus pharetra turpis sit amet turpis fermentum, ac convallis mi pretium. 
+        Phasellus in accumsan eros. Cras consequat sem id dui pulvinar, id posuere massa gravida. 
+        Pellentesque nec elit auctor, ornare dolor in, consectetur sem. Fusce ut risus eu nulla 
+        commodo facilisis sit amet eget metus. Donec suscipit lectus id tortor posuere, 
+        ut pharetra orci scelerisque. Integer quis turpis nec lorem auctor tempor. 
+        Aenean viverra sapien in ante tincidunt facilisis. 
+    </p>
+</div>
+
+<script>
+    // Função que faz o scroll automático
+    function scrollarParagrafo() {
+        const container = document.getElementById('container');
+        
+        // Faz o scroll até o final
+        container.scrollTo({
+            top: container.scrollHeight,
+            behavior: 'smooth' // Suaviza o movimento de rolagem
+        });
+    }
+
+    // Chama a função após 2 segundos
+    setTimeout(scrollarParagrafo, 2000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Second Line</title>
+    <style>
+        #paragraph {
+            width: 50%;
+            margin: 20px auto;
+            line-height: 1.5em;
+            padding: 10px;
+            border: 1px solid black;
+            font-size: 18px;
+            word-break: break-word;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph">
+        This is an example paragraph. The first line of this paragraph is not highlighted. However, the second line is automatically selected and highlighted with a yellow background using JavaScript.
+    </p>
+    <button id="mostrarTamanho">Mostrar Tamanho da Fonte</button>
+    <script>
+        // // Função para obter o tamanho da janela
+        // function getWindowSize() {
+        //     const width = window.innerWidth;  // largura da janela
+        //     const height = window.innerHeight; // altura da janela
+        //     // console.log(`Largura: ${width}px, Altura: ${height}px`);
+        // }
+
+        // // Chama a função para exibir o tamanho da janela
+        // getWindowSize();
+
+
+
+
+
+
+
+
+
+
+        const width = window.innerWidth;  // largura da janela
+        const height = window.innerHeight; // altura da janela
+
+
+    //    // Função para obter o tamanho da fonte do parágrafo
+    //     function getFontSize() {
+    //         const paragrafo = document.getElementById('paragraph'); // Seleciona o parágrafo
+    //         const estilo = window.getComputedStyle(paragrafo); // Obtém o estilo computado
+    //         const tamanhoFonte = estilo.fontSize; // Obtém o tamanho da fonte
+    //         console.log(`Tamanho da Fonte: ${tamanhoFonte}`); // Exibe no console
+    //         return tamanhoFonte
+    //     }
+
+
+
+
+        window.onload = function() {
+            const paragraph = document.getElementById('paragraph');
+            const range = document.createRange();
+            const selection = window.getSelection();
+
+            // Cria um intervalo de seleção que cobre a segunda linha
+            const lines = paragraph.childNodes[0].textContent.split('\n'); // Divide o conteúdo em linhas
+            console.log(lines)
+
+            // Seleciona a segunda linha, se existir
+            if (lines.length > 1) {
+                const secondLine = lines[1];
+                const startIndex = paragraph.textContent.indexOf(secondLine);
+                const endIndex = startIndex + secondLine.length;
+
+                range.setStart(paragraph.firstChild, startIndex);
+                range.setEnd(paragraph.firstChild, endIndex);
+
+                // Limpa qualquer seleção anterior e aplica a nova
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
+        }
+    </script>
+</body>
+</html>

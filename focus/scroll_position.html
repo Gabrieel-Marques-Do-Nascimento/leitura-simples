@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Position</title>
+    <style>
+        #meuElemento {
+            width: 300px;
+            height: 300px;
+            overflow: scroll; /* Permite rolagem */
+            border: 1px solid black;
+        }
+        .conteudo {
+            height: 1000px; /* Conteúdo maior que a altura do elemento */
+            background: linear-gradient(to bottom, #f3f3f3, #ccc);
+        }
+    </style>
+</head>
+<body>
+
+<div id="meuElemento">
+    <div class="conteudo">Conteúdo aqui. Role para ver mais!</div>
+</div>
+
+<button id="botao">Obter Posição do Scroll</button>
+<p id="posicaoScroll"></p>
+
+<script>
+    const meuElemento = document.getElementById('meuElemento');
+    const botao = document.getElementById('botao');
+    const posicaoScroll = document.getElementById('posicaoScroll');
+
+    botao.addEventListener('click', () => {
+        const scrollTop = meuElemento.scrollTop; // Posição do scroll vertical
+        const scrollLeft = meuElemento.scrollLeft; // Posição do scroll horizontal
+
+        posicaoScroll.textContent = `Scroll Vertical: ${scrollTop}px, Scroll Horizontal: ${scrollLeft}px`;
+    });
+</script>
+
+</body>
+</html>

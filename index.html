@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_downward" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+
+
+        
+</style>
+<body>
+    <header>
+        <input type="text" name="ler" id="ler">
+        <button class="arrogante" id="start" lang="pt-BR">start</button>
+    </header>
+    <button class="arrogante" id="reset" lang="pt-BR">reset</button>
+    <button class="arrogante" id="seta" ><span class="material-symbols-outlined">
+        arrow_downward
+        </span></button>
+        <style>
+            .material-symbols-outlined {
+              font-variation-settings:
+              'FILL' 0,
+              'wght' 400,
+              'GRAD' 0,
+              'opsz' 24
+            }
+            </style>
+<script>
+
+</script>
+
+    <p id="paragraph">
+        hello world
+    </p>
+
+    <script>
+        // Criar o elemento de destaque
+        const highlight = document.createElement('div');
+        highlight.className = 'highlight';
+
+        // Adicionar ao corpo
+        document.body.appendChild(highlight);
+
+        // Função para alterar o valor de 'top'
+        function alterarTop(novoTop) {
+            highlight.style.top = novoTop + 'px';
+        }
+
+        // // Alterar o top após 2 segundos
+        // setTimeout(() => {
+        //     alterarTop(100); // Novo valor para 'top'
+        // }, 2000); // Atraso de 2 segundos
+
+        document.addEventListener('mousemove', function(event)
+    {
+        const y = event.clientY;
+        alterarTop(y)
+    });
+
+
+
+    const input = document.getElementById('ler')
+    const startBTN = document.getElementById("start")
+    const resetBTN = document.getElementById("reset")
+    const paragrafo = document.getElementById("paragraph")
+    const seta = document.getElementById('seta')
+
+    const scrollspeed = 1;
+    const width = window.innerWidth;  // largura da janela
+    const height = window.innerHeight; // altura da janela
+
+
+    function scrollarParagrafo(pixels) {
+
+        paragrafo.scrollTo({
+            top: pixels - 15,
+            behavior: 'smooth'
+        });
+    };
+    startBTN.addEventListener('click',() => {
+        resetBTN.style.display = 'block';
+        paragrafo.style.display = 'block'; // Faz o parágrafo aparecer
+        startBTN.style.display = 'none';
+       input.style.display = 'none';
+        paragrafo.innerHTML = input.value;
+    }
+    );
+    resetBTN.addEventListener('click',() => {
+        resetBTN.style.display = 'none';
+        paragrafo.style.display = 'none';
+        paragrafo.innerHTML = ''; // Limpa o conteúdo do parágrafo
+        startBTN.style.display = 'block';
+       input.style.display = 'block';
+    }
+    );
+    let pixels = 0
+ 
+    seta.addEventListener('click',() => {
+        const scrolltop = paragrafo.scrollTop;        
+        pixels = height  + scrolltop;
+        console.log('pixels',pixels, 'height', height);
+        scrollarParagrafo(pixels);
+    }
+    );
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select First Line</title>
+    <style>
+        #paragraph {
+            width: 50%;
+            margin: 20px auto;
+            line-height: 1.5em;
+            padding: 10px;
+            border: 1px solid black;
+            font-size: 18px;
+            word-break: break-word;
+        }
+
+        /* Estiliza automaticamente a primeira linha */
+        #paragraph::first-line {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph">
+        This is an example paragraph. The first line of this paragraph is automatically selected and highlighted with a yellow background. The rest of the text remains unchanged.
+    </p>
+</body>
+</html>

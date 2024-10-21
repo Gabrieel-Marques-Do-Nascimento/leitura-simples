@@ -1,162 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>leitura simples</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_downward" />
-    <link rel="shortcut icon" href="img\image-removebg-preview.png" type="image/x-icon">
-        <link rel="stylesheet" href="style.css">
-</head>
-<style>
-
-
-        
-</style>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_downward"
+    />
+    <link
+      rel="shortcut icon"
+      href="img\image-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style></style>
+  <body>
     <header>
-        <input type="text" name="ler" id="ler">
-        <button class="arrogante" id="start" lang="pt-BR">start</button>
+      <input type="text" name="ler" id="ler" />
+      <button class="arrogante" id="start" lang="pt-BR">start</button>
     </header>
     <button class="arrogante" id="reset" lang="pt-BR">reset</button>
-<button class="arrogante" id="page"  >  <img src="img/book_page.png" alt="Ícone" style="width:20px; height:20px;">
-</button>
+
     
+    <button class="arrogante scroll" id="page">
+      <img
+        src="img/book_page.png"
+        alt="Ícone"
+        style="width: 20px; height: 20px"
+      />
+    </button>
 
-    <button class="arrogante" id="seta" ><span class="material-symbols-outlined">
-        arrow_downward
-        </span></button>
-        <style>
-            .material-symbols-outlined {
-              font-variation-settings:
-              'FILL' 0,
-              'wght' 400,
-              'GRAD' 0,
-              'opsz' 24
-            }
-            </style>
-<script>
+    <button class="arrogante scroll" id="setas">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="20px"
+        viewBox="0 -960 960 960"
+        width="20px"
+        fill="#e8eaed"
+      >
+        <path
+          d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"
+        />
+      </svg>
+    </button>
 
-</script>
+    <button class="arrogante scroll" id="setab">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="20px"
+        viewBox="0 -960 960 960"
+        width="20px"
+        fill="#e8eaed"
+      >
+        <path
+          d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"
+        />
+      </svg>
+    </button>
+    <button class="arrogante scroll" id="play">
+      ||
+      <!-- play and pase // vai ser um elemento estilizado em css com animation de girar quando ativo -->
+    </button>
+    <script></script>
 
-    <p id="paragraph">
-        hello world
-    </p>
+    <p id="paragraph">hello world</p>
 
     <script>
+      // Criar o elemento de destaque
+      const highlight = document.createElement("div");
+      highlight.className = "highlight";
 
-        // Criar o elemento de destaque
-        const highlight = document.createElement('div');
-        highlight.className = 'highlight';
+      // Função para alterar o valor de 'top'
+      function alterarTop(novoTop) {
+        highlight.style.top = novoTop + "px";
+      }
 
+      // // Alterar o top após 2 segundos
+      // setTimeout(() => {
+      //     alterarTop(100); // Novo valor para 'top'
+      // }, 2000); // Atraso de 2 segundos
 
-
-        // Função para alterar o valor de 'top'
-        function alterarTop(novoTop) {
-            highlight.style.top = novoTop + 'px';
-        }
-
-        // // Alterar o top após 2 segundos
-        // setTimeout(() => {
-        //     alterarTop(100); // Novo valor para 'top'
-        // }, 2000); // Atraso de 2 segundos
-
-        document.addEventListener('mousemove', function(event)
-    {
+      document.addEventListener("mousemove", function (event) {
         const y = event.clientY;
-        alterarTop(y)
-    });
+        alterarTop(y);
+      });
 
+      const input = document.getElementById("ler");
+      const startBTN = document.getElementById("start");
+      const resetBTN = document.getElementById("reset");
+      const paragrafo = document.getElementById("paragraph");
+      const page = document.getElementById("page");
 
+      const scrollspeed = 1;
+      const width = window.innerWidth; // largura da janela
+      const height = window.innerHeight; // altura da janela
 
-    const input = document.getElementById('ler');
-    const startBTN = document.getElementById("start");
-    const resetBTN = document.getElementById("reset");
-    const paragrafo = document.getElementById("paragraph");
-    const page = document.getElementById("page");
-
-    const scrollspeed = 1;
-    const width = window.innerWidth;  // largura da janela
-    const height = window.innerHeight; // altura da janela
-
-
-
-
-    function scrollarParagrafo(pixels) {
-
+      function scrollarParagrafo(pixels) {
         paragrafo.scrollTo({
-            top: pixels - 50,
-            behavior: 'smooth'
+          top: pixels - 50,
+          behavior: "smooth",
         });
-    };
+      }
 
-
-    function style_sec(rstdis,pdis,stdis,inpdis,texto)
-    {
+      function style_sec(rstdis, pdis, stdis, inpdis, texto) {
         resetBTN.style.display = rstdis;
         paragrafo.style.display = pdis; // Faz o parágrafo aparecer
         startBTN.style.display = stdis;
-       input.style.display = inpdis;
+        input.style.display = inpdis;
         paragrafo.innerHTML = texto;
-    }
+      }
 
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          // Aqui você pode colocar a ação que deseja realizar ao pressionar Enter
+          saveText();
+          style_sec("block", "block", "none", "none", input.value);
+        }
+      });
 
-    input.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        // Aqui você pode colocar a ação que deseja realizar ao pressionar Enter
-        saveText()
-        style_sec('block','block','none','none',input.value)
-    }
-});
+      startBTN.addEventListener("click", () => {
+        saveText();
+        style_sec("block", "block", "none", "none", input.value);
+      });
+      resetBTN.addEventListener("click", () => {
+        style_sec("none", "none", "block", "block", "");
+      });
+      let pixels = 0;
 
-    startBTN.addEventListener('click',() => {
-        saveText()
-        style_sec('block','block','none','none',input.value)
-
-    }
-    );
-    resetBTN.addEventListener('click',() => {
-        style_sec('none','none','block','block','')
-    }
-    );
-    let pixels = 0
- 
-    page.addEventListener('click',() => {
-        const scrolltop = paragrafo.scrollTop;        
-        pixels = height  + scrolltop;
-        console.log('pixels',pixels, 'height', height);
+      page.addEventListener("click", () => {
+        const scrolltop = paragrafo.scrollTop;
+        pixels = height + scrolltop;
+        console.log("pixels", pixels, "height", height);
         scrollarParagrafo(pixels);
-    }
-    );
+      });
 
-        // highlight.style.width = 52 + '%';
-        // highlight.style.margin = 'auto'
-        // Adicionar ao corpo
-        document.body.appendChild(highlight);
+      // highlight.style.width = 52 + '%';
+      // highlight.style.margin = 'auto'
+      // Adicionar ao corpo
+      document.body.appendChild(highlight);
 
+      function saveText() {
+        // Pega o texto da área de texto
+        const text = input.value;
+        // Salva no LocalStorage
+        localStorage.setItem("savedText", text);
+      }
 
-function saveText() {
-    // Pega o texto da área de texto
-    const text = input.value;
-    // Salva no LocalStorage
-    localStorage.setItem('savedText', text);
-}
+      function loadText() {
+        // Carrega o texto salvo do LocalStorage, se existir
+        const savedText = localStorage.getItem("savedText");
+        if (savedText) {
+          style_sec("block", "block", "none", "none", savedText);
+          input.value = savedText;
+        }
+      }
 
-function loadText() {
-    // Carrega o texto salvo do LocalStorage, se existir
-    const savedText = localStorage.getItem('savedText');
-    if (savedText) {
-        style_sec('block','block','none','none',savedText)
-        input.value = savedText;
-    }
-}
-
-// Chama a função para carregar o texto ao abrir a página
-window.onload = loadText;
-
+      // Chama a função para carregar o texto ao abrir a página
+      window.onload = loadText;
     </script>
 
     <script src="LocalStorage.js"></script>
     <script src="scroll.js"></script>
-</body>
+  </body>
 </html>

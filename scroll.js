@@ -26,4 +26,18 @@ paragrafo.addEventListener('scroll', () => {
 });
 
 
- 
+let is_scroll = document.getElementsByClassName('scroll')
+
+
+
+
+// Selecionar o elemento (por exemplo, pela classe)
+var elemento = document.getElementById('paragraph');
+// Obter o tamanho da janela (viewport)
+var larguraJanela = window.innerWidth;
+var alturaJanela = window.innerHeight;
+
+// Comparar os tamanhos
+console.log("Largura da janela: " + larguraJanela + "px");
+console.log("Altura da janela: " + alturaJanela + "px");
+

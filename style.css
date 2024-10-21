@@ -108,6 +108,7 @@ body {
     position: fixed;
     top: 20px;
     left: 10px;
+    font-weight: bold;
     padding: 10px 20px;
     background-color: #dc3545;
     color: white;
@@ -124,12 +125,28 @@ body {
 }
 
 
-#seta {
+#setab {
     position: fixed;
-    top: 50%;
-    left: 92%;
+    top: 80%;
+    left: 90%;
 }
-
+#setas {
+    position: fixed;
+    top: 70%;
+    left: 90%;
+}
+#play {
+    position: fixed;
+    top: 88%;
+    left: 90%;
+}
+#page {
+    /* substituto para a seta */
+  position: fixed;
+   top: 60%;
+    width: 50px;
+    left: 90%;
+  }
 /* Oculta a barra de rolagem no Chrome/Safari */
 #paragraph ::-webkit-scrollbar {
     display: none; /* Esconde a barra de rolagem */
@@ -163,22 +180,37 @@ body {
     }
 
     #reset {
-        left: 4px;
+        width: 40px;
+        height: 30px;
+
+        left: 90%;
         padding: 5px;
         font-size: 12px;
     }
     #page {
       /* substituto para a seta */
     position: fixed;
-    top: 60%;
+     top: 60%;
       width: 50px;
       left: 88%;
     }
-    #seta {
+    #setab {
       align-items: center;
-      width: 35px;
+
+      width: 50px;
       left: 88%;
     }
+    #play {
+        position: fixed;
+        top: 88%;
+        left: 90%;
+    }
+    #setas {
+        align-items: center;
+  
+        width: 50px;
+        left: 88%;
+      }
     #paragraph {
         width: 78%; /* O parágrafo se ajusta à largura da tela */
      /*   font-size: 14px;  Fonte um pouco menor para celular */

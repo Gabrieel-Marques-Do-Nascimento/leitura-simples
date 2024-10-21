@@ -41,6 +41,7 @@
     </p>
 
     <script>
+
         // Criar o elemento de destaque
         const highlight = document.createElement('div');
         highlight.className = 'highlight';
@@ -84,20 +85,26 @@
             behavior: 'smooth'
         });
     };
+
+
+    function style_sec(rstdis,pdis,stdis,inpdis,texto)
+    {
+        resetBTN.style.display = rstdis;
+        paragrafo.style.display = pdis; // Faz o parágrafo aparecer
+        startBTN.style.display = stdis;
+       input.style.display = inpdis;
+        paragrafo.innerHTML = texto;
+    }
+
+
     startBTN.addEventListener('click',() => {
-        resetBTN.style.display = 'block';
-        paragrafo.style.display = 'block'; // Faz o parágrafo aparecer
-        startBTN.style.display = 'none';
-       input.style.display = 'none';
-        paragrafo.innerHTML = input.value;
+        saveText()
+        style_sec('block','block','none','none',input.value)
+
     }
     );
     resetBTN.addEventListener('click',() => {
-        resetBTN.style.display = 'none';
-        paragrafo.style.display = 'none';
-        paragrafo.innerHTML = ''; // Limpa o conteúdo do parágrafo
-        startBTN.style.display = 'block';
-       input.style.display = 'block';
+        style_sec('none','none','block','block','')
     }
     );
     let pixels = 0
@@ -114,11 +121,28 @@
 
 
 
+function saveText() {
+    // Pega o texto da área de texto
+    const text = input.value;
+    // Salva no LocalStorage
+    localStorage.setItem('savedText', text);
+}
 
+function loadText() {
+    // Carrega o texto salvo do LocalStorage, se existir
+    const savedText = localStorage.getItem('savedText');
+    if (savedText) {
+        style_sec('block','block','none','none',savedText)
+        input.value = savedText;
+    }
+}
+
+// Chama a função para carregar o texto ao abrir a página
+window.onload = loadText;
 
     </script>
 
-
+    <script src="LocalStorage.js"></script>
     <script src="scroll.js"></script>
 </body>
 </html>

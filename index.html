@@ -46,8 +46,7 @@
         const highlight = document.createElement('div');
         highlight.className = 'highlight';
 
-        // Adicionar ao corpo
-        document.body.appendChild(highlight);
+
 
         // Função para alterar o valor de 'top'
         function alterarTop(novoTop) {
@@ -67,15 +66,17 @@
 
 
 
-    const input = document.getElementById('ler')
-    const startBTN = document.getElementById("start")
-    const resetBTN = document.getElementById("reset")
-    const paragrafo = document.getElementById("paragraph")
-    const seta = document.getElementById('seta')
+    const input = document.getElementById('ler');
+    const startBTN = document.getElementById("start");
+    const resetBTN = document.getElementById("reset");
+    const paragrafo = document.getElementById("paragraph");
+    const seta = document.getElementById('seta');
 
     const scrollspeed = 1;
     const width = window.innerWidth;  // largura da janela
     const height = window.innerHeight; // altura da janela
+
+
 
 
     function scrollarParagrafo(pixels) {
@@ -117,8 +118,10 @@
     }
     );
 
-
-
+        // highlight.style.width = 52 + '%';
+        // highlight.style.margin = 'auto'
+        // Adicionar ao corpo
+        document.body.appendChild(highlight);
 
 
 function saveText() {

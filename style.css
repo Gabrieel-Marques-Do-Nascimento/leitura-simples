@@ -52,6 +52,8 @@ body {
     background-color: yellow; /* Cor de destaque */
     z-index: -1; /* Coloca atrás do texto */
     transition: top 0.2s ease;
+    width: 52%;
+    margin: 0 auto;
 }
 
 
@@ -170,5 +172,8 @@ body {
         width: 78%; /* O parágrafo se ajusta à largura da tela */
      /*   font-size: 14px;  Fonte um pouco menor para celular */
   /* Reduz a altura para celulares */
+    }
+    .highlight{
+        width: 80%;
     }
 }

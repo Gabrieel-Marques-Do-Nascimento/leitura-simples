@@ -19,10 +19,13 @@
         <button class="arrogante" id="start" lang="pt-BR">start</button>
     </header>
     <button class="arrogante" id="reset" lang="pt-BR">reset</button>
+<button class="arrogante" id="page"  >  <img src="img/book_page.png" alt="Ícone" style="width:20px; height:20px;">
+</button>
+    
+
     <button class="arrogante" id="seta" ><span class="material-symbols-outlined">
         arrow_downward
         </span></button>
-
         <style>
             .material-symbols-outlined {
               font-variation-settings:
@@ -70,7 +73,7 @@
     const startBTN = document.getElementById("start");
     const resetBTN = document.getElementById("reset");
     const paragrafo = document.getElementById("paragraph");
-    const seta = document.getElementById('seta');
+    const page = document.getElementById("page");
 
     const scrollspeed = 1;
     const width = window.innerWidth;  // largura da janela
@@ -118,7 +121,7 @@
     );
     let pixels = 0
  
-    seta.addEventListener('click',() => {
+    page.addEventListener('click',() => {
         const scrolltop = paragrafo.scrollTop;        
         pixels = height  + scrolltop;
         console.log('pixels',pixels, 'height', height);

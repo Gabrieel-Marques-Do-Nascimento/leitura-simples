@@ -36,6 +36,10 @@ margin-top: 2px;
     top: 20px;
     left: 10px;
 }
+#setting{
+  position: fixed;
+  left: 90%;
+}
 body {
     position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
     justify-content: center;
@@ -106,7 +110,7 @@ body {
 #reset {
     display: none;
     position: fixed;
-    top: 20px;
+    top: 54%;
     left: 10px;
     font-weight: bold;
     padding: 10px 20px;
@@ -180,43 +184,55 @@ body {
     }
 
     #reset {
-        width: 40px;
-        height: 30px;
-
-        left: 90%;
+        width: 50px;
+        height: 40px;
+         top: 94%;
+        left: 9%;
         padding: 5px;
         font-size: 12px;
     }
     #page {
       /* substituto para a seta */
     position: fixed;
-     top: 60%;
+     top: 94%;
       width: 50px;
-      left: 88%;
+      left: 80%;
     }
     #setab {
       align-items: center;
 
-      width: 50px;
-      left: 88%;
+      top: 94%;
+        height: 40px;
+        width: 40px;
+        left: 30%;
     }
     #play {
         position: fixed;
-        top: 88%;
-        left: 90%;
+        width: 40px;
+        top: 94%;
+        left: 45%;
     }
     #setas {
         align-items: center;
-  
-        width: 50px;
-        left: 88%;
+        top: 94%;
+        height: 40px;
+        width: 40px;
+        left: 60%;
       }
     #paragraph {
-        width: 78%; /* O parágrafo se ajusta à largura da tela */
+      max-height: calc(95vh - 40px);
+        width: 95%; /* O parágrafo se ajusta à largura da tela */
      /*   font-size: 14px;  Fonte um pouco menor para celular */
   /* Reduz a altura para celulares */
     }
     .highlight{
-        width: 80%;
+      z-index: -1;
+        width: 95%;
     }
+    #setting{
+  position: fixed;
+  left: 90%;
+  top: 0;
+  border-radius: 50%;
+}
 }

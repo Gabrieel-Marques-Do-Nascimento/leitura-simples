@@ -9,6 +9,13 @@ style.innerText = `
             bottom: 0px;
             left: 0;
         }
+        @media (max-width: 768px) {
+                .scroll_top {
+            
+            top: 0px;
+            left: 0;
+        }
+        }
 `;
 document.body.appendChild(style);
 

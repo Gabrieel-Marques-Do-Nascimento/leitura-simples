@@ -38,7 +38,11 @@ margin-top: 2px;
 }
 #setting{
   position: fixed;
-  left: 90%;
+  left: 90.3%;
+  top: 52%;
+}
+* {
+ 
 }
 body {
     position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
@@ -131,7 +135,7 @@ body {
 
 #setab {
     position: fixed;
-    top: 80%;
+    top: 88%;
     left: 90%;
 }
 #setas {
@@ -141,8 +145,8 @@ body {
 }
 #play {
     position: fixed;
-    top: 88%;
-    left: 90%;
+    top: 78.5%;
+    left: 89.8%;
 }
 #page {
     /* substituto para a seta */
@@ -221,6 +225,7 @@ body {
       }
     #paragraph {
       max-height: calc(95vh - 40px);
+      z-index: 2;
         width: 95%; /* O parágrafo se ajusta à largura da tela */
      /*   font-size: 14px;  Fonte um pouco menor para celular */
   /* Reduz a altura para celulares */

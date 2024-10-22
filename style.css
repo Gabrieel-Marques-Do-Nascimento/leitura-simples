@@ -41,6 +41,9 @@ margin-top: 2px;
   left: 90.3%;
   top: 52%;
 }
+#setting:hover{
+  background: black;
+}
 * {
  
 } 

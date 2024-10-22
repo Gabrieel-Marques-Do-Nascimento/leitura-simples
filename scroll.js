@@ -8,10 +8,10 @@ style.innerText = `
             height: 10px;
             bottom: 0px;
             left: 0;
+            z-index: -1;
         }
-        @media (max-width: 768px) {
-                .scroll_top {
-            
+    @media (max-width: 768px) {
+        .scroll_top {
             top: 0px;
             left: 0;
         }

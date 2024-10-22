@@ -19,3 +19,10 @@ marcador para teztos grandes
 
 -----------------------------------------------------
 marcador oculpar a linha do texto
+
+--------------------------------------------------------
+outra forma de marcador:
+click no inicio, apartir da i, o elemento marcador se iniciA de onde foi clicado e termina onde o mouse esta
+tecnico:
+marcador display none, apartir do click ele fica display: block
+comeca a almentar de tamanho com base na posicao do mouse

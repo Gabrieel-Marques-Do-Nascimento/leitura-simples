@@ -25,7 +25,7 @@
     <div id="setings">
       <h1>setings</h1>
 
-      <span id="close">
+      <button id="close">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -42,7 +42,7 @@
             stroke-width="2"
           />
         </svg>
-      </span>
+      </button>
 
 
       <div id="conteiner">
@@ -63,7 +63,10 @@
     <style>
       /* versão moal */
       #setings {
+        display: block;
+        z-index: 1;
         position: fixed;
+        background: none;
         
 
         left: 10%;
@@ -85,8 +88,9 @@
       }
       #setings #close {
         position: relative;
-        left: 95%;
-        top: -5%;
+        background: none;
+        left: 90%;
+        top: -7%;
       }
       #setings #conteiner {
         display: flex;
@@ -99,7 +103,7 @@
 
     <button class="arrogante" id="reset" lang="pt-BR">reset</button>
 
-    <button class="" id="setting">
+    <button class="scrollbt" id="setting">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
@@ -112,7 +116,7 @@
         />
       </svg>
     </button>
-    <button class="arrogante scroll" id="page">
+    <button class="arrogante scrollbt" id="page">
       <img
         src="img/book_page.png"
         alt="Ícone"
@@ -120,13 +124,14 @@
       />
     </button>
 
-    <button class="arrogante scroll" id="setas">
+    <button class="arrogante scrollbt" id="setas">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="20px"
         viewBox="0 -960 960 960"
         width="20px"
         fill="#e8eaed"
+        transform="translate(-5,0)"
       >
         <path
           d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"
@@ -134,24 +139,26 @@
       </svg>
     </button>
 
-    <button class="arrogante scroll" id="setab">
+    <button class="arrogante scrollbt" id="setab">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="20px"
         viewBox="0 -960 960 960"
         width="20px"
         fill="#e8eaed"
+        transform="translate(-5,0)"
       >
         <path
           d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"
         />
       </svg>
     </button>
-    <button class="arrogante scroll" id="play">
+    <button class="arrogante scrollbt" id="play">
       <svg
-        width="25"
-        height="25"
+        width="20"
+        height="20"
         viewBox="0 0 100 100"
+        transform="translate(-5,0)"
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect x="30" y="20" width="15" height="60" fill="black" />
@@ -182,7 +189,7 @@
         const y = event.clientY;
         alterarTop(y);
       });
-
+ 
       const input = document.getElementById("ler");
       const startBTN = document.getElementById("start");
       const resetBTN = document.getElementById("reset");
@@ -208,10 +215,24 @@
         paragrafo.innerHTML = texto;
       }
 
+
+     
+      let buttons = document.querySelectorAll(".scrollbt");
+      // funcso que define se os bottons devem aparecer ou ficar escondido
+      function buttonstatic(estado)
+      {
+        for (let i = 0; i < buttons.length; i++)
+        {
+          buttons[i].style.display = estado
+        }
+      }
+      
+      
       input.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
           // Aqui você pode colocar a ação que deseja realizar ao pressionar Enter
           saveText();
+          buttonstatic("block")
           style_sec("block", "block", "none", "none", input.value);
         }
       });
@@ -219,9 +240,13 @@
       startBTN.addEventListener("click", () => {
         saveText();
         style_sec("block", "block", "none", "none", input.value);
+        buttonstatic("block")
+
       });
       resetBTN.addEventListener("click", () => {
+        buttonstatic("none")
         style_sec("none", "none", "block", "block", "");
+      
       });
       let pixels = 0;
 
@@ -258,6 +283,7 @@
     </script>
 
     <script src="LocalStorage.js"></script>
+    <script src="confg.js"></script>
     <script src="setas.js"></script>
     <script src="scroll.js"></script>
   </body>

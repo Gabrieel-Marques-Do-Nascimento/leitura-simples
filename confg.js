@@ -68,6 +68,8 @@ close.addEventListener("click", () => {
   setings.style.display = "none";
 });
 
+
+
 setingbtn.addEventListener("click", () => {
   //console.log("fixed");
   setingbtn.style.display = "none";

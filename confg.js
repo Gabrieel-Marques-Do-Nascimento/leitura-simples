@@ -7,14 +7,16 @@ let close = document.getElementById("close");
 close.addEventListener("click", () =>
 {
 
-
-texto.style.fontSize = font_size.value + 'px';
+let fonts = (Number(font_size.value) > 12 ) ? font_size.value : 12 ; 
+console.log(fonts)
+texto.style.fontSize = fonts + 'px'; 
+highlight.style.height = fonts +  'px';
 
   // Pegando o estado do checkbox (se está marcado ou não)
 const backgroundType = document.getElementById('background-type').checked ? 'white' : 'black';
 const confger = {
   'marcador':  marcador.value,
-  'font-size': (font_size.value > 12 ) ? font_size.value : '12' ,
+  'font-size': (Number(font_size.value) > 12 ) ? font_size.value : '12' ,
   'background_type':background_type.value
 
  
@@ -37,6 +39,7 @@ setingbtn.addEventListener("click", () =>
 // comfiguracoes gerais do Site
 
 let marcador = document.getElementById('marcador');
+
 let font_size = document.getElementById('font-size');
 let background_type = document.getElementById('background-type');
 
@@ -50,10 +53,14 @@ function activatedate() {
       // Atribuir os valores carregados
   
   if (data) {
+
       marcador.value = data[ 'marcador']
       font_size.value = data[ 'font-size']
-      background_type.value = data[ 'background_type']
+      background_type.value = data[ 'background_type']  
+
+    let font = Number(font_size.value )      
       texto.style.fontSize = font_size.value + 'px';
+      highlight.style.height = font + (font / 4) + 'px';
   }
 }
 

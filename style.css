@@ -44,9 +44,7 @@ margin-top: 2px;
 #setting:hover{
   background: black;
 }
-* {
- 
-} 
+
 body {
     position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
     justify-content: center;

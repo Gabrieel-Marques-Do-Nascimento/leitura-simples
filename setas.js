@@ -55,10 +55,10 @@ function highlight_status()
       cont ++;
       recarregarPagina();
       
-const scrolltop = paragrafo.scrollTop;
-        pixels = linha + scrolltop;
-        console.log("pixels", pixels, "height", height);
-        scrollarParagrafo(pixels);
+// const scrolltop = paragrafo.scrollTop;
+//         pixels = linha + scrolltop;
+//         console.log("pixels", pixels, "height", height);
+//         scrollarParagrafo(pixels);
     }
   }
 }

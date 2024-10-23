@@ -56,7 +56,7 @@ body {
 }
 .highlight {
     position: absolute;
-    top: 15px; /* Altura inicial da linha */
+    top: 0%; /* Altura inicial da linha */
     left: 0;
     right: 0;
     height: 30px; /* Altura da linha */

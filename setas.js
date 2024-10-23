@@ -1,3 +1,6 @@
+setaps = document.getElementById("setas")
+setapb = document.getElementById("setab")
+
 // Criar o elemento de destaque
 const highlight = document.createElement("div");
 highlight.className = "highlight";
@@ -37,6 +40,7 @@ function highlight_status()
   if (marcador.value == 'mouse')
   {
     cont = 0
+    buttons.desabled = true;
      document.addEventListener("mousemove", function (event) {
     const y = event.clientY;
     alterarTop(y);
@@ -46,9 +50,15 @@ function highlight_status()
   }
   if (marcador.value == 'button') {
     console.log(marcador.value)
+    move_marcador();
     if (cont < 1){
-      cont ++
-      recarregarPagina()
+      cont ++;
+      recarregarPagina();
+      
+const scrolltop = paragrafo.scrollTop;
+        pixels = linha + scrolltop;
+        console.log("pixels", pixels, "height", height);
+        scrollarParagrafo(pixels);
     }
   }
 }

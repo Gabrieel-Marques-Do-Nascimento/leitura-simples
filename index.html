@@ -203,10 +203,10 @@
       // funcso que define se os bottons devem aparecer ou ficar escondido
       function buttonstatic(estado)
       {
-        for (let i = 0; i < buttons.length; i++)
+        buttons.forEach(button => 
         {
-          buttons[i].style.display = estado
-        }
+          button.style.display= estado
+        })
       }
       
       
@@ -260,9 +260,12 @@
 
       // Chama a função para carregar o texto ao abrir a página
       window.onload = loadText("savedText");
+      
+      
+      
     </script>
 
-    <script src="LocalStorage.js"></script>
+    
     <script src="confg.js"></script>
     <script src="setas.js"></script>
     <script src="scroll.js"></script>

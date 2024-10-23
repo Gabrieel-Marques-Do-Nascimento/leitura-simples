@@ -18,6 +18,7 @@ close.addEventListener("click", () => {
   texto.style.fontSize = fonts + "px";
 
   highlight.style.height = lineHeight + "px";
+  recarregarPagina()
 
 
 /* 

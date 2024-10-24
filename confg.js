@@ -3,12 +3,17 @@ let setings = document.getElementById("setings");
 let texto = document.getElementById("paragraph");
 let setingbtn = document.getElementById("setting");
 let close = document.getElementById("close");
+
+let marcador = document.getElementById("marcador");
 var paragrafo_style = window.getComputedStyle(texto);
+let font_size = document.getElementById("font-size");
+let background_type = document.getElementById("background-type");
 
 // Obtenha o estilo computado do elemento
 var estilo = window.getComputedStyle(texto);
 // Pegue o valor do line-height
 var lineHeight = estilo.lineHeight;
+
 console.log('linha',lineHeight)
 
 close.addEventListener("click", () => {
@@ -78,10 +83,7 @@ setingbtn.addEventListener("click", () => {
 // ----------------------------------
 // comfiguracoes gerais do Site
 
-let marcador = document.getElementById("marcador");
 
-let font_size = document.getElementById("font-size");
-let background_type = document.getElementById("background-type");
 
 function activatedate() {
   let data = loadText("comfger");
@@ -115,7 +117,12 @@ function loadText(name) {
 console.log(loadText("comfger"));
 
 window.onload = function () {
+  loadText("savedText");
   activatedate();
   highlight_status();
-  
+  let line = true;
+
+  // Pegue o valor do line-height
+  var linha = line ? Number(estilo.lineHeight.replace('px','')) : - Number(paragrafo_style.lineHeight.replace('px',''));
+  console.log('linha',linha)
 };

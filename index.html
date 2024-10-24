@@ -44,59 +44,23 @@
         </svg>
       </button>
 
-
       <div id="conteiner">
         <label for="marcador">Choose an input device:</label>
         <select id="marcador" name="marcador">
-            <option value="button">Button</option>
-            <option value="mouse">Mouse</option>
+          <option value="button">Button</option>
+          <option value="mouse">Mouse</option>
         </select>
-        
+
         <label for="font-size">font-size:</label>
-        <input type="number"  name="font-size" id="font-size">
-        
+        <input type="number" name="font-size" id="font-size" />
+
         <label for="day">white:</label>
-        <input type="checkbox" value="black" id="background-type">
-      </div>  
+        <input type="checkbox" value="black" id="background-type" />
+      </div>
     </div>
 
     <style>
-      /* versão moal */
-      #setings {
-        display: none;
-        z-index: 1;
-        position: fixed;
-
-        left: 10%;
-        align-items: start;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.819);
-        width: 80%;
-        height: 80%;
-        padding: 10px;
-      }
-
-      #setings h1 {
-        background-color: black;
-        color: white;
-        width: 100%;
-        text-align: center;
-        margin: auto;
-
-      }
-      #setings #close {
-        position: relative;
-        background: none;
-        left: 90%;
-        top: -7%;
-      }
-      #setings #conteiner {
-        display: flex;
-        flex-direction: column;
-      }
-      #setings #conteiner input,#setings #conteiner select {
-        width: 60px;
-      }
+ 
     </style>
 
     <button class="arrogante" id="reset" lang="pt-BR">reset</button>
@@ -168,106 +132,13 @@
 
     <p id="paragraph">hello world</p>
 
-    <script>
-
-
-
-      const input = document.getElementById("ler");
-      const startBTN = document.getElementById("start");
-      const resetBTN = document.getElementById("reset");
-      const paragrafo = document.getElementById("paragraph");
-      const page = document.getElementById("page");
-
-      const scrollspeed = 1;
-      const width = window.innerWidth; // largura da janela
-      const height = window.innerHeight; // altura da janela
-
-      function scrollarParagrafo(pixels) {
-        paragrafo.scrollTo({
-          top: pixels - 55,
-          behavior: "smooth",
-        });
-      }
-
-      function style_sec(rstdis, pdis, stdis, inpdis, texto) {
-        resetBTN.style.display = rstdis;
-        paragrafo.style.display = pdis; // Faz o parágrafo aparecer
-        startBTN.style.display = stdis;
-        input.style.display = inpdis;
-        paragrafo.innerHTML = texto;
-      }
-
-
-     
-      let buttons = document.querySelectorAll(".scrollbt");
-      // funcso que define se os bottons devem aparecer ou ficar escondido
-      function buttonstatic(estado)
-      {
-        buttons.forEach(button => 
-        {
-          button.style.display= estado
-        })
-      }
-      
-      
-      input.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-          // Aqui você pode colocar a ação que deseja realizar ao pressionar Enter
-          saveText(input.value,"savedText");
-          buttonstatic("block")
-          style_sec("block", "block", "none", "none", input.value);
-        }
-      });
-
-      startBTN.addEventListener("click", () => {
-        saveText(input.value,"savedText");
-        style_sec("block", "block", "none", "none", input.value);
-        buttonstatic("block")
-
-      });
-      resetBTN.addEventListener("click", () => {
-        buttonstatic("none")
-        style_sec("none", "none", "block", "block", "");
-      
-      });
-      let pixels = 0;
-
-      page.addEventListener("click", () => {
-        const scrolltop = paragrafo.scrollTop;
-        pixels = height + scrolltop;
-        console.log("pixels", pixels, "height", height);
-        scrollarParagrafo(pixels);
-      });
-
-
-
-      function saveText(data, name) {
-        // Pega o texto da área de texto
-        const text = data;
-        // Salva no LocalStorage
-        localStorage.setItem(name, text);
-      }
-
-      function loadText(name) {
-        // Carrega o texto salvo do LocalStorage, se existir
-        const savedText = localStorage.getItem(name);
-        if (savedText) {
-          style_sec("block", "block", "none", "none", savedText);
-          input.value = savedText;
-          return savedText
-        }
-      }
-
-      // Chama a função para carregar o texto ao abrir a página
-      window.onload = loadText("savedText");
-      
-      
-      
+    <script src="script.js">
     </script>
 
-    
     <script src="confg.js"></script>
+    <!--
     <script src="setas.js"></script>
     <script src="scroll.js"></script>
+    -->
   </body>
 </html>

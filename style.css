@@ -54,7 +54,7 @@ body {
 }
 .highlight {
     position: absolute;
-    top: 0%; /* Altura inicial da linha */
+    top: 15px; /* Altura inicial da linha */
     left: 0;
     right: 0;
     height: 30px; /* Altura da linha */
@@ -63,6 +63,7 @@ body {
     transition: top 0.2s ease;
     width: 52%;
     margin: 0 auto;
+    /* transition: all 0.9s ease;  Transição suave de 0.5 segundos */
 }
 
 
@@ -165,6 +166,43 @@ body {
 #paragraph{
     scrollbar-width: none; /* Esconde a barra de rolagem */
 }
+/*      menu de configurações*/
+     /* versão moal */
+     #setings {
+        display: none;
+        z-index: 1;
+        position: fixed;
+
+        left: 10%;
+        align-items: start;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.819);
+        width: 80%;
+        height: 80%;
+        padding: 10px;
+      }
+
+      #setings h1 {
+        background-color: black;
+        color: white;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+      }
+      #setings #close {
+        position: relative;
+        background: none;
+        left: 90%;
+        top: -7%;
+      }
+      #setings #conteiner {
+        display: flex;
+        flex-direction: column;
+      }
+      #setings #conteiner input,
+      #setings #conteiner select {
+        width: 60px;
+      }
 
 @media (max-width: 768px) {
     body {

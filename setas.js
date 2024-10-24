@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 setaps = document.getElementById("setas")
 setapb = document.getElementById("setab")
 
@@ -62,3 +63,5 @@ function highlight_status()
     }
   }
 }
+=======
+>>>>>>> beta

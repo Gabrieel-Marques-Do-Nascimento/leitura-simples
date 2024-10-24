@@ -1,9 +1,12 @@
-setaps = document.getElementById("setas")
-setapb = document.getElementById("setab")
+let setaps = document.getElementById("setas");
+let setapb = document.getElementById("setab");
+
 
 // Criar o elemento de destaque
 const highlight = document.createElement("div");
 highlight.className = "highlight";
+const height_estilo = window.getComputedStyle(highlight)
+paragrafo.appendChild(highlight);
 
 // Função para alterar o valor de 'top'
 function alterarTop(novoTop) {
@@ -15,50 +18,64 @@ function alterarTop(novoTop) {
 //     alterarTop(100); // Novo valor para 'top'
 // }, 2000); // Atraso de 2 segundos
 
-
- 
 // highlight.style.width = 52 + '%';
 // highlight.style.margin = 'auto'
 // Adicionar ao corpo
-document.body.appendChild(highlight);
 
-// let sima = document.getElementById('setas');
-// let baixo = document.getElementById('setab');
+
+
 function recarregarPagina() {
   location.reload();
 }
 
-function move_marcador()
-{
-  
+function scrollarline(pixel) {
+  highlight.scrollTo({
+    top: pixel ,
+    behavior: "smooth",
+  });
 }
 
-let cont = 1
-function highlight_status()
-{
+function move_marcador(line) {
 
-  if (marcador.value == 'mouse')
-  {
-    cont = 0
-    buttons.desabled = true;
-     document.addEventListener("mousemove", function (event) {
-    const y = event.clientY;
-    alterarTop(y);
-  });
+  var estilo = window.getComputedStyle(texto);
+  // Pegue o valor do line-height
+  var linha = line
+    ? Number(estilo.lineHeight.replace("px", ""))
+    : -Number(estilo.lineHeight.replace("px", ""));
+  highlight.style.top =( Number(height_estilo.top.replace('px', '')) + linha) + 'px';
+  console.log("limha", linha);
 
-    console.log(marcador.value)
+ 
+}
+
+let cont = 1;
+function highlight_status() {
+  if (marcador.value == "mouse") {
+    cont = 0;
+    setapb.disabled = true;
+    document.addEventListener("mousemove", function (event) {
+      const y = event.clientY;
+      alterarTop(y);
+    });
+
+    console.log(marcador.value);
   }
-  if (marcador.value == 'button') {
-    console.log(marcador.value)
-    move_marcador();
-    if (cont < 1){
-      cont ++;
+  if (marcador.value == "button") {
+    console.log(marcador.value);
+    if (cont < 1) {
+      cont++;
       recarregarPagina();
-      
-const scrolltop = paragrafo.scrollTop;
-        pixels = linha + scrolltop;
-        console.log("pixels", pixels, "height", height);
-        scrollarParagrafo(pixels);
     }
   }
 }
+
+
+setapb.addEventListener('click', () => {
+  console.log('seta para baixo')
+  move_marcador(true)
+})
+
+setaps.addEventListener('click', () => {
+  console.log('seta para baixo')
+  move_marcador(false)
+})

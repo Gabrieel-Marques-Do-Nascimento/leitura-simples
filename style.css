@@ -2,6 +2,7 @@
 
 #paragraph {
     width: 50%;
+    
     margin: 10px auto;
     line-height: 1.5em;
  
@@ -206,7 +207,7 @@ body {
 
 @media (max-width: 768px) {
     body {
-        padding: 10px;
+        padding: 0px;
     }
 
     header {
@@ -263,11 +264,12 @@ body {
         left: 60%;
       }
     #paragraph {
-      max-height: calc(95vh - 40px);
+      max-height: calc(88vh - 40px);
       z-index: 2;
         width: 95%; /* O parágrafo se ajusta à largura da tela */
      /*   font-size: 14px;  Fonte um pouco menor para celular */
   /* Reduz a altura para celulares */
+  
     }
     .highlight{
       z-index: -1;

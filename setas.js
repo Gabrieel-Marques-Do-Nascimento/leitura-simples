@@ -16,7 +16,7 @@ function alterarTop(novoTop) {
   if (novoTop < highlight_top) {
     novoTop = highlight_top;
   }
-  if (novoTop > styleheight) {
+  if (novoTop > styleheight - 25) {
     novoTop = styleheight
   }
   //console.log(novoTop)

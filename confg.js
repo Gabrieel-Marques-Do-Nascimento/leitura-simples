@@ -3,7 +3,7 @@ let setings = document.getElementById("setings");
 let texto = document.getElementById("paragraph");
 let setingbtn = document.getElementById("setting");
 let close = document.getElementById("close");
-
+var paragrafo_style = window.getComputedStyle(texto);
 
 // Obtenha o estilo computado do elemento
 var estilo = window.getComputedStyle(texto);

@@ -94,8 +94,10 @@ page.addEventListener("click", () => {
   heightp = Number(paragrafo_style.height.replace('px', ''))
   pixels = heightp + scrolltop;
   console.log("pixels", pixels, "height", heightp);
-  setTimeout(function () {
   scrollarParagrafo(pixels);
+  page.disabled = true
+  setTimeout(function () {
+   page.disabled = false
   }, 1000);
   
   let teste = highlight_top_erd;

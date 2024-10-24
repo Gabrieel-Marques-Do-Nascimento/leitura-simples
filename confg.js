@@ -4,7 +4,7 @@ let texto = document.getElementById("paragraph");
 let setingbtn = document.getElementById("setting");
 let close = document.getElementById("close");
 let marcador = document.getElementById("marcador");
-
+var paragrafo_style = window.getComputedStyle(texto);
 let font_size = document.getElementById("font-size");
 let background_type = document.getElementById("background-type");
 // Obtenha o estilo computado do elemento
@@ -113,11 +113,12 @@ function loadText(name) {
 console.log(loadText("comfger"));
 
 window.onload = function () {
+  loadText("savedText");
   activatedate();
   highlight_status();
   let line = true;
-  var estilo = window.getComputedStyle(texto);
+
   // Pegue o valor do line-height
-  var linha = line ? Number(estilo.lineHeight.replace('px','')) : - Number(estilo.lineHeight.replace('px',''));
+  var linha = line ? Number(estilo.lineHeight.replace('px','')) : - Number(paragrafo_style.lineHeight.replace('px',''));
   console.log('linha',linha)
 };

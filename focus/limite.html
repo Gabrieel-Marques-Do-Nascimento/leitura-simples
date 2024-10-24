@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restrict Element within Parent</title>
+    <style>
+        #parent {
+            width: 400px;
+            height: 400px;
+            background-color: lightblue;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #child {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            position: absolute;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+
+    <script>
+        const child = document.getElementById('child');
+        const parent = document.getElementById('parent');
+
+        let isDragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        child.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.offsetX;
+            offsetY = e.offsetY;
+            child.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                // Calcular novas coordenadas do filho
+                let newX = e.clientX - parent.offsetLeft - offsetX;
+                let newY = e.clientY - parent.offsetTop - offsetY;
+
+                // Restringir o filho dentro dos limites do pai
+                const maxX = parent.clientWidth - child.clientWidth;
+                const maxY = parent.clientHeight - child.clientHeight;
+
+                if (newX < 0) newX = 0;
+                if (newY < 0) newY = 0;
+                if (newX > maxX) newX = maxX;
+                if (newY > maxY) newY = maxY;
+
+                child.style.left = `${newX}px`;
+                child.style.top = `${newY}px`;
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            child.style.cursor = 'grab';
+        });
+    </script>
+</body>
+</html>

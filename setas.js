@@ -1,15 +1,25 @@
 let setaps = document.getElementById("setas");
 let setapb = document.getElementById("setab");
 
-
 // Criar o elemento de destaque
 const highlight = document.createElement("div");
 highlight.className = "highlight";
-const height_estilo = window.getComputedStyle(highlight)
+const height_estilo = window.getComputedStyle(highlight);
+const highlight_estilo = window.getComputedStyle(highlight);
 paragrafo.appendChild(highlight);
 
 // Função para alterar o valor de 'top'
+let highlight_top = Number(highlight_estilo.top.replace("px", ""));
 function alterarTop(novoTop) {
+  let styleheight = Number(paragrafo_style.height.replace("px", ""));
+  console.log(novoTop, styleheight)
+  if (novoTop < highlight_top) {
+    novoTop = highlight_top;
+  }
+  if (novoTop > styleheight) {
+    novoTop = styleheight
+  }
+  //console.log(novoTop)
   highlight.style.top = novoTop + "px";
 }
 
@@ -22,30 +32,25 @@ function alterarTop(novoTop) {
 // highlight.style.margin = 'auto'
 // Adicionar ao corpo
 
-
-
 function recarregarPagina() {
   location.reload();
 }
 
 function scrollarline(pixel) {
   highlight.scrollTo({
-    top: pixel ,
+    top: pixel,
     behavior: "smooth",
   });
 }
 
 function move_marcador(line) {
-
-  var estilo = window.getComputedStyle(texto);
   // Pegue o valor do line-height
   var linha = line
-    ? Number(estilo.lineHeight.replace("px", ""))
-    : -Number(estilo.lineHeight.replace("px", ""));
-  highlight.style.top =( Number(height_estilo.top.replace('px', '')) + linha) + 'px';
-  console.log("limha", linha);
+    ? Number(paragrafo_style.lineHeight.replace("px", ""))
+    : -Number(paragrafo_style.lineHeight.replace("px", ""));
 
- 
+  alterarTop(Number(height_estilo.top.replace("px", "")) + linha);
+  //console.log("limha", linha);
 }
 
 let cont = 1;
@@ -69,13 +74,12 @@ function highlight_status() {
   }
 }
 
+setapb.addEventListener("click", () => {
+  console.log("seta para baixo");
+  move_marcador(true);
+});
 
-setapb.addEventListener('click', () => {
-  console.log('seta para baixo')
-  move_marcador(true)
-})
-
-setaps.addEventListener('click', () => {
-  console.log('seta para baixo')
-  move_marcador(false)
-})
+setaps.addEventListener("click", () => {
+  console.log("seta para baixo");
+  move_marcador(false);
+});

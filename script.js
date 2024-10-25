@@ -197,13 +197,13 @@ function highlight_status() {
 setapb.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(true)
-  scrollNumberline(true);
+  scrollNumberline(true,true,paragrafo, data["font-size"]);
 });
 
 setaps.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(false);
-  scrollNumberline(false);
+  scrollNumberline(true,false,paragrafo, data["font-size"])
 });
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -281,4 +281,13 @@ var linha = type
 
 alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha);
 teste.style.transition = "top 0.1s ease";}
+}
+
+function play(){
+  // a funcao pular uma linha
+  // ate chegar no finall
+  // if (
+//antes_scll_hght == dpois_scll_hght
+// )
+// { pular a pagina}
 }

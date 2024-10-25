@@ -90,21 +90,25 @@ let pixels = 0;
 page.addEventListener("click", () => {
   // posicao em pixels do scroll
   const scrolltop = paragrafo.scrollTop;
-  // pega a posicao de pixels do scroll mais a altura da janela
+  // pega a posição de pixels do scroll mais a altura da janela
   heightp = Number(paragrafo_style.height.replace('px', ''))
   pixels = heightp + scrolltop;
   console.log("pixels", pixels, "height", heightp);
+  // chama a funcao que altera a posição
   scrollarParagrafo(pixels);
+// desabilita o botão page por 1,5 segundos
   page.disabled = true
   setTimeout(function () {
    page.disabled = false
-  }, 1000);
+  }, 1500);
   
   let teste = highlight_top_erd;
   console.log("paragrafo_style", teste);
+  // se o marcador usado for pelos botoes seta
   if (marcador.value == "button") {
-
+    // retorna o marcador para a posição inicial
     highlight.style.top = highlight_top_erd;
+// com uma animação de 2 segundos
     highlight.style.transition = 'top 2s ease'; 
 
   }
@@ -253,3 +257,41 @@ paragrafo.addEventListener("scroll", () => {
 console.log("Largura da janela: " + larguraJanela + "px");
 console.log("Altura da janela: " + alturaJanela + "px");
 
+//----------------------------------------------------------------------------------------------------------------------
+// funcao para substituir a função de saltar pagina
+
+function scrollNumberline(element, fontsize)
+{
+  // height,lineheight     
+
+            //retorna autura largura posicoes etc          
+            const tamanho = element.getBoundingClientRect();
+            console.log('tamanho', tamanho)
+            // Calcule a altura da linha do CSS (assumindo que a altura da linha esteja em pixels)
+
+          
+            const lineHeight = parseFloat(getComputedStyle(element).lineHeight);
+            console.log('lineHeight',lineHeight)
+
+
+            // Calcule o número da linha com base na posição Y e na altura da linha
+            // equação
+// 458.5799865722656 /( 27 + 35) = 458.5799865722656 / 62 = 7.39645139632686
+//          (7.39645139632686 - 7) + 7.39645139632686 = 
+//          0.39645139632686 + 7.39645139632686 = 7.79290279265372            
+const lineNumber = Math.floor(tamanho.height / lineHeight  + Number(fontsize)) + 1;
+   console.log('linhas', lineNumber)
+
+         //   const lineNumber = Math.floor(tamanho.height / lineHeight) + 1;
+            // console.log('linhas', lineNumber)
+
+
+            // console.log('Largura:', tamanho.width);
+            console.log('font:',fontsize);
+          
+
+
+
+
+
+}

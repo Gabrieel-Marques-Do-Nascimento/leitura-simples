@@ -117,9 +117,14 @@ function loadText(name) {
 console.log(loadText("comfger"));
 
 window.onload = function () {
-  loadText("savedText");
+
+
+  loadText("savedText");  
+  data = loadText("comfger");  
+  scrollNumberline(paragrafo, data["font-size"])
   activatedate();
   highlight_status();
+ 
   let line = true;
 
   // Pegue o valor do line-height

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .texto {
+        font-size: 16px; /* Tamanho de fonte inicial */
+        width: max-content; /* Garante que o comprimento seja do tamanho do texto */
+    }
+</style>
+</head>
+<body>
+
+<p class="texto" id="texto">Este é um exemplo de texto cuja largura da linha será calculada.</p>
+
+<label for="fontSize">Tamanho da fonte (px):</label>
+<input type="number" id="fontSize" value="16">
+
+<button onclick="calcularLargura()">Calcular Largura da Linha</button>
+
+<p id="resultado"></p>
+    <script>
+        // Seleciona o elemento cujo line-height queremos calcular
+const element = document.getElementById('texto');
+
+// Obtém o estilo computado do elemento
+const computedStyle = window.getComputedStyle(element);
+
+// Obtém o font-size e o line-height
+const fontSize = parseFloat(computedStyle.fontSize); // em pixels
+const lineHeight = computedStyle.lineHeight === 'normal' ? 1.2 : parseFloat(computedStyle.lineHeight);
+
+// Calcula a altura da linha
+const lineHeightInPixels = fontSize * lineHeight;
+
+console.log(`Altura da linha: ${lineHeightInPixels}px`);
+
+    </script>
+</body>
+</html>

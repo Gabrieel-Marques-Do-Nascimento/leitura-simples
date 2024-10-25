@@ -4,7 +4,7 @@
     width: 50%;
     
     margin: 10px auto;
-    line-height: 1.5em;
+    line-height: 150%;
  
     border: 1px solid black;
     font-size: 18px;
@@ -55,7 +55,7 @@ body {
 }
 .highlight {
     position: absolute;
-    top: 15px; /* Altura inicial da linha */
+    top: 10px; /* Altura inicial da linha */
     left: 0;
     right: 0;
     height: 30px; /* Altura da linha */

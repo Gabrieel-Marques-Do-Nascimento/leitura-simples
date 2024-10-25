@@ -121,7 +121,7 @@ window.onload = function () {
 
   loadText("savedText");  
   data = loadText("comfger");  
-  scrollNumberline(paragrafo, data["font-size"])
+  scrollNumberline(false,true,paragrafo, data["font-size"])
   activatedate();
   highlight_status();
  

@@ -35,3 +35,20 @@ add imagem de exemplos nos items de comfiguracoes
 -----------------------------------------------------
 
 posibilidade de alterar o idioma da pagina caso o texto seja em um idioma wue o user nao saiba ler
+
+------------------------------------
+Aqui está um texto pronto para copiar:
+O tamanho de tela de PC mais comum atualmente varia entre 21 a 27 polegadas. As resoluções mais populares incluem:
+
+1. 1920x1080 pixels (Full HD) - Muito comum, especialmente em monitores de 21 a 24 polegadas.
+
+
+2. 2560x1440 pixels (Quad HD ou 2K) - Popular em monitores de 24 a 27 polegadas.
+
+
+3. 3840x2160 pixels (4K) - Presente em monitores maiores, geralmente a partir de 27 polegadas, para quem busca alta qualidade de imagem.
+
+--------------------------------------------------------
+mudar a abordagem do height do paragrath:
+calcular o tamanho com base na font-size e o tamanho da tela do nsvegador para determinar o tamanho do paragrath
+

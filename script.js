@@ -1,3 +1,5 @@
+
+
 const fileConteiner = document.getElementById("fileConteiner");
 
 // barra que recebe o texto que o usuario quer ler
@@ -7,6 +9,9 @@ const startBTN = document.getElementById("start");
 const resetBTN = document.getElementById("reset");
 // elemento que mostra o texto
 const paragrafo = document.getElementById("paragraph");
+var pai_styleTo = window.getComputedStyle(
+  document.getElementById("pai")
+  );
 // botao responcavel por scroll's o equivalente a uma pagina
 const page = document.getElementById("page");
 // velocidade de scroll
@@ -24,6 +29,10 @@ const highlight = document.createElement("div");
 // add uma classe com os estilos para o marcador
 highlight.className = "highlight";
 // mostra os estilos utilizados no marcador
+highlight.style.width = pai_styleTo.width;
+highlight.style.width = pai_styleTo.width;
+console.log("psi",pai_styleTo.width)
+
 const highlight_estilo = window.getComputedStyle(highlight);
 // add o marcador ao elemento pai body
 document.body.appendChild(highlight);
@@ -295,3 +304,7 @@ function play() {
   // )
   // { pular a pagina}
 }
+
+import paragraph_height from "/module.js"
+
+paragraph_height(18,700,3,6)

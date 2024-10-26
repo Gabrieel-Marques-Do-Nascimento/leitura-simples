@@ -32,7 +32,7 @@ body {
 
 
 #pai {
-  width: 50%;
+  width: 60%;
 
   margin: 10px auto;
 }
@@ -302,8 +302,13 @@ body {
         width: 40px;
         left: 60%;
       }
+      #pai {
+  width: 90%;
+
+  
+}
     #paragraph {
-      max-height: calc(88vh - 40px);
+      /*max-height: calc(88vh - 40px);*/
       z-index: 2;
         width: 95%; /* O parágrafo se ajusta à largura da tela */
      /*   font-size: 14px;  Fonte um pouco menor para celular */

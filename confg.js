@@ -119,7 +119,7 @@ console.log(loadText("comfger"));
 window.onload = function () {
 
 
-  loadText("savedText");  
+  
   data = loadText("comfger");  
   scrollNumberline(false,true, data["font-size"])
   activatedate();

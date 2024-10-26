@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Todas as Tags HTML</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos básicos para visualização */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        section {
+            margin: 10px 0;
+        }
+        hr {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrutura Básica -->
+    <header>
+        <h1>Exemplo de Todas as Tags HTML5</h1>
+        <nav>
+            <a href="#section1">Section 1</a> | 
+            <a href="#section2">Section 2</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seções e Conteúdo -->
+        <section id="section1">
+            <h2>Tags de Conteúdo</h2>
+            <article>
+                <h3>Artigo com Tags de Texto</h3>
+                <p>Parágrafo simples. Podemos usar <b>negrito</b>, <i>itálico</i>, <u>sublinhado</u>, <mark>destacado</mark>, <small>pequeno</small> e <del>riscado</del>.</p>
+                <p>Tags de lista não ordenada:</p>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                </ul>
+                <p>Tags de lista ordenada:</p>
+                <ol>
+                    <li>Primeiro</li>
+                    <li>Segundo</li>
+                </ol>
+                <blockquote>Citação em bloco</blockquote>
+                <pre>
+Código pré-formatado
+</pre>
+                <code>code inline</code>
+                <abbr title="Exemplo de Abreviação">Abbr</abbr>
+                <cite>Citação</cite>
+                <q>Texto citado</q>
+                <time datetime="2023-10-25">Data: 25 de outubro de 2023</time>
+            </article>
+
+            <aside>
+                <p>Conteúdo lateral</p>
+            </aside>
+
+            <address>Endereço: Rua Exemplo, 123</address>
+            <hr>
+
+            <figure>
+                <img src="https://via.placeholder.com/150" alt="Imagem de exemplo">
+                <figcaption>Legenda da Imagem</figcaption>
+            </figure>
+
+            <details>
+                <summary>Mais detalhes</summary>
+                <p>Conteúdo adicional ao expandir</p>
+            </details>
+
+            <dialog open>Diálogo de exemplo</dialog>
+
+            <footer>
+                <p>Rodapé do artigo</p>
+            </footer>
+        </section>
+
+        <section id="section2">
+            <h2>Formulários e Interatividade</h2>
+            <form action="#" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade">
+
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data">
+                
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Inscrever-se na newsletter</label>
+                
+                <fieldset>
+                    <legend>Gênero</legend>
+                    <input type="radio" id="masculino" name="genero" value="masculino">
+                    <label for="masculino">Masculino</label>
+                    
+                    <input type="radio" id="feminino" name="genero" value="feminino">
+                    <label for="feminino">Feminino</label>
+                </fieldset>
+
+                <select name="pais">
+                    <option value="brasil">Brasil</option>
+                    <option value="argentina">Argentina</option>
+                </select>
+
+                <button type="submit">Enviar</button>
+                <input type="reset" value="Resetar">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 - Exemplo de Todas as Tags HTML5</p>
+    </footer>
+
+    <!-- Tags de Script -->
+    <script>
+        console.log("Script de exemplo executado.");
+    </script>
+</body>
+</html>

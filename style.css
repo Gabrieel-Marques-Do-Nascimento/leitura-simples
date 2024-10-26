@@ -1,8 +1,14 @@
-
-
+/* 
+version black color
+#pai {
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.71);
+  margin: 10px auto;
+  z-index: 3;
+}
 #paragraph {
-    width: 50%;
-    
+     width: 50%; 
+    background-color: rgba(255, 255, 255, 0.149);
     margin: 10px auto;
     line-height: 150%;
  
@@ -10,8 +16,38 @@
     font-size: 18px;
     word-break: break-word;
 
+    height: 543px;
+    max-height: calc(100vh - 22px); /* Limita a altura considerando a margem 
+    overflow-y: scroll;  Adiciona uma barra de rolagem vertical 
+    border: 1px solid #ccc;  Adiciona uma borda para visualizar o elemento 
+    padding: 0px 10px 0 10px;  Adiciona espaço interno 
+    display: none;  Inicialmente escondido 
+    z-index:  5;
+}
+body {
+    position: relative;  Para que o pseudo-elemento posicione-se corretamente 
+    justify-content: center;
+    overflow: hidden;
+    background-color: black; */
 
-    max-height: calc(100vh - 22px); /* Limita a altura considerando a margem */
+
+#pai {
+  width: 50%;
+
+  margin: 10px auto;
+}
+#paragraph {
+  
+
+    margin: 10px auto;
+    line-height: 150%;
+ 
+    border: 1px solid black;
+    font-size: 18px;
+    word-break: break-word;
+
+    height: 543px;
+    /*max-height: calc(100vh - 22px); /* Limita a altura considerando a margem */
     overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
     border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
     padding: 0px 10px 0 10px; /* Adiciona espaço interno */
@@ -41,6 +77,7 @@ margin-top: 2px;
   position: fixed;
   left: 90.3%;
   top: 52%;
+  
 }
 #setting:hover{
   background: black;
@@ -50,6 +87,7 @@ body {
     position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
     justify-content: center;
     overflow: hidden;
+  
 
 
 }
@@ -281,5 +319,6 @@ body {
   left: 90%;
   top: 0;
   border-radius: 50%;
+  
 }
 }

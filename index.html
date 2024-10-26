@@ -43,25 +43,127 @@
           />
         </svg>
       </button>
+      <style>
+        .exemple {
+          
+          position: relative;
+          left: 20%;
+          top: 15px;
+          
+        }
 
+        .exemple div {
+          display: none;
+        }
+        .exemple div img{
+          position: fixed;
+          top: 0;
+          left: 30%;
+          height: 300px;
+        }
+        .exemple .lamp {
+          
+          position: absolute;
+          
+        }
+        .exemple:hover div {
+          position: absolute;
+          display: block;
+        }
+        .exemple:hover .lamp {
+          display: none;
+        }
+      </style>
       <div id="conteiner">
+        <div class="exemple">
+          <img
+            src="img\00-47-21-570_512.webp"
+            alt="lamp"
+            class="lamp"
+            height="30px"
+          />
+          <div>
+            <img
+              src="img\book_page.png"
+              alt="detalis"
+              id="example_image"
+              
+            />
+          </div>
+        </div>
+
+        <label for="marcador">lang:</label>
+        <select id="lang" name="lang">
+          <option value="eng">eng</option>
+          <option value="pt">pt</option>
+        </select>
+
+        <div class="exemple">
+          <img
+            src="img\00-47-21-570_512.webp"
+            alt="lamp"
+            class="lamp"
+            height="30px"
+          />
+          <div>
+            <img
+              src="img\book_page.png"
+              alt="detalis"
+              id="example_image"
+              
+            />
+          </div>
+        </div>
+
         <label for="marcador">Choose an input device:</label>
         <select id="marcador" name="marcador">
           <option value="button">Button</option>
           <option value="mouse">Mouse</option>
         </select>
 
+        <div class="exemple">
+          <img
+            src="img\00-47-21-570_512.webp"
+            alt="lamp"
+            class="lamp"
+            height="30px"
+          />
+          <div>
+            <img
+              src="img\book_page.png"
+              alt="detalis"
+              id="example_image"
+              
+            />
+          </div>
+        </div>
+
         <label for="font-size">font-size:</label>
         <input type="number" name="font-size" id="font-size" />
 
-        <label for="day">white:</label>
+        <div class="exemple">
+          <img
+            src="img\00-47-21-570_512.webp"
+            alt="lamp"
+            class="lamp"
+            height="30px"
+          />
+          <div>
+            <img
+              src="img\book_page.png"
+              alt="detalis"
+              id="example_image"
+              
+            />
+          </div>
+        </div>
+
+        <label for="day">black:</label>
         <input type="checkbox" value="black" id="background-type" />
       </div>
     </div>
 
-    <style>
- 
-    </style>
+    <style></style>
 
     <button class="arrogante" id="reset" lang="pt-BR">reset</button>
 
@@ -130,10 +232,11 @@
     </button>
     <script></script>
 
-    <p id="paragraph">hello world</p>
+    <div id="pai">
+      <p id="paragraph">hello world</p>
+    </div>
 
-    <script src="script.js">
-    </script>
+    <script src="script.js"></script>
 
     <script src="confg.js"></script>
     <!--

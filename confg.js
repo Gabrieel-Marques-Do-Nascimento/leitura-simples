@@ -59,12 +59,12 @@ close.addEventListener("click", () => {
 
   // Pegando o estado do checkbox (se está marcado ou não)
   const backgroundType = document.getElementById("background-type").checked
-    ? "white"
-    : "black";
+    ? "black"
+    : "white";
   const confger = {
-    marcador: marcador.value,
+    'marcador': marcador.value,
     "font-size": Number(font_size.value) > 12 ? font_size.value : "12",
-    background_type: background_type.value,
+    'background_type': backgroundType,
   };
 
   saveText(confger, "comfger");
@@ -92,7 +92,7 @@ function activatedate() {
   if (data) {
     marcador.value = data["marcador"];
     font_size.value = data["font-size"];
-    background_type.value = data["background_type"];
+    background_type.checked = data["background_type"] == "black" ? true : false;
 
     let font = Number(font_size.value);
     texto.style.fontSize = font_size.value + "px";
@@ -121,7 +121,7 @@ window.onload = function () {
 
   loadText("savedText");  
   data = loadText("comfger");  
-  scrollNumberline(false,true,paragrafo, data["font-size"])
+  scrollNumberline(false,true, data["font-size"])
   activatedate();
   highlight_status();
  

@@ -110,6 +110,7 @@ page.addEventListener("click", () => {
     highlight.style.top = highlight_top_erd;
     // com uma animação de 2 segundos
     highlight.style.transition = "top 2s ease";
+    
   }
 });
 
@@ -146,7 +147,7 @@ function alterarTop(novoTop) {
     novoTop = highlight_top;
   }
   if (novoTop > styleheight - 25) {
-    novoTop = styleheight - 10;
+    novoTop = styleheight - 5;
   }
 
   highlight.style.top = novoTop + "px";
@@ -197,13 +198,13 @@ function highlight_status() {
 setapb.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(true)
-  scrollNumberline(true,true,paragrafo, data["font-size"]);
+  scrollNumberline(true,true, data["font-size"], setapb);
 });
 
 setaps.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(false);
-  scrollNumberline(true,false,paragrafo, data["font-size"])
+  scrollNumberline(true,false, data["font-size"], setaps)
 });
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -256,11 +257,10 @@ console.log("Altura da janela: " + alturaJanela + "px");
 //----------------------------------------------------------------------------------------------------------------------
 // funcao para substituir a função de saltar pagina
 
-function scrollNumberline(active=true,type=true, element, font_size) {
-  const teste = document.createElement("div");
-  teste.className = "highlight";
+function scrollNumberline(active=true,type=true, font_size,button=null) {
 
-  const computedStyle = window.getComputedStyle(element);
+
+  const computedStyle = window.getComputedStyle(paragrafo);
   line = Number(font_size) + (font_size /2)
   // Calcula a altura da linha
   const lineHeightInPixels =
@@ -271,16 +271,20 @@ function scrollNumberline(active=true,type=true, element, font_size) {
   console.log(`computedStyle.height: ${computedStyle.height}px`);
   console.log('line', line)
 
-  teste.style.height = line + "px";
-  document.body.appendChild(teste);
-
 if (active){
 var linha = type
 ? Number(line)
 : -Number(line);
 
 alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha);
-teste.style.transition = "top 0.1s ease";}
+highlight.style.transition =  "top 0.1s ease";
+button.disabled = true
+setTimeout(function () {
+  button.disabled = false;
+}, 500);
+
+}
+
 }
 
 function play(){

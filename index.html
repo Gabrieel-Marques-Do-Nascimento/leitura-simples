@@ -14,6 +14,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="files.css" />
   </head>
   <style></style>
   <body>
@@ -45,26 +46,22 @@
       </button>
       <style>
         .exemple {
-          
           position: relative;
           left: 20%;
           top: 15px;
-          
         }
 
         .exemple div {
           display: none;
         }
-        .exemple div img{
+        .exemple div img {
           position: fixed;
           top: 0;
           left: 30%;
           height: 300px;
         }
         .exemple .lamp {
-          
           position: absolute;
-          
         }
         .exemple:hover div {
           position: absolute;
@@ -83,12 +80,7 @@
             height="30px"
           />
           <div>
-            <img
-              src="img\book_page.png"
-              alt="detalis"
-              id="example_image"
-              
-            />
+            <img src="img\book_page.png" alt="detalis" id="example_image" />
           </div>
         </div>
 
@@ -106,12 +98,7 @@
             height="30px"
           />
           <div>
-            <img
-              src="img\book_page.png"
-              alt="detalis"
-              id="example_image"
-              
-            />
+            <img src="img\book_page.png" alt="detalis" id="example_image" />
           </div>
         </div>
 
@@ -129,12 +116,7 @@
             height="30px"
           />
           <div>
-            <img
-              src="img\book_page.png"
-              alt="detalis"
-              id="example_image"
-              
-            />
+            <img src="img\book_page.png" alt="detalis" id="example_image" />
           </div>
         </div>
 
@@ -149,12 +131,7 @@
             height="30px"
           />
           <div>
-            <img
-              src="img\book_page.png"
-              alt="detalis"
-              id="example_image"
-              
-            />
+            <img src="img\book_page.png" alt="detalis" id="example_image" />
           </div>
         </div>
 
@@ -230,10 +207,17 @@
       </svg>
       <!-- play and pase // vai ser um elemento estilizado em css com animation de girar quando ativo -->
     </button>
-    <script></script>
 
     <div id="pai">
       <p id="paragraph">hello world</p>
+    </div>
+
+    <div class="file_conteiner" id="fileConteiner">
+      <h1>arraste e Selecione o Arquivo de texto</h1>
+      <input type="file" name="fileInput" id="fileInput" accept=".txt" />
+      <div id="dropZone">
+        arraste e solte o arquivo aqui ou clique para abrir o explorador
+      </div>
     </div>
 
     <script src="script.js"></script>

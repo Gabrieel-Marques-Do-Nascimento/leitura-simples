@@ -1,3 +1,5 @@
+const fileConteiner = document.getElementById("fileConteiner");
+
 // barra que recebe o texto que o usuario quer ler
 const input = document.getElementById("ler");
 // botonhes para mostrar e esconder o texto
@@ -49,6 +51,7 @@ function style_sec(rstdis, pdis, stdis, inpdis, texto) {
   startBTN.style.display = stdis;
   input.style.display = inpdis;
   paragrafo.innerHTML = texto;
+  fileConteiner.style.display = inpdis;
 }
 
 // retorna uma lista de elementos
@@ -110,7 +113,6 @@ page.addEventListener("click", () => {
     highlight.style.top = highlight_top_erd;
     // com uma animação de 2 segundos
     highlight.style.transition = "top 2s ease";
-    
   }
 });
 
@@ -198,13 +200,13 @@ function highlight_status() {
 setapb.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(true)
-  scrollNumberline(true,true, data["font-size"], setapb);
+  scrollNumberline(true, true, data["font-size"], setapb);
 });
 
 setaps.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(false);
-  scrollNumberline(true,false, data["font-size"], setaps)
+  scrollNumberline(true, false, data["font-size"], setaps);
 });
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -257,41 +259,39 @@ console.log("Altura da janela: " + alturaJanela + "px");
 //----------------------------------------------------------------------------------------------------------------------
 // funcao para substituir a função de saltar pagina
 
-function scrollNumberline(active=true,type=true, font_size,button=null) {
-
-
+function scrollNumberline(
+  active = true,
+  type = true,
+  font_size,
+  button = null
+) {
   const computedStyle = window.getComputedStyle(paragrafo);
-  line = Number(font_size) + (font_size /2)
+  line = Number(font_size) + font_size / 2;
   // Calcula a altura da linha
-  const lineHeightInPixels =
-    parseFloat(computedStyle.height) /line;
+  const lineHeightInPixels = parseFloat(computedStyle.height) / line;
 
   console.log(`quantidade de linha: ${lineHeightInPixels}px`);
   console.log(`font_size: ${font_size}px`);
   console.log(`computedStyle.height: ${computedStyle.height}px`);
-  console.log('line', line)
+  console.log("line", line);
 
-if (active){
-var linha = type
-? Number(line)
-: -Number(line);
+  if (active) {
+    var linha = type ? Number(line) : -Number(line);
 
-alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha);
-highlight.style.transition =  "top 0.1s ease";
-button.disabled = true
-setTimeout(function () {
-  button.disabled = false;
-}, 500);
-
+    alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha);
+    highlight.style.transition = "top 0.1s ease";
+    button.disabled = true;
+    setTimeout(function () {
+      button.disabled = false;
+    }, 500);
+  }
 }
 
-}
-
-function play(){
+function play() {
   // a funcao pular uma linha
   // ate chegar no finall
   // if (
-//antes_scll_hght == dpois_scll_hght
-// )
-// { pular a pagina}
+  //antes_scll_hght == dpois_scll_hght
+  // )
+  // { pular a pagina}
 }

@@ -65,7 +65,8 @@ header {
     width: 80%;
 }
 #start{
-margin-top: 2px;
+  position: absolute;
+margin-top: 40%;
 }
 #reset {
     display: none;

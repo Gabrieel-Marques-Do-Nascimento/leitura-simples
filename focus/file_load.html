@@ -1,123 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leitor de Arquivos de Texto com Drag and Drop e Seleção</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leitor de Arquivos de Texto com Drag and Drop e Seleção</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
     * {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f0f0f0;
-}
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
 
-.file_conteiner {
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
+    .file_conteiner {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
 
-h1 {
-  color: #333;
-}
+    h1 {
+      color: #333;
+    }
 
-#fileInput {
-  display: none; /* Oculta o input de arquivo */
-}
+    #fileInput {
+      display: none; /* Oculta o input de arquivo */
+    }
 
-#dropZone {
-  margin-top: 15px;
-  padding: 30px;
-  border: 2px dashed #aaa;
-  border-radius: 5px;
-  color: #555;
-  background-color: #fafafa;
-  cursor: pointer;
-}
+    #dropZone {
+      margin-top: 15px;
+      padding: 30px;
+      border: 2px dashed #aaa;
+      border-radius: 5px;
+      color: #555;
+      background-color: #fafafa;
+      cursor: pointer;
+    }
 
-#dropZone.hover {
-  background-color: #e0e0e0;
-  border-color: #333;
-}
+    #dropZone.hover {
+      background-color: #e0e0e0;
+      border-color: #333;
+    }
 
-#fileContent {
-  margin-top: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  white-space: pre-wrap;
-  color: #555;
-}
+    #fileContent {
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      color: #555;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Arraste ou Selecione o Arquivo de Texto</h1>
+      <input type="file" id="fileInput" accept=".txt" />
+      <div id="dropZone">Arraste o arquivo aqui ou clique para selecionar</div>
+      <div id="fileContent"></div>
+    </div>
 
-</style>
-<body>
-  <div class="container">
-    <h1>Arraste ou Selecione o Arquivo de Texto</h1>
-    <input type="file" id="fileInput" accept=".txt">
-    <div id="dropZone">Arraste o arquivo aqui ou clique para selecionar</div>
-    <div id="fileContent"></div>
-  </div>
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const dropZone = document.getElementById("dropZone");
+      const fileContent = document.getElementById("fileContent");
 
-  <script >
-const fileInput = document.getElementById("fileInput");
-const dropZone = document.getElementById("dropZone");
-const fileContent = document.getElementById("fileContent");
+      // Função para ler o conteúdo do arquivo
+      function readFile(file) {
+        if (file && file.type === "text/plain") {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            fileContent.textContent = e.target.result;
+          };
+          reader.onerror = function () {
+            fileContent.textContent = "Erro ao ler o arquivo.";
+          };
+          reader.readAsText(file, "UTF-8");
+        } else {
+          fileContent.textContent =
+            "Por favor, escolha um arquivo de texto (.txt) válido.";
+        }
+      }
 
-// Função para ler o conteúdo do arquivo
-function readFile(file) {
-  if (file && file.type === "text/plain") {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      fileContent.textContent = e.target.result;
-    };
-    reader.onerror = function() {
-      fileContent.textContent = "Erro ao ler o arquivo.";
-    };
-    reader.readAsText(file, "UTF-8");
-  } else {
-    fileContent.textContent = "Por favor, escolha um arquivo de texto (.txt) válido.";
-  }
-}
+      // Eventos para clicar e selecionar o arquivo
+      dropZone.addEventListener("click", () => fileInput.click());
+      fileInput.addEventListener("change", (e) => readFile(e.target.files[0]));
 
-// Eventos para clicar e selecionar o arquivo
-dropZone.addEventListener("click", () => fileInput.click());
-fileInput.addEventListener("change", (e) => readFile(e.target.files[0]));
+      // Previne o comportamento padrão de arrastar e soltar
+      ["dragenter", "dragover", "dragleave", "drop"].forEach((eventType) => {
+        dropZone.addEventListener(eventType, (e) => e.preventDefault());
+      });
 
-// Previne o comportamento padrão de arrastar e soltar
-["dragenter", "dragover", "dragleave", "drop"].forEach(eventType => {
-  dropZone.addEventListener(eventType, (e) => e.preventDefault());
-});
+      // Adiciona/remova classe 'hover' ao arrastar o arquivo sobre a zona de soltar
+      ["dragenter", "dragover"].forEach((eventType) => {
+        dropZone.addEventListener(eventType, () =>
+          dropZone.classList.add("hover")
+        );
+      });
 
-// Adiciona/remova classe 'hover' ao arrastar o arquivo sobre a zona de soltar
-["dragenter", "dragover"].forEach(eventType => {
-  dropZone.addEventListener(eventType, () => dropZone.classList.add("hover"));
-});
+      ["dragleave", "drop"].forEach((eventType) => {
+        dropZone.addEventListener(eventType, () =>
+          dropZone.classList.remove("hover")
+        );
+      });
 
-["dragleave", "drop"].forEach(eventType => {
-  dropZone.addEventListener(eventType, () => dropZone.classList.remove("hover"));
-});
-
-// Evento para ler o arquivo ao soltar
-dropZone.addEventListener("drop", (e) => {
-  const file = e.dataTransfer.files[0];
-  readFile(file);
-});
-
-
-  </script>
-</body>
+      // Evento para ler o arquivo ao soltar
+      dropZone.addEventListener("drop", (e) => {
+        const file = e.dataTransfer.files[0];
+        readFile(file);
+      });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,36 @@
+.file_conteiner {
+    width: 100%;
+    margin: auto;
+    margin-top: 80px;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  #fileInput {
+    display: none; /* Oculta o input de arquivo */
+  }
+  
+  #dropZone {
+    margin-top: 15px;
+    padding: 30px;
+    border: 2px dashed #aaa;
+    border-radius: 5px;
+    color: #555;
+    background-color: #fafafa;
+    cursor: pointer;
+  }
+  
+  #dropZone.hover {
+    background-color: #e0e0e0;
+    border-color: #333;
+  }
+  
+  

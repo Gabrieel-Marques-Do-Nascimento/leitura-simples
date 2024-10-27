@@ -10,14 +10,19 @@ const resetBTN = document.getElementById("reset");
 const paragrafo = document.getElementById("paragraph");
 var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
 // botao responcavel por scroll's o equivalente a uma pagina
-const paiheight = pai_styleTo.height
+
+const height = window.innerHeight;
+const paiheight = Number(pai_styleTo.height.replace('px',''));
+console.log('pai height',paiheight, 'page height', height)
+
+
 const page = document.getElementById("page");
 // velocidade de scroll
 const scrollspeed = 1;
 // largura da janela
 const width = window.innerWidth;
 // altura da janela
-const height = window.innerHeight;
+
 // botonhes responcaveis por mover o marcador para cima ou para baixo
 let setaps = document.getElementById("setas");
 let playbt = document.getElementById("play");
@@ -365,7 +370,7 @@ let padding = Number(
 // função que determina o tamanho da tela com base nos parâmetros
 // parâmetros nomeados
 let tela = paragraph_height(
-  { log: true, font_Size: data["font-size"], height: height - 4 },
+  { log: true, font_Size: data["font-size"], height: paiheight - 4 },
   margin,
   border,
   padding,

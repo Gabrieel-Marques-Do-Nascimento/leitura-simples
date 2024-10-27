@@ -31,17 +31,17 @@ document.body.appendChild(style);
 
 
 scroll_top.classList.add("scroll_top");
-document.body.appendChild(scroll_top);
+
 
 paragrafo.addEventListener("scroll", () => {
   let vertical =
     (paragrafo.scrollTop / (paragrafo.scrollHeight - paragrafo.clientHeight)) *
     100;
   let horizontal = (vertical / 100) * window.innerWidth;
-  scroll_top.style.width = horizontal + 1 + "px";
+  scroll_top.style.width = horizontal + 2 + "px";
 });
 
-
+document.body.appendChild(scroll_top);
 
 // Comparar os tamanhos
 console.log("Largura da janela: " + larguraJanela + "px");

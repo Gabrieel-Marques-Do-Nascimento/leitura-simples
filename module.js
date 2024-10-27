@@ -1,13 +1,16 @@
 
 export function paragraph_height(
-  font_Size,
-  height,
+  {log=false,font_Size=null,
+  height=null},
   ...args)
 {
   let tot = 0
   for (let i = 0; i < args.length; i ++)
   {
-    //console.log(`argumento: ${i + 1}:`,args[i])
+    if (log){
+          console.log(`argumento: ${i + 1}:`,args[i])
+    }
+
     tot = tot + args[i];
     
   }
@@ -23,8 +26,39 @@ const lineHeight = fontSize + (fontSize / 2);
 // Calcula a altura aproximada do elemento "hello" em relação à altura da janela
  let tela = parseInt((tela_heith / lineHeight) ) * lineHeight;
 
-  console.log("tela disponivel:",tela)
-  return tela
+
+  if (log){
+      console.log("tela disponivel:",[tela, lineHeight])
+}
+  return [tela, lineHeight]
 }
 
-//paragraph_height(18,700,3,6,8,9)
+
+export function _lineheight_(font_size)
+{
+  return Number(font_size) + (Number(font_size) / 2);
+}
+
+
+
+
+
+
+export function play() {
+  // a funcao pular uma linha
+  // ate chegar no finall
+  // if (
+  //antes_scll_hght == dpois_scll_hght
+  // )
+  // { pular a pagina}
+  /* run {
+  calcula a quntidade de linhas
+  for item in linhas 
+      tame 2s {
+          top = top + line_heth
+      }
+  }
+
+  */
+}
+

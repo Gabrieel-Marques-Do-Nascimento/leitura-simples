@@ -33,20 +33,18 @@ body {
 
 #pai {
   width: 60%;
-
   margin: 10px auto;
+  max-height: 98vh;
 }
 #paragraph {
-  
+    position: relative;
 
-    margin: 10px auto;
+    margin: 0px auto;
     line-height: 150%;
  
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 18px;
     word-break: break-word;
-
-    height: 543px;
     /*max-height: calc(100vh - 22px); /* Limita a altura considerando a margem */
     overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
     border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
@@ -54,6 +52,7 @@ body {
     display: none; /* Inicialmente escondido */
     margin-top: 0;
     padding-top: 0;
+
 }
 header {
     display: flex;
@@ -182,16 +181,27 @@ body {
     top: 88%;
     left: 90%;
 }
+#setab:disabled {
+  background-color: #dc354676;
+}
 #setas {
     position: fixed;
     top: 70%;
     left: 90%;
 }
+#setas:disabled {
+  background-color: #dc354676;
+}
+
 #play {
     position: fixed;
     top: 78.5%;
     left: 89.8%;
 }
+#play:disabled {
+  background-color: #dc354676;
+}
+
 #page {
     /* substituto para a seta */
   position: fixed;

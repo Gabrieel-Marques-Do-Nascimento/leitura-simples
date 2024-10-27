@@ -51,9 +51,31 @@ O tamanho de tela de PC mais comum atualmente varia entre 21 a 27 polegadas. As 
 --------------------------------------------------------
 mudar a abordagem do height do paragrath:
 calcular o tamanho com base na font-size e o tamanho da tela do nsvegador para determinar o tamanho do paragrath
+
 Calculo:
-lineheight =   (
+
+Para calcular a altura total, seguimos a seguinte fórmula:
+
+Altura Total=height+padding-top+padding-bottom+border-top+border-bottom+margin-top+margin-bottom
+Substituindo os valores:
+height = 500px
+padding-top = 20px
+padding-bottom = 20px
+border-top = 2px
+border-bottom = 2px
+margin-top = 10px
+margin-bottom = 10px
+
+Somando os valores:
+Altura Total=500+20+20+2+2+10+10=564px
+Resultado
+A altura total ocupada pelo elemento será 564px.
+
+tela.height: 500px (height) + 20px (margem superior e inferior) + 2px (borda superior e inferior) = 522px.
+
+lineheight:   (
 font-size + (font-size / 2)
 approximate_height = inteiro(
 tela.height / lineheight) *lineheight
+)
 

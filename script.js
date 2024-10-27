@@ -19,6 +19,7 @@ const width = window.innerWidth;
 const height = window.innerHeight;
 // botonhes responcaveis por mover o marcador para cima ou para baixo
 let setaps = document.getElementById("setas");
+let playbt = document.getElementById("play");
 let setapb = document.getElementById("setab");
 
 // Criar o elemento de destaque o marcador de texto
@@ -168,14 +169,21 @@ window.onload = loadText("savedText");
 //                   marcador de texto
 // Função para alterar o valor de 'top'
 let highlight_top = Number(highlight_estilo.top.replace("px", ""));
-function alterarTop(novoTop) {
+let highlight_height = Number(highlight_estilo.height)
+function alterarTop(novoTop, error =0, line=0) {
+  
   let styleheight = Number(paragrafo_style.height.replace("px", ""));
-  console.log(novoTop, styleheight);
+  console.log('-------------------------------------------------')
+  console.log('alterarTop function: ',novoTop, styleheight);
+  console.log('erro:', error)
+  console.log('line:', line)
+  console.log('-------------------------------------------------')
+  let end_line = tela[1]
   if (novoTop < highlight_top) {
     novoTop = highlight_top;
   }
   if (novoTop > styleheight) {
-    novoTop = styleheight;
+    novoTop = styleheight - (line - error);
   }
 
   highlight.style.top = novoTop + "px";
@@ -198,18 +206,21 @@ function move_marcador(line) {
     ? Number(paragrafo_style.lineHeight.replace("px", ""))
     : -Number(paragrafo_style.lineHeight.replace("px", ""));
 
-  alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha);
+  alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha,8, linha);
   highlight.style.transition = "top 0.1s ease";
 }
 
 let cont = 1;
 function highlight_status() {
+  let line = _lineheight_(data["font-size"])
   if (marcador.value == "mouse") {
     cont = 0;
     setapb.disabled = true;
+    setaps.disabled = true;
+    playbt.disabled = true;
     document.addEventListener("mousemove", function (event) {
       const y = event.clientY;
-      alterarTop(y);
+      alterarTop(y,8,line);
     });
 
     console.log(marcador.value);
@@ -292,19 +303,21 @@ function scrollNumberline(
   button = null
 ) {
   const computedStyle = window.getComputedStyle(paragrafo);
-  let line = Number(font_size) + Number(font_size) / 2;
+  let line = Number(font_size) + (Number(font_size) / 2);
   // Calcula a altura da linha
   const lineHeightInPixels = parseFloat(computedStyle.height) / line;
 
-  console.log(`quantidade de linha: ${lineHeightInPixels}px`);
+  console.log('--------------------------------')
+  console.log(`quantidade de linha: ${lineHeightInPixels} lines`);
   console.log(`font_size: ${font_size}px`);
   console.log(`computedStyle.height: ${computedStyle.height}px`);
   console.log("line", line);
+  console.log('----------------------------------')
 
   if (active) {
     var linha = type ? Number(line) : -Number(line);
-
-    alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha);
+    // a margem de erro e 8 porque o elemento pai tem 10px de margen
+    alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha, 8,linha);
     highlight.style.transition = "top 0.1s ease";
     button.disabled = true;
     setTimeout(function () {
@@ -313,36 +326,13 @@ function scrollNumberline(
   }
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------
-
-function play() {
-  // a funcao pular uma linha
-  // ate chegar no finall
-  // if (
-  //antes_scll_hght == dpois_scll_hght
-  // )
-  // { pular a pagina}
-  /* run {
-  calcula a quntidade de linhas
-  for item in linhas 
-      tame 2s {
-          top = top + line_heth
-      }
-  }
-
-  */
-}
-
 // Obtém o caminho completo da URL atual
 const currentUrl = window.location.href;
 
 // Obtém apenas o diretório removendo o nome do arquivo (caso exista)
 const directoryPath = currentUrl.substring(0, currentUrl.lastIndexOf("/") + 1);
 
-console.log(`${directoryPath}module.js`);
-
-import {paragraph_height} from "./module.js";
+import { _lineheight_, paragraph_height, play } from "./module.js";
 
 let margin = Number(
   paragrafo_style.margin.substring(0, paragrafo_style.margin.indexOf("px"))
@@ -355,16 +345,17 @@ let padding = Number(
 );
 
 //console.log('paragrafo_style: ',border)
-
+//console.log('paragrafo_style: ',border)
+// função que determina o tamanho da tela com base nos parâmetros
+// parâmetros nomeados
 let tela = paragraph_height(
-  data["font-size"],
-  height,
+  { log: true, font_Size: data["font-size"], height: height },
   margin,
   border,
   padding,
   10
 );
-paragrafo.style.height = tela + "px";
+paragrafo.style.height = tela[0] + "px";
 //----------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------
 

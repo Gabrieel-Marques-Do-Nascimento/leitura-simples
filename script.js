@@ -1,5 +1,4 @@
-
-let data = loadText_json("comfger");  
+let data = loadText_json("comfger");
 const fileConteiner = document.getElementById("fileConteiner");
 
 // barra que recebe o texto que o usuario quer ler
@@ -9,9 +8,7 @@ const startBTN = document.getElementById("start");
 const resetBTN = document.getElementById("reset");
 // elemento que mostra o texto
 const paragrafo = document.getElementById("paragraph");
-var pai_styleTo = window.getComputedStyle(
-  document.getElementById("pai")
-  );
+var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
 // botao responcavel por scroll's o equivalente a uma pagina
 const page = document.getElementById("page");
 // velocidade de scroll
@@ -31,7 +28,7 @@ highlight.className = "highlight";
 // mostra os estilos utilizados no marcador
 highlight.style.width = pai_styleTo.width;
 highlight.style.width = pai_styleTo.width;
-console.log("psi",pai_styleTo.width)
+console.log("psi", pai_styleTo.width);
 
 const highlight_estilo = window.getComputedStyle(highlight);
 // add o marcador ao elemento pai body
@@ -58,9 +55,6 @@ var estilo = window.getComputedStyle(texto);
 var lineHeight = estilo.lineHeight;
 // ---------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------
-
-
-
 
 // funcao responcavel por scrollar ate a distancia em pixels especificada
 function scrollarParagrafo(pixels) {
@@ -298,7 +292,7 @@ function scrollNumberline(
   button = null
 ) {
   const computedStyle = window.getComputedStyle(paragrafo);
-  let line = Number(font_size) + (Number(font_size) / 2);
+  let line = Number(font_size) + Number(font_size) / 2;
   // Calcula a altura da linha
   const lineHeightInPixels = parseFloat(computedStyle.height) / line;
 
@@ -329,9 +323,6 @@ function play() {
   //antes_scll_hght == dpois_scll_hght
   // )
   // { pular a pagina}
-
-
-
   /* run {
   calcula a quntidade de linhas
   for item in linhas 
@@ -343,47 +334,59 @@ function play() {
   */
 }
 
-import paragraph_height from "/leitura-simples/module.js"
+// Obtém o caminho completo da URL atual
+const currentUrl = window.location.href;
 
-let margin = Number(paragrafo_style.margin.substring(0, paragrafo_style.margin.indexOf('px')))
-let border = Number(paragrafo_style.border.substring(0,paragrafo_style.border.indexOf('px')))
-let padding = Number(paragrafo_style.padding.substring(0,paragrafo_style.padding.indexOf('px')))
+// Obtém apenas o diretório removendo o nome do arquivo (caso exista)
+const directoryPath = currentUrl.substring(0, currentUrl.lastIndexOf("/") + 1);
+
+console.log(`${directoryPath}module.js`);
+
+import {paragraph_height} from "./module.js";
+
+let margin = Number(
+  paragrafo_style.margin.substring(0, paragrafo_style.margin.indexOf("px"))
+);
+let border = Number(
+  paragrafo_style.border.substring(0, paragrafo_style.border.indexOf("px"))
+);
+let padding = Number(
+  paragrafo_style.padding.substring(0, paragrafo_style.padding.indexOf("px"))
+);
 
 //console.log('paragrafo_style: ',border)
 
-let tela =  paragraph_height(data["font-size"],height,margin, border, padding, 10);
-paragrafo.style.height = tela + 'px';
+let tela = paragraph_height(
+  data["font-size"],
+  height,
+  margin,
+  border,
+  padding,
+  10
+);
+paragrafo.style.height = tela + "px";
 //----------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-console.log('linha',lineHeight)
+console.log("linha", lineHeight);
 
 close.addEventListener("click", () => {
-  highlight_status();  
+  highlight_status();
   let fonts = Number(font_size.value) > 12 ? font_size.value : 12;
   console.log(fonts);
   texto.style.fontSize = fonts + "px";
 
   highlight.style.height = lineHeight + "px";
-  recarregarPagina()
+  recarregarPagina();
 
   // Pegando o estado do checkbox (se está marcado ou não)
   const backgroundType = document.getElementById("background-type").checked
     ? "black"
     : "white";
   const confger = {
-    'marcador': marcador.value,
+    marcador: marcador.value,
     "font-size": Number(font_size.value) > 12 ? font_size.value : "12",
-    'background_type': backgroundType,
+    background_type: backgroundType,
   };
 
   saveText_json(confger, "comfger");
@@ -392,8 +395,6 @@ close.addEventListener("click", () => {
   setings.style.display = "none";
 });
 
-
-
 setingbtn.addEventListener("click", () => {
   //console.log("fixed");
   setingbtn.style.display = "none";
@@ -401,8 +402,6 @@ setingbtn.addEventListener("click", () => {
 });
 // ----------------------------------
 // comfiguracoes gerais do Site
-
-
 
 function activatedate() {
   let data = loadText_json("comfger");
@@ -415,7 +414,7 @@ function activatedate() {
 
     let font = Number(font_size.value);
     texto.style.fontSize = font_size.value + "px";
-   // highlight.style.height = font + (font / 2) + "px";
+    // highlight.style.height = font + (font / 2) + "px";
   }
 }
 
@@ -436,19 +435,18 @@ function loadText_json(name) {
 console.log(loadText_json("comfger"));
 
 window.onload = function () {
-
-
-  let data = loadText_json("comfger");  
-  scrollNumberline(false,true, data["font-size"])
+  let data = loadText_json("comfger");
+  scrollNumberline(false, true, data["font-size"]);
   activatedate();
   highlight_status();
- 
+
   let line = true;
 
   // Pegue o valor do line-height
-  var linha = line ? Number(estilo.lineHeight.replace('px','')) : - Number(paragrafo_style.lineHeight.replace('px',''));
-  console.log('linha',linha, data["font-size"])
-  let fh = Number(data["font-size"])
-  highlight.style.height = fh + (fh / 2) + (fh * 0.10) + 'px'
-
+  var linha = line
+    ? Number(estilo.lineHeight.replace("px", ""))
+    : -Number(paragrafo_style.lineHeight.replace("px", ""));
+  console.log("linha", linha, data["font-size"]);
+  let fh = Number(data["font-size"]);
+  highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
 };

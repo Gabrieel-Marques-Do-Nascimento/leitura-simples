@@ -1,5 +1,5 @@
 
-export default function paragraph_height(
+export function paragraph_height(
   font_Size,
   height,
   ...args)

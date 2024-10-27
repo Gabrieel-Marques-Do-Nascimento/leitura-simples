@@ -343,7 +343,7 @@ function play() {
   */
 }
 
-import paragraph_height from "leitura-simples/module.js"
+import paragraph_height from "/leitura-simples/module.js"
 
 let margin = Number(paragrafo_style.margin.substring(0, paragrafo_style.margin.indexOf('px')))
 let border = Number(paragrafo_style.border.substring(0,paragrafo_style.border.indexOf('px')))

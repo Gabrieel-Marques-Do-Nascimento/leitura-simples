@@ -10,6 +10,7 @@ const resetBTN = document.getElementById("reset");
 const paragrafo = document.getElementById("paragraph");
 var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
 // botao responcavel por scroll's o equivalente a uma pagina
+const paiheight = pai_styleTo.height
 const page = document.getElementById("page");
 // velocidade de scroll
 const scrollspeed = 1;
@@ -332,6 +333,7 @@ function scrollNumberline(
       8,
       linha
     );
+
     highlight.style.transition = "top 0.1s ease";
     button.disabled = true;
     setTimeout(function () {
@@ -363,7 +365,7 @@ let padding = Number(
 // função que determina o tamanho da tela com base nos parâmetros
 // parâmetros nomeados
 let tela = paragraph_height(
-  { log: true, font_Size: data["font-size"], height: height },
+  { log: true, font_Size: data["font-size"], height: height - 4 },
   margin,
   border,
   padding,

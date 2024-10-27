@@ -219,7 +219,7 @@ function scrollarline(pixel) {
 let cont = 1;
 function highlight_status() {
   // font responsável por verificar e modificar atualizar a page
-  let line = _lineheight_(data["font-size"] ? data["font-size"] : 20);
+  let line = _lineheight_(data["font-size"]);
   // se o marcador for igual a mouse
   if (marcador.value == "mouse") {
     cont = 0;
@@ -254,13 +254,13 @@ function highlight_status() {
 setapb.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(true)
-  scrollNumberline(true, true, data["font-size"] ? data["font-size"] : 20, setapb);
+  scrollNumberline(true, true, data["font-size"], setapb);
 });
 
 setaps.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(false);
-  scrollNumberline(true, false, data["font-size"] ? data["font-size"] : 20, setaps);
+  scrollNumberline(true, false, data["font-size"], setaps);
 });
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -371,7 +371,7 @@ let padding = Number(
 // função que determina o tamanho da tela com base nos parâmetros
 // parâmetros nomeados
 let tela = paragraph_height(
-  { log: true, font_Size: data["font-size"] ? data["font-size"] : 20, height: paiheight - 4 },
+  { log: true, font_Size: data["font-size"], height: paiheight - 4 },
   margin,
   border,
   padding,
@@ -422,7 +422,7 @@ function activatedate() {
 
   if (data) {
     marcador.value = data["marcador"];
-    font_size.value = data["font-size"] ? data["font-size"] : 20;
+    font_size.value = data["font-size"];
     background_type.checked = data["background_type"] == "black" ? true : false;
 
     let font = Number(font_size.value);
@@ -439,17 +439,22 @@ function saveText_json(data, name) {
 }
 function loadText_json(name) {
   // Pega o texto do LocalStorage
+  const padrao = {
+    marcador: 'button',
+    "font-size": 18,
+    background_type: 'white'
+  };
   const text = localStorage.getItem(name);
 
   // Verifica se o item existe e converte de volta para um objeto
-  return text ? JSON.parse(text) : null;
+  return text ? JSON.parse(text) : padrao;
 }
 data = loadText_json("comfger")
 console.log(data);
 
 window.onload = function () {
   let data = loadText_json("comfger");
-  scrollNumberline(false, true, data["font-size"] ? data["font-size"] : 20);
+  scrollNumberline(false, true, data["font-size"]);
   activatedate();
   highlight_status();
 
@@ -459,7 +464,7 @@ window.onload = function () {
   var linha = line
     ? Number(estilo.lineHeight.replace("px", ""))
     : -Number(paragrafo_style.lineHeight.replace("px", ""));
-  console.log("linha", linha, data["font-size"] ? data["font-size"] : 20);
-  let fh = Number(data["font-size"] ? data["font-size"] : 20);
+  console.log("linha", linha, data["font-size"]);
+  let fh = Number(data["font-size"]);
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
 };

@@ -1,4 +1,5 @@
 let data = loadText_json("comfger");
+console.log('line 1 (script.js)', data ? data : 'nao existe')
 const fileConteiner = document.getElementById("fileConteiner");
 
 // barra que recebe o texto que o usuario quer ler
@@ -218,7 +219,7 @@ function scrollarline(pixel) {
 let cont = 1;
 function highlight_status() {
   // font responsável por verificar e modificar atualizar a page
-  let line = _lineheight_(data["font-size"]);
+  let line = _lineheight_(data["font-size"] ? data["font-size"] : 20);
   // se o marcador for igual a mouse
   if (marcador.value == "mouse") {
     cont = 0;
@@ -253,13 +254,13 @@ function highlight_status() {
 setapb.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(true)
-  scrollNumberline(true, true, data["font-size"], setapb);
+  scrollNumberline(true, true, data["font-size"] ? data["font-size"] : 20, setapb);
 });
 
 setaps.addEventListener("click", () => {
   console.log("seta para baixo");
   //move_marcador(false);
-  scrollNumberline(true, false, data["font-size"], setaps);
+  scrollNumberline(true, false, data["font-size"] ? data["font-size"] : 20, setaps);
 });
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -370,7 +371,7 @@ let padding = Number(
 // função que determina o tamanho da tela com base nos parâmetros
 // parâmetros nomeados
 let tela = paragraph_height(
-  { log: true, font_Size: data["font-size"], height: paiheight - 4 },
+  { log: true, font_Size: data["font-size"] ? data["font-size"] : 20, height: paiheight - 4 },
   margin,
   border,
   padding,
@@ -421,7 +422,7 @@ function activatedate() {
 
   if (data) {
     marcador.value = data["marcador"];
-    font_size.value = data["font-size"];
+    font_size.value = data["font-size"] ? data["font-size"] : 20;
     background_type.checked = data["background_type"] == "black" ? true : false;
 
     let font = Number(font_size.value);
@@ -448,7 +449,7 @@ console.log(data);
 
 window.onload = function () {
   let data = loadText_json("comfger");
-  scrollNumberline(false, true, data["font-size"]);
+  scrollNumberline(false, true, data["font-size"] ? data["font-size"] : 20);
   activatedate();
   highlight_status();
 
@@ -458,7 +459,7 @@ window.onload = function () {
   var linha = line
     ? Number(estilo.lineHeight.replace("px", ""))
     : -Number(paragrafo_style.lineHeight.replace("px", ""));
-  console.log("linha", linha, data["font-size"]);
-  let fh = Number(data["font-size"]);
+  console.log("linha", linha, data["font-size"] ? data["font-size"] : 20);
+  let fh = Number(data["font-size"] ? data["font-size"] : 20);
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
 };

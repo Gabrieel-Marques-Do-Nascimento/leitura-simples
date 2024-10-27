@@ -36,7 +36,7 @@ highlight.className = "highlight";
 // mostra os estilos utilizados no marcador
 highlight.style.width = pai_styleTo.width;
 highlight.style.width = pai_styleTo.width;
-console.log("psi", pai_styleTo.width);
+console.log("pai", pai_styleTo.width);
 
 const highlight_estilo = window.getComputedStyle(highlight);
 // add o marcador ao elemento pai body
@@ -348,11 +348,7 @@ function scrollNumberline(
   }
 }
 
-// Obtém o caminho completo da URL atual
-const currentUrl = window.location.href;
 
-// Obtém apenas o diretório removendo o nome do arquivo (caso exista)
-const directoryPath = currentUrl.substring(0, currentUrl.lastIndexOf("/") + 1);
 
 import { _lineheight_, paragraph_height, play } from "./module.js";
 

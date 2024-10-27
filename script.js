@@ -443,8 +443,8 @@ function loadText_json(name) {
   // Verifica se o item existe e converte de volta para um objeto
   return text ? JSON.parse(text) : null;
 }
-
-console.log(loadText_json("comfger"));
+data = loadText_json("comfger")
+console.log(data);
 
 window.onload = function () {
   let data = loadText_json("comfger");

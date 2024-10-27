@@ -78,6 +78,7 @@ margin-top: 40%;
 #setting{
   cursor: none; /* Esconde o cursor */
   position: fixed;
+  
   left: 90.3%;
   top: 52%;
   
@@ -276,18 +277,21 @@ body {
     }
 
     #ler {
+      z-index: 4;
         width: 100%; /* O input ocupa toda a largura no celular */
         font-size: 14px; /* Fonte menor em telas menores */
         padding: 10px;
     }
 
     #start {
+      z-index: 4;
         width: 100%; /* O botão ocupa toda a largura disponível */
         font-size: 14px;
         padding: 10px;
     }
 
     #reset {
+      z-index: 4;
         width: 50px;
         height: 40px;
          top: 94%;
@@ -296,6 +300,7 @@ body {
         font-size: 12px;
     }
     #page {
+      z-index: 4;
       /* substituto para a seta */
     position: fixed;
      top: 94%;
@@ -303,6 +308,7 @@ body {
       left: 80%;
     }
     #setab {
+      z-index: 4;
       align-items: center;
 
       top: 94%;
@@ -311,12 +317,14 @@ body {
         left: 30%;
     }
     #play {
+      z-index: 4;
         position: fixed;
         width: 40px;
         top: 94%;
         left: 45%;
     }
     #setas {
+      z-index: 4;
         align-items: center;
         top: 94%;
         height: 40px;
@@ -347,5 +355,18 @@ body {
   top: 0;
   border-radius: 50%;
   
+}
+#setings {
+  display: none;
+  z-index: 5;
+  position: fixed;
+  z-index: 4;
+  left: 10%;
+  align-items: start;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.819);
+  width: 80%;
+  height: 80%;
+  padding: 10px;
 }
 }

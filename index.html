@@ -2,6 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>leitura simples</title>
     <link
@@ -19,14 +20,14 @@
   <style></style>
   <body>
     <header>
-      <input type="text" name="ler" id="ler" />
-      <button class="arrogante" id="start" lang="pt-BR">start</button>
+      <input type="text" name="ler" id="ler" aria-label="ler"/>
+      <button class="arrogante" id="start" lang="pt-BR" title="Title">start</button>
     </header>
 
     <div id="setings">
       <h1>setings</h1>
 
-      <button id="close">
+      <button id="close" title="Title">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -84,7 +85,7 @@
           </div>
         </div>
 
-        <label for="marcador">lang:</label>
+        <label for="lang">lang:</label>
         <select id="lang" name="lang">
           <option value="eng">eng</option>
           <option value="pt">pt</option>
@@ -121,7 +122,7 @@
         </div>
 
         <label for="font-size">font-size:</label>
-        <input type="number" name="font-size" id="font-size" />
+        <input type="number" name="font-size" id="font-size" aria-label="text"/>
 
         <div class="exemple">
           <img
@@ -135,16 +136,16 @@
           </div>
         </div>
 
-        <label for="day">black:</label>
-        <input type="checkbox" value="black" id="background-type" />
+        <label for="background-type">black:</label>
+        <input type="checkbox" value="black" id="background-type" aria-label="checkbox"/>
       </div>
     </div>
 
     <style></style>
 
-    <button class="arrogante" id="reset" lang="pt-BR">reset</button>
+    <button class="arrogante" id="reset" lang="pt-BR" title="Title">reset</button>
 
-    <button class="scrollbt" id="setting">
+    <button class="scrollbt" id="setting" title="Title">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
@@ -157,7 +158,7 @@
         />
       </svg>
     </button>
-    <button class="arrogante scrollbt" id="page">
+    <button class="arrogante scrollbt" id="page" title="Title">
       <img
         src="img/book_page.png"
         alt="Ícone"
@@ -165,7 +166,7 @@
       />
     </button>
 
-    <button class="arrogante scrollbt" id="setas">
+    <button class="arrogante scrollbt" id="setas" title="Title">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="20px"
@@ -180,7 +181,7 @@
       </svg>
     </button>
 
-    <button class="arrogante scrollbt" id="setab">
+    <button class="arrogante scrollbt" id="setab" title="Title">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="20px"
@@ -194,7 +195,7 @@
         />
       </svg>
     </button>
-    <button class="arrogante scrollbt" id="play">
+    <button class="arrogante scrollbt" id="play" title="Title">
       <svg
         width="20"
         height="20"
@@ -214,7 +215,7 @@
 
     <div class="file_conteiner" id="fileConteiner">
       <h1>arraste e Selecione o Arquivo de texto</h1>
-      <input type="file" name="fileInput" id="fileInput" accept=".txt" />
+      <input type="file" name="fileInput" id="fileInput" accept=".txt" aria-label="file"/>
       <div id="dropZone">
         arraste e solte o arquivo aqui ou clique para abrir o explorador
       </div>
@@ -222,7 +223,7 @@
 
     <script type="module" src="script.js"></script>
     <script type="module" src="module.js"></script>
-    <script src="confg.js"></script>
+    <!-- <script src="confg.js"></script> -->
     <!--
     <script src="setas.js"></script>
     <script src="scroll.js"></script>

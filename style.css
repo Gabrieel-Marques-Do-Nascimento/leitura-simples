@@ -52,6 +52,8 @@ body {
     border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
     padding: 0px 10px 0 10px; /* Adiciona espaço interno */
     display: none; /* Inicialmente escondido */
+    margin-top: 0;
+    padding-top: 0;
 }
 header {
     display: flex;

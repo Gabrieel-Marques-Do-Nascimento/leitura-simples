@@ -4,13 +4,16 @@ export default function paragraph_height(
   height,
   ...args)
 {
+  let tot = 0
   for (let i = 0; i < args.length; i ++)
   {
-    console.log(`argumento: {i + 1}:`,args[i])
+    //console.log(`argumento: ${i + 1}:`,args[i])
+    tot = tot + args[i];
+    
   }
-console.log()
+
   
- const tela_heith = height
+ const tela_heith = height - parseInt(tot)
 // Obtém o tamanho da fonte do elemento "hello"
 const fontSize = parseInt(font_Size);
 
@@ -21,6 +24,7 @@ const lineHeight = fontSize + (fontSize / 2);
  let tela = parseInt((tela_heith / lineHeight) ) * lineHeight;
 
   console.log("tela disponivel:",tela)
+  return tela
 }
 
 //paragraph_height(18,700,3,6,8,9)

@@ -76,6 +76,7 @@ margin-top: 40%;
     left: 10px;
 }
 #setting{
+  cursor: none; /* Esconde o cursor */
   position: fixed;
   left: 90.3%;
   top: 52%;
@@ -175,11 +176,14 @@ body {
     background-color: #c82333;
 }
 
-
+body {
+  cursor: url('./img/cursor.svg'), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */
+}
 #setab {
     position: fixed;
     top: 88%;
     left: 90%;
+    cursor: none; /* Esconde o cursor */
 }
 #setab:disabled {
   background-color: #dc354676;
@@ -188,6 +192,7 @@ body {
     position: fixed;
     top: 70%;
     left: 90%;
+    cursor: none; /* Esconde o cursor */
 }
 #setas:disabled {
   background-color: #dc354676;
@@ -197,6 +202,7 @@ body {
     position: fixed;
     top: 78.5%;
     left: 89.8%;
+    cursor: none; /* Esconde o cursor */
 }
 #play:disabled {
   background-color: #dc354676;
@@ -208,6 +214,7 @@ body {
    top: 60%;
     width: 50px;
     left: 90%;
+    cursor: none; /* Esconde o cursor */
   }
 /* Oculta a barra de rolagem no Chrome/Safari */
 #paragraph ::-webkit-scrollbar {
@@ -224,7 +231,7 @@ body {
         display: none;
         z-index: 1;
         position: fixed;
-
+        
         left: 10%;
         align-items: start;
         color: white;
@@ -233,7 +240,9 @@ body {
         height: 80%;
         padding: 10px;
       }
-
+      #setings , #setings * {
+        cursor: help;
+      }
       #setings h1 {
         background-color: black;
         color: white;

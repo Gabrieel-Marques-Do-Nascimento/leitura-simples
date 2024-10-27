@@ -169,16 +169,15 @@ window.onload = loadText("savedText");
 //                   marcador de texto
 // Função para alterar o valor de 'top'
 let highlight_top = Number(highlight_estilo.top.replace("px", ""));
-let highlight_height = Number(highlight_estilo.height)
-function alterarTop(novoTop, error =0, line=0) {
-  
+let highlight_height = Number(highlight_estilo.height);
+function alterarTop(novoTop, error = 0, line = 0) {
   let styleheight = Number(paragrafo_style.height.replace("px", ""));
-  console.log('-------------------------------------------------')
-  console.log('alterarTop function: ',novoTop, styleheight);
-  console.log('erro:', error)
-  console.log('line:', line)
-  console.log('-------------------------------------------------')
-  let end_line = tela[1]
+  console.log("-------------------------------------------------");
+  console.log("alterarTop function: ", novoTop, styleheight);
+  console.log("erro:", error);
+  console.log("line:", line);
+  console.log("-------------------------------------------------");
+  let end_line = tela[1];
   if (novoTop < highlight_top) {
     novoTop = highlight_top;
   }
@@ -200,35 +199,46 @@ function scrollarline(pixel) {
   });
 }
 
-function move_marcador(line) {
-  // Pegue o valor do line-height
-  var linha = line
-    ? Number(paragrafo_style.lineHeight.replace("px", ""))
-    : -Number(paragrafo_style.lineHeight.replace("px", ""));
+// function move_marcador(line) {
+//   // Pegue o valor do line-height
+//   var linha = line
+//     ? Number(paragrafo_style.lineHeight.replace("px", ""))
+//     : -Number(paragrafo_style.lineHeight.replace("px", ""));
 
-  alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha,8, linha);
-  highlight.style.transition = "top 0.1s ease";
-}
+//   alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha, 8, linha);
+//   highlight.style.transition = "top 0.1s ease";
+// }
 
 let cont = 1;
 function highlight_status() {
-  let line = _lineheight_(data["font-size"])
+  // font responsável por verificar e modificar atualizar a page
+  let line = _lineheight_(data["font-size"]);
+  // se o marcador for igual a mouse
   if (marcador.value == "mouse") {
     cont = 0;
+    // desativa os botoes 
     setapb.disabled = true;
     setaps.disabled = true;
     playbt.disabled = true;
+    // add um evento para posicionar o marcador onde estiver o mouse
     document.addEventListener("mousemove", function (event) {
+      // obtem a posicao atual do mouse
       const y = event.clientY;
-      alterarTop(y,8,line);
+      // altera  a position_top do marcador para onde estiver o mouse
+      // dentro limites do elemento paragraph
+      alterarTop(y, 8, line);
     });
 
     console.log(marcador.value);
   }
+  // se o marcador for igual a button
   if (marcador.value == "button") {
     console.log(marcador.value);
+    // contador menor que 1
     if (cont < 1) {
+      // cont = 1
       cont++;
+      // recarrega a page
       recarregarPagina();
     }
   }
@@ -303,21 +313,25 @@ function scrollNumberline(
   button = null
 ) {
   const computedStyle = window.getComputedStyle(paragrafo);
-  let line = Number(font_size) + (Number(font_size) / 2);
+  let line = Number(font_size) + Number(font_size) / 2;
   // Calcula a altura da linha
   const lineHeightInPixels = parseFloat(computedStyle.height) / line;
 
-  console.log('--------------------------------')
+  console.log("--------------------------------");
   console.log(`quantidade de linha: ${lineHeightInPixels} lines`);
   console.log(`font_size: ${font_size}px`);
   console.log(`computedStyle.height: ${computedStyle.height}px`);
   console.log("line", line);
-  console.log('----------------------------------')
+  console.log("----------------------------------");
 
   if (active) {
     var linha = type ? Number(line) : -Number(line);
     // a margem de erro e 8 porque o elemento pai tem 10px de margen
-    alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha, 8,linha);
+    alterarTop(
+      Number(highlight_estilo.top.replace("px", "")) + linha,
+      8,
+      linha
+    );
     highlight.style.transition = "top 0.1s ease";
     button.disabled = true;
     setTimeout(function () {

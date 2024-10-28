@@ -372,7 +372,7 @@ let padding = Number(
 //console.log('paragrafo_style: ',border)
 // função que determina o tamanho da tela com base nos parâmetros
 // parâmetros nomeados
-let tela = paragraph_height(
+const tela = paragraph_height(
   { log: true, font_Size: data["font-size"], height: paiheight - 4 },
   margin,
   border,
@@ -475,6 +475,7 @@ window.onload = function () {
 document.addEventListener("DOMContentLoaded", function() {
 let line = _lineheight_(data['font-size']);
 
-play(line,tela[0],window.scroll_height)
+console.log("line 478", tela[0])
+play(line,tela[0],window.scroll_height, alterarTop,scrollarParagrafo)
 });
 

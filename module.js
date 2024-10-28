@@ -57,4 +57,23 @@ export function play(
   const scroll_size = parseInt(scroll_height / parseInt(tela));// 8883 / 553.81
   console.log("line_size: ", line_size);
   console.log("scroll_size:", scroll_size);
+  let engrenagem = 0;
+  let cont = 0;
+  while (true)
+  {
+    cont ++;
+    engrenagem = engrenagem + tela;
+    
+    if ( engrenagem > scroll_height)
+    {
+      //engrenagem = scroll_height;
+    }
+    console.log(`volta: ${cont}, ${engrenagem}px`);
+    setTimeout(page_func(engrenagem), 3000);
+    
+    if (engrenagem > scroll_height)
+    {
+      break
+    }
+  }
 }

@@ -131,8 +131,7 @@ async function aut_page() {
 
       the_end = true;
     }
-    if (the_end == false)
-    {page_func(tela + scrollTop)}
+    page_func(tela + scrollTop)
 
   });
   return the_end

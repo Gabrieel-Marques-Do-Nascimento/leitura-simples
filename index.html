@@ -20,22 +20,33 @@
   <style></style>
   <body>
     <style>
-      #tester {
+      #console {
         display: block;
         z-index: 4;
         position: fixed;
+        align-self: center;
         top: 0px;
-        left: 40%;
-        height: 20px;
+        left: 0%;
+        height: 18px;
         width: 40px;
-        font-size: 8px;
+  
         line-height: 150%;
         text-align: center;
+        background: rgb(251, 248, 248);
+      }
+      #console-text {
+        display: none;
+        position: relative;
         background: white;
+        height:90%;
+        left: 10%;
+        width: 80%;
       }
     </style>
-    <div id="tester">
-      hello
+    <div id="console">
+      <p id="console-text">
+          
+      </p>
     </div>
     <header>
       <input type="text" name="ler" id="ler" aria-label="ler"/>

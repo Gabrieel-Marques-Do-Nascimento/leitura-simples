@@ -1,5 +1,5 @@
 let data = loadText_json("comfger");
-console.log('line 1 (script.js)', data ? data : 'nao existe')
+console.log("line 1 (script.js)", data ? data : "nao existe");
 const fileConteiner = document.getElementById("fileConteiner");
 
 // barra que recebe o texto que o usuario quer ler
@@ -13,13 +13,12 @@ var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
 // botao responcavel por scroll's o equivalente a uma pagina
 
 const height = window.innerHeight;
-const paiheight = Number(pai_styleTo.height.replace('px',''));
-console.log('pai height',paiheight, 'page height', height)
+const paiheight = Number(pai_styleTo.height.replace("px", ""));
+console.log("pai height", paiheight, "page height", height);
 
-
+const console_user = document.getElementById("console");
 const page = document.getElementById("page");
 // velocidade de scroll
-
 
 const scrollspeed = 1;
 // largura da janela
@@ -77,6 +76,7 @@ function scrollarParagrafo(pixels) {
     top: pixels,
     behavior: "smooth",
   });
+  
 }
 
 // define o comportamento de alguns elementos como
@@ -225,7 +225,7 @@ function highlight_status() {
   // se o marcador for igual a mouse
   if (marcador.value == "mouse") {
     cont = 0;
-    // desativa os botoes 
+    // desativa os botoes
     setapb.disabled = true;
     setaps.disabled = true;
     playbt.disabled = true;
@@ -350,8 +350,6 @@ function scrollNumberline(
   }
 }
 
-
-
 import { _lineheight_, paragraph_height, play } from "./module.js";
 
 let margin = Number(
@@ -438,16 +436,16 @@ function saveText_json(data, name) {
 function loadText_json(name) {
   // Pega o texto do LocalStorage
   const padrao = {
-    marcador: 'button',
+    marcador: "button",
     "font-size": 18,
-    background_type: 'white'
+    background_type: "white",
   };
   const text = localStorage.getItem(name);
 
   // Verifica se o item existe e converte de volta para um objeto
   return text ? JSON.parse(text) : padrao;
 }
-data = loadText_json("comfger")
+data = loadText_json("comfger");
 console.log(data);
 
 window.onload = function () {
@@ -467,17 +465,48 @@ window.onload = function () {
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
 };
 
-
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   // autura da rolagem do paragrafo
   window.scroll_height = paragrafo.scrollHeight;
-  console.log('scroll_height:  ', window.scroll_height)
+  console.log("scroll_height:  ", window.scroll_height);
+
+  let line = _lineheight_(data["font-size"]);
+  console.log("line 478");
+  console.log("line 478", tela[0]);
 
 
-let line = _lineheight_(data['font-size']);
-console.log("line 478")
-console.log("line 478", tela[0], )
-play(line,tela[0],paragrafo,Number(window.scroll_height), alterarTop,scrollarParagrafo)
+  play(
+    line,
+    tela[0],
+    paragrafo,
+    Number(window.scroll_height),
+    alterarTop,
+      [Number(highlight_estilo.top.replace("px", "")) + line,
+      8,
+      line]
+    ,
+    scrollarParagrafo,
+    loger,
+    2000
+  );
 });
 
+
+const console_text = document.getElementById("console-text");
+console_user.addEventListener("click", function () {
+  console_text.style.display = "block";
+  console_user.style = `top: 100px;
+                        left: 10%;
+                        height:50%;
+                        width: 80%;`;
+});
+console_user.addEventListener("dblclick", function () {
+  console_user.style = `        top: 0px;           
+                                height: 18px;
+                                width: 40px;`;
+  console_text.style.display ='none'
+});
+
+function loger (text) {
+  console_text.innerHTML += text + '</br>';
+}

@@ -20,11 +20,7 @@ console.log('pai height',paiheight, 'page height', height)
 const page = document.getElementById("page");
 // velocidade de scroll
 
-document.addEventListener("DOMContentLoaded", function() {
-  // autura da rolagem do paragrafo
-  window.scroll_height = paragrafo.scrollHeight;
-  console.log('scroll_height:  ', window.scroll_height)
-});
+
 const scrollspeed = 1;
 // largura da janela
 const width = window.innerWidth;
@@ -472,10 +468,16 @@ window.onload = function () {
 };
 
 
-document.addEventListener("DOMContentLoaded", function() {
-let line = _lineheight_(data['font-size']);
 
-console.log("line 478", tela[0])
-play(line,tela[0],window.scroll_height, alterarTop,scrollarParagrafo)
+document.addEventListener("DOMContentLoaded", function() {
+  // autura da rolagem do paragrafo
+  window.scroll_height = paragrafo.scrollHeight;
+  console.log('scroll_height:  ', window.scroll_height)
+
+
+let line = _lineheight_(data['font-size']);
+console.log("line 478")
+console.log("line 478", tela[0], )
+play(line,tela[0],paragrafo,Number(window.scroll_height), alterarTop,scrollarParagrafo)
 });
 

@@ -34,7 +34,8 @@ export function _lineheight_(font_size) {
 export function play(
   line_heght,
   tela,
-  scroll_height,
+  elementhtml,
+  scroll_heigh,
   dow_line_func,
   page_func
 ) {
@@ -53,27 +54,65 @@ export function play(
   }
 
   */
-  const line_size = parseInt(tela / line_heght); 
-  const scroll_size = parseInt(scroll_height / parseInt(tela));// 8883 / 553.81
+
+  // autura da rolagem do paragrafo
+
+let ante_loop_inf = 21658 / tela
+  const line_size = parseInt(tela / line_heght);
   console.log("line_size: ", line_size);
-  console.log("scroll_size:", scroll_size);
-  let engrenagem = 0;
-  let cont = 0;
-  while (true)
-  {
-    cont ++;
-    engrenagem = engrenagem + tela;
+  
+
+  async function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function loopComAtraso() {
+    let cont = 0;
+    let engrenagem = 0;
+    let the_end = false
+
+
+
+  
+    while (true) {
+      await delay(1000); // Aguarda 2 segundos antes da próxima iteração
+      cont += 1;
+      engrenagem += tela;
+
+
+      elementhtml.addEventListener("scroll", function() {
+        // Altura total do documento
+        const scrollHeight = elementhtml.scrollHeight;
+        
+        // Altura da janela visível
+        const clientHeight = elementhtml.clientHeight;
+        
+        // Distância rolada pelo usuário
+        const scrollTop = elementhtml.scrollTop;
+        
+        // Verifica se a rolagem chegou ao final
+        if (scrollTop + clientHeight >= scrollHeight) {
+          
+            console.log("Chegou ao final da página!");
+            the_end = true;
+        }
+      });
     
-    if ( engrenagem > scroll_height)
-    {
-      //engrenagem = scroll_height;
-    }
-    console.log(`volta: ${cont}, ${engrenagem}px`);
-    setTimeout(page_func(engrenagem), 3000);
-    
-    if (engrenagem > scroll_height)
-    {
-      break
+      if (the_end) {
+        console.log('the end: true')
+        break;
+      }
+
+      console.log(`volta: ${cont}, ${engrenagem}px`);
+      page_func(engrenagem);
+
+
+      // if (cont > 43) {
+      //   console.log('43: true')
+      //   break;
+      // }
     }
   }
+  loopComAtraso();
+
 }

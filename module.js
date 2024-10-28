@@ -66,6 +66,7 @@ export function play(
 
   let ante_loop_inf = 21658 / tela;
   const line_size = parseInt(tela / line_heght);
+  
   loger("line_size: " + line_size);
 
   async function loopComAtraso() {
@@ -112,8 +113,8 @@ export function play(
     }
   }
 
-async function aut_page() {
-
+ async function aut_page(scroll) {
+  let scrollTop = null
   let the_end = false
   elementhtml.addEventListener("scroll", function () {
     // Altura total do documento
@@ -130,8 +131,9 @@ async function aut_page() {
       console.log("Chegou ao final da página!");
 
       the_end = true;
-    }
-    page_func(tela + scrollTop)
+    };
+    loger("tela" + tela + "scrolltop"+ scrollTop)
+    page_func(scroll)
 
   });
   return the_end
@@ -153,18 +155,24 @@ async function aut_page() {
 
   
 async function runner() {
+ let  engrenagem = 0;
   while (true) {
     let end = false;
     let vr = aut_line()
     if (vr) {
-      end = aut_page()
+      engrenagem += tela;
+      end = aut_page(engrenagem)
+      
     }
     
     if (end) {
+      
       break
     }
    
   }
+  
 }
  runner()
+ //page_func(tela)
 }

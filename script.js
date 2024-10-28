@@ -19,6 +19,12 @@ console.log('pai height',paiheight, 'page height', height)
 
 const page = document.getElementById("page");
 // velocidade de scroll
+
+document.addEventListener("DOMContentLoaded", function() {
+  // autura da rolagem do paragrafo
+  window.scroll_height = paragrafo.scrollHeight;
+  console.log('scroll_height:  ', window.scroll_height)
+});
 const scrollspeed = 1;
 // largura da janela
 const width = window.innerWidth;
@@ -464,3 +470,11 @@ window.onload = function () {
   let fh = Number(data["font-size"]);
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
 };
+
+
+document.addEventListener("DOMContentLoaded", function() {
+let line = _lineheight_(data['font-size']);
+
+play(line,tela[0],window.scroll_height)
+});
+

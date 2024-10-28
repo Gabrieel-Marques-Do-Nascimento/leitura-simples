@@ -31,6 +31,10 @@ export function _lineheight_(font_size) {
   return Number(font_size) + Number(font_size) / 2;
 }
 
+export async function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
 export function play(
   line_heght,
   tela,
@@ -62,9 +66,8 @@ let ante_loop_inf = 21658 / tela
   console.log("line_size: ", line_size);
   
 
-  async function delay(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
+  
+
 
   async function loopComAtraso() {
     let cont = 0;
@@ -113,6 +116,7 @@ let ante_loop_inf = 21658 / tela
       // }
     }
   }
-  loopComAtraso();
+  
+//  loopComAtraso();
 
 }

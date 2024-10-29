@@ -1,4 +1,3 @@
-
 let delayelement = document.getElementById("delay");
 let data = loadText_json("comfger");
 console.log("line 1 (script.js)", data ? data : "nao existe");
@@ -79,7 +78,7 @@ function scrollarParagrafo(pixels) {
     behavior: "smooth",
   });
   highlight.style.top = highlight_top_erd;
-    // com uma animação de 2 segundos
+  // com uma animação de 2 segundos
   highlight.style.transition = "top 2s ease";
 }
 
@@ -150,7 +149,6 @@ page.addEventListener("click", () => {
   // se o marcador usado for pelos botoes seta
   if (marcador.value == "button") {
     // retorna o marcador para a posição inicial
-    
   }
 });
 
@@ -189,6 +187,7 @@ function alterarTop(novoTop, error = 0, line = 0) {
   console.log("line:", line);
   console.log("-------------------------------------------------");
   let end_line = tela[1];
+  highlight.style.transition = "top 0.1s ease";
   if (novoTop < highlight_top) {
     novoTop = highlight_top;
   }
@@ -352,7 +351,7 @@ function scrollNumberline(
   }
 }
 
-import { _lineheight_, paragraph_height,delay} from "./module.js";
+import { _lineheight_, paragraph_height, delay } from "./module.js";
 
 let margin = Number(
   paragrafo_style.margin.substring(0, paragrafo_style.margin.indexOf("px"))
@@ -395,7 +394,7 @@ close.addEventListener("click", () => {
     ? "black"
     : "white";
   const confger = {
-    "delay": Number(delayelement.value),
+    delay: Number(delayelement.value),
     marcador: marcador.value,
     "font-size": Number(font_size.value) > 12 ? font_size.value : "12",
     background_type: backgroundType,
@@ -420,6 +419,7 @@ function activatedate() {
   // Atribuir os valores carregados
 
   if (data) {
+    delayelement.value = data["delay"];
     marcador.value = data["marcador"];
     font_size.value = data["font-size"];
     background_type.checked = data["background_type"] == "black" ? true : false;
@@ -439,7 +439,7 @@ function saveText_json(data, name) {
 function loadText_json(name) {
   // Pega o texto do LocalStorage
   const padrao = {
-    "delay": 2000,
+    delay: 2000,
     marcador: "button",
     "font-size": 18,
     background_type: "white",
@@ -479,22 +479,22 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("line 478", tela[0]);
 
 
+playbt.addEventListener('click', function () {
   play(
     line,
-    
+
     paragrafo,
     Number(window.scroll_height),
     alterarTop,
-      [Number(highlight_estilo.top.replace("px", "")) + line,
-      8,
-      line]
-    ,
+    [Number(highlight_estilo.top.replace("px", "")) + line, 8, line],
     scrollarParagrafo,
     loger,
     2000
   );
-});
+})
+playbt.addEventListener('dblclick')
 
+});
 
 const console_text = document.getElementById("console-text");
 console_user.addEventListener("click", function () {
@@ -508,18 +508,18 @@ console_user.addEventListener("dblclick", function () {
   console_user.style = `        top: 0px;           
                                 height: 18px;
                                 width: 40px;`;
-  console_text.style.display ='none'
+  console_text.style.display = "none";
 });
 
-function loger (text) {
-  console_text.innerHTML += text + '</br>';
+function loger(text) {
+  console_text.innerHTML += text + "</br>";
 }
 
 // player function
 // ----------------------------------
 export function play(
   line_heght,
-  
+
   elementhtml,
   scroll_heigh,
   dow_line_func,
@@ -528,123 +528,69 @@ export function play(
   loger,
   ndelay
 ) {
-
-
   // autura da rolagem do paragrafo
 
-  let ante_loop_inf = 21658 / tela[0];
   const line_size = parseInt(tela[0] / line_heght);
-  
+
   loger("line_size: " + line_size);
 
-/*
-  async function loopComAtraso() {
-    let cont = 0;
-    let engrenagem = 0;
+  function aut_page() {
     let the_end = false;
 
-    while (true) {
-      await delay(1000); // Aguarda 2 segundos antes da próxima iteração
-      cont += 1;
-      engrenagem += tela[0];
-
-      paragrafo.addEventListener("scroll", function () {
-        // Altura total do documento
-        const scrollHeight = paragrafo.scrollHeight;
-
-        // Altura da janela visível
-        const clientHeight = paragrafo.clientHeight;
-
-        // Distância rolada pelo usuário
-         let scrollTop = paragrafo.scrollTop;
-
-        // Verifica se a rolagem chegou ao final
-        if (scrollTop + clientHeight >= scrollHeight) {
-          console.log("Chegou ao final da página!");
-
-          the_end = true;
-        }
-      });
-
-      if (the_end) {
-        console.log("the end: true");
-        loger("the end: true");
-        break;
-      }
-
-      console.log(`volta: ${cont}, ${engrenagem}px`);
-      page_func(engrenagem);
-
-      // if (cont > 43) {
-      //   console.log('43: true')
-      //   break;
-      // }
-    }
-  }
-*/
- async function aut_page() {
-   
-  paragrafo.addEventListener("scroll", function () {
     // Altura total do documento
     const scrollHeight = paragrafo.scrollHeight;
-
+    console.log("scrollHeight", scrollHeight);
     // Altura da janela visível
     const clientHeight = paragrafo.clientHeight;
-
+    console.log("clientHeight", clientHeight);
     // Distância rolada pelo usuário
-     let  scrollTop = paragrafo.scrollTop;
-
+    let scrollTop = paragrafo.scrollTop;
+    let scrollbotton = scrollTop + clientHeight;
+    console.log("scrollbotton", scrollbotton);
+    console.log("scrollTop", scrollTop);
     // Verifica se a rolagem chegou ao final
-    if (scrollTop + clientHeight >= scrollHeight) {
+    if (scrollbotton + 1 >= scrollHeight) {
       console.log("Chegou ao final da página!");
 
       the_end = true;
-      scrollarParagrafo(tela[0] + scrollTop);
-      loger("tela" + tela[0] + "scrolltop"+ scrollTop);
-    };
-    
-    
+    }
 
-  });
-  let the_end = false
-  
-  return the_end
-}
-
-
+    scrollarParagrafo(tela[0] + scrollTop);
+    console.log("the_end", the_end);
+    return the_end;
+  }
 
   async function aut_line() {
     let marcador_top = line_func_paramt[0];
 
     for (let i = 0; i < line_size; i++) {
-      await delay(500);
+      await delay(200);
       dow_line_func(marcador_top, line_func_paramt[1], line_func_paramt[2]);
 
       marcador_top += line_func_paramt[2];
     }
-    return true
+    return true;
   }
 
-  
-async function runner() {
-    let engrenagem = 0;
+  async function runner() {
     let end = false;
 
-     while (true) {
-        // Verifica se aut_line() retorna true
-        let vr = await aut_line(); // aut_line() precisa retornar um booleano
-        if (vr) {
-            // Se aut_line for true, atualiza engrenagem com posição de scroll atual
-            // As variáveis scrollTop e tela precisam estar definidas anteriormente
-            and = await aut_page()
-        }
-        
-        // Verifica se é hora de encerrar o loop
-        if (end) {
-            break; // Interrompe o loop
-        }
+    while (true) {
+      await delay(2000);
+      // Verifica se aut_line() retorna true
+      let vr = await aut_line(); // aut_line() precisa retornar um booleano
+      if (vr) {
+        // Se aut_line for true, atualiza engrenagem com posição de scroll atual
+        // As variáveis scrollTop e tela precisam estar definidas anteriormente
+        end = aut_page();
+      }
+
+      // Verifica se é hora de encerrar o loop
+      if (end) {
+        break; // Interrompe o loop
+      }
     }
-}
- runner()
- //page_func(tela)
+  }
+  runner();
+
 }

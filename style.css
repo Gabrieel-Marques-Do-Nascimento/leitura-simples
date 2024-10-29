@@ -87,7 +87,8 @@ margin-top: 40%;
   
   left: 90.3%;
   top: 52%;
-  
+  background: rgba(0, 0, 0, 0);
+  border: none;
 }
 #setting:hover{
   background: black;
@@ -376,7 +377,8 @@ body {
       #pai {
    margin-top: 20px;     
   width: 95%;
-  height: 88vh;
+  height: 86vh;
+  
 
   
 }
@@ -397,9 +399,9 @@ body {
     #setting{
   position: fixed;
   left: 90%;
-  top: 0;
+  top: -4px;
   z-index: 4;
-  border-radius: 50%;
+  
   
 }
 #setings {

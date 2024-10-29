@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito de Virar Páginas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.book {
+    perspective: 1500px;
+    width: 600px;
+    height: 400px;
+    position: relative;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transform-origin: left;
+    transition: transform 1s ease;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Configuração inicial para cada página */
+#page1 {
+    z-index: 4;
+}
+
+#page2 {
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+
+#page3 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+
+#page4 {
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+
+/* Efeito de virar páginas em sequência */
+.book:hover #page1 {
+    transform: rotateY(-180deg);
+}
+
+.book:hover #page2 {
+    transform: rotateY(-360deg);
+    transition-delay: 0.2s;
+}
+
+.book:hover #page3 {
+    transform: rotateY(-540deg);
+    transition-delay: 0.4s;
+}
+
+.book:hover #page4 {
+    transform: rotateY(-720deg);
+    transition-delay: 0.6s;
+}
+
+.page .content {
+    padding: 20px;
+}
+</style>
+<body>
+    <div class="book">
+        <div class="page" id="page1">
+            <div class="content">
+                <h1>Página 1</h1>
+                <p>Conteúdo da primeira página.</p>
+            </div>
+        </div>
+        <div class="page" id="page2">
+            <div class="content">
+                <h1>Página 2</h1>
+                <p>Conteúdo da segunda página.</p>
+            </div>
+        </div>
+        <div class="page" id="page3">
+            <div class="content">
+                <h1>Página 3</h1>
+                <p>Conteúdo da terceira página.</p>
+            </div>
+        </div>
+        <div class="page" id="page4">
+            <div class="content">
+                <h1>Página 4</h1>
+                <p>Conteúdo da quarta página.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

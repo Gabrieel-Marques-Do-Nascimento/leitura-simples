@@ -572,10 +572,11 @@ export function play(
   }
 
   async function aut_line() {
+    let delay_al = delayelement.value ;
     let marcador_top = line_func_paramt[0];
 
     for (let i = 0; i < line_size; i++) {
-      await delay(data['delay']);
+      await delay(delay_al);
       dow_line_func(marcador_top, line_func_paramt[1], line_func_paramt[2]);
 
       marcador_top += line_func_paramt[2];

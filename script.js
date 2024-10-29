@@ -29,6 +29,7 @@ const width = window.innerWidth;
 // botonhes responcaveis por mover o marcador para cima ou para baixo
 let setaps = document.getElementById("setas");
 let playbt = document.getElementById("play");
+let pausebt = document.getElementById("pause");
 let setapb = document.getElementById("setab");
 
 // Criar o elemento de destaque o marcador de texto
@@ -123,6 +124,7 @@ startBTN.addEventListener("click", () => {
 resetBTN.addEventListener("click", () => {
   buttonstatic("none");
   style_sec("none", "none", "block", "block", "");
+  window.pause = true;
 });
 
 // apos clicar em um botão com formato de livro
@@ -479,7 +481,11 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("line 478", tela[0]);
 
 
+ window.pause = false;
 playbt.addEventListener('click', function () {
+  window.pause = false;
+  playbt.style.display = 'none';
+  pausebt.style.display = 'block';
   play(
     line,
 
@@ -492,10 +498,15 @@ playbt.addEventListener('click', function () {
     2000
   );
 })
-playbt.addEventListener('dblclick')
 
 });
-
+pausebt.addEventListener('click', function ()
+ {
+  
+  window.pause = true;
+  playbt.style.display = 'block';
+  pausebt.style.display = 'none';
+})
 const console_text = document.getElementById("console-text");
 console_user.addEventListener("click", function () {
   console_text.style.display = "block";
@@ -564,25 +575,32 @@ export function play(
     let marcador_top = line_func_paramt[0];
 
     for (let i = 0; i < line_size; i++) {
-      await delay(200);
+      await delay(data['delay']);
       dow_line_func(marcador_top, line_func_paramt[1], line_func_paramt[2]);
 
       marcador_top += line_func_paramt[2];
     }
-    return true;
+   // return true;
   }
 
   async function runner() {
     let end = false;
 
     while (true) {
+      
       await delay(2000);
       // Verifica se aut_line() retorna true
       let vr = await aut_line(); // aut_line() precisa retornar um booleano
+
+      if ( window.pause) {
+        // elemento responcavel por pausar a reproducao
+        break
+      }
+      end = aut_page();
       if (vr) {
         // Se aut_line for true, atualiza engrenagem com posição de scroll atual
         // As variáveis scrollTop e tela precisam estar definidas anteriormente
-        end = aut_page();
+        
       }
 
       // Verifica se é hora de encerrar o loop

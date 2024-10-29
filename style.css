@@ -207,6 +207,14 @@ body {
     left: 89.8%;
     cursor: none; /* Esconde o cursor */
 }
+#pause {
+  display: none;
+  position: fixed;
+  top: 78.5%;
+  left: 89.8%;
+  cursor: none; /* Esconde o cursor */
+
+}
 #play:disabled {
   background-color: #dc354676;
 }
@@ -324,16 +332,20 @@ body {
         width: 40px;
         top: 94%;
         left: 45%;
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center;    /* Centraliza verticalmente */
     }
     #pause {
+      display: none;
       z-index: 4;
         position: fixed;
         width: 40px;
         top: 94%;
-        left: 39%;
-        svg {
-            left: -10;
-        }
+        left: 45%;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center;    /* Centraliza verticalmente */
+
     }
     #setas {
       z-index: 4;

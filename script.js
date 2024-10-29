@@ -508,7 +508,7 @@ pausebt.addEventListener("click", function () {
   setTimeout(function () {
     
     playbt.disabled = false;
-  }, 6000);
+  }, (tela[0]/ tela[1]) * (data["delay"] + 500));
 });
 const console_text = document.getElementById("console-text");
 console_user.addEventListener("click", function () {

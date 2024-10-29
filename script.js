@@ -91,6 +91,8 @@ function style_sec(rstdis, pdis, stdis, inpdis, texto) {
   paragrafo.style.display = pdis; // Faz o parágrafo aparecer
   pai.style.display = pdis;
   startBTN.style.display = stdis;
+  highlight.style.display = rstdis;
+  
   input.style.display = inpdis;
   paragrafo.innerHTML = texto;
   fileConteiner.style.display = inpdis;

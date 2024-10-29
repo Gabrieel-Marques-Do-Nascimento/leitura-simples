@@ -10,6 +10,7 @@ const startBTN = document.getElementById("start");
 const resetBTN = document.getElementById("reset");
 // elemento que mostra o texto
 const paragrafo = document.getElementById("paragraph");
+const pai = document.getElementById("pai");
 var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
 // botao responcavel por scroll's o equivalente a uma pagina
 
@@ -88,6 +89,7 @@ function scrollarParagrafo(pixels) {
 function style_sec(rstdis, pdis, stdis, inpdis, texto) {
   resetBTN.style.display = rstdis;
   paragrafo.style.display = pdis; // Faz o parágrafo aparecer
+  pai.style.display = pdis;
   startBTN.style.display = stdis;
   input.style.display = inpdis;
   paragrafo.innerHTML = texto;
@@ -459,7 +461,7 @@ window.onload = function () {
   scrollNumberline(false, true, data["font-size"]);
   activatedate();
   highlight_status();
-  delayelement.value = data["delay"];
+  delayelement.value = data["delay"] ? data["delay"] : 2000;
   let line = true;
 
   // Pegue o valor do line-height
@@ -480,33 +482,34 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("line 478");
   console.log("line 478", tela[0]);
 
-
- window.pause = false;
-playbt.addEventListener('click', function () {
   window.pause = false;
-  playbt.style.display = 'none';
-  pausebt.style.display = 'block';
-  play(
-    line,
+  playbt.addEventListener("click", function () {
+    window.pause = false;
+    playbt.style.display = "none";
+    pausebt.style.display = "block";
+    play(
+      line,
 
-    paragrafo,
-    Number(window.scroll_height),
-    alterarTop,
-    [Number(highlight_estilo.top.replace("px", "")) + line, 8, line],
-    scrollarParagrafo,
-    loger,
-    2000
-  );
-})
-
+      paragrafo,
+      Number(window.scroll_height),
+      alterarTop,
+      [Number(highlight_estilo.top.replace("px", "")) + line, 8, line],
+      scrollarParagrafo,
+      loger,
+      2000
+    );
+  });
 });
-pausebt.addEventListener('click', function ()
- {
-  
+pausebt.addEventListener("click", function () {
   window.pause = true;
-  playbt.style.display = 'block';
-  pausebt.style.display = 'none';
-})
+  playbt.style.display = "block";
+  pausebt.style.display = "none";
+  playbt.disabled = true;
+  setTimeout(function () {
+    
+    playbt.disabled = false;
+  }, 6000);
+});
 const console_text = document.getElementById("console-text");
 console_user.addEventListener("click", function () {
   console_text.style.display = "block";
@@ -572,36 +575,35 @@ export function play(
   }
 
   async function aut_line() {
-    let delay_al = delayelement.value ;
+    let delay_al = delayelement.value;
     let marcador_top = line_func_paramt[0];
 
     for (let i = 0; i < line_size; i++) {
       await delay(delay_al);
-      dow_line_func(marcador_top, line_func_paramt[1], line_func_paramt[2]);
+      alterarTop(marcador_top, line_func_paramt[1], line_func_paramt[2]);
 
       marcador_top += line_func_paramt[2];
     }
-   // return true;
+    // return true;
   }
 
   async function runner() {
     let end = false;
 
     while (true) {
-      
       await delay(2000);
       // Verifica se aut_line() retorna true
       let vr = await aut_line(); // aut_line() precisa retornar um booleano
 
-      if ( window.pause) {
+      if (window.pause) {
         // elemento responcavel por pausar a reproducao
-        break
+        highlight.style.top = highlight_top_erd;
+                break;
       }
       end = aut_page();
       if (vr) {
         // Se aut_line for true, atualiza engrenagem com posição de scroll atual
         // As variáveis scrollTop e tela precisam estar definidas anteriormente
-        
       }
 
       // Verifica se é hora de encerrar o loop
@@ -611,5 +613,15 @@ export function play(
     }
   }
   runner();
+}
 
+// ----------------------------------------------------------------------
+//-------------------------------------------------------------------------
+//          background color select model
+//---------------------------------------------------------------
+//--------------------------------------------------------------------------
+
+function select_backdround() {
+  // opcoes: auto, black, white
+  // auto: dia = white e noite = black
 }

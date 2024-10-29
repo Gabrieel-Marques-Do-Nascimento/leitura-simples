@@ -1,8 +1,7 @@
 .file_conteiner {
-    width: 100%;
+    width: 75%;
     margin: auto;
     margin-top: 0px;
-    max-width: 600px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -16,6 +15,7 @@
   
   #fileInput {
     display: none; /* Oculta o input de arquivo */
+   
   }
   
   #dropZone {
@@ -32,5 +32,18 @@
     background-color: #e0e0e0;
     border-color: #333;
   }
-  
+  @media (max-width: 768px) {
+    .file_conteiner {
+      width: 70%;
+      margin: 0 10%;
+      margin-top: 0px;
+
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+  }
   

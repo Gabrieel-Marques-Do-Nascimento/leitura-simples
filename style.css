@@ -181,6 +181,8 @@ body {
 
 body {
   cursor: url('./img/cursor.svg'), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */
+  width: 100vw;
+  height: 100vh;
 }
 #setab {
     position: fixed;
@@ -197,7 +199,7 @@ body {
     left: 90%;
     cursor: none; /* Esconde o cursor */
 }
-#setas:disabled {
+.buttons:disabled {
   background-color: #dc354676;
 }
 
@@ -278,7 +280,11 @@ body {
 
 @media (max-width: 768px) {
     body {
+      width: 100vw;
+      height: 100vh;
         padding: 0px;
+        overflow: hidden;
+    
     }
 
     header {
@@ -288,14 +294,15 @@ body {
 
     #ler {
       z-index: 4;
-        width: 100%; /* O input ocupa toda a largura no celular */
+        width: 80%; /* O input ocupa toda a largura no celular */
         font-size: 14px; /* Fonte menor em telas menores */
         padding: 10px;
     }
 
     #start {
       z-index: 4;
-        width: 100%; /* O botão ocupa toda a largura disponível */
+        width: 50%; /* O botão ocupa toda a largura disponível */
+        bottom: 10%;
         font-size: 14px;
         padding: 10px;
     }

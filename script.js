@@ -41,7 +41,7 @@ const highlight_estilo = window.getComputedStyle(highlight);
 // add o marcador ao elemento pai body
 document.body.appendChild(highlight);
 // armazeana a posicao top do elemento para usos futuros
-let highlight_top_erd = highlight_estilo.top;
+let highlight_top_erd = pai_styleTo.marginTop; //highlight_estilo.top;
 // --------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
@@ -80,6 +80,9 @@ function scrollarParagrafo(pixels) {
   highlight.style.top = highlight_top_erd;
   // com uma animação de 2 segundos
   highlight.style.transition = "top 2s ease";
+  setTimeout(() => {
+    highlight.style.transition = "top 0.2s ease";
+  }, 1000);
 }
 
 // define o comportamento de alguns elementos como
@@ -588,7 +591,7 @@ export function play(
     for (let i = 0; i < line_size; i++) {
       await delay(delay_al);
       alterarTop(marcador_top, line_func_paramt[1], line_func_paramt[2]);
-
+      
       marcador_top += line_func_paramt[2];
     }
     // return true;

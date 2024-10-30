@@ -35,6 +35,10 @@ export async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+export async function elment_position_top(elemet, elemen_top) {
+  elemet.style.top = elemen_top;
+}
+
 //  function play(
 //   line_heght,
 //   tela,

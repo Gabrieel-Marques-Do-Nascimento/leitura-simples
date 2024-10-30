@@ -504,7 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
       paragrafo,
       Number(window.scroll_height),
       alterarTop,
-      [Number(highlight_estilo.top.replace("px", "")) + line, 8, line],
+      [Number(highlight_top_erd.replace("px", "")) + line, 8, line],
       scrollarParagrafo,
       loger,
       2000

@@ -20,7 +20,7 @@ console.log("pai height", paiheight, "page height", height);
 
 const console_user = document.getElementById("console");
 const page = document.getElementById("page");
-// velocidade de scroll
+// linguagem da pagina
 const lang = document.getElementById("lang");
 // botonhes responcaveis por mover o marcador para cima ou para baixo
 let setaps = document.getElementById("setas");

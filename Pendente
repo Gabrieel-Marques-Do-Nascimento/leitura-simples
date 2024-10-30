@@ -3,3 +3,5 @@ start, reset: add display none, block na barra de rolagem e no marcador
 
 menu com os botoes segundarios
 style: circulo com miniaturas dos botoes apos click abre o menu
+
+legenda:    tela preta com uma unica linha com back ground branco, texto color black, que ocupa toda tela, paca cada linha semelhante a reproducao de legenda em um video so que sem o video, ou como a reproducao de texto no site atual

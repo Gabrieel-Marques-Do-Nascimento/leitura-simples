@@ -1,1 +1,19 @@
-start, reset: add display none, block na barra de rolagem e no marcador
+start, reset: add display none, block na barra de rolagem
+
+prever quantidade de linhas da procima pagina
+caso a ultima pagina tenha menos linhas que o normal
+calcular quntos linhas e menos o marcador deve voltar
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+O tamanho recomendado para um arquivo JavaScript de um site geralmente é de no máximo 300-500 KB para garantir um bom desempenho, especialmente em dispositivos móveis. Arquivos maiores que isso podem causar lentidão no carregamento da página e afetar a experiência do usuário.
+
+Aqui estão algumas dicas para manter o JavaScript dentro desse limite:
+
+Minificação: Utilize ferramentas como UglifyJS, Terser ou Closure Compiler para minificar o código, reduzindo espaços, comentários e variáveis desnecessárias.
+
+Divisão de Código (Code Splitting): Divida o JavaScript em vários arquivos menores, carregando apenas o necessário para cada página ou funcionalidade.
+
+Carregamento Assíncrono: Use async ou defer nas tags <script> para carregar os arquivos sem bloquear o carregamento da página.
+
+Remoção de Bibliotecas Inúteis: Evite bibliotecas pesadas, como jQuery, quando funções equivalentes podem ser implementadas com JavaScript nativo.

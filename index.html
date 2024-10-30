@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>leitura simples</title>
     <link
@@ -29,7 +29,7 @@
         left: 0%;
         height: 18px;
         width: 40px;
-  
+
         line-height: 150%;
         text-align: center;
         background: rgb(251, 248, 248);
@@ -38,19 +38,24 @@
         display: none;
         position: relative;
         background: white;
-        height:90%;
+        height: 90%;
         left: 10%;
         width: 80%;
       }
     </style>
     <div id="console">
-      <p id="console-text">
-          
-      </p>
+      <p id="console-text"></p>
     </div>
     <header>
-      <input type="text" name="ler" id="ler" aria-label="ler"/>
-      <button class="arrogante buttons" id="start" lang="pt-BR" title="iniciar o livro">start</button>
+      <input type="text" name="ler" id="ler" aria-label="ler" />
+      <button
+        class="arrogante buttons"
+        id="start"
+        lang="pt-BR"
+        title="iniciar o livro"
+      >
+        start
+      </button>
     </header>
 
     <div id="setings">
@@ -113,11 +118,19 @@
             <img src="img\book_page.png" alt="detalis" id="example_image" />
           </div>
         </div>
-
-        <label for="lang">lang:</label>
+        <label for="lang">Idioma:</label>
         <select id="lang" name="lang">
-          <option value="eng">eng</option>
-          <option value="pt">pt</option>
+          <option value="en">Inglês</option>
+          <option value="pt-BR">Português</option>
+          <option value="es">Espanhol</option>
+          <option value="fr">Francês</option>
+          <option value="de">Alemão</option>
+          <option value="it">Italiano</option>
+          <option value="zh-CN">Chinês (Simplificado)</option>
+          <option value="ja">Japonês</option>
+          <option value="ko">Coreano</option>
+          <option value="ar">Árabe</option>
+          <option value="ru">Russo</option>
         </select>
 
         <div class="exemple">
@@ -132,8 +145,8 @@
           </div>
         </div>
 
-        <label for="marcador">Choose an input device:</label>
-        <select id="marcador" name="marcador">
+        <label for="marcador">Choose an input type:</label>
+        <select translate="no" id="marcador" name="marcador">
           <option value="button">Button</option>
           <option value="mouse">Mouse</option>
         </select>
@@ -151,9 +164,14 @@
         </div>
 
         <label for="font-size">font-size:</label>
-        <input type="number" name="font-size" id="font-size" aria-label="text"/>
+        <input
+          type="number"
+          name="font-size"
+          id="font-size"
+          aria-label="text"
+        />
 
-  <div class="exemple">
+        <div class="exemple">
           <img
             src="img\00-47-21-570_512.webp"
             alt="lamp"
@@ -164,8 +182,8 @@
             <img src="img\book_page.png" alt="detalis" id="example_image" />
           </div>
         </div>
-        <label for="delay">delay:</label>
-        <input type="number" name="delay" id="delay" aria-label="text"/>
+        <label translate="no" for="delay">delay:</label>
+        <input type="number" name="delay" id="delay" aria-label="text" />
 
         <div class="exemple">
           <img
@@ -179,14 +197,36 @@
           </div>
         </div>
 
-        <label for="background-type">black:</label>
-        <input type="checkbox" value="black" id="background-type" aria-label="checkbox"/>
+        <!-- <label for="background-type">black:</label>
+        <input
+          type="checkbox"
+          value="black"
+          id="background-type"
+          aria-label="checkbox"
+        /> -->
+
+        <label translate="no" for="theme">theme</label>
+
+        <select translate="no" name="theme" id="theme">
+
+          <option value="auto">auto</option>
+          <option value="white">white</option>
+          <option value="black">black</option>
+        </select>
       </div>
     </div>
 
     <style></style>
 
-    <button class="arrogante buttons" id="reset" lang="pt-BR" title="desfazer o livro">reset</button>
+    <button
+      translate="no"
+      class="arrogante buttons"
+      id="reset"
+      lang="pt-BR"
+      title="desfazer o livro"
+    >
+      reset
+    </button>
 
     <button class="scrollbt buttons" id="setting" title="setting">
       <svg
@@ -201,7 +241,11 @@
         />
       </svg>
     </button>
-    <button class="arrogante scrollbt buttons" id="page" title="saltar a pagina de um livro">
+    <button
+      class="arrogante scrollbt buttons"
+      id="page"
+      title="saltar a pagina de um livro"
+    >
       <img
         src="img/book_page.png"
         alt="Ícone"
@@ -209,7 +253,11 @@
       />
     </button>
 
-    <button class="arrogante scrollbt buttons" id="setas" title="mover para sima">
+    <button
+      class="arrogante scrollbt buttons"
+      id="setas"
+      title="mover para sima"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="20px"
@@ -224,7 +272,11 @@
       </svg>
     </button>
 
-    <button class="arrogante scrollbt buttons" id="setab" title="mover para baixo">
+    <button
+      class="arrogante scrollbt buttons"
+      id="setab"
+      title="mover para baixo"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="20px"
@@ -239,14 +291,20 @@
       </svg>
     </button>
 
+    <button
+      class="arrogante scrollbt buttons"
+      id="play"
+      title="tudo no altomatico"
+    >
+      <img src="img\icons8-play-50.png" alt="play image" height="20px" />
 
-
-    <button class="arrogante scrollbt buttons" id="play" title="tudo no altomatico">
-      <img src="img\icons8-play-50.png" alt="play image" height="20px">
-      
       <!-- play and pase // vai ser um elemento estilizado em css com animation de girar quando ativo -->
     </button>
-    <button class="arrogante scrollbt buttons" id="pause" title="tudo no altomatico">
+    <button
+      class="arrogante scrollbt buttons"
+      id="pause"
+      title="tudo no altomatico"
+    >
       <svg
         width="20"
         height="20"
@@ -260,7 +318,6 @@
       <!-- play and pase // vai ser um elemento estilizado em css com animation de girar quando ativo -->
     </button>
 
-
     <div id="pai">
       <p id="paragraph">hello world</p>
     </div>
@@ -273,7 +330,13 @@
     </style>
     <div class="file_conteiner" id="fileConteiner">
       <h1>arraste e Selecione o Arquivo de texto</h1>
-      <input type="file" name="fileInput" id="fileInput" accept=".txt" aria-label="file"/>
+      <input
+        type="file"
+        name="fileInput"
+        id="fileInput"
+        accept=".txt"
+        aria-label="file"
+      />
       <div id="dropZone">
         arraste e solte o arquivo aqui ou clique para abrir o explorador
       </div>
@@ -281,11 +344,11 @@
 
     <script type="module" src="script.js"></script>
     <script type="module" src="module.js"></script>
+    <script type="module" src="files.js"></script>
     <!-- <script src="confg.js"></script> -->
     <!--
     <script src="setas.js"></script>
     <script src="scroll.js"></script>
     -->
-
   </body>
 </html>

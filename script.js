@@ -21,12 +21,7 @@ console.log("pai height", paiheight, "page height", height);
 const console_user = document.getElementById("console");
 const page = document.getElementById("page");
 // velocidade de scroll
-
-const scrollspeed = 1;
-// largura da janela
-const width = window.innerWidth;
-// altura da janela
-
+const lang = document.getElementById("lang");
 // botonhes responcaveis por mover o marcador para cima ou para baixo
 let setaps = document.getElementById("setas");
 let playbt = document.getElementById("play");
@@ -59,7 +54,10 @@ let close = document.getElementById("close");
 let marcador = document.getElementById("marcador");
 var paragrafo_style = window.getComputedStyle(texto);
 let font_size = document.getElementById("font-size");
-let background_type = document.getElementById("background-type");
+
+// elemento removido e substituido por 'theme'
+// let background_type = document.getElementById("background-type");
+const theme = document.getElementById("theme");
 
 // Obtenha o estilo computado do elemento
 var estilo = window.getComputedStyle(texto);
@@ -92,7 +90,7 @@ function style_sec(rstdis, pdis, stdis, inpdis, texto) {
   pai.style.display = pdis;
   startBTN.style.display = stdis;
   highlight.style.display = rstdis;
-  
+
   input.style.display = inpdis;
   paragrafo.innerHTML = texto;
   fileConteiner.style.display = inpdis;
@@ -396,14 +394,16 @@ close.addEventListener("click", () => {
   recarregarPagina();
 
   // Pegando o estado do checkbox (se está marcado ou não)
-  const backgroundType = document.getElementById("background-type").checked
-    ? "black"
-    : "white";
+  // const backgroundType = document.getElementById("background-type").checked
+  //   ? "black"
+  //   : "white";
   const confger = {
+    lang: lang.value,
     delay: Number(delayelement.value),
     marcador: marcador.value,
     "font-size": Number(font_size.value) > 12 ? font_size.value : "12",
-    background_type: backgroundType,
+    //background_type: backgroundType,
+    theme: theme.value,
   };
 
   saveText_json(confger, "comfger");
@@ -428,7 +428,8 @@ function activatedate() {
     delayelement.value = data["delay"];
     marcador.value = data["marcador"];
     font_size.value = data["font-size"];
-    background_type.checked = data["background_type"] == "black" ? true : false;
+    // background_type.checked = data["background_type"] == "black" ? true : false;
+    theme.value = data["theme"] ? data["theme"] : "auto";
 
     let font = Number(font_size.value);
     texto.style.fontSize = font_size.value + "px";
@@ -445,10 +446,12 @@ function saveText_json(data, name) {
 function loadText_json(name) {
   // Pega o texto do LocalStorage
   const padrao = {
+    lang: "en",
     delay: 2000,
     marcador: "button",
     "font-size": 18,
-    background_type: "white",
+    //background_type: "white",
+    theme: "auto",
   };
   const text = localStorage.getItem(name);
 
@@ -457,9 +460,12 @@ function loadText_json(name) {
 }
 data = loadText_json("comfger");
 console.log(data);
-
+document.documentElement.lang = lang.value;
 window.onload = function () {
   let data = loadText_json("comfger");
+
+  lang.value = data["lang"] ? data["lang"] : "en";
+
   scrollNumberline(false, true, data["font-size"]);
   activatedate();
   highlight_status();
@@ -508,9 +514,8 @@ pausebt.addEventListener("click", function () {
   pausebt.style.display = "none";
   playbt.disabled = true;
   setTimeout(function () {
-    
     playbt.disabled = false;
-  }, (tela[0]/ tela[1]) * (data["delay"] + 500));
+  }, (tela[0] / tela[1]) * (data["delay"] + 500));
 });
 const console_text = document.getElementById("console-text");
 console_user.addEventListener("click", function () {
@@ -600,7 +605,7 @@ export function play(
       if (window.pause) {
         // elemento responcavel por pausar a reproducao
         highlight.style.top = highlight_top_erd;
-                break;
+        break;
       }
       end = aut_page();
       if (vr) {
@@ -627,3 +632,55 @@ function select_backdround() {
   // opcoes: auto, black, white
   // auto: dia = white e noite = black
 }
+
+// ----------------------------------------------------------------------
+//-------------------------------------------------------------------------
+//         file load
+//---------------------------------------------------------------
+//--------------------------------------------------------------------------
+import { fileInput, dropZone } from "./files.js";
+
+function readFile(file) {
+  if (file && file.type === "text/plain") {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      // aqui o elemento mostrar recebe o texto do arquivo como texto dele mesmo
+      input.value = e.target.result;
+    };
+    reader.onerror = function () {
+      dropZone.style.color = "red";
+      dropZone.textContent = "Erro ao ler o arquivo.";
+    };
+    reader.readAsText(file, "UTF-8");
+  } else {
+    dropZone.style.color = "red";
+    dropZone.textContent =
+      "Por favor, escolha um arquivo de texto (.txt) válido.";
+  }
+}
+
+// Adiciona/remova classe 'hover' ao arrastar o arquivo sobre a zona de soltar
+["dragenter", "dragover"].forEach((eventType) => {
+  dropZone.addEventListener(eventType, () => dropZone.classList.add("hover"));
+});
+
+["dragleave", "drop"].forEach((eventType) => {
+  dropZone.addEventListener(eventType, () =>
+    dropZone.classList.remove("hover")
+  );
+});
+
+// Eventos para clicar e selecionar o arquivo
+dropZone.addEventListener("click", () => fileInput.click());
+fileInput.addEventListener("change", (e) => readFile(e.target.files[0], input));
+
+// Previne o comportamento padrão de arrastar e soltar
+["dragenter", "dragover", "dragleave", "drop"].forEach((eventType) => {
+  dropZone.addEventListener(eventType, (e) => e.preventDefault());
+});
+
+// Evento para ler o arquivo ao soltar
+dropZone.addEventListener("drop", (e) => {
+  const file = e.dataTransfer.files[0];
+  input.value = readFile(file);
+});

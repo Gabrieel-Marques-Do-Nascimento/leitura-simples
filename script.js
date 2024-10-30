@@ -1,24 +1,31 @@
-let delayelement = document.getElementById("delay");
+import { buttonstatic, loger, console_log } from "./utils.js";
+import { fileInput, dropZone } from "./files.js";
+
+
+export const paragrafo = document.getElementById("paragraph");
+export const height = window.innerHeight;
+export const $input = document.getElementById("ler");
+
+let $delayelement = document.getElementById("delay");
 let data = loadText_json("comfger");
-console.log("line 1 (script.js)", data ? data : "nao existe");
-const fileConteiner = document.getElementById("fileConteiner");
+console_log("line 1 (script.js): "+ data ? data : "nao existe");
+const $fileConteiner = document.getElementById("fileConteiner");
 
 // barra que recebe o texto que o usuario quer ler
-const input = document.getElementById("ler");
+
 // botonhes para mostrar e esconder o texto
 const startBTN = document.getElementById("start");
 const resetBTN = document.getElementById("reset");
 // elemento que mostra o texto
-const paragrafo = document.getElementById("paragraph");
+
 const pai = document.getElementById("pai");
 var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
 // botao responcavel por scroll's o equivalente a uma pagina
 
-const height = window.innerHeight;
-const paiheight = Number(pai_styleTo.height.replace("px", ""));
-console.log("pai height", paiheight, "page height", height);
 
-const console_user = document.getElementById("console");
+const paiheight = Number(pai_styleTo.height.replace("px", ""));
+console_log("pai height" + paiheight + "page height" + height);
+
 const page = document.getElementById("page");
 // linguagem da pagina
 const lang = document.getElementById("lang");
@@ -35,7 +42,7 @@ highlight.className = "highlight";
 // mostra os estilos utilizados no marcador
 highlight.style.width = pai_styleTo.width;
 highlight.style.width = pai_styleTo.width;
-console.log("pai", pai_styleTo.width);
+console_log("pai"+ pai_styleTo.width);
 
 const highlight_estilo = window.getComputedStyle(highlight);
 // add o marcador ao elemento pai body
@@ -67,7 +74,7 @@ var lineHeight = estilo.lineHeight;
 // ---------------------------------------------------------------------------------------
 
 // funcao responcavel por scrollar ate a distancia em pixels especificada
-function scrollarParagrafo(pixels) {
+function scrollarParagrafo(pixels, element) {
   // paragrafo.scrollTo({
   //   top: pixels - 55,
   //   behavior: "smooth",
@@ -94,40 +101,34 @@ function style_sec(rstdis, pdis, stdis, inpdis, texto) {
   startBTN.style.display = stdis;
   highlight.style.display = rstdis;
 
-  input.style.display = inpdis;
+  $input.style.display = inpdis;
   paragrafo.innerHTML = texto;
-  fileConteiner.style.display = inpdis;
+  $fileConteiner.style.display = inpdis;
 }
 
 // retorna uma lista de elementos
-let buttons = document.querySelectorAll(".scrollbt");
+let $buttons = document.querySelectorAll(".scrollbt");
 // funcso que define se os bottons devem aparecer ou ficar escondido
-function buttonstatic(estado) {
-  // loop
-  buttons.forEach((button) => {
-    button.style.display = estado;
-  });
-}
 
-// apos add o texto ao input penas com um enter ele mostra o texto
-input.addEventListener("keydown", function (event) {
+// apos add o texto ao $input penas com um enter ele mostra o texto
+$input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     // Aqui você pode colocar a ação que deseja realizar ao pressionar Enter
-    saveText(input.value, "savedText");
-    buttonstatic("block");
-    style_sec("block", "block", "none", "none", input.value);
+    saveText($input.value, "savedText");
+    buttonstatic($buttons, "block");
+    style_sec("block", "block", "none", "none", $input.value);
   }
 });
-// apos add o texto ao input penas com um click no 'start' ele mostra o texto
+// apos add o texto ao $input penas com um click no 'start' ele mostra o texto
 startBTN.addEventListener("click", () => {
-  saveText(input.value, "savedText");
-  style_sec("block", "block", "none", "none", input.value);
-  buttonstatic("block");
+  saveText($input.value, "savedText");
+  style_sec("block", "block", "none", "none", $input.value);
+  buttonstatic($buttons, "block");
 });
-// apos add o texto ao input penas com um 'reset' ele esconde  o texto
+// apos add o texto ao $input penas com um 'reset' ele esconde  o texto
 // para add um novo texto
 resetBTN.addEventListener("click", () => {
-  buttonstatic("none");
+  buttonstatic($buttons, "none");
   style_sec("none", "none", "block", "block", "");
   window.pause = true;
 });
@@ -142,7 +143,7 @@ page.addEventListener("click", () => {
   // pega a posição de pixels do scroll mais a altura da janela
   let heightp = Number(paragrafo_style.height.replace("px", ""));
   pixels = heightp + scrolltop;
-  console.log("pixels", pixels, "height", heightp);
+  console_log("pixels "+ pixels+ "height "+ heightp);
   // chama a funcao que altera a posição
   scrollarParagrafo(pixels);
   // desabilita o botão page por 1,5 segundos
@@ -152,7 +153,7 @@ page.addEventListener("click", () => {
   }, 1500);
 
   let teste = highlight_top_erd;
-  console.log("paragrafo_style", teste);
+  console_log("paragrafo_style "+ teste);
   // se o marcador usado for pelos botoes seta
   if (marcador.value == "button") {
     // retorna o marcador para a posição inicial
@@ -173,7 +174,7 @@ function loadText(name) {
   const savedText = localStorage.getItem(name);
   if (savedText) {
     style_sec("block", "block", "none", "none", savedText);
-    input.value = savedText;
+    $input.value = savedText;
     return savedText;
   }
 }
@@ -188,11 +189,11 @@ let highlight_top = Number(highlight_estilo.top.replace("px", ""));
 let highlight_height = Number(highlight_estilo.height);
 function alterarTop(novoTop, error = 0, line = 0) {
   let styleheight = Number(paragrafo_style.height.replace("px", ""));
-  console.log("-------------------------------------------------");
-  console.log("alterarTop function: ", novoTop, styleheight);
-  console.log("erro:", error);
-  console.log("line:", line);
-  console.log("-------------------------------------------------");
+  console_log("-------------------------------------------------");
+  console_log("alterarTop function: "+ novoTop + '' + styleheight);
+  console_log("erro:"+ error);
+  console_log("line:"+ line);
+  console_log("-------------------------------------------------");
   let end_line = tela[1];
   highlight.style.transition = "top 0.1s ease";
   if (novoTop < highlight_top) {
@@ -208,23 +209,6 @@ function alterarTop(novoTop, error = 0, line = 0) {
 function recarregarPagina() {
   location.reload();
 }
-
-function scrollarline(pixel) {
-  highlight.scrollTo({
-    top: pixel,
-    behavior: "smooth",
-  });
-}
-
-// function move_marcador(line) {
-//   // Pegue o valor do line-height
-//   var linha = line
-//     ? Number(paragrafo_style.lineHeight.replace("px", ""))
-//     : -Number(paragrafo_style.lineHeight.replace("px", ""));
-
-//   alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha, 8, linha);
-//   highlight.style.transition = "top 0.1s ease";
-// }
 
 let cont = 1;
 function highlight_status() {
@@ -246,11 +230,11 @@ function highlight_status() {
       alterarTop(y, 8, line);
     });
 
-    console.log(marcador.value);
+    console_log("marcador.value: " + marcador.value);
   }
   // se o marcador for igual a button
   if (marcador.value == "button") {
-    console.log(marcador.value);
+    console_log(marcador.value);
     // contador menor que 1
     if (cont < 1) {
       // cont = 1
@@ -262,63 +246,18 @@ function highlight_status() {
 }
 
 setapb.addEventListener("click", () => {
-  console.log("seta para baixo");
+  console_log("seta para baixo");
   //move_marcador(true)
   scrollNumberline(true, true, data["font-size"], setapb);
 });
 
 setaps.addEventListener("click", () => {
-  console.log("seta para baixo");
+  console_log("seta para baixo");
   //move_marcador(false);
   scrollNumberline(true, false, data["font-size"], setaps);
 });
 
 // ----------------------------------------------------------------------------------------------------------------------
-// barra de scroll
-let scroll_top = document.createElement("div");
-let is_scroll = document.getElementsByClassName("scroll");
-
-// Selecionar o elemento (por exemplo, pela classe)
-var elemento = document.getElementById("paragraph");
-// Obter o tamanho da janela (viewport)
-var larguraJanela = window.innerWidth;
-var alturaJanela = window.innerHeight;
-
-let style = document.createElement("style");
-style.type = "text/css";
-style.innerText = `
-        .scroll_top {
-            background-color: green;
-            position: fixed;
-            width: 0%;
-            height: 10px;
-            bottom: 0px;
-            left: 0;
-            z-index: -1;
-        }
-    @media (max-width: 768px) {
-        .scroll_top {
-            top: 0px;
-            left: 0;
-        }
-        }
-`;
-document.body.appendChild(style);
-
-scroll_top.classList.add("scroll_top");
-document.body.appendChild(scroll_top);
-
-paragrafo.addEventListener("scroll", () => {
-  let vertical =
-    (paragrafo.scrollTop / (paragrafo.scrollHeight - paragrafo.clientHeight)) *
-    100;
-  let horizontal = (vertical / 100) * window.innerWidth;
-  scroll_top.style.width = horizontal + 1 + "px";
-});
-
-// Comparar os tamanhos
-console.log("Largura da janela: " + larguraJanela + "px");
-console.log("Altura da janela: " + alturaJanela + "px");
 
 //----------------------------------------------------------------------------------------------------------------------
 // funcao para substituir a função de saltar pagina
@@ -334,12 +273,12 @@ function scrollNumberline(
   // Calcula a altura da linha
   const lineHeightInPixels = parseFloat(computedStyle.height) / line;
 
-  console.log("--------------------------------");
-  console.log(`quantidade de linha: ${lineHeightInPixels} lines`);
-  console.log(`font_size: ${font_size}px`);
-  console.log(`computedStyle.height: ${computedStyle.height}px`);
-  console.log("line", line);
-  console.log("----------------------------------");
+  console_log("--------------------------------");
+  console_log(`quantidade de linha: ${lineHeightInPixels} lines`);
+  console_log(`font_size: ${font_size}px`);
+  console_log(`computedStyle.height: ${computedStyle.height}px`);
+  console_log("line "+ line);
+  console_log("----------------------------------");
 
   if (active) {
     var linha = type ? Number(line) : -Number(line);
@@ -370,8 +309,8 @@ let padding = Number(
   paragrafo_style.padding.substring(0, paragrafo_style.padding.indexOf("px"))
 );
 
-//console.log('paragrafo_style: ',border)
-//console.log('paragrafo_style: ',border)
+//console_log('paragrafo_style: ',border)
+//console_log('paragrafo_style: ',border)
 // função que determina o tamanho da tela com base nos parâmetros
 // parâmetros nomeados
 const tela = paragraph_height(
@@ -385,12 +324,12 @@ paragrafo.style.height = tela[0] + "px";
 //----------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------
 
-console.log("linha", lineHeight);
+console_log("linha "+ lineHeight);
 
 close.addEventListener("click", () => {
   highlight_status();
   let fonts = Number(font_size.value) > 12 ? font_size.value : 12;
-  console.log(fonts);
+  console_log(fonts);
   texto.style.fontSize = fonts + "px";
 
   highlight.style.height = lineHeight + "px";
@@ -402,7 +341,7 @@ close.addEventListener("click", () => {
   //   : "white";
   const confger = {
     lang: lang.value,
-    delay: Number(delayelement.value),
+    delay: Number($delayelement.value),
     marcador: marcador.value,
     "font-size": Number(font_size.value) > 12 ? font_size.value : "12",
     //background_type: backgroundType,
@@ -410,13 +349,13 @@ close.addEventListener("click", () => {
   };
 
   saveText_json(confger, "comfger");
-  //console.log("none");
+  //console_log("none");
   setingbtn.style.display = "block";
   setings.style.display = "none";
 });
 
 setingbtn.addEventListener("click", () => {
-  //console.log("fixed");
+  //console_log("fixed");
   setingbtn.style.display = "none";
   setings.style.display = "block";
 });
@@ -428,7 +367,7 @@ function activatedate() {
   // Atribuir os valores carregados
 
   if (data) {
-    delayelement.value = data["delay"];
+    $delayelement.value = data["delay"];
     marcador.value = data["marcador"];
     font_size.value = data["font-size"];
     // background_type.checked = data["background_type"] == "black" ? true : false;
@@ -462,7 +401,7 @@ function loadText_json(name) {
   return text ? JSON.parse(text) : padrao;
 }
 data = loadText_json("comfger");
-console.log(data);
+console_log(data);
 document.documentElement.lang = lang.value;
 window.onload = function () {
   let data = loadText_json("comfger");
@@ -472,14 +411,14 @@ window.onload = function () {
   scrollNumberline(false, true, data["font-size"]);
   activatedate();
   highlight_status();
-  delayelement.value = data["delay"] ? data["delay"] : 2000;
+  $delayelement.value = data["delay"] ? data["delay"] : 2000;
   let line = true;
 
   // Pegue o valor do line-height
   var linha = line
     ? Number(estilo.lineHeight.replace("px", ""))
     : -Number(paragrafo_style.lineHeight.replace("px", ""));
-  console.log("linha", linha, data["font-size"]);
+  console_log("linha "+ linha+ '' + data["font-size"]);
   let fh = Number(data["font-size"]);
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
 };
@@ -487,11 +426,11 @@ window.onload = function () {
 document.addEventListener("DOMContentLoaded", function () {
   // autura da rolagem do paragrafo
   window.scroll_height = paragrafo.scrollHeight;
-  console.log("scroll_height:  ", window.scroll_height);
+  console_log("scroll_height:  "+ window.scroll_height);
 
   let line = _lineheight_(data["font-size"]);
-  console.log("line 478");
-  console.log("line 478", tela[0]);
+  console_log("line 478");
+  console_log("line 478:  "+ tela[0]);
 
   window.pause = false;
   playbt.addEventListener("click", function () {
@@ -520,28 +459,10 @@ pausebt.addEventListener("click", function () {
     playbt.disabled = false;
   }, (tela[0] / tela[1]) * (data["delay"] + 500));
 });
-const console_text = document.getElementById("console-text");
-console_user.addEventListener("click", function () {
-  console_text.style.display = "block";
-  console_user.style = `top: 100px;
-                        left: 10%;
-                        height:50%;
-                        width: 80%;`;
-});
-console_user.addEventListener("dblclick", function () {
-  console_user.style = `        top: 0px;           
-                                height: 18px;
-                                width: 40px;`;
-  console_text.style.display = "none";
-});
-
-function loger(text) {
-  console_text.innerHTML += text + "</br>";
-}
 
 // player function
 // ----------------------------------
-export function play(
+function play(
   line_heght,
 
   elementhtml,
@@ -563,35 +484,35 @@ export function play(
 
     // Altura total do documento
     const scrollHeight = paragrafo.scrollHeight;
-    console.log("scrollHeight", scrollHeight);
+    console_log("scrollHeight "+ scrollHeight);
     // Altura da janela visível
     const clientHeight = paragrafo.clientHeight;
-    console.log("clientHeight", clientHeight);
+    console_log("clientHeight "+ clientHeight);
     // Distância rolada pelo usuário
     let scrollTop = paragrafo.scrollTop;
     let scrollbotton = scrollTop + clientHeight;
-    console.log("scrollbotton", scrollbotton);
-    console.log("scrollTop", scrollTop);
+    console_log("scrollbotton "+ scrollbotton);
+    console_log("scrollTop "+ scrollTop);
     // Verifica se a rolagem chegou ao final
     if (scrollbotton + 1 >= scrollHeight) {
-      console.log("Chegou ao final da página!");
+      console_log("Chegou ao final da página!");
 
       the_end = true;
     }
 
     scrollarParagrafo(tela[0] + scrollTop);
-    console.log("the_end", the_end);
+    console_log("the_end "+ the_end);
     return the_end;
   }
 
   async function aut_line() {
-    let delay_al = delayelement.value;
+    let delay_al = $delayelement.value;
     let marcador_top = line_func_paramt[0];
 
     for (let i = 0; i < line_size; i++) {
       await delay(delay_al);
       alterarTop(marcador_top, line_func_paramt[1], line_func_paramt[2]);
-      
+
       marcador_top += line_func_paramt[2];
     }
     // return true;
@@ -641,52 +562,7 @@ function select_backdround() {
 //         file load
 //---------------------------------------------------------------
 //--------------------------------------------------------------------------
-import { fileInput, dropZone } from "./files.js";
 
-function readFile(file) {
-  if (file && file.type === "text/plain") {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      // aqui o elemento mostrar recebe o texto do arquivo como texto dele mesmo
-      input.value = e.target.result;
-    };
-    reader.onerror = function () {
-      dropZone.style.color = "red";
-      dropZone.textContent = "Erro ao ler o arquivo.";
-    };
-    reader.readAsText(file, "UTF-8");
-  } else {
-    dropZone.style.color = "red";
-    dropZone.textContent =
-      "Por favor, escolha um arquivo de texto (.txt) válido.";
-  }
-}
-
-// Adiciona/remova classe 'hover' ao arrastar o arquivo sobre a zona de soltar
-["dragenter", "dragover"].forEach((eventType) => {
-  dropZone.addEventListener(eventType, () => dropZone.classList.add("hover"));
-});
-
-["dragleave", "drop"].forEach((eventType) => {
-  dropZone.addEventListener(eventType, () =>
-    dropZone.classList.remove("hover")
-  );
-});
-
-// Eventos para clicar e selecionar o arquivo
-dropZone.addEventListener("click", () => fileInput.click());
-fileInput.addEventListener("change", (e) => readFile(e.target.files[0], input));
-
-// Previne o comportamento padrão de arrastar e soltar
-["dragenter", "dragover", "dragleave", "drop"].forEach((eventType) => {
-  dropZone.addEventListener(eventType, (e) => e.preventDefault());
-});
-
-// Evento para ler o arquivo ao soltar
-dropZone.addEventListener("drop", (e) => {
-  const file = e.dataTransfer.files[0];
-  input.value = readFile(file);
-});
 
 
 // ----------------------------------------------------------------------------------------------------------------------

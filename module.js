@@ -1,3 +1,6 @@
+import { console_log } from "./utils.js";
+
+
 export function paragraph_height(
   { log = false, font_Size = null, height = null },
   ...args
@@ -5,7 +8,7 @@ export function paragraph_height(
   let tot = 0;
   for (let i = 0; i < args.length; i++) {
     if (log) {
-      console.log(`argumento: ${i + 1}:`, args[i]);
+      console_log(`argumento: ${i + 1}: ${args[i]}`);
     }
 
     tot = tot + args[i];
@@ -22,7 +25,7 @@ export function paragraph_height(
   let tela = parseInt(tela_heith / lineHeight) * lineHeight;
 
   if (log) {
-    console.log("tela disponivel:", [tela, lineHeight]);
+    console_log( `tela disponivel: ${[tela, lineHeight]}`);
   }
   return [tela, lineHeight];
 }

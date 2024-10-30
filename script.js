@@ -684,3 +684,7 @@ dropZone.addEventListener("drop", (e) => {
   const file = e.dataTransfer.files[0];
   input.value = readFile(file);
 });
+
+
+// ----------------------------------------------------------------------------------------------------------------------
+// ctrl + tecla : reload page

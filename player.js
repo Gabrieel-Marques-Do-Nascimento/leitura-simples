@@ -71,7 +71,7 @@ async function aut_page() {
       the_end = true;
     }
 
-    scrollarParagrafo(tela[0] + scrollTop);
+    scrollarParagrafo(tela[0] + scrollTop, false);
     console_log("the_end " + the_end);
     return the_end;
   }
@@ -84,7 +84,7 @@ async function aut_page() {
 
     for (let i = 0; i < line_size; i++) {
       await delay(delay_al);
-      alterarTop(marcador_top, line_func_paramt[1], line_func_paramt[2]);
+      alterarTop(marcador_top, line_func_paramt[1], line_func_paramt[2], false);
 
       marcador_top += line_func_paramt[2];
     }

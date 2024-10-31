@@ -1,0 +1,44 @@
+{
+		"Função JSDoc": {
+		  "prefix": "jsdocfunc",
+		  "body": [
+			"/**",
+			" * ${1:[Descrição breve do que a função faz.]}",
+			" *",
+			" * @param {${2:type}} ${3:param1} - ${4:[Descrição do primeiro parâmetro.]}",
+			" * @param {${5:type}} ${6:param2} - ${7:[Descrição do segundo parâmetro.]}",
+			" * @param {${8:type}} [${9:paramOpcional}] - ${10:[Descrição do parâmetro opcional, se houver.]}",
+			" * @returns {${11:type}} ${12:[Descrição do valor retornado.]}",
+			" * @throws {Error} ${13:[Descrição do erro lançado, se houver.]}",
+			" * @example",
+			" * // Exemplo de uso:",
+			" * const resultado = ${14:nomeDaFuncao}(${15:valor1}, ${16:valor2});",
+			" * console.log(resultado); // Esperado: ${17:[descreva a saída esperada]}",
+			" */",
+			"function ${14:nomeDaFuncao}(${3:param1}, ${6:param2}, ${9:paramOpcional}) {",
+			"  $0 // Código da função aqui",
+			"}"
+		  ],
+		  "description": "Modelo de documentação JSDoc para funções em JavaScript"
+		},
+        
+            "Função JSDoc Simplificada": {
+              "prefix": "jsdocsimple",
+              "body": [
+                "/**",
+                " * ${1:[Descrição da função]}",
+                " *",
+                " * @param {${2:type}} ${3:param1} - ${4:[Descrição do primeiro parâmetro]}",
+                " * @param {${5:type}} ${6:param2} - ${7:[Descrição do segundo parâmetro]}",
+                " * @returns {${8:type}} ${9:[Descrição do retorno]}",
+                " */",
+                "function ${10:nomeDaFuncao}(${3:param1}, ${6:param2}) {",
+                "  $0 // Código da função aqui",
+                "}"
+              ],
+              "description": "Snippet básico de JSDoc para funções"
+            }
+          
+          
+	  
+}

@@ -12,6 +12,10 @@ export function scrollarline(pixel) {
   });
 }
 
+export function recarregarPagina() {
+  location.reload();
+}
+
 export function move_marcador(line) {
   // Pegue o valor do line-height
   var linha = line

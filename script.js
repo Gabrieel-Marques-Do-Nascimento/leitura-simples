@@ -1,4 +1,4 @@
-import { buttonstatic, loger, console_log } from "./utils.js";
+import { buttonstatic, loger, console_log, recarregarPagina } from "./utils.js";
 import { fileInput, dropZone } from "./files.js";
 
 export const paragrafo = document.getElementById("paragraph");
@@ -40,7 +40,6 @@ const startBTN = document.getElementById("start");
 const resetBTN = document.getElementById("reset");
 // elemento que mostra o texto
 
-
 // botao responcavel por scroll's o equivalente a uma pagina
 
 const paiheight = Number(pai_styleTo.height.replace("px", ""));
@@ -50,7 +49,6 @@ const page = document.getElementById("page");
 // linguagem da pagina
 const lang = document.getElementById("lang");
 // botonhes responcaveis por mover o marcador para cima ou para baixo
-
 
 // --------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------
@@ -77,7 +75,7 @@ var lineHeight = estilo.lineHeight;
 // ---------------------------------------------------------------------------------------
 
 // funcao responcavel por scrollar ate a distancia em pixels especificada
-export function scrollarParagrafo(pixels, element) {
+export function scrollarParagrafo(pixels, so = true) {
   // paragrafo.scrollTo({
   //   top: pixels - 55,
   //   behavior: "smooth",
@@ -87,12 +85,14 @@ export function scrollarParagrafo(pixels, element) {
     top: pixels,
     behavior: "smooth",
   });
-  highlight.style.top = highlight_top_erd;
-  // com uma animação de 2 segundos
-  highlight.style.transition = "top 2s ease";
-  setTimeout(() => {
-    highlight.style.transition = "top 0.2s ease";
-  }, 1000);
+  if (so) {
+    highlight.style.top = highlight_top_erd;
+    // com uma animação de 2 segundos
+    highlight.style.transition = "top 2s ease";
+    setTimeout(() => {
+      highlight.style.transition = "top 0.2s ease";
+    }, 1000);
+  }
 }
 
 // define o comportamento de alguns elementos como
@@ -190,15 +190,18 @@ window.onload = loadText("savedText");
 // Função para alterar o valor de 'top'
 let highlight_top = Number(highlight_estilo.top.replace("px", ""));
 let highlight_height = Number(highlight_estilo.height);
-export function alterarTop(novoTop, error = 0, line = 0) {
+
+export function alterarTop(novoTop, error = 0, line = 0, on = true) {
   let styleheight = Number(paragrafo_style.height.replace("px", ""));
   console_log("-------------------------------------------------");
-  console_log("alterarTop function: " + novoTop + "" + styleheight);
-  console_log("erro:" + error);
-  console_log("line:" + line);
-  console_log("-------------------------------------------------");
+  console_log("alterarTop function: " + novoTop + "" + styleheight, true);
+  console_log("erro:" + error, true);
+  console_log("line:" + line, true);
+  console_log("-------------------------------------------------", true);
   let end_line = tela[1];
-  highlight.style.transition = "top 0.1s ease";
+  if (on) {
+    highlight.style.transition = "top 0.1s ease";
+  }
   if (novoTop < highlight_top) {
     novoTop = highlight_top;
   }
@@ -209,9 +212,7 @@ export function alterarTop(novoTop, error = 0, line = 0) {
   highlight.style.top = novoTop + "px";
 }
 
-function recarregarPagina() {
-  location.reload();
-}
+
 
 let cont = 1;
 function highlight_status() {

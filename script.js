@@ -1,14 +1,36 @@
 import { buttonstatic, loger, console_log } from "./utils.js";
 import { fileInput, dropZone } from "./files.js";
 
-
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
 export const $input = document.getElementById("ler");
+export let _scroll_height = paragrafo.scrollHeight;
+export let setaps = document.getElementById("setas");
+export let playbt = document.getElementById("play");
+export let pausebt = document.getElementById("pause");
+export let setapb = document.getElementById("setab");
+// Criar o elemento de destaque o marcador de texto
+export const highlight = document.createElement("div");
+export let data = loadText_json("comfger");
+// add uma classe com os estilos para o marcador
+highlight.className = "highlight";
+const pai = document.getElementById("pai");
+var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
+// mostra os estilos utilizados no marcador
+highlight.style.width = pai_styleTo.width;
+highlight.style.width = pai_styleTo.width;
+// armazeana a posicao top do elemento para usos futuros
+export let highlight_top_erd = pai_styleTo.marginTop; //highlight_estilo.top;
 
-let $delayelement = document.getElementById("delay");
-let data = loadText_json("comfger");
-console_log("line 1 (script.js): "+ data ? data : "nao existe");
+console_log("pai" + pai_styleTo.width);
+
+// add o marcador ao elemento pai body
+document.body.appendChild(highlight);
+export const highlight_estilo = window.getComputedStyle(highlight);
+
+export let $delayelement = document.getElementById("delay");
+
+console_log("line 1 (script.js): " + data ? data : "nao existe");
 const $fileConteiner = document.getElementById("fileConteiner");
 
 // barra que recebe o texto que o usuario quer ler
@@ -18,10 +40,8 @@ const startBTN = document.getElementById("start");
 const resetBTN = document.getElementById("reset");
 // elemento que mostra o texto
 
-const pai = document.getElementById("pai");
-var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
-// botao responcavel por scroll's o equivalente a uma pagina
 
+// botao responcavel por scroll's o equivalente a uma pagina
 
 const paiheight = Number(pai_styleTo.height.replace("px", ""));
 console_log("pai height" + paiheight + "page height" + height);
@@ -30,25 +50,8 @@ const page = document.getElementById("page");
 // linguagem da pagina
 const lang = document.getElementById("lang");
 // botonhes responcaveis por mover o marcador para cima ou para baixo
-let setaps = document.getElementById("setas");
-let playbt = document.getElementById("play");
-let pausebt = document.getElementById("pause");
-let setapb = document.getElementById("setab");
 
-// Criar o elemento de destaque o marcador de texto
-const highlight = document.createElement("div");
-// add uma classe com os estilos para o marcador
-highlight.className = "highlight";
-// mostra os estilos utilizados no marcador
-highlight.style.width = pai_styleTo.width;
-highlight.style.width = pai_styleTo.width;
-console_log("pai"+ pai_styleTo.width);
 
-const highlight_estilo = window.getComputedStyle(highlight);
-// add o marcador ao elemento pai body
-document.body.appendChild(highlight);
-// armazeana a posicao top do elemento para usos futuros
-let highlight_top_erd = pai_styleTo.marginTop; //highlight_estilo.top;
 // --------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
@@ -74,7 +77,7 @@ var lineHeight = estilo.lineHeight;
 // ---------------------------------------------------------------------------------------
 
 // funcao responcavel por scrollar ate a distancia em pixels especificada
-function scrollarParagrafo(pixels, element) {
+export function scrollarParagrafo(pixels, element) {
   // paragrafo.scrollTo({
   //   top: pixels - 55,
   //   behavior: "smooth",
@@ -143,7 +146,7 @@ page.addEventListener("click", () => {
   // pega a posição de pixels do scroll mais a altura da janela
   let heightp = Number(paragrafo_style.height.replace("px", ""));
   pixels = heightp + scrolltop;
-  console_log("pixels "+ pixels+ "height "+ heightp);
+  console_log("pixels " + pixels + "height " + heightp);
   // chama a funcao que altera a posição
   scrollarParagrafo(pixels);
   // desabilita o botão page por 1,5 segundos
@@ -153,7 +156,7 @@ page.addEventListener("click", () => {
   }, 1500);
 
   let teste = highlight_top_erd;
-  console_log("paragrafo_style "+ teste);
+  console_log("paragrafo_style " + teste);
   // se o marcador usado for pelos botoes seta
   if (marcador.value == "button") {
     // retorna o marcador para a posição inicial
@@ -187,12 +190,12 @@ window.onload = loadText("savedText");
 // Função para alterar o valor de 'top'
 let highlight_top = Number(highlight_estilo.top.replace("px", ""));
 let highlight_height = Number(highlight_estilo.height);
-function alterarTop(novoTop, error = 0, line = 0) {
+export function alterarTop(novoTop, error = 0, line = 0) {
   let styleheight = Number(paragrafo_style.height.replace("px", ""));
   console_log("-------------------------------------------------");
-  console_log("alterarTop function: "+ novoTop + '' + styleheight);
-  console_log("erro:"+ error);
-  console_log("line:"+ line);
+  console_log("alterarTop function: " + novoTop + "" + styleheight);
+  console_log("erro:" + error);
+  console_log("line:" + line);
   console_log("-------------------------------------------------");
   let end_line = tela[1];
   highlight.style.transition = "top 0.1s ease";
@@ -277,7 +280,7 @@ function scrollNumberline(
   console_log(`quantidade de linha: ${lineHeightInPixels} lines`);
   console_log(`font_size: ${font_size}px`);
   console_log(`computedStyle.height: ${computedStyle.height}px`);
-  console_log("line "+ line);
+  console_log("line " + line);
   console_log("----------------------------------");
 
   if (active) {
@@ -313,7 +316,7 @@ let padding = Number(
 //console_log('paragrafo_style: ',border)
 // função que determina o tamanho da tela com base nos parâmetros
 // parâmetros nomeados
-const tela = paragraph_height(
+export const tela = paragraph_height(
   { log: true, font_Size: data["font-size"], height: paiheight - 4 },
   margin,
   border,
@@ -324,7 +327,7 @@ paragrafo.style.height = tela[0] + "px";
 //----------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------
 
-console_log("linha "+ lineHeight);
+console_log("linha " + lineHeight);
 
 close.addEventListener("click", () => {
   highlight_status();
@@ -418,133 +421,21 @@ window.onload = function () {
   var linha = line
     ? Number(estilo.lineHeight.replace("px", ""))
     : -Number(paragrafo_style.lineHeight.replace("px", ""));
-  console_log("linha "+ linha+ '' + data["font-size"]);
+  console_log("linha " + linha + "" + data["font-size"]);
   let fh = Number(data["font-size"]);
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
 };
 
 document.addEventListener("DOMContentLoaded", function () {
   // autura da rolagem do paragrafo
-  window.scroll_height = paragrafo.scrollHeight;
-  console_log("scroll_height:  "+ window.scroll_height);
+  window._scroll_height = paragrafo.scrollHeight;
+  _scroll_height = paragrafo.scrollHeight;
+  console_log("scroll_height:  " + window.scroll_height);
 
   let line = _lineheight_(data["font-size"]);
   console_log("line 478");
-  console_log("line 478:  "+ tela[0]);
-
-  window.pause = false;
-  playbt.addEventListener("click", function () {
-    window.pause = false;
-    playbt.style.display = "none";
-    pausebt.style.display = "block";
-    play(
-      line,
-
-      paragrafo,
-      Number(window.scroll_height),
-      alterarTop,
-      [Number(highlight_estilo.top.replace("px", "")) + line, 8, line],
-      scrollarParagrafo,
-      loger,
-      2000
-    );
-  });
+  console_log("line 478:  " + tela[0]);
 });
-pausebt.addEventListener("click", function () {
-  window.pause = true;
-  playbt.style.display = "block";
-  pausebt.style.display = "none";
-  playbt.disabled = true;
-  setTimeout(function () {
-    playbt.disabled = false;
-  }, (tela[0] / tela[1]) * (data["delay"] + 500));
-});
-
-// player function
-// ----------------------------------
-function play(
-  line_heght,
-
-  elementhtml,
-  scroll_heigh,
-  dow_line_func,
-  line_func_paramt,
-  page_func,
-  loger,
-  ndelay
-) {
-  // autura da rolagem do paragrafo
-
-  const line_size = parseInt(tela[0] / line_heght);
-
-  loger("line_size: " + line_size);
-
-  function aut_page() {
-    let the_end = false;
-
-    // Altura total do documento
-    const scrollHeight = paragrafo.scrollHeight;
-    console_log("scrollHeight "+ scrollHeight);
-    // Altura da janela visível
-    const clientHeight = paragrafo.clientHeight;
-    console_log("clientHeight "+ clientHeight);
-    // Distância rolada pelo usuário
-    let scrollTop = paragrafo.scrollTop;
-    let scrollbotton = scrollTop + clientHeight;
-    console_log("scrollbotton "+ scrollbotton);
-    console_log("scrollTop "+ scrollTop);
-    // Verifica se a rolagem chegou ao final
-    if (scrollbotton + 1 >= scrollHeight) {
-      console_log("Chegou ao final da página!");
-
-      the_end = true;
-    }
-
-    scrollarParagrafo(tela[0] + scrollTop);
-    console_log("the_end "+ the_end);
-    return the_end;
-  }
-
-  async function aut_line() {
-    let delay_al = $delayelement.value;
-    let marcador_top = line_func_paramt[0];
-
-    for (let i = 0; i < line_size; i++) {
-      await delay(delay_al);
-      alterarTop(marcador_top, line_func_paramt[1], line_func_paramt[2]);
-
-      marcador_top += line_func_paramt[2];
-    }
-    // return true;
-  }
-
-  async function runner() {
-    let end = false;
-
-    while (true) {
-      await delay(2000);
-      // Verifica se aut_line() retorna true
-      let vr = await aut_line(); // aut_line() precisa retornar um booleano
-
-      if (window.pause) {
-        // elemento responcavel por pausar a reproducao
-        highlight.style.top = highlight_top_erd;
-        break;
-      }
-      end = aut_page();
-      if (vr) {
-        // Se aut_line for true, atualiza engrenagem com posição de scroll atual
-        // As variáveis scrollTop e tela precisam estar definidas anteriormente
-      }
-
-      // Verifica se é hora de encerrar o loop
-      if (end) {
-        break; // Interrompe o loop
-      }
-    }
-  }
-  runner();
-}
 
 // ----------------------------------------------------------------------
 //-------------------------------------------------------------------------
@@ -562,8 +453,6 @@ function select_backdround() {
 //         file load
 //---------------------------------------------------------------
 //--------------------------------------------------------------------------
-
-
 
 // ----------------------------------------------------------------------------------------------------------------------
 // ctrl + tecla : reload page

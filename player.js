@@ -48,24 +48,9 @@ pausebt.addEventListener("click", function () {
 
 // player function
 // ----------------------------------
-function play(
-  line_heght,
 
-  elementhtml,
-  scroll_heigh,
-  dow_line_func,
-  line_func_paramt,
-  page_func,
-  loger,
-  ndelay
-) {
-  // autura da rolagem do paragrafo
 
-  const line_size = parseInt(tela[0] / line_heght);
-
-  loger("line_size: " + line_size);
-
-  function aut_page() {
+async function aut_page() {
     let the_end = false;
 
     // Altura total do documento
@@ -91,7 +76,9 @@ function play(
     return the_end;
   }
 
-  async function aut_line() {
+
+
+  async function aut_line(line_func_paramt, line_size) {
     let delay_al = $delayelement.value;
     let marcador_top = line_func_paramt[0];
 
@@ -104,30 +91,53 @@ function play(
     // return true;
   }
 
+
+async function play(
+  line_heght,
+
+  elementhtml,
+  scroll_heigh,
+  dow_line_func,
+  line_func_paramt,
+  page_func,
+  loger,
+  ndelay
+) {
+  // autura da rolagem do paragrafo
+
+  const line_size = parseInt(tela[0] / line_heght);
+
+  loger("line_size: " + line_size);
+
+
+
+
+
   async function runner() {
     let end = false;
 
     while (true) {
       await delay(2000);
       // Verifica se aut_line() retorna true
-      let vr = await aut_line(); // aut_line() precisa retornar um booleano
+      await aut_line(line_func_paramt, line_size); // aut_line() precisa retornar um booleano
 
       if (window.pause) {
-        // elemento responcavel por pausar a reproducao
+        // if responcavel por pausar o loop
         highlight.style.top = highlight_top_erd;
         break;
       }
-      end = aut_page();
-      if (vr) {
-        // Se aut_line for true, atualiza engrenagem com posição de scroll atual
-        // As variáveis scrollTop e tela precisam estar definidas anteriormente
-      }
+      // retorna true se for o fim da pagina
+      end = await aut_page();
+
 
       // Verifica se é hora de encerrar o loop
       if (end) {
+        // retorna o botão ao estado original
+        pausebt.click()
         break; // Interrompe o loop
       }
     }
   }
-  runner();
+  await runner();
+ 
 }

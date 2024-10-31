@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promes</title>
+  </head>
+  <body>
+    <script>
+      function pegaDados() {
+        const result = fetch(
+          "https://api.github.com/users/Gabrieel-Marques-Do-Nascimento"
+        ).then((res) => {
+          console.log(res);
+        });
+        console.log(result)
+      }
+
+      pegaDados()
+// ao executar a função, primeiro executou a linha 16 >>>  console.log(result); depois a linha 14 >>> console.log(res)
+// mesmo salvando o pegadados na variável o que realmente foi salvo foi a promessa de que vc tera isso "proms.html:16" e nao o valor de fato
+
+
+    //   Promise {<pending>}    proms.html:16
+    
+    //Response {type: 'cors', url: 'https://api.github.com/users/Gabrieel-Marques-Do-Nascimento', redirected: false, status: 200, ok: true, …}   proms.html:14
+
+  
+    </script>
+  </body>
+</html>

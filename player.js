@@ -87,7 +87,7 @@ pausebt.addEventListener("click", function () {
   playbt.disabled = true;
   setTimeout(function () {
     playbt.disabled = false;
-  }, (tela[0] / tela[1]) * (data["delay"] + 500));
+  }, 500); //, ((tela[0] / tela[1]) * data["delay"]) + 500);
 });
 
 // player function
@@ -168,7 +168,10 @@ async function play(
           line_func_paramt[2],
           false
         );
-    
+        console_log("marcador_top: "+ marcador_top, true);
+        console.log(line_func_paramt[1]);
+        console.log(line_func_paramt[2]);
+        
         marcador_top += line_func_paramt[2];
       }
 
@@ -178,7 +181,11 @@ async function play(
         break;
       }
       // retorna true se for o fim da pagina
+      marcador_top = 10;
       end = await aut_page();
+      //pausebt.click();
+      //await delay(500);
+      //playbt.click();
       
       // Verifica se é hora de encerrar o loop
       if (end) {

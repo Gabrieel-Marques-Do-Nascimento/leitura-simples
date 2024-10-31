@@ -504,7 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
       paragrafo,
       Number(window.scroll_height),
       alterarTop,
-      [Number(highlight_estilo.top.replace("px", "")) + line, 8, line],
+      [Number(highlight_top_erd.replace("px", "")) + line, 8, line],
       scrollarParagrafo,
       loger,
       2000
@@ -541,9 +541,8 @@ function loger(text) {
 
 // player function
 // ----------------------------------
-export function play(
+async function play(
   line_heght,
-
   elementhtml,
   scroll_heigh,
   dow_line_func,
@@ -552,35 +551,22 @@ export function play(
   loger,
   ndelay
 ) {
-  // autura da rolagem do paragrafo
-
   const line_size = parseInt(tela[0] / line_heght);
-
   loger("line_size: " + line_size);
 
   function aut_page() {
     let the_end = false;
-
-    // Altura total do documento
     const scrollHeight = paragrafo.scrollHeight;
-    console.log("scrollHeight", scrollHeight);
-    // Altura da janela visível
     const clientHeight = paragrafo.clientHeight;
-    console.log("clientHeight", clientHeight);
-    // Distância rolada pelo usuário
     let scrollTop = paragrafo.scrollTop;
     let scrollbotton = scrollTop + clientHeight;
-    console.log("scrollbotton", scrollbotton);
-    console.log("scrollTop", scrollTop);
-    // Verifica se a rolagem chegou ao final
+
     if (scrollbotton + 1 >= scrollHeight) {
       console.log("Chegou ao final da página!");
-
       the_end = true;
     }
 
     scrollarParagrafo(tela[0] + scrollTop);
-    console.log("the_end", the_end);
     return the_end;
   }
 
@@ -589,40 +575,39 @@ export function play(
     let marcador_top = line_func_paramt[0];
 
     for (let i = 0; i < line_size; i++) {
-      await delay(delay_al);
+      await new Promise(resolve => setTimeout(resolve, delay_al)); // Aguardando o delay
       alterarTop(marcador_top, line_func_paramt[1], line_func_paramt[2]);
-
       marcador_top += line_func_paramt[2];
     }
-    // return true;
+
+    return true; // Retornando true para indicar que `aut_line` foi completado
   }
 
   async function runner() {
     let end = false;
 
-    while (true) {
-      await delay(2000);
-      // Verifica se aut_line() retorna true
-      let vr = await aut_line(); // aut_line() precisa retornar um booleano
+    while (!end) {
+      let vr = await aut_line();
 
       if (window.pause) {
-        // elemento responcavel por pausar a reproducao
         highlight.style.top = highlight_top_erd;
         break;
       }
+
       end = aut_page();
       if (vr) {
-        // Se aut_line for true, atualiza engrenagem com posição de scroll atual
-        // As variáveis scrollTop e tela precisam estar definidas anteriormente
+        // Atualizações relacionadas ao scroll
       }
 
-      // Verifica se é hora de encerrar o loop
       if (end) {
-        break; // Interrompe o loop
+        break;
       }
+
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Aguardando antes da próxima iteração
     }
   }
-  runner();
+
+  await runner();
 }
 
 // ----------------------------------------------------------------------

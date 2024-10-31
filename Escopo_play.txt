@@ -1,0 +1,6 @@
+while espera o sinal de fim da pagina:
+   >for pra saltar as linha:
+        >sinal de pausa for global
+        >delay para saltar a linha
+        >funcao saltar linha
+   >sinal de pausa while global

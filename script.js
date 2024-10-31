@@ -60,7 +60,7 @@ let setingbtn = document.getElementById("setting");
 let close = document.getElementById("close");
 
 let marcador = document.getElementById("marcador");
-var paragrafo_style = window.getComputedStyle(texto);
+export var paragrafo_style = window.getComputedStyle(texto);
 let font_size = document.getElementById("font-size");
 
 // elemento removido e substituido por 'theme'

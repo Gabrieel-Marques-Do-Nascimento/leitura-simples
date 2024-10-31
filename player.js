@@ -1,6 +1,8 @@
 import {
   _scroll_height,
   playbt,
+  paragrafo_style,
+  highlight_top,
   pausebt,
   paragrafo,
   alterarTop,
@@ -15,6 +17,29 @@ import {
 import { loger, console_log } from "./utils.js";
 import { delay } from "./module.js";
 import { _lineheight_ } from "./module.js";
+
+
+async function alterarTop_local(novoTop, error = 0, line = 0, on = true) {
+  let styleheight = Number(paragrafo_style.height.replace("px", ""));
+  console_log("-------------------------------------------------");
+  console_log("alterarTop function: " + novoTop + "" + styleheight, true);
+  console_log("erro:" + error, true);
+  console_log("line:" + line, true);
+  console_log("-------------------------------------------------", true);
+  let end_line = tela[1];
+  if (on) {
+    highlight.style.transition = "top 0.1s ease";
+  }
+  if (novoTop < highlight_top) {
+    novoTop = highlight_top;
+  }
+  if (novoTop > styleheight) {
+    novoTop = styleheight - (line - error);
+  }
+
+  highlight.style.top = novoTop + "px";
+}
+
 
 let line = _lineheight_(data["font-size"]);
 
@@ -84,7 +109,7 @@ async function aut_page() {
 
     for (let i = 0; i < line_size; i++) {
       await delay(delay_al);
-      alterarTop(marcador_top, line_func_paramt[1], line_func_paramt[2], false);
+      await alterarTop_local(marcador_top, line_func_paramt[1], line_func_paramt[2], false);
 
       marcador_top += line_func_paramt[2];
     }

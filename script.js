@@ -14,8 +14,8 @@ export const highlight = document.createElement("div");
 export let data = loadText_json("comfger");
 // add uma classe com os estilos para o marcador
 highlight.className = "highlight";
-const pai = document.getElementById("pai");
-var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
+export const $pai = document.getElementById("pai");
+export var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
 // mostra os estilos utilizados no marcador
 highlight.style.width = pai_styleTo.width;
 highlight.style.width = pai_styleTo.width;
@@ -74,25 +74,29 @@ var lineHeight = estilo.lineHeight;
 // ---------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------
 
-// funcao responcavel por scrollar ate a distancia em pixels especificada
+/**
+ * funcao responcavel por scrollar ate a distancia em pixels especificada
+ * @param {*} pixels os pixels que elemento deve mover em relação ao scroll
+ * @param {*} so se deve ser aplicado os efeitos
+ */
 export function scrollarParagrafo(pixels, so = true) {
   // paragrafo.scrollTo({
   //   top: pixels - 55,
   //   behavior: "smooth",
   // });
 
-  paragrafo.scrollTo({
-    top: pixels,
-    behavior: "smooth",
-  });
   if (so) {
-    highlight.style.top = highlight_top_erd;
     // com uma animação de 2 segundos
     highlight.style.transition = "top 2s ease";
     setTimeout(() => {
       highlight.style.transition = "top 0.2s ease";
     }, 1000);
   }
+  highlight.style.top = highlight_top_erd;
+  paragrafo.scrollTo({
+    top: pixels,
+    behavior: "smooth",
+  });
 }
 
 // define o comportamento de alguns elementos como
@@ -100,7 +104,7 @@ export function scrollarParagrafo(pixels, so = true) {
 function style_sec(rstdis, pdis, stdis, inpdis, texto) {
   resetBTN.style.display = rstdis;
   paragrafo.style.display = pdis; // Faz o parágrafo aparecer
-  pai.style.display = pdis;
+  $pai.style.display = pdis;
   startBTN.style.display = stdis;
   highlight.style.display = rstdis;
 
@@ -188,7 +192,11 @@ window.onload = loadText("savedText");
 //----------------------------------------------------------------------------------------------------------------------
 //                   marcador de texto
 // Função para alterar o valor de 'top'
-let highlight_top = Number(highlight_estilo.top.replace("px", ""));
+
+/**
+ * posição na vertical  do elemento highlight
+ */
+export let highlight_top = Number(highlight_estilo.top.replace("px", ""));
 let highlight_height = Number(highlight_estilo.height);
 
 export function alterarTop(novoTop, error = 0, line = 0, on = true) {
@@ -211,8 +219,6 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
 
   highlight.style.top = novoTop + "px";
 }
-
-
 
 let cont = 1;
 function highlight_status() {

@@ -75,28 +75,32 @@ header {
 #clearBtn {
   position: fixed;
   left: 80%;
-  top: 35px;
+  top: 31px;
   width: 30px;
   background: none;
   border: none;
-  border-radius: 50%;
+
   z-index: 5;
 }
 #clearBtn:hover {
-  
+  /* top: 39px; */
   background: rgba(100,100,28,0);
   animation: all 1.5 linear;
   
 }
 #clearBtn svg {
+  margin: 0;
   width:30px;
   height:30px;
 }
 #clearBtn:hover svg {
-  width: 10px;
-  height: 10px;
-  //transform: rotate(90deg);
-  animation: all 1.5 linear;
+  
+  cursor: pointer;
+  background: #cececf53;
+  width: 32px;
+  height: 32px;
+
+  animation: girar 2s linear infinite; /* duração de 2 segundos, movimento linear, looping infinito */
 }
 #start{
   position: absolute;

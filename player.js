@@ -24,7 +24,7 @@ import { _lineheight_ } from "./module.js";
 
 function buttons_state(buttons, state) {
   for (let i = 0; i < buttons.length; i++) {
-    buttons[i].disabled = state;
+    buttons[i].disabled = state[i];
   }
 }
 
@@ -93,14 +93,15 @@ playbt.addEventListener("click", function () {
 });
 
 pausebt.addEventListener("click", function () {
-  buttons_state([setapb, setaps, page], [false, false, false]);
+  buttons_state([setapb, setaps, page, playbt], [false, false, false, true]);
   window.pause = true;
   playbt.style.display = "block";
   pausebt.style.display = "none";
-  playbt.disabled = true;
+
+
   setTimeout(function () {
     playbt.disabled = false;
-  }, 500); //, ((tela[0] / tela[1]) * data["delay"]) + 500);
+  }, 600); //, ((tela[0] / tela[1]) * data["delay"]) + 500);
 });
 
 // player function

@@ -72,6 +72,32 @@ header {
     width: 80%;
     height: 30px;
 }
+#clearBtn {
+  position: fixed;
+  left: 80%;
+  top: 35px;
+  width: 30px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  z-index: 5;
+}
+#clearBtn:hover {
+  
+  background: rgba(100,100,28,0);
+  animation: all 1.5 linear;
+  
+}
+#clearBtn svg {
+  width:30px;
+  height:30px;
+}
+#clearBtn:hover svg {
+  width: 10px;
+  height: 10px;
+  //transform: rotate(90deg);
+  animation: all 1.5 linear;
+}
 #start{
   position: absolute;
 margin-top: 40%;

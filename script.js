@@ -4,6 +4,7 @@ import { fileInput, dropZone } from "./files.js";
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
 export const $input = document.getElementById("ler");
+export const $clearBtn = document.getElementById("clearBtn");
 export let _scroll_height = paragrafo.scrollHeight;
 export let setaps = document.getElementById("setas");
 export let playbt = document.getElementById("play");
@@ -106,6 +107,7 @@ function style_sec(rstdis, pdis, stdis, inpdis, texto) {
   paragrafo.style.display = pdis; // Faz o parágrafo aparecer
   $pai.style.display = pdis;
   startBTN.style.display = stdis;
+  $clearBtn.style.display = stdis;
   highlight.style.display = rstdis;
 
   $input.style.display = inpdis;
@@ -125,6 +127,10 @@ $input.addEventListener("keydown", function (event) {
     buttonstatic($buttons, "block");
     style_sec("block", "block", "none", "none", $input.value);
   }
+});
+$clearBtn.addEventListener("click", function (){
+  console.log("clear");
+  $input.value = "";
 });
 // apos add o texto ao $input penas com um click no 'start' ele mostra o texto
 startBTN.addEventListener("click", () => {

@@ -6,7 +6,9 @@ import os
 path = os.path.dirname(__file__)
 path = os.path.join(path, "")
 print(path)
-print(os.listdir(path))
+items  =os.listdir(path+"img")
+items.sort()
+print(items)
 
 	
 
@@ -54,7 +56,7 @@ class Images_From_GIF:
         path = os.path.join(self.dest, self.name)
         
         try:
-            imageio.mimsave(path, images_array, duration=duration)
+            imageio.mimsave(path, images_array, duration=12)
             print(f"GIF salvo em: {path}")
         except Exception as e:
             print(f"Erro ao salvar o GIF: {e}")
@@ -74,10 +76,10 @@ class Images_From_GIF:
         return imgs
 
 if __name__ == "__main__":
-	size = (1900,873)
+	size = (850,436)
 	
 	gif = Images_From_GIF("font_size.gif",size, path)	
 	imgs = gif.img_list(path+"img")
 	
 	imgs = gif.resize(imgs)
-	gif.imgs_from_gif(imgs, 12.0)
+#	gif.imgs_from_gif(imgs, 0.55)

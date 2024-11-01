@@ -1,0 +1,18 @@
+/* Definindo a animação */
+@keyframes girar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Aplicando ao elemento */
+  .item {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    animation: girar 2s linear infinite; /* duração de 2 segundos, movimento linear, looping infinito */
+  }
+  

@@ -1,6 +1,5 @@
 import { console_log } from "./utils.js";
 
-
 export function paragraph_height(
   { log = false, font_Size = null, height = null },
   ...args
@@ -25,7 +24,7 @@ export function paragraph_height(
   let tela = parseInt(tela_heith / lineHeight) * lineHeight;
 
   if (log) {
-    console_log( `tela disponivel: ${[tela, lineHeight]}`);
+    console_log(`tela disponivel: ${[tela, lineHeight]}`);
   }
   return [tela, lineHeight];
 }
@@ -48,7 +47,7 @@ export async function elment_position_top(elemet, elemen_top) {
 //   elementhtml,
 //   scroll_heigh,
 //   dow_line_func,
-//   line_func_paramt,
+//   lineScrollParams,
 //   page_func,
 //   loger,
 //   ndelay
@@ -61,7 +60,7 @@ export async function elment_position_top(elemet, elemen_top) {
 //   // { pular a pagina}
 //   /* run {
 //   calcula a quntidade de linhas
-//   for item in linhas 
+//   for item in linhas
 //       tame 2s {
 //           top = top + line_heth
 //       }
@@ -73,7 +72,7 @@ export async function elment_position_top(elemet, elemen_top) {
 
 //   let ante_loop_inf = 21658 / tela;
 //   const line_size = parseInt(tela / line_heght);
-  
+
 //   loger("line_size: " + line_size);
 
 //   async function loopComAtraso() {
@@ -146,21 +145,18 @@ export async function elment_position_top(elemet, elemen_top) {
 //   return the_end
 // }
 
-
-
 //   async function aut_line() {
-//     let marcador_top = line_func_paramt[0];
+//     let marcador_top = lineScrollParams[0];
 
 //     for (let i = 0; i < line_size; i++) {
 //       await delay(2000);
-//       dow_line_func(marcador_top, line_func_paramt[1], line_func_paramt[2]);
+//       dow_line_func(marcador_top, lineScrollParams[1], lineScrollParams[2]);
 
-//       marcador_top += line_func_paramt[2];
+//       marcador_top += lineScrollParams[2];
 //     }
 //     return true
 //   }
 
-  
 // async function runner() {
 //  let  engrenagem = 0;
 //   while (true) {
@@ -169,16 +165,16 @@ export async function elment_position_top(elemet, elemen_top) {
 //     if (vr) {
 //       engrenagem += tela;
 //       end = aut_page(engrenagem)
-      
+
 //     }
-    
+
 //     if (end) {
-      
+
 //       break
 //     }
-   
+
 //   }
-  
+
 // }
 //  runner()
 //  //page_func(tela)

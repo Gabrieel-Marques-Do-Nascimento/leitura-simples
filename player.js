@@ -12,12 +12,21 @@ import {
   data,
   scrollarParagrafo,
   tela,
+  setapb,
+  setaps,
+  page,
   $delayelement,
   highlight_top_erd,
 } from "./script.js";
 import { loger, console_log } from "./utils.js";
 import { delay } from "./module.js";
 import { _lineheight_ } from "./module.js";
+
+function buttons_state(buttons, state) {
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = state;
+  }
+}
 
 /**
  * função que altera a posição do elemento highlight
@@ -64,6 +73,9 @@ let line = _lineheight_(data["font-size"]);
 
 window.pause = false;
 playbt.addEventListener("click", function () {
+  buttons_state([setapb, setaps, page], [true, true, true]);
+
+  pausebt.style.animation = "girar 2s linear infinite";
   window.pause = false;
   playbt.style.display = "none";
   pausebt.style.display = "block";
@@ -81,6 +93,7 @@ playbt.addEventListener("click", function () {
 });
 
 pausebt.addEventListener("click", function () {
+  buttons_state([setapb, setaps, page], [false, false, false]);
   window.pause = true;
   playbt.style.display = "block";
   pausebt.style.display = "none";
@@ -123,8 +136,7 @@ async function aut_page() {
   return the_end;
 }
 
-async function aut_line(line_func_paramt, line_size) {
-
+async function aut_line(lineScrollParams, line_size) {
   // return true;
 }
 
@@ -134,7 +146,7 @@ async function play(
   elementhtml,
   scroll_heigh,
   dow_line_func,
-  line_func_paramt,
+  lineScrollParams,
   page_func,
   loger,
   ndelay
@@ -143,50 +155,50 @@ async function play(
   /**
    * quantidade de linhas visíveis na tela
    */
-  let line_size = parseInt(tela[0] / line_heght);
 
-  console_log("line_size: " + line_size, true);
+  console_log("line_size: " + parseInt(tela[0] / line_heght), true);
 
   async function runner() {
     let end = false;
-
-    while (true) {
+    let marcador_top = lineScrollParams[0];
+    while (!end) {
       await delay(2000);
       // Verifica se aut_line() retorna true
       let delay_al = $delayelement.value;
-      let marcador_top = line_func_paramt[0];
-     
-      console_log(parseInt((  tela[0] - Number(highlight_estilo.top.replace('px','') ) )/ line_heght), true)
+      let highlighttop = Number(highlight_estilo.top.replace("px", ""));
+      console_log(parseInt((tela[0] - highlighttop) / line_heght), true);
+      let line_size = parseInt(tela[0] / line_heght);
+      if (highlighttop > Number(highlight_top_erd.replace("px", "")) + line) {
+        line_size = parseInt((tela[0] - highlighttop) / line_heght) + 1;
+      }
       for (let i = 0; i < line_size; i++) {
-        if ( window.pause) {
-          break
+        if (window.pause) {
+          break;
         }
         await delay(delay_al);
         await alterarTop_local(
           marcador_top,
-          line_func_paramt[1],
-          line_func_paramt[2],
+          lineScrollParams[1],
+          lineScrollParams[2],
           false
         );
-        console_log("marcador_top: "+ marcador_top, true);
-        console.log(line_func_paramt[1]);
-        console.log(line_func_paramt[2]);
-        
-        marcador_top += line_func_paramt[2];
+        console_log("marcador_top: " + marcador_top, true);
+        console.log(lineScrollParams[1]);
+        console.log(lineScrollParams[2]);
+
+        marcador_top += lineScrollParams[2];
       }
 
       if (window.pause) {
         // if responcavel por pausar o loop
-        //highlight.style.top = highlight_top_erd;
         break;
       }
       // retorna true se for o fim da pagina
-      marcador_top = 10;
+
       end = await aut_page();
-      //pausebt.click();
-      //await delay(500);
-      //playbt.click();
-      
+      // altera o valor inicial da variável para o valor da segunda linha  no caso
+      marcador_top = Number(highlight_top_erd.replace("px", "")) + line;
+
       // Verifica se é hora de encerrar o loop
       if (end) {
         // retorna o botão ao estado original

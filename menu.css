@@ -1,0 +1,126 @@
+/* Estilo padrão do select */
+select {
+    
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #131313, #1a1a1a);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #00ffe0, #ff00f6) 1;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    /* cursor: pointer; */
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* Efeito hover */
+select:hover {
+    border-image: linear-gradient(45deg, #00fffb, #f04cfc) 1;
+    box-shadow: 0 0 8px #00fffb, 0 0 15px #f04cfc;
+}
+
+/* Efeito de foco */
+select:focus {
+    border-image: linear-gradient(45deg, #5cffcb, #e649f5) 1;
+    box-shadow: 0 0 10px #5cffcb, 0 0 20px #e649f5;
+}
+
+/* Estilo da seta no select */
+select::after {
+    content: '▼';
+    font-size: 12px;
+    color: #00ffe0;
+    position: absolute;
+    right: 15px;
+    pointer-events: none;
+}
+
+/* Estilo para o label */
+label {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #00ffe0;  /* Cor neon */
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    letter-spacing: 1px;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px rgba(0, 255, 224, 0.5);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+label:hover {
+    color: #f04cfc;
+    text-shadow: 0 0 10px rgba(240, 76, 252, 0.8);
+}
+
+/* Estilo padrão para o input type="number" */
+input[type="number"] {
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #1a1a1a;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #00ffe0, #ff00f6) 1;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+/* Remove as setas padrão do input number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield; /* Para Firefox */
+}
+
+/* Efeito de hover */
+input[type="number"]:hover {
+    border-image: linear-gradient(45deg, #00fffb, #f04cfc) 1;
+    box-shadow: 0 0 8px #00fffb, 0 0 15px #f04cfc;
+}
+
+/* Efeito de foco */
+input[type="number"]:focus {
+    border-image: linear-gradient(45deg, #5cffcb, #e649f5) 1;
+    box-shadow: 0 0 10px #5cffcb, 0 0 20px #e649f5;
+}
+
+/* Estilo para input color */
+input[type="color"] {
+    width: 40px;
+    height: 40px;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #00ffe0, #ff00f6) 1;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #1a1a1a;
+}
+
+/* Efeito hover */
+input[type="color"]:hover {
+    border-image: linear-gradient(45deg, #00fffb, #f04cfc) 1;
+    box-shadow: 0 0 8px #00fffb, 0 0 15px #f04cfc;
+}
+
+/* Efeito de foco */
+input[type="color"]:focus {
+    border-image: linear-gradient(45deg, #5cffcb, #e649f5) 1;
+    box-shadow: 0 0 10px #5cffcb, 0 0 20px #e649f5;
+}

@@ -56,6 +56,7 @@ body {
     display: none; /* Inicialmente escondido */
     margin-top: 0;
     padding-top: 0;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.685);
 
 }
 header {
@@ -108,7 +109,8 @@ body {
     left: 0;
     right: 0;
     height: 30px; /* Altura da linha */
-    background-color: yellow; /* Cor de destaque */
+    background-color: rgb(247, 247, 8); /* Cor de destaque */
+    border: solid rgba(42, 41, 41, 0.238) 2px;
     z-index: -1; /* Coloca atrás do texto */
     transition: top 0.2s ease;
     width: 52%;
@@ -209,16 +211,19 @@ body {
 }
 
 #play {
+  
     position: fixed;
     top: 78.5%;
     left: 89.8%;
     cursor: none; /* Esconde o cursor */
 }
 #pause {
+  width: 40px;
+  height: 40px;
   display: none;
   position: fixed;
   top: 78.5%;
-  left: 89.8%;
+  left: 90.5%;
   cursor: none; /* Esconde o cursor */
 
 }
@@ -280,7 +285,7 @@ body {
       }
       #setings #conteiner input,
       #setings #conteiner select {
-        width: 60px;
+        width: 90px;
       }
 
 @media (max-width: 768px) {
@@ -393,7 +398,7 @@ body {
     }
     .highlight{
       z-index: -1;
-        width: 95%;
+        width: 100%;
         top: 20px;
     }
     #setting{

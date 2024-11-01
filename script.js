@@ -45,7 +45,7 @@ const resetBTN = document.getElementById("reset");
 const paiheight = Number(pai_styleTo.height.replace("px", ""));
 console_log("pai height" + paiheight + "page height" + height);
 
-const page = document.getElementById("page");
+export const page = document.getElementById("page");
 // linguagem da pagina
 const lang = document.getElementById("lang");
 // botonhes responcaveis por mover o marcador para cima ou para baixo
@@ -206,6 +206,7 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
   console_log("erro:" + error, true);
   console_log("line:" + line, true);
   console_log("-------------------------------------------------", true);
+  console_log("    ", true);
   let end_line = tela[1];
   if (on) {
     highlight.style.transition = "top 0.1s ease";

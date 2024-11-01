@@ -1,75 +1,156 @@
 ////////////// before ///////////////
 
-line_size: 12
-11
-alterarTop function: 69.5594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 69.5
-8
-49.5
-alterarTop function: 119594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 119
-8
-49.5
-alterarTop function: 168.5594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 168.5
-8
-49.5
-alterarTop function: 218594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 218
-8
-49.5
-alterarTop function: 267.5594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 267.5
-8
-49.5
-alterarTop function: 317594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 317
-8
-49.5
-alterarTop function: 366.5594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 366.5
-8
-49.5
-alterarTop function: 416594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 416
-8
-49.5
-alterarTop function: 465.5594
-erro:8
-line:49.5
--------------------------------------------------
-marcador_top: 465.5
-8
-49.5
-alterarTop function: 515594
-erro:8
-line:49.5
--------------------------------------------------
+// execucao normal
+
+utils.js:52 line_size: 9
+utils.js:52 8
+utils.js:52 alterarTop function: 68.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 68.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 127526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 127
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 185.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 185.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 244526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 244
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 302.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 302.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 361526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 361
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 419.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 419.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 478526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 478
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 536.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 536.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 8
 
 
 
 ////////////// after///////////////////
+
+// execucao n2 apos pausar
+utils.js:52 8
+utils.js:52 alterarTop function: 10526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 10
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 68.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 68.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 127526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 127
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 185.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 185.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 244526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 244
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 302.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 302.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 361526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 361
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 419.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 419.5
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 478526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 478
+player.js:176 8
+player.js:177 58.5
+utils.js:52 8
+utils.js:52 alterarTop function: 10526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 10
+player.js:176 8
+player.js:177 58.5
+utils.js:52 alterarTop function: 68.5526.5
+utils.js:52 erro:8
+utils.js:52 line:58.5
+utils.js:52 -------------------------------------------------
+utils.js:52 marcador_top: 68.5
+player.js:176 8
+player.js:177 58.5
+127.0.0.1/:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received

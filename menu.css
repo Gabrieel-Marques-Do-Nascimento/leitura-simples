@@ -164,3 +164,21 @@ input[type="color"]:focus {
     left: 100%;
 }
 
+/* Media query para dispositivos móveis */
+@media (max-width: 600px) {
+
+    #setings {
+        height: 100vh;
+       
+    }
+    #conteiner {
+      height: 100vh;        /* Contêiner com altura da tela */
+      overflow-y: auto;     /* Habilita rolagem vertical */
+      padding-bottom: 140px;
+    }
+  
+    .itemseting {
+      min-width: 100%; /* Ocupa a largura total em dispositivos móveis */
+    }
+  }
+  

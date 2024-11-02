@@ -48,6 +48,7 @@ export function loger(text) {
 }
 
 export function console_log(text, view = false) {
-    if (view)
-  {console.log(text);}
+  if (view) {
+    console.log(text);
+  }
 }

@@ -16,8 +16,8 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="files.css" />
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="animation.css" />
   </head>
   <style></style>
   <body>
@@ -51,13 +51,29 @@
     <header>
       <input type="text" name="ler" id="ler" aria-label="ler" />
       <button id="clearBtn">
-        <svg  viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Linha inclinada de 45 graus -->
-  <line x1="10" y1="10" x2="90" y2="90" stroke="black" stroke-width="5" stroke-linecap="round" />
-  
-  <!-- Linha inclinada de -45 graus -->
-  <line x1="10" y1="90" x2="90" y2="10" stroke="black" stroke-width="5" stroke-linecap="round" />
-</svg>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Linha inclinada de 45 graus -->
+          <line
+            x1="10"
+            y1="10"
+            x2="90"
+            y2="90"
+            stroke="black"
+            stroke-width="5"
+            stroke-linecap="round"
+          />
+
+          <!-- Linha inclinada de -45 graus -->
+          <line
+            x1="10"
+            y1="90"
+            x2="90"
+            y2="10"
+            stroke="black"
+            stroke-width="5"
+            stroke-linecap="round"
+          />
+        </svg>
       </button>
       <button
         class="arrogante buttons"
@@ -158,7 +174,9 @@
               <img src="img\book_page.png" alt="detalis" id="example_image" />
             </div>
           </div>
-          <label style="font-size: 12px; " for="marcador">Choose an input type:</label>
+          <label style="font-size: 12px" for="marcador"
+            >Choose an input type:</label
+          >
           <select translate="no" id="marcador" name="marcador">
             <option value="button">Button</option>
             <option value="mouse">Mouse</option>
@@ -174,7 +192,11 @@
               height="30px"
             />
             <div>
-              <img src="exmplos\font_size.gif" alt="detalis" id="example_image" />
+              <img
+                src="exmplos\font_size.gif"
+                alt="detalis"
+                id="example_image"
+              />
             </div>
           </div>
           <label for="font-size">font-size:</label>
@@ -229,7 +251,6 @@
           </select>
         </div>
 
-
         <div class="itemseting">
           <div class="exemple">
             <img
@@ -250,8 +271,6 @@
           </select>
         </div>
 
-
-
         <div class="itemseting">
           <div class="exemple">
             <img
@@ -265,13 +284,10 @@
             </div>
           </div>
           <label for="bookmark">bookmark</label>
-          <input type="color" id="bookmark" name="color" value="#Ffff00">
+          <input type="color" id="bookmark" name="color" value="#Ffff00" />
         </div>
       </div>
     </div>
-
-
-
 
     <style></style>
 
@@ -299,9 +315,10 @@
       </svg>
     </button>
     <button
+      translate="yes"
       class="arrogante scrollbt buttons"
       id="page"
-      title="saltar a pagina de um livro"
+      title="next page of the book"
     >
       <img
         src="img/book_page.png"
@@ -313,7 +330,7 @@
     <button
       class="arrogante scrollbt buttons"
       id="setas"
-      title="mover para sima"
+      title="move up with the `w` key"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -332,7 +349,7 @@
     <button
       class="arrogante scrollbt buttons"
       id="setab"
-      title="mover para baixo"
+      title="move down with the `s` key"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -398,14 +415,12 @@
         arraste e solte o arquivo aqui ou clique para abrir o explorador
       </div>
     </div>
- 
+
     <script type="module" src="script.js"></script>
     <script type="module" src="module.js"></script>
     <script type="module" src="files.js"></script>
-    <script type="module" src="confg.js">
-      
-    </script>
-       <script type="module" src="scroll.js"></script>
+    <script type="module" src="confg.js"></script>
+    <script type="module" src="scroll.js"></script>
     <script type="module" src="utils.js"></script>
     <script type="module" src="player.js"></script>
     <!-- <script src="confg.js"></script> -->

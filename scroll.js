@@ -7,7 +7,7 @@ export let $scroll_top = document.createElement("div");
 
 // Obter o tamanho da janela (viewport)
 var larguraJanela = window.innerWidth;
-var alturaJanela = height
+var alturaJanela = height;
 
 let style = document.createElement("style");
 style.type = "text/css";

@@ -266,6 +266,26 @@ function highlight_status() {
       recarregarPagina();
     }
   }
+  
+  if (marcador.value == "screen"){
+    let telaHeight = tela[0];
+// tela / 2= result
+// top  < result = para cima
+// top > result = para baixo
+
+document.addEventListener("mousemove", function (event) {
+  // body...
+  const y = event.clientY;
+  if (y < (telaHeight / 2)){
+    scrollNumberline(true, false, data["font-size"], setaps);
+  }
+  if (y > (telaHeight / 2)){
+    scrollNumberline(true, true, data["font-size"], setapb);
+  }
+  
+  
+});
+  }
 }
 
 setapb.addEventListener("click", () => {

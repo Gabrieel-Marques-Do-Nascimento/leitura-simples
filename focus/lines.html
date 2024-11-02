@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mouse Position in Paragraph</title>
     <style>
-        #paragraph {
-            width: 50%;
-            margin: 20px auto;
-            line-height: 1.5em;
-            padding: 10px;
-            border: 1px solid black;
-            font-size: 18px;
-            word-break: break-word;
-        }
+      #paragraph {
+        width: 50%;
+        margin: 20px auto;
+        line-height: 1.5em;
+        padding: 10px;
+        border: 1px solid black;
+        font-size: 18px;
+        word-break: break-word;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <p id="paragraph">
-        This is an example paragraph. Move your mouse over this paragraph to detect the line where the cursor is positioned. The script will calculate the line based on the mouse position within the paragraph. Try moving the mouse and watch the result.
-        This is an example paragraph. Move your mouse over this paragraph to detect the line where the cursor is positioned. The script will calculate the line based on the mouse position within the paragraph. Try moving the mouse and watch the result.
-        This is an example paragraph. Move your mouse over this paragraph to detect the line where the cursor is positioned. The script will calculate the line based on the mouse position within the paragraph. Try moving the mouse and watch the result.
-        This is an example paragraph. Move your mouse over this paragraph to detect the line where the cursor is positioned. The script will calculate the line based on the mouse position within the paragraph. Try moving the mouse and watch the result.
-        This is an example paragraph. Move your mouse over this paragraph to detect the line where the cursor is positioned. The script will calculate the line based on the mouse position within the paragraph. Try moving the mouse and watch the result.
-        
+      This is an example paragraph. Move your mouse over this paragraph to
+      detect the line where the cursor is positioned. The script will calculate
+      the line based on the mouse position within the paragraph. Try moving the
+      mouse and watch the result. This is an example paragraph. Move your mouse
+      over this paragraph to detect the line where the cursor is positioned. The
+      script will calculate the line based on the mouse position within the
+      paragraph. Try moving the mouse and watch the result. This is an example
+      paragraph. Move your mouse over this paragraph to detect the line where
+      the cursor is positioned. The script will calculate the line based on the
+      mouse position within the paragraph. Try moving the mouse and watch the
+      result. This is an example paragraph. Move your mouse over this paragraph
+      to detect the line where the cursor is positioned. The script will
+      calculate the line based on the mouse position within the paragraph. Try
+      moving the mouse and watch the result. This is an example paragraph. Move
+      your mouse over this paragraph to detect the line where the cursor is
+      positioned. The script will calculate the line based on the mouse position
+      within the paragraph. Try moving the mouse and watch the result.
     </p>
     <div id="output"></div>
 
     <script>
-        const paragraph = document.getElementById('paragraph');
-        const output = document.getElementById('output');
+      const paragraph = document.getElementById("paragraph");
+      const output = document.getElementById("output");
 
-        paragraph.addEventListener('mousemove', (event) => {
-            // Obtenha a posição do parágrafo em relação à página
-            const rect = paragraph.getBoundingClientRect();
-            const mouseY = event.clientY - rect.top; // Mouse y Posição em relação ao topo do parágrafo
+      paragraph.addEventListener("mousemove", (event) => {
+        // Obtenha a posição do parágrafo em relação à página
+        const rect = paragraph.getBoundingClientRect();
+        const mouseY = event.clientY - rect.top; // Mouse y Posição em relação ao topo do parágrafo
 
-            // Calcule a altura da linha do CSS (assumindo que a altura da linha esteja em pixels)
-            const lineHeight = parseFloat(getComputedStyle(paragraph).lineHeight);
+        // Calcule a altura da linha do CSS (assumindo que a altura da linha esteja em pixels)
+        const lineHeight = parseFloat(getComputedStyle(paragraph).lineHeight);
 
-            // Calcule o número da linha com base na posição Y e na altura da linha
-            const lineNumber = Math.floor(mouseY / lineHeight) + 1;
-            console.log(lineHeight)
+        // Calcule o número da linha com base na posição Y e na altura da linha
+        const lineNumber = Math.floor(mouseY / lineHeight) + 1;
+        console_log(lineHeight);
 
-            // Exibir o número da linha
-            output.innerHTML = `Mouse is on line: ${lineNumber}`;
-        });
+        // Exibir o número da linha
+        output.innerHTML = `Mouse is on line: ${lineNumber}`;
+      });
     </script>
-</body>
+  </body>
 </html>

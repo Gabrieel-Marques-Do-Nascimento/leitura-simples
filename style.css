@@ -309,10 +309,10 @@ body {
         left: 90%;
         top: -7%;
       }
-      /* #setings #conteiner {
+      #setings #conteiner {
         display: flex;
         flex-direction: column;
-      } */
+      }
       #setings #conteiner input,
       #setings #conteiner select {
         width: 90px;

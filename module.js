@@ -97,23 +97,23 @@ export async function elment_position_top(elemet, elemen_top) {
 
 //         // Verifica se a rolagem chegou ao final
 //         if (scrollTop + clientHeight >= scrollHeight) {
-//           console.log("Chegou ao final da página!");
+//           console_log("Chegou ao final da página!");
 
 //           the_end = true;
 //         }
 //       });
 
 //       if (the_end) {
-//         console.log("the end: true");
+//         console_log("the end: true");
 //         loger("the end: true");
 //         break;
 //       }
 
-//       console.log(`volta: ${cont}, ${engrenagem}px`);
+//       console_log(`volta: ${cont}, ${engrenagem}px`);
 //       page_func(engrenagem);
 
 //       // if (cont > 43) {
-//       //   console.log('43: true')
+//       //   console_log('43: true')
 //       //   break;
 //       // }
 //     }
@@ -134,7 +134,7 @@ export async function elment_position_top(elemet, elemen_top) {
 
 //     // Verifica se a rolagem chegou ao final
 //     if (scrollTop + clientHeight >= scrollHeight) {
-//       console.log("Chegou ao final da página!");
+//       console_log("Chegou ao final da página!");
 
 //       the_end = true;
 //     };

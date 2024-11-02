@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exemplo de Tamanho da Fonte</title>
     <style>
-        p {
-            font-size: 20px; /* Define o tamanho da fonte do parágrafo */
-        }
+      p {
+        font-size: 20px; /* Define o tamanho da fonte do parágrafo */
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <p id="meuParagrafo">Este é um exemplo de parágrafo.</p>
     <button id="mostrarTamanho">Mostrar Tamanho da Fonte</button>
 
     <script>
-        // Função para obter o tamanho da fonte do parágrafo
-        function getFontSize() {
-            const paragrafo = document.getElementById('meuParagrafo'); // Seleciona o parágrafo
-            if (paragrafo) { // Verifica se o parágrafo foi encontrado
-                const estilo = window.getComputedStyle(paragrafo); // Obtém o estilo computado
-                const tamanhoFonte = estilo.fontSize; // Obtém o tamanho da fonte
-                console.log(`Tamanho da Fonte: ${tamanhoFonte}`); // Exibe no console
-            } else {
-                console.error("Elemento com ID 'meuParagrafo' não encontrado.");
-            }
+      // Função para obter o tamanho da fonte do parágrafo
+      function getFontSize() {
+        const paragrafo = document.getElementById("meuParagrafo"); // Seleciona o parágrafo
+        if (paragrafo) {
+          // Verifica se o parágrafo foi encontrado
+          const estilo = window.getComputedStyle(paragrafo); // Obtém o estilo computado
+          const tamanhoFonte = estilo.fontSize; // Obtém o tamanho da fonte
+          console_log(`Tamanho da Fonte: ${tamanhoFonte}`); // Exibe no console
+        } else {
+          console.error("Elemento com ID 'meuParagrafo' não encontrado.");
         }
+      }
 
-        // Adiciona um ouvinte de evento ao botão após o DOM ser carregado
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('mostrarTamanho').addEventListener('click', getFontSize);
-        });
+      // Adiciona um ouvinte de evento ao botão após o DOM ser carregado
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("mostrarTamanho")
+          .addEventListener("click", getFontSize);
+      });
     </script>
-
-</body>
+  </body>
 </html>

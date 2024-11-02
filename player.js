@@ -41,10 +41,10 @@ async function alterarTop_local(novoTop, error = 0, line = 0, on = true) {
    */
   let styleheight = Number(paragrafo_style.height.replace("px", ""));
   console_log("-------------------------------------------------");
-  console_log("alterarTop function: " + novoTop + "" + styleheight, true);
-  console_log("erro:" + error, true);
-  console_log("line:" + line, true);
-  console_log("-------------------------------------------------", true);
+  console_log("alterarTop function: " + novoTop + "" + styleheight);
+  console_log("erro:" + error);
+  console_log("line:" + line);
+  console_log("-------------------------------------------------");
   let end_line = tela[1];
   if (on) {
     // define a transição da altura do elementos caso seja add um algum valor muito alto
@@ -97,7 +97,6 @@ pausebt.addEventListener("click", function () {
   window.pause = true;
   playbt.style.display = "block";
   pausebt.style.display = "none";
-
 
   setTimeout(function () {
     playbt.disabled = false;
@@ -157,7 +156,7 @@ async function play(
    * quantidade de linhas visíveis na tela
    */
 
-  console_log("line_size: " + parseInt(tela[0] / line_heght), true);
+  console_log("line_size: " + parseInt(tela[0] / line_heght));
 
   async function runner() {
     let end = false;
@@ -167,7 +166,7 @@ async function play(
       // Verifica se aut_line() retorna true
       let delay_al = $delayelement.value;
       let highlighttop = Number(highlight_estilo.top.replace("px", ""));
-      console_log(parseInt((tela[0] - highlighttop) / line_heght), true);
+      console_log(parseInt((tela[0] - highlighttop) / line_heght));
       let line_size = parseInt(tela[0] / line_heght);
       if (highlighttop > Number(highlight_top_erd.replace("px", "")) + line) {
         line_size = parseInt((tela[0] - highlighttop) / line_heght) + 1;
@@ -184,8 +183,8 @@ async function play(
           false
         );
         console_log("marcador_top: " + marcador_top, true);
-        console.log(lineScrollParams[1]);
-        console.log(lineScrollParams[2]);
+        console_log(lineScrollParams[1]);
+        console_log(lineScrollParams[2]);
 
         marcador_top += lineScrollParams[2];
       }

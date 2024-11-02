@@ -4,6 +4,7 @@ import { loadScroll } from "./confg.js";
 export const autoScroll = document.getElementById("autoScroll");
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
+const window_width = window.innerWidth;
 export const $input = document.getElementById("ler");
 export const $clearBtn = document.getElementById("clearBtn");
 export let _scroll_height = paragrafo.scrollHeight;
@@ -20,17 +21,17 @@ export const $pai = document.getElementById("pai");
 export var pai_styleTo = window.getComputedStyle(
   document.getElementById("pai")
 );
+// add o marcador ao elemento pai body
+document.body.appendChild(highlight);
+export const highlight_estilo = window.getComputedStyle(highlight);
 // mostra os estilos utilizados no marcador
-highlight.style.width = pai_styleTo.width;
-highlight.style.width = pai_styleTo.width;
+
 // armazeana a posicao top do elemento para usos futuros
 export let highlight_top_erd = pai_styleTo.marginTop; //highlight_estilo.top;
 
 console_log("pai" + pai_styleTo.width);
 
-// add o marcador ao elemento pai body
-document.body.appendChild(highlight);
-export const highlight_estilo = window.getComputedStyle(highlight);
+
 
 export let $delayelement = document.getElementById("delay");
 
@@ -67,6 +68,8 @@ let marcador = document.getElementById("marcador");
 export var paragrafo_style = window.getComputedStyle(texto);
 let font_size = document.getElementById("font-size");
 
+//highlight.style.width = pai_styleTo.width;
+highlight.style.width = window_width < 768? paragrafo_style.width : pai_styleTo.width;
 // elemento removido e substituido por 'theme'
 // let background_type = document.getElementById("background-type");
 const theme = document.getElementById("theme");
@@ -132,7 +135,7 @@ $input.addEventListener("keydown", function (event) {
   }
 });
 $clearBtn.addEventListener("click", function () {
-  console.log("clear");
+  console_log("clear");
   $input.value = "";
 });
 // apos add o texto ao $input penas com um click no 'start' ele mostra o texto
@@ -274,7 +277,7 @@ setapb.addEventListener("click", () => {
 let actionExecuted = false; // Variável de controle
 document.addEventListener("keyup", (e) => {
   if (e.key === "w" || e.key === "s") {
-    console.log(e.key);
+    console_log(e.key);
     actionExecuted = false; // Libera a ação ao soltar a tecla
   }
 });
@@ -284,11 +287,11 @@ document.addEventListener("keydown", (e) => {
     actionExecuted = true; // Define como true para impedir execuções adicionais enquanto a tecla está pressionada
 
     if (e.key === "w") {
-      console.log(e.key);
+      console_log(e.key);
       scrollNumberline(true, false, data["font-size"], setaps);
     }
 
-    console.log(e.key, actionExecuted);
+    console_log(e.key, actionExecuted);
     if (e.key === "s") {
       scrollNumberline(true, true, data["font-size"], setapb);
     }

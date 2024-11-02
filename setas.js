@@ -47,10 +47,10 @@ function highlight_status()
     alterarTop(y);
   });
 
-    console.log(marcador.value)
+    console_log(marcador.value)
   }
   if (marcador.value == 'button') {
-    console.log(marcador.value)
+    console_log(marcador.value)
     move_marcador();
     if (cont < 1){
       cont ++;
@@ -58,7 +58,7 @@ function highlight_status()
       
 // const scrolltop = paragrafo.scrollTop;
 //         pixels = linha + scrolltop;
-//         console.log("pixels", pixels, "height", height);
+//         console_log("pixels", pixels, "height", height);
 //         scrollarParagrafo(pixels);
     }
   }

@@ -6,7 +6,8 @@
     <title>Document</title>
     <style>
       /* Centraliza o conteúdo da página */
-      body, html {
+      body,
+      html {
         height: 100%;
         display: flex;
         justify-content: center;
@@ -15,7 +16,6 @@
       }
       /* Opcional: centraliza o conteúdo do div */
       div {
-        
         text-align: center;
       }
       button {
@@ -31,7 +31,6 @@
         transform: scale(1.2);
         transition: all 2s ease;
       }
-  
     </style>
   </head>
   <body>
@@ -39,19 +38,16 @@
       <button id="button">click me</button>
     </div>
     <script>
-  let button = document.getElementById('button');
+      let button = document.getElementById("button");
 
-  button.addEventListener('click', (e) => {
-    console.log(`button clicked:`);
-    console.log(e)
-  })
-// Adiciona um event listener para o evento 'keydown' no documento
-document.addEventListener('keydown', function(event) {
-    console.log(`Tecla pressionada: ${event.key}`);
-});
-
-
+      button.addEventListener("click", (e) => {
+        console_log(`button clicked:`);
+        console_log(e);
+      });
+      // Adiciona um event listener para o evento 'keydown' no documento
+      document.addEventListener("keydown", function (event) {
+        console_log(`Tecla pressionada: ${event.key}`);
+      });
     </script>
   </body>
 </html>
-

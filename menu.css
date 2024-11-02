@@ -159,6 +159,10 @@ input[type="color"]:focus {
    left: 0;
     height: 20px;
 }
+.itemseting .exemple  > div img{
+ z-index: 8;
+ 
+}
 .itemseting .exemple .lamp {
     position: absolute;
     left: 100%;

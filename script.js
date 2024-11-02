@@ -1,7 +1,7 @@
 import { buttonstatic, loger, console_log, recarregarPagina } from "./utils.js";
 import { fileInput, dropZone } from "./files.js";
 import { loadScroll } from "./confg.js";
-
+export const autoScroll = document.getElementById("autoScroll");
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
 export const $input = document.getElementById("ler");
@@ -393,6 +393,7 @@ close.addEventListener("click", () => {
     "font-size": Number(font_size.value) > 12 ? font_size.value : "12",
     //background_type: backgroundType,
     theme: theme.value,
+    autoScroll: autoScroll.checked,
   };
 
   saveText_json(confger, "comfger");
@@ -419,7 +420,7 @@ function activatedate() {
     font_size.value = data["font-size"];
     // background_type.checked = data["background_type"] == "black" ? true : false;
     theme.value = data["theme"] ? data["theme"] : "auto";
-
+    autoScroll.checked = data["autoScroll"];
     let font = Number(font_size.value);
     texto.style.fontSize = font_size.value + "px";
     // highlight.style.height = font + (font / 2) + "px";
@@ -441,6 +442,7 @@ function loadText_json(name) {
     "font-size": 18,
     //background_type: "white",
     theme: "auto",
+    autoScroll: false,
   };
   const text = localStorage.getItem(name);
 
@@ -468,6 +470,9 @@ window.onload = function () {
   console_log("linha " + linha + "" + data["font-size"]);
   let fh = Number(data["font-size"]);
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
+  if (autoScroll.checked) {
+    loadScroll(paragrafo);
+  }
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -481,6 +486,7 @@ document.addEventListener("DOMContentLoaded", function () {
   console_log("line 478:  " + tela[0]);
 });
 
+// paragrafo.scrolltop = loadScroll();
 // ----------------------------------------------------------------------
 //-------------------------------------------------------------------------
 //          background color select model

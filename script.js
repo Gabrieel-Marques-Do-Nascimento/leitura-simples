@@ -1,6 +1,6 @@
 import { buttonstatic, loger, console_log, recarregarPagina } from "./utils.js";
 import { fileInput, dropZone } from "./files.js";
-import {loadScroll} from "./confg.js";
+import { loadScroll } from "./confg.js";
 
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
@@ -17,7 +17,9 @@ export let data = loadText_json("comfger");
 // add uma classe com os estilos para o marcador
 highlight.className = "highlight";
 export const $pai = document.getElementById("pai");
-export var pai_styleTo = window.getComputedStyle(document.getElementById("pai"));
+export var pai_styleTo = window.getComputedStyle(
+  document.getElementById("pai")
+);
 // mostra os estilos utilizados no marcador
 highlight.style.width = pai_styleTo.width;
 highlight.style.width = pai_styleTo.width;
@@ -129,7 +131,7 @@ $input.addEventListener("keydown", function (event) {
     style_sec("block", "block", "none", "none", $input.value);
   }
 });
-$clearBtn.addEventListener("click", function (){
+$clearBtn.addEventListener("click", function () {
   console.log("clear");
   $input.value = "";
 });
@@ -195,8 +197,6 @@ function loadText(name) {
 
 // Chama a função para carregar o texto ao abrir a página
 window.onload = loadText("savedText");
-
-
 
 //----------------------------------------------------------------------------------------------------------------------
 //                   marcador de texto
@@ -271,6 +271,30 @@ setapb.addEventListener("click", () => {
   scrollNumberline(true, true, data["font-size"], setapb);
 });
 
+let actionExecuted = false; // Variável de controle
+document.addEventListener("keyup", (e) => {
+  if (e.key === "w" || e.key === "s") {
+    console.log(e.key);
+    actionExecuted = false; // Libera a ação ao soltar a tecla
+  }
+});
+document.addEventListener("keydown", (e) => {
+  if (!actionExecuted) {
+    // Executa apenas se a ação ainda não foi realizada
+    actionExecuted = true; // Define como true para impedir execuções adicionais enquanto a tecla está pressionada
+
+    if (e.key === "w") {
+      console.log(e.key);
+      scrollNumberline(true, false, data["font-size"], setaps);
+    }
+
+    console.log(e.key, actionExecuted);
+    if (e.key === "s") {
+      scrollNumberline(true, true, data["font-size"], setapb);
+    }
+  }
+});
+
 setaps.addEventListener("click", () => {
   console_log("seta para baixo");
   //move_marcador(false);
@@ -286,7 +310,8 @@ function scrollNumberline(
   active = true,
   type = true,
   font_size,
-  button = null
+  button = null,
+  delaybt = 500
 ) {
   const computedStyle = window.getComputedStyle(paragrafo);
   let line = Number(font_size) + Number(font_size) / 2;
@@ -310,10 +335,12 @@ function scrollNumberline(
     );
 
     highlight.style.transition = "top 0.1s ease";
-    button.disabled = true;
-    setTimeout(function () {
-      button.disabled = false;
-    }, 500);
+    if (button) {
+      button.disabled = true;
+      setTimeout(function () {
+        button.disabled = false;
+      }, delaybt);
+    }
   }
 }
 

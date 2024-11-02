@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Centraliza o conteúdo da página */
+      body, html {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      /* Opcional: centraliza o conteúdo do div */
+      div {
+        
+        text-align: center;
+      }
+      button {
+        background: black;
+        color: white;
+        border: none;
+        width: 80px;
+        height: 40px;
+        border-radius: 50%;
+        transition: all 1s ease;
+      }
+      button:hover {
+        transform: scale(1.2);
+        transition: all 2s ease;
+      }
+  
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="button">click me</button>
+    </div>
+    <script>
+  let button = document.getElementById('button');
+
+  button.addEventListener('click', (e) => {
+    console.log(`button clicked:`);
+    console.log(e)
+  })
+// Adiciona um event listener para o evento 'keydown' no documento
+document.addEventListener('keydown', function(event) {
+    console.log(`Tecla pressionada: ${event.key}`);
+});
+
+
+    </script>
+  </body>
+</html>
+

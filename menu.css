@@ -169,7 +169,7 @@ input[type="color"]:focus {
 }
 
 /* Media query para dispositivos móveis */
-@media (max-width: 600px) {
+@media (max-width: 6700px) {
 
     #setings {
         height: 100vh;

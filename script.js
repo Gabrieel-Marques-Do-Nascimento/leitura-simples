@@ -68,8 +68,8 @@ let marcador = document.getElementById("marcador");
 export var paragrafo_style = window.getComputedStyle(texto);
 let font_size = document.getElementById("font-size");
 
-//highlight.style.width = pai_styleTo.width;
-highlight.style.width = window_width < 768? paragrafo_style.width : pai_styleTo.width;
+highlight.style.width = pai_styleTo.width;
+//highlight.style.width = window_width < 768? paragrafo_style.width : pai_styleTo.width;
 // elemento removido e substituido por 'theme'
 // let background_type = document.getElementById("background-type");
 const theme = document.getElementById("theme");

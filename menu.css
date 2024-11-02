@@ -128,9 +128,9 @@ input[type="color"]:focus {
 
 
 
-#setings {
+/* #setings {
     display: block;
-}
+} */
 #conteiner {
     display: flex;
     flex-wrap: wrap;
@@ -174,7 +174,7 @@ input[type="color"]:focus {
     #conteiner {
       height: 100vh;        /* Contêiner com altura da tela */
       overflow-y: auto;     /* Habilita rolagem vertical */
-      padding-bottom: 140px;
+      padding-bottom: 180px;
     }
   
     .itemseting {

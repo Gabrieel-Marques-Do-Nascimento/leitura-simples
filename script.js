@@ -1,5 +1,6 @@
 import { buttonstatic, loger, console_log, recarregarPagina } from "./utils.js";
 import { fileInput, dropZone } from "./files.js";
+import {loadScroll} from "./confg.js";
 
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
@@ -194,6 +195,8 @@ function loadText(name) {
 
 // Chama a função para carregar o texto ao abrir a página
 window.onload = loadText("savedText");
+
+
 
 //----------------------------------------------------------------------------------------------------------------------
 //                   marcador de texto

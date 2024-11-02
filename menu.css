@@ -41,6 +41,7 @@ select::after {
 
 /* Estilo para o label */
 label {
+    width: 60%;
     margin-top: 5px;
     font-size: 16px;
     color: #00ffe0;  /* Cor neon */
@@ -124,3 +125,42 @@ input[type="color"]:focus {
     border-image: linear-gradient(45deg, #5cffcb, #e649f5) 1;
     box-shadow: 0 0 10px #5cffcb, 0 0 20px #e649f5;
 }
+
+
+
+#setings {
+    display: block;
+}
+#conteiner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Espaço entre os elementos */
+    padding: 10px; /* Espaço interno */
+    box-sizing: border-box;
+    max-width: 100%; /* Limite de largura para manter dentro da tela */
+  }
+  
+  .itemseting {
+    flex: 1 1 150px; /* Ajuste de largura mínima para responsividade */
+    min-width: 150px; /* Largura mínima */
+    max-width: 300px; /* Largura máxima */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc; /* Adiciona uma borda para visualização */
+ 
+    border-radius: 5px;
+  }
+  
+.itemseting .exemple {
+    position: relative;
+    background-color: #0505052f;
+    width: 80%;
+    top: 0;
+   left: 0;
+    height: 20px;
+}
+.itemseting .exemple .lamp {
+    position: absolute;
+    left: 100%;
+}
+

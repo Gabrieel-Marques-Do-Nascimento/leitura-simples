@@ -9,7 +9,7 @@ import numpy as np
 path = os.path.dirname(__file__)
 path = os.path.join(path, "")
 print(path)
-items = os.listdir(path+"img2")
+items = os.listdir(path+"idioma")
 items.sort()
 print(items)
 
@@ -78,8 +78,8 @@ class Images_From_GIF:
 if __name__ == "__main__":
     size = (850, 436)
 
-    gif = Images_From_GIF("font_size.gif", size, path)
-    imgs = gif.img_list(path+"img2", sort=True)
+    gif = Images_From_GIF("idioma.gif", size, path)
+    imgs = gif.img_list(path+"idioma", sort=True)
 
     imgs = gif.resize(imgs)
     gif.imgs_from_gif(imgs, 13.0, repeat_frames=50)

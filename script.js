@@ -3,6 +3,7 @@ import { fileInput, dropZone } from "./files.js";
 import { loadScroll } from "./confg.js";
 import { new_page } from "./events.js";
 
+export const bookmarkColor = document.getElementById("bookmark");
 export const autoScroll = document.getElementById("autoScroll");
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
@@ -155,7 +156,6 @@ resetBTN.addEventListener("click", () => {
 
 // apos clicar em um botão com formato de livro
 // salta o equivalente a uma pagina
-
 
 page.addEventListener("click", () => {
   mousemove = false;
@@ -415,6 +415,7 @@ close.addEventListener("click", () => {
     //background_type: backgroundType,
     theme: theme.value,
     autoScroll: autoScroll.checked,
+    color: bookmarkColor.value,
   };
 
   saveText_json(confger, "comfger");
@@ -464,6 +465,7 @@ function loadText_json(name) {
     //background_type: "white",
     theme: "auto",
     autoScroll: false,
+    color: "#00f000",
   };
   const text = localStorage.getItem(name);
 
@@ -475,9 +477,9 @@ console_log(data, true);
 document.documentElement.lang = lang.value;
 window.onload = function () {
   let data = loadText_json("comfger");
-  autoScroll.checked = 
+  autoScroll.checked = data["autoScroll"];
   lang.value = data["lang"] ? data["lang"] : "en";
-
+  bookmarkColor.value = data['color']
   scrollNumberline(false, true, data["font-size"]);
   activatedate();
   highlight_status();
@@ -491,6 +493,7 @@ window.onload = function () {
   console_log("linha " + linha + "" + data["font-size"]);
   let fh = Number(data["font-size"]);
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
+ highlight.style.background = data['color']
   if (autoScroll.checked) {
     loadScroll(paragrafo);
   }

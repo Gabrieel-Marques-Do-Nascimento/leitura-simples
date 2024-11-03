@@ -18,3 +18,8 @@ export function loadScroll(element = null) {
   }
   return scrollPosition ? scrollPosition : 0;
 }
+
+
+export function autoThemeTime(){
+
+}

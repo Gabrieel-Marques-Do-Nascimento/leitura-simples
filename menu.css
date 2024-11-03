@@ -134,6 +134,8 @@ input[type="color"]:focus {
 #conteiner {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Alinha os itens no centro horizontalmente */
+    align-items: center;    /* Alinha os itens no centro verticalmente */
     gap: 16px; /* Espaço entre os elementos */
     padding: 10px; /* Espaço interno */
     box-sizing: border-box;
@@ -146,6 +148,7 @@ input[type="color"]:focus {
     max-width: 300px; /* Largura máxima */
     box-sizing: border-box;
     padding: 10px;
+    align-self: center;
     border: 1px solid #ccc; /* Adiciona uma borda para visualização */
  
     border-radius: 5px;

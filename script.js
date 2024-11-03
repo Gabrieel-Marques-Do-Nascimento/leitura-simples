@@ -14,6 +14,7 @@ export let setaps = document.getElementById("setas");
 export let playbt = document.getElementById("play");
 export let pausebt = document.getElementById("pause");
 export let setapb = document.getElementById("setab");
+export let pixels = 0;
 // Criar o elemento de destaque o marcador de texto
 export const highlight = document.createElement("div");
 export let data = loadText_json("comfger");
@@ -154,7 +155,7 @@ resetBTN.addEventListener("click", () => {
 
 // apos clicar em um botão com formato de livro
 // salta o equivalente a uma pagina
-export let pixels = 0;
+
 
 page.addEventListener("click", () => {
   mousemove = false;

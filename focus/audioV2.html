@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar Voz</title>
+</head>
+<body>
+
+    <h1>Personalize a Voz</h1>
+
+    <!-- Caixa de texto para entrada do texto -->
+    <textarea id="texto" rows="4" cols="50">Digite aqui o texto que será falado...</textarea>
+
+    <!-- Seletor de voz -->
+    <label for="voz">Escolha uma voz:</label>
+    <select id="voz"></select>
+
+    <!-- Ajustes de velocidade e tonalidade -->
+    <label for="velocidade">Velocidade:</label>
+    <input type="range" id="velocidade" min="0.5" max="2" value="1" step="0.1">
+
+    <label for="tonalidade">Tonalidade:</label>
+    <input type="range" id="tonalidade" min="0" max="2" value="1" step="0.1">
+
+    <!-- Botão para iniciar a fala -->
+    <button onclick="falarTexto()">Falar</button>
+
+    <script>
+        // Array para armazenar as vozes disponíveis
+        let vozesDisponiveis = [];
+
+        // Função para carregar as vozes e preencher o seletor
+        function carregarVozes() {
+            vozesDisponiveis = window.speechSynthesis.getVoices();
+            const seletorVoz = document.getElementById("voz");
+
+            // Popula o seletor com as vozes disponíveis
+            vozesDisponiveis.forEach((voz, index) => {
+                const opcao = document.createElement("option");
+                opcao.value = index;
+                opcao.textContent = `${voz.name} (${voz.lang})`;
+                seletorVoz.appendChild(opcao);
+            });
+        }
+
+        // Chama a função carregarVozes ao carregar a página
+        window.speechSynthesis.onvoiceschanged = carregarVozes;
+
+        // Função para falar o texto com a voz e configurações selecionadas
+        function falarTexto() {
+            const texto = document.getElementById("texto").value;
+            const fala = new SpeechSynthesisUtterance(texto);
+
+            // Configura voz, velocidade e tonalidade
+            const indiceVoz = document.getElementById("voz").value;
+            fala.voice = vozesDisponiveis[indiceVoz];
+            fala.rate = document.getElementById("velocidade").value;
+            fala.pitch = document.getElementById("tonalidade").value;
+
+            // Inicia a síntese de fala
+            window.speechSynthesis.speak(fala);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,6 +1,8 @@
 import { buttonstatic, loger, console_log, recarregarPagina } from "./utils.js";
 import { fileInput, dropZone } from "./files.js";
 import { loadScroll } from "./confg.js";
+import { new_page } from "./events.js";
+
 export const autoScroll = document.getElementById("autoScroll");
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
@@ -30,8 +32,6 @@ export const highlight_estilo = window.getComputedStyle(highlight);
 export let highlight_top_erd = pai_styleTo.marginTop; //highlight_estilo.top;
 
 console_log("pai" + pai_styleTo.width);
-
-
 
 export let $delayelement = document.getElementById("delay");
 
@@ -69,7 +69,7 @@ export var paragrafo_style = window.getComputedStyle(texto);
 let font_size = document.getElementById("font-size");
 
 //highlight.style.width = pai_styleTo.width;
-highlight.style.width = window_width < 768? "100vw" : pai_styleTo.width;
+highlight.style.width = window_width < 768 ? "100vw" : pai_styleTo.width;
 // elemento removido e substituido por 'theme'
 // let background_type = document.getElementById("background-type");
 const theme = document.getElementById("theme");
@@ -83,7 +83,7 @@ var lineHeight = estilo.lineHeight;
 
 /**
  * funcao responcavel por scrollar ate a distancia em pixels especificada
- * @param {*} pixels os pixels que elemento deve mover em relação ao scroll
+ * @param {*} s os s que elemento deve mover em relação ao scroll
  * @param {*} so se deve ser aplicado os efeitos
  */
 export function scrollarParagrafo(pixels, so = true) {
@@ -154,31 +154,23 @@ resetBTN.addEventListener("click", () => {
 
 // apos clicar em um botão com formato de livro
 // salta o equivalente a uma pagina
-let pixels = 0;
+export let pixels = 0;
 
 page.addEventListener("click", () => {
   mousemove = false;
-  
-  
-  // posicao em pixels do scroll
-  const scrolltop = paragrafo.scrollTop;
-  // pega a posição de pixels do scroll mais a altura da janela
-  let heightp = Number(paragrafo_style.height.replace("px", ""));
-  pixels = heightp + scrolltop;
-  console_log("pixels " + pixels + "height " + heightp);
-  // chama a funcao que altera a posição
-  scrollarParagrafo(pixels);
-  // desabilita o botão page por 1,5 segundos
-  page.disabled = true;
-  setTimeout(function () {
-    page.disabled = false;
-  }, 1500);
+  new_page();
 
   let teste = highlight_top_erd;
   console_log("paragrafo_style " + teste);
   // se o marcador usado for pelos botoes seta
   if (marcador.value == "button") {
     // retorna o marcador para a posição inicial
+  }
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "q") {
+    new_page();
   }
 });
 
@@ -270,28 +262,26 @@ function highlight_status() {
       recarregarPagina();
     }
   }
-  
-  if (marcador.value == "screen" && mousemove){
+
+  if (marcador.value == "screen" && mousemove) {
     setab.disabled = true;
     setaps.disabled = true;
     playbt.disabled = true;
     let telaHeight = tela[0];
-// tela / 2= result
-// top  < result = para cima
-// top > result = para baixo
+    // tela / 2= result
+    // top  < result = para cima
+    // top > result = para baixo
 
-document.addEventListener("mousemove", function (event) {
-  // body...
-  const y = event.clientY;
-  if (y < (telaHeight / 2)){
-    scrollNumberline(true, false, data["font-size"]);
-  }
-  if (y > (telaHeight / 2)){
-    scrollNumberline(true, true, data["font-size"]);
-  }
-  
-  
-});
+    document.addEventListener("mousemove", function (event) {
+      // body...
+      const y = event.clientY;
+      if (y < telaHeight / 2) {
+        scrollNumberline(true, false, data["font-size"]);
+      }
+      if (y > telaHeight / 2) {
+        scrollNumberline(true, true, data["font-size"]);
+      }
+    });
   }
 }
 

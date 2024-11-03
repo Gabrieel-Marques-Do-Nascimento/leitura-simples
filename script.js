@@ -68,8 +68,8 @@ let marcador = document.getElementById("marcador");
 export var paragrafo_style = window.getComputedStyle(texto);
 let font_size = document.getElementById("font-size");
 
-highlight.style.width = pai_styleTo.width;
-//highlight.style.width = window_width < 768? paragrafo_style.width : pai_styleTo.width;
+//highlight.style.width = pai_styleTo.width;
+highlight.style.width = window_width < 768? "100vw" : pai_styleTo.width;
 // elemento removido e substituido por 'theme'
 // let background_type = document.getElementById("background-type");
 const theme = document.getElementById("theme");
@@ -157,6 +157,9 @@ resetBTN.addEventListener("click", () => {
 let pixels = 0;
 
 page.addEventListener("click", () => {
+  mousemove = false;
+  
+  
   // posicao em pixels do scroll
   const scrolltop = paragrafo.scrollTop;
   // pega a posição de pixels do scroll mais a altura da janela
@@ -234,6 +237,7 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
 }
 
 let cont = 1;
+export let mousemove = true;
 function highlight_status() {
   // font responsável por verificar e modificar atualizar a page
   let line = _lineheight_(data["font-size"]);
@@ -267,7 +271,10 @@ function highlight_status() {
     }
   }
   
-  if (marcador.value == "screen"){
+  if (marcador.value == "screen" && mousemove){
+    setab.disabled = true;
+    setaps.disabled = true;
+    playbt.disabled = true;
     let telaHeight = tela[0];
 // tela / 2= result
 // top  < result = para cima
@@ -277,10 +284,10 @@ document.addEventListener("mousemove", function (event) {
   // body...
   const y = event.clientY;
   if (y < (telaHeight / 2)){
-    scrollNumberline(true, false, data["font-size"], setaps);
+    scrollNumberline(true, false, data["font-size"]);
   }
   if (y > (telaHeight / 2)){
-    scrollNumberline(true, true, data["font-size"], setapb);
+    scrollNumberline(true, true, data["font-size"]);
   }
   
   

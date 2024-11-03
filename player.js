@@ -17,6 +17,7 @@ import {
   page,
   $delayelement,
   highlight_top_erd,
+  mousemove,
 } from "./script.js";
 import { loger, console_log } from "./utils.js";
 import { delay } from "./module.js";
@@ -155,7 +156,7 @@ async function play(
   /**
    * quantidade de linhas visíveis na tela
    */
-
+  
   console_log("line_size: " + parseInt(tela[0] / line_heght));
 
   async function runner() {

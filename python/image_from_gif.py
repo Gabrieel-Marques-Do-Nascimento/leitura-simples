@@ -49,11 +49,12 @@ class Images_From_GIF:
             extended_images.extend([np.array(img)] * repeat_frames)
 
         # Convertendo todas as imagens para arrays NumPy
-        images_array = [np.array(img) for img in images]
+        # images_array = [np.array(img) for img in images]
+
         path = os.path.join(self.dest, self.name)
 
         try:
-            imageio.mimsave(path, extended_images,loop=0, duration=duration, )
+            imageio.mimsave(path, extended_images, loop=0, duration=duration)
             print(f"GIF salvo em: {path}")
         except Exception as e:
             print(f"Erro ao salvar o GIF: {e}")

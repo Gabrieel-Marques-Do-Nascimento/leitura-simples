@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <title>Pages of a Book</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        /* overflow: hidden; */
+      }
+      #pai {
+        width: 60%;
+        margin: 10px auto;
+        height: 98vh; /* Altura total da tela com margem superior e inferior */
+      }
+      #paragraph {
+        height: 90%; /* Ocupa toda a altura do contêiner pai */
+        line-height: 150%;
+        position: relative;
+        font-size: 18px;
+
+        word-break: break-word;
+        overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
+        border: 1px solid #ccc;
+        padding: 10px;
+
+        padding-bottom: 20px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.685);
+      }
+      #paragraph2 {
+        position: relative;
+        font-size: 18px;
+        color: #ccc;
+        margin-top: 30px;
+        height: 90%; /* Ocupa toda a altura do contêiner pai */
+        line-height: 150%;
+        background-color: #020202;
+
+        font-size: 18px;
+        word-break: break-word;
+        overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
+        border: 1px solid #ccc;
+        padding: 10px;
+        padding-bottom: 20px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.685);
+      }
+      /* Estilo para telas menores */
+      @media (max-width: 768px) {
+        body {
+          width: 94vw;
+          height: 98vh;
+        }
+        #pai {
+          width: 95%;
+          height: 92vh;
+          padding: 10px;
+        }
+        #paragraph {
+          width: 100%;
+          font-size: 17px;
+          margin: auto;
+        }
+      }
+    </style>
+    <div id="pai">
+      <p id="paragraph">
+        <!-- Aqui você pode adicionar o conteúdo desejado para o parágrafo -->
+        O aprendizado de máquina está criando um tremendo valor econômico hoje.
+        Acho que 99 por cento do valor econômico criado pelo aprendizado de
+        máquina hoje é por meio de um tipo de aprendizado de máquina, que é
+        chamado aprendizado supervisionado. Vamos dar uma olhada no que isso
+        significa. O aprendizado de máquina supervisionado ou mais comumente,
+        aprendizado supervisionado, refere-se a algoritmos que aprendem
+        mapeamentos de x para y ou de entrada para saída. A principal
+        característica do aprendizado supervisionado é que você dá ao seu
+        algoritmo de aprendizado exemplos para aprender. Isso inclui as
+        respostas certas, em que resposta certa, quero dizer, o rótulo correto y
+        para uma determinada entrada x, e é ao ver pares corretos de entrada x e
+        rótulo de saída desejado y que o algoritmo de aprendizado eventualmente
+        aprende a pegar apenas a entrada sozinha sem o rótulo de saída e dá uma
+        previsão razoavelmente precisa ou palpite da saída. Vamos dar uma olhada
+        em alguns exemplos. Se a entrada x for um e-mail e a saída y for este
+        e-mail, spam ou não spam, isso lhe dá seu filtro de spam. Ou se a
+        entrada for um clipe de áudio e o trabalho do algoritmo for gerar a
+        transcrição do texto, então isso é reconhecimento de fala. Ou se você
+        quiser inserir inglês e ter como saída a tradução correspondente em
+        espanhol, árabe, hindi, chinês, japonês ou outra coisa, então isso é
+        tradução automática. Ou a forma mais lucrativa de aprendizado
+        supervisionado hoje é provavelmente usada em publicidade online. Quase
+        todas as grandes plataformas de anúncios online têm um algoritmo de
+        aprendizado que insere algumas informações sobre um anúncio e algumas
+        informações sobre você e então tenta descobrir se você clicará naquele
+        anúncio ou não. Porque ao mostrar a você anúncios, eles têm apenas um
+        pouco mais de probabilidade de clicar, para essas grandes plataformas de
+        anúncios online, cada clique é receita, isso realmente gera muita
+        receita para essas empresas. Isso é algo em que eu já trabalhei muito,
+        talvez não seja a aplicação mais inspiradora, mas certamente tem um
+        impacto econômico significativo em alguns países hoje. Ou se você quiser
+        construir um carro autônomo, o algoritmo de aprendizado tomaria como
+        entrada uma imagem e algumas informações de outros sensores, como um
+        radar ou outras coisas, e então tentaria exibir a posição de, digamos,
+        outros carros para que seu carro autônomo possa dirigir com segurança
+        entre os outros carros. Ou pegue a manufatura. Na verdade, eu fiz muito
+        trabalho neste setor aprendendo IA. Você pode ter um algoritmo de
+        aprendizado tomando como entrada uma foto de um produto fabricado,
+        digamos um celular que acabou de sair da linha de produção e ter o
+        algoritmo de aprendizado exibindo se há ou não um arranhão, amassado ou
+        outro defeito no produto. Isso é chamado de inspeção visual e está
+        ajudando os fabricantes a reduzir ou prevenir defeitos em seus produtos.
+        Em todas essas aplicações, você primeiro treinará seu modelo com
+        exemplos de entradas x e as respostas certas, que são os rótulos y.
+        Depois que o modelo tiver aprendido com essas entradas, saídas ou pares
+        x e y, eles podem então pegar uma nova entrada x, algo que ele nunca viu
+        antes, e tentar produzir a saída y correspondente apropriada. Vamos nos
+        aprofundar mais em um exemplo específico. Digamos que você queira prever
+        os preços de imóveis com base no tamanho da casa. Você coletou alguns
+        dados e digamos que você plota os dados e eles se parecem com isso. Aqui
+        no eixo horizontal está o tamanho da casa em pés quadrados. Sim, eu moro
+        nos Estados Unidos, onde ainda usamos pés quadrados. Eu sei que a maior
+        parte do mundo usa metros quadrados. Aqui no eixo vertical está o preço
+        da casa em, digamos, milhares de dólares. Com esses dados, digamos que
+        um amigo queira saber qual é o preço de sua casa de 750 pés quadrados.
+        Como o algoritmo de aprendizagem pode ajudar você? Uma coisa que um
+        algoritmo de aprendizado pode fazer é dizer, para a linha reta para os
+        dados e ler a linha reta, parece que a casa do seu amigo poderia ser
+        vendida por talvez cerca de, não sei, $ 150.000. Mas ajustar uma linha
+        reta não é o único algoritmo de aprendizado que você pode usar. Existem
+        outros que podem funcionar melhor para esta aplicação. Por exemplo,
+        roteando e ajustando uma linha reta, você pode decidir que é melhor
+        ajustar uma curva, uma função que é um pouco mais complicada ou mais
+        complexa do que uma linha reta. Se você fizer isso e fizer uma previsão
+        aqui, então parece que, bem, a casa do seu amigo poderia ser vendida por
+        mais perto de $ 200.000. Uma das coisas que você vê mais tarde nesta
+        aula é como você pode decidir se ajusta uma linha reta, uma curva ou
+        outra função que é ainda mais complexa para os dados. Agora, não parece
+        apropriado escolher aquele que dá ao seu amigo o melhor preço, mas uma
+        coisa que você vê é como fazer um algoritmo escolher sistematicamente a
+        linha ou curva mais apropriada ou outra coisa para se ajustar a esses
+        dados. O que você viu
+      </p>
+      <p id="paragraph2">hello world</p>
+    </div>
+    <script>
+      // efect de pagina com reproducao de texto em audio
+
+      const paragraph2 = document.getElementById("paragraph2");
+      const paragraph = document.getElementById("paragraph");
+      const paragraphStyle = window.getComputedStyle(paragraph);
+      const wigth = paragraphStyle.width;
+      const height = paragraphStyle.height;
+      const fontsize = paragraphStyle.fontSize;
+      const lineSize = parseInt(fontsize) / 2 + parseInt(fontsize);
+      let pages = paragraph.textContent;
+
+      const textoExemplo = paragraph.innerText;
+      function calcularCaracteresPorLinha(paragrafoId) {
+        // Obtem o elemento do parágrafo
+        const paragrafo = document.getElementById(paragrafoId);
+        if (!paragrafo) return "Parágrafo não encontrado";
+        const textoExemplo = paragrafo.innerText;
+        // Obtem a largura do parágrafo em pixels
+        const larguraParagrafo = paragrafo.clientWidth;
+
+        // Calcula a largura média de um caractere
+
+        const larguraTexto = getTextWidth(textoExemplo, paragrafo);
+        const larguraMediaCaracter = larguraTexto / textoExemplo.length;
+
+        // Calcula a quantidade de caracteres que cabe em uma linha
+        const caracteresPorLinha = Math.floor(
+          larguraParagrafo / larguraMediaCaracter
+        );
+        return caracteresPorLinha;
+      }
+
+      // Função auxiliar para obter a largura de um texto no contexto do parágrafo
+
+      function getTextWidth(texto, elemento) {
+        const context = document.createElement("canvas").getContext("2d");
+        const estilo = window.getComputedStyle(elemento);
+        context.font = `${estilo.fontSize} ${estilo.fontFamily}`;
+        console.log("-------------------------------------------");
+        console.log(`${estilo.fontSize} ${estilo.fontFamily}`);
+        console.log(context.measureText(texto).width);
+        console.log("-------------------------------------------");
+        return context.measureText(texto).width;
+      }
+
+      // Exemplo de uso
+      const caracteresPorLinha = calcularCaracteresPorLinha("paragraph");
+      // console.log("Caracteres por linha:", caracteresPorLinha);
+
+      // console.log(
+      //   "O aprendizado de máquina está criando um tremendo valor econômico hoje. Acho que"
+      //     .length
+      // );
+
+      function AndlinhaExemplo(texto = String, flength, start = 0, erro = 0) {
+        let fim = flength + start - erro;
+        console.log("paramiters: fim", fim);
+        let linhadeTexto = "";
+        let limit = 0;
+        while (true) {
+          limit++;
+
+          for (let i = 1; i < fim; i++) {
+            if (i + 1 == fim && texto.substring(i - 1, i) == " ") {
+              //console.log("i == flength");
+              linhadeTexto = texto.substring(start, i);
+              //console.log(linhadeTexto);
+              return linhadeTexto;
+            }
+          }
+          fim = fim - 1;
+
+          if (limit == 200) {
+            console.log("limit", limit);
+            break;
+          }
+        }
+        return linhadeTexto;
+      }
+
+      function Multi_lines(texto, lineLength, start = 0, erro = 0) {
+        let limit = 0;
+        let lines = [];
+        let line = null;
+        let vr = true;
+        while (true) {
+          limit++;
+          line = AndlinhaExemplo(texto, lineLength, start, erro);
+          lines.push(line);
+          start += line.length;
+          console.log(start);
+          if (line == '  ') {
+            console.log("sucesso!!");
+            break;
+          }
+          if ((start) => texto.length - lineLength || vr) {
+            vr = false;
+            texto += "    ";
+          }
+          if (limit >= (texto.length/ (lineLength - erro))) {
+            console.log("erro");
+            break;
+          }
+          if (limit >= 400) {
+            console.log("erro");
+            break;
+          }
+        }
+        return lines;
+      }
+
+      let texto_list = Multi_lines(
+        textoExemplo,
+        caracteresPorLinha,
+        (start = 0),
+        (erro = 5)
+      );
+      console.log(texto_list);
+      paragraph2.innerHTML = "";
+      for (let i = 0; i < parseInt(texto_list.length); i++) {
+        if (!texto_list[i] == "  ") {
+          paragraph2.innerHTML += texto_list[i] + "</br>";
+        }
+      }
+      console.log(textoExemplo.length);
+
+      // -----------------------------------------------------------------------------
+      //------------------------------------------------------------------------------
+      // acuculo que define a vaival de erro
+      //-------------------------------------------------
+      // definir quotidade de linhas que ocupem a tela visível como span com animação de pagina
+      // -----------------------------------------------------------------------------
+      //------------------------------------------------------------------------------
+    </script>
+  </body>
+</html>

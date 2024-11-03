@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Texto para Áudio</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <h1>Texto para Áudio</h1>
 
     <!-- Área de texto para o usuário digitar -->
-    <textarea id="texto" rows="4" cols="50">Digite aqui o texto que será falado...</textarea>
-    
+    <textarea id="texto" rows="4" cols="50">
+Digite aqui o texto que será falado...</textarea
+    >
+
     <!-- Botão para iniciar a fala -->
     <button onclick="falarTexto()">Falar</button>
 
     <script>
-        function falarTexto() {
-            // Captura o texto do textarea
-            const texto = document.getElementById("texto").value;
-            
-            // Cria uma nova instância de síntese de fala
-            const fala = new SpeechSynthesisUtterance(texto);
-            
-            // Define o idioma para português
-            fala.lang = 'pt-BR';
-            
-            // Inicia a fala
-            window.speechSynthesis.speak(fala);
-        }
-    </script>
+      function falarTexto() {
+        // Captura o texto do textarea
+        const texto = document.getElementById("texto").value;
 
-</body>
+        // Cria uma nova instância de síntese de fala
+        const fala = new SpeechSynthesisUtterance(texto);
+
+        // Define o idioma para português
+        fala.lang = "pt-BR";
+
+        fala.pitch = 0.1; // tonalidade da voz
+        fala.rate = 0.9; // velocidade de fala
+        fala.volume = 0.8;
+        // Inicia a fala
+        window.speechSynthesis.speak(fala);
+      }
+    </script>
+  </body>
 </html>

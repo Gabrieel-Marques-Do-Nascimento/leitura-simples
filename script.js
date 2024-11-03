@@ -70,7 +70,7 @@ export var paragrafo_style = window.getComputedStyle(texto);
 let font_size = document.getElementById("font-size");
 
 //highlight.style.width = pai_styleTo.width;
-highlight.style.width = window_width < 768 ? "100vw" : pai_styleTo.width;
+highlight.style.width = window_width < 768 ? "98vw" : pai_styleTo.width;
 // elemento removido e substituido por 'theme'
 // let background_type = document.getElementById("background-type");
 const theme = document.getElementById("theme");

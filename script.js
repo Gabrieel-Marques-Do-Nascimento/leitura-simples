@@ -471,11 +471,11 @@ function loadText_json(name) {
   return text ? JSON.parse(text) : padrao;
 }
 data = loadText_json("comfger");
-console_log(data);
+console_log(data, true);
 document.documentElement.lang = lang.value;
 window.onload = function () {
   let data = loadText_json("comfger");
-
+  autoScroll.checked = 
   lang.value = data["lang"] ? data["lang"] : "en";
 
   scrollNumberline(false, true, data["font-size"]);

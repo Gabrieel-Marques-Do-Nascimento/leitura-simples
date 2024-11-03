@@ -48,7 +48,7 @@
         }
         #paragraph {
           width: 100%;
-          font-size: 14px;
+          font-size: 17px;
           margin: auto;
         }
       }
@@ -72,8 +72,59 @@
         const wigth = paragraphStyle.width;
         const height = paragraphStyle.height;
         const fontsize = paragraphStyle.fontSize;
-        const lineSize = (fontsize/ 2) + fontsize;
+        const lineSize = (parseInt(fontsize)/ 2) + parseInt( fontsize);
         let pages = paragraph.textContent;
+        function contarCaracteres(texto) {
+        return texto.length;
+                                        }
+        console.log(contarCaracteres('O aprendizado de máquina está criando um tremendo valor econômico hoje. Acho que 99 por'))    
+        console.log(lineSize)                              
+ 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function calcularCaracteresPorLinha(paragrafoId) {
+    // Obtem o elemento do parágrafo
+    const paragrafo = document.getElementById(paragrafoId);
+    if (!paragrafo) return "Parágrafo não encontrado";
+
+    // Obtem a largura do parágrafo em pixels
+    const larguraParagrafo = paragrafo.clientWidth;
+
+    // Calcula a largura média de um caractere
+    const textoExemplo = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const larguraTexto = getTextWidth(textoExemplo, paragrafo);
+    const larguraMediaCaracter = larguraTexto / textoExemplo.length;
+
+    // Calcula a quantidade de caracteres que cabe em uma linha
+    const caracteresPorLinha = Math.floor(larguraParagrafo / larguraMediaCaracter);
+    return caracteresPorLinha;
+}
+
+// Função auxiliar para obter a largura de um texto no contexto do parágrafo
+function getTextWidth(texto, elemento) {
+    const context = document.createElement("canvas").getContext("2d");
+    const estilo = window.getComputedStyle(elemento);
+    context.font = `${estilo.fontSize} ${estilo.fontFamily}`;
+    return context.measureText(texto).width;
+}
+
+// Exemplo de uso
+const caracteresPorLinha = calcularCaracteresPorLinha("paragraph");
+console.log("Caracteres por linha:", caracteresPorLinha);
 
 
     </script>

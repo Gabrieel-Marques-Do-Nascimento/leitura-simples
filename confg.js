@@ -21,5 +21,15 @@ export function loadScroll(element = null) {
 
 
 export function autoThemeTime(){
-
+  let data = new Date;
+  let hora = data.getHours();
+  
+  if (hora >= 6 && hora <= 18){
+    // tema dia
+  }
+  if (hora < 6 || hora > 18) {
+    // tema noite
+  }
 }
+
+autoThemeTime()

@@ -230,7 +230,7 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
     novoTop = highlight_top;
   }
   if (novoTop  > styleheight) {
-    novoTop = styleheight ;
+    novoTop = styleheight - 10;
   }
   }
   if  ( largura > 750) {

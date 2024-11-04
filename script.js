@@ -230,10 +230,10 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
     novoTop = highlight_top;
   }
   if (novoTop  > styleheight) {
-    novoTop = styleheight - 10;
+    novoTop = styleheight ;
   }
   }
-  else {
+  if  ( largura > 750) {
   if (novoTop < highlight_top) {
     novoTop = highlight_top;
   }
@@ -241,6 +241,12 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
     novoTop = styleheight - (line - error);
   }
 }
+// if (novoTop < highlight_top) {
+//   novoTop = highlight_top;
+// }
+// if (novoTop > styleheight) {
+//   novoTop = styleheight - (line - error);
+// }
   highlight.style.top = novoTop + "px";
 }
 

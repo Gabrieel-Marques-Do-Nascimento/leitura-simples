@@ -141,7 +141,7 @@ body {
     top: 10px; /* Altura inicial da linha */
     left: 0;
     right: 0;
-    height: 30px; /* Altura da linha */
+
     background-color: rgb(247, 247, 8); /* Cor de destaque */
     border: solid rgba(42, 41, 41, 0.238) 2px;
     z-index: -1; /* Coloca atrás do texto */

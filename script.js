@@ -72,6 +72,7 @@ let font_size = document.getElementById("font-size");
 
 //highlight.style.width = pai_styleTo.width;
 highlight.style.width = window_width < 768 ? "98vw" : pai_styleTo.width;
+
 // elemento removido e substituido por 'theme'
 // let background_type = document.getElementById("background-type");
 const theme = document.getElementById("theme");
@@ -197,7 +198,6 @@ function loadText(name) {
 // Chama a função para carregar o texto ao abrir a página
 window.onload = loadText("savedText");
 
-
 //----------------------------------------------------------------------------------------------------------------------
 //                   marcador de texto
 // Função para alterar o valor de 'top'
@@ -208,9 +208,7 @@ window.onload = loadText("savedText");
 export let highlight_top = Number(highlight_estilo.top.replace("px", ""));
 let highlight_height = Number(highlight_estilo.height);
 
-
-
-console.log(Number(paragrafo_style.width.replace("px","")))
+console.log(Number(paragrafo_style.width.replace("px", "")));
 export function alterarTop(novoTop, error = 0, line = 0, on = true) {
   let styleheight = Number(paragrafo_style.height.replace("px", ""));
   console_log("-------------------------------------------------");
@@ -223,30 +221,30 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
   if (on) {
     highlight.style.transition = "top 0.1s ease";
   }
- let  largura = Number(paragrafo_style.width.replace("px",""));
- 
-  if (largura <= 750){
+  let largura = window_width;
+
+  if (largura <= 750) {
     if (novoTop < highlight_top) {
-    novoTop = highlight_top;
+      novoTop = highlight_top;
+    }
+    if (novoTop > styleheight) {
+      novoTop = styleheight - 10;
+    }
   }
-  if (novoTop  > styleheight) {
-    novoTop = styleheight - 10;
+  if (largura > 750) {
+    if (novoTop < highlight_top) {
+      novoTop = highlight_top;
+    }
+    if (novoTop > styleheight) {
+      novoTop = styleheight - (line - error);
+    }
   }
-  }
-  if  ( largura > 750) {
-  if (novoTop < highlight_top) {
-    novoTop = highlight_top;
-  }
-  if (novoTop  > styleheight) {
-    novoTop = styleheight - (line - error);
-  }
-}
-// if (novoTop < highlight_top) {
-//   novoTop = highlight_top;
-// }
-// if (novoTop > styleheight) {
-//   novoTop = styleheight - (line - error);
-// }
+  // if (novoTop < highlight_top) {
+  //   novoTop = highlight_top;
+  // }
+  // if (novoTop > styleheight) {
+  //   novoTop = styleheight - (line - error);
+  // }
   highlight.style.top = novoTop + "px";
 }
 
@@ -421,7 +419,7 @@ close.addEventListener("click", () => {
   console_log(fonts);
   texto.style.fontSize = fonts + "px";
 
-  highlight.style.height = lineHeight + "px";
+ 
   recarregarPagina();
 
   // Pegando o estado do checkbox (se está marcado ou não)
@@ -513,7 +511,7 @@ window.onload = function () {
     : -Number(paragrafo_style.lineHeight.replace("px", ""));
   console_log("linha " + linha + "" + data["font-size"]);
   let fh = Number(data["font-size"]);
-  highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
+  highlight.style.height = (fh + (fh/ 2) ) - 2 + 'px'; //fh + (fh / 2) + fh * 0.1 + "px";
   highlight.style.background = data["color"];
   if (autoScroll.checked) {
     loadScroll(paragrafo);
@@ -524,14 +522,11 @@ window.onload = function () {
   }
   if (data["theme"] == "white") {
     //autoThemeTime(12, true);
-    
   }
   if (data["theme"] == "black") {
     autoThemeTime(0, true);
   }
-
-
- };
+};
 
 document.addEventListener("DOMContentLoaded", function () {
   // autura da rolagem do paragrafo

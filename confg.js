@@ -41,7 +41,8 @@ if (!fixed) {
  body {
        background-color: #ffff;}
 #pai {
-        background-color: #ffff;}
+
+        background-color: rgba(255,255,255,.80);}
 `;
   }
   if (hora < 6 || hora > 18) {

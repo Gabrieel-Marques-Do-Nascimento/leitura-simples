@@ -498,16 +498,18 @@ window.onload = function () {
     loadScroll(paragrafo);
   }
 
-  if (data["theme"] == "auto") {
-    autoThemeTime();
-  }
-  if (data["theme"] == "white") {
-    autoThemeTime(12, true);
-  }
-  if (data["theme"] == "black") {
-    autoThemeTime(0, true);
-  }
-};
+//   if (data["theme"] == "auto") {
+//     autoThemeTime();
+//   }
+//   if (data["theme"] == "white") {
+//     autoThemeTime(12, true);
+//   }
+//   if (data["theme"] == "black") {
+//     autoThemeTime(0, true);
+//   }
+
+
+ };
 
 document.addEventListener("DOMContentLoaded", function () {
   // autura da rolagem do paragrafo

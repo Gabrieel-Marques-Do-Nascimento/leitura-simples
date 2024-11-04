@@ -1,5 +1,6 @@
 /* 
-version black color
+version black color */
+/*
 #pai {
   width: 50%;
   background-color: rgba(255, 255, 255, 0.71);
@@ -17,19 +18,21 @@ version black color
     word-break: break-word;
 
     height: 543px;
-    max-height: calc(100vh - 22px); /* Limita a altura considerando a margem 
+    max-height: calc(100vh - 22px); Limita a altura considerando a margem 
     overflow-y: scroll;  Adiciona uma barra de rolagem vertical 
-    border: 1px solid #ccc;  Adiciona uma borda para visualizar o elemento 
-    padding: 0px 10px 0 10px;  Adiciona espaço interno 
-    display: none;  Inicialmente escondido 
+     border: 1px solid #ccc; Adiciona uma borda para visualizar o elemento  
+    padding: 0px 10px 0 10px; Adiciona espaço interno 
+    display: none; Inicialmente escondido 
     z-index:  5;
 }
 body {
-    position: relative;  Para que o pseudo-elemento posicione-se corretamente 
+    position: relative;  Para que o pseudo-elemento posicione-se corretamente
     justify-content: center;
     overflow: hidden;
-    background-color: black; */
+    background-color: black;
 
+}
+ */
 * {
   margin: 0;
   padding: 0;
@@ -203,7 +206,7 @@ body {
     font-weight: bold;
     padding: 10px 20px;
     background-color: #dc3545;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;

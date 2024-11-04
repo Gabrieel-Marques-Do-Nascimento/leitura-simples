@@ -1,6 +1,6 @@
 import { buttonstatic, loger, console_log, recarregarPagina } from "./utils.js";
 import { fileInput, dropZone } from "./files.js";
-import { loadScroll } from "./confg.js";
+import { loadScroll, autoThemeTime } from "./confg.js";
 import { new_page } from "./events.js";
 
 export const bookmarkColor = document.getElementById("bookmark");
@@ -476,6 +476,7 @@ data = loadText_json("comfger");
 console_log(data, true);
 document.documentElement.lang = lang.value;
 window.onload = function () {
+
   let data = loadText_json("comfger");
   autoScroll.checked = data["autoScroll"];
   lang.value = data["lang"] ? data["lang"] : "en";
@@ -496,6 +497,16 @@ window.onload = function () {
  highlight.style.background = data['color']
   if (autoScroll.checked) {
     loadScroll(paragrafo);
+  }
+
+  if (data["theme"] == 'auto') {
+    autoThemeTime()
+  }
+  if (data["theme"] == 'white') {
+    autoThemeTime(12, true)
+  }
+  if (data["theme"] == 'black') {
+    autoThemeTime(0, true)
   }
 };
 

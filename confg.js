@@ -19,17 +19,43 @@ export function loadScroll(element = null) {
   return scrollPosition ? scrollPosition : 0;
 }
 
+let style = document.createElement("style");
+style.type = "text/css";
 
-export function autoThemeTime(){
-  let data = new Date;
-  let hora = data.getHours();
-  
-  if (hora >= 6 && hora <= 18){
+
+/**
+ * funcao que define o tema do site
+ * @param {*} hora tema automático ou tema escolhido manualmente ex: 12: dia, 0: noite
+ * @param {*} fixed false se for tema automático ou true se o tema for manual
+ */
+export function autoThemeTime(hora=0, fixed=false) {
+  let data = new Date();
+if (!fixed) {
+    hora = data.getHours();
+}
+
+
+  if (hora >= 6 && hora <= 18) {
     // tema dia
+    style.innerText = `
+ body {
+       background-color: #ffff;}
+#pai {
+        background-color: #ffff;}
+`;
   }
   if (hora < 6 || hora > 18) {
     // tema noite
+    style.innerText = `
+ body {
+       background-color:  #000;}
+#pai {
+        background-color: rgba(255, 255, 255, 0.71);}    
+        #paragraph { border: 1px solid #ccc;
+        border: 1px solid #000;}
+        
+`;
   }
 }
 
-autoThemeTime()
+document.body.appendChild(style);

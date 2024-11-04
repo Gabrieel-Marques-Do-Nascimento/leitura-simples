@@ -476,11 +476,10 @@ data = loadText_json("comfger");
 console_log(data, true);
 document.documentElement.lang = lang.value;
 window.onload = function () {
-
   let data = loadText_json("comfger");
   autoScroll.checked = data["autoScroll"];
   lang.value = data["lang"] ? data["lang"] : "en";
-  bookmarkColor.value = data['color']
+  bookmarkColor.value = data["color"];
   scrollNumberline(false, true, data["font-size"]);
   activatedate();
   highlight_status();
@@ -494,19 +493,19 @@ window.onload = function () {
   console_log("linha " + linha + "" + data["font-size"]);
   let fh = Number(data["font-size"]);
   highlight.style.height = fh + fh / 2 + fh * 0.1 + "px";
- highlight.style.background = data['color']
+  highlight.style.background = data["color"];
   if (autoScroll.checked) {
     loadScroll(paragrafo);
   }
 
-  if (data["theme"] == 'auto') {
-    autoThemeTime()
+  if (data["theme"] == "auto") {
+    autoThemeTime();
   }
-  if (data["theme"] == 'white') {
-    autoThemeTime(12, true)
+  if (data["theme"] == "white") {
+    autoThemeTime(12, true);
   }
-  if (data["theme"] == 'black') {
-    autoThemeTime(0, true)
+  if (data["theme"] == "black") {
+    autoThemeTime(0, true);
   }
 };
 

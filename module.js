@@ -26,7 +26,7 @@ export function paragraph_height(
   if (log) {
     console_log(`tela disponivel: ${[tela, lineHeight]}`);
   }
-  return [tela + 2, lineHeight];
+  return [tela + 4, lineHeight];
 }
 
 export function _lineheight_(font_size) {

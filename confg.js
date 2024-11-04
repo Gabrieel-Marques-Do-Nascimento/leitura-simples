@@ -49,12 +49,15 @@ if (!fixed) {
     // tema noite
     style.innerText = `
  body {
-       background-color:  #000;}
+       background-color:  #000;
+   cursor: url('./img/cursor-black.svg'), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */ 
+ }
 #pai {
         background-color: rgba(255, 255, 255, 0.71);}    
         #paragraph { border: 1px solid #ccc;
         border: 1px solid #000;}
-        
+
+  
 `;
   }
 }

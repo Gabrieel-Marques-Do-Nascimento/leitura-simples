@@ -145,6 +145,7 @@ body {
     background-color: rgb(247, 247, 8); /* Cor de destaque */
     border: solid rgba(42, 41, 41, 0.238) 2px;
     z-index: -1; /* Coloca atrás do texto */
+    box-shadow:;
     transition: top 0.2s ease;
     width: 52%;
     margin: 0 auto;
@@ -413,8 +414,10 @@ body {
         left: 60%;
       }
       #pai {
-   margin-top: 20px;     
-  width: 98%;
+   margin-top: 20px;   
+   align-items: center;
+   
+  width: 98vw;
   height: 86vh;
   
 
@@ -422,11 +425,13 @@ body {
 }
     #paragraph {
       /*max-height: calc(88vh - 40px);*/
+      left:51%;
+      transform: translate(-50%, 0);
       z-index: 2;
-        width: 100%; /* O parágrafose ajusta à largura da tela */
+        width: 95%; /* O parágrafose ajusta à largura da tela */
      /*   font-size: 14px;  Fonte um pouco menor para celular */
   /* Reduz a altura para celulares */
-  margin: auto;
+  margin: 0 auto;
   
     }
     .highlight{

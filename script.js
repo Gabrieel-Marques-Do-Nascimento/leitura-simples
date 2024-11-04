@@ -197,6 +197,7 @@ function loadText(name) {
 // Chama a função para carregar o texto ao abrir a página
 window.onload = loadText("savedText");
 
+
 //----------------------------------------------------------------------------------------------------------------------
 //                   marcador de texto
 // Função para alterar o valor de 'top'
@@ -207,6 +208,9 @@ window.onload = loadText("savedText");
 export let highlight_top = Number(highlight_estilo.top.replace("px", ""));
 let highlight_height = Number(highlight_estilo.height);
 
+
+
+console.log(Number(paragrafo_style.width.replace("px","")))
 export function alterarTop(novoTop, error = 0, line = 0, on = true) {
   let styleheight = Number(paragrafo_style.height.replace("px", ""));
   console_log("-------------------------------------------------");
@@ -219,13 +223,24 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
   if (on) {
     highlight.style.transition = "top 0.1s ease";
   }
+ let  largura = Number(paragrafo_style.width.replace("px",""));
+ 
+  if (largura <= 750){
+    if (novoTop < highlight_top) {
+    novoTop = highlight_top;
+  }
+  if (novoTop  > styleheight) {
+    novoTop = styleheight - 10;
+  }
+  }
+  else {
   if (novoTop < highlight_top) {
     novoTop = highlight_top;
   }
-  if (novoTop > styleheight) {
+  if (novoTop  > styleheight) {
     novoTop = styleheight - (line - error);
   }
-
+}
   highlight.style.top = novoTop + "px";
 }
 
@@ -498,15 +513,16 @@ window.onload = function () {
     loadScroll(paragrafo);
   }
 
-//   if (data["theme"] == "auto") {
-//     autoThemeTime();
-//   }
-//   if (data["theme"] == "white") {
-//     autoThemeTime(12, true);
-//   }
-//   if (data["theme"] == "black") {
-//     autoThemeTime(0, true);
-//   }
+  if (data["theme"] == "auto") {
+    autoThemeTime();
+  }
+  if (data["theme"] == "white") {
+    //autoThemeTime(12, true);
+    
+  }
+  if (data["theme"] == "black") {
+    autoThemeTime(0, true);
+  }
 
 
  };

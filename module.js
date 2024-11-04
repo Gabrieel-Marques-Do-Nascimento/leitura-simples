@@ -1,7 +1,7 @@
 import { console_log } from "./utils.js";
 
 export function paragraph_height(
-  { log = false, font_Size = null, height = null },
+  { log = true, font_Size = null, height = null },
   ...args
 ) {
   let tot = 0;
@@ -18,15 +18,16 @@ export function paragraph_height(
   const fontSize = parseInt(font_Size);
 
   // Calcula a altura da linha com base no tamanho da fonte
-  const lineHeight = fontSize + fontSize / 2;
+  const lineHeight = fontSize + (fontSize / 2);
 
   // Calcula a altura aproximada do elemento "hello" em relação à altura da janela
+  const tela_size = tela_heith / lineHeight;
   let tela = parseInt(tela_heith / lineHeight) * lineHeight;
 
   if (log) {
-    console_log(`tela disponivel: ${[tela, lineHeight]}`);
+    console_log(`tela disponivel: ${[tela, lineHeight]}`, true);
   }
-  return [tela + 4, lineHeight];
+  return [tela, lineHeight, tela_size];
 }
 
 export function _lineheight_(font_size) {

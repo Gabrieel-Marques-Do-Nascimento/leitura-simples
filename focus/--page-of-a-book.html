@@ -23,6 +23,7 @@
         height: 98vh; /* Altura total da tela com margem superior e inferior */
       }
       #paragraph {
+        width:100%;
         height: 90%; /* Ocupa toda a altura do contêiner pai */
         line-height: 150%;
         position: relative;
@@ -40,7 +41,10 @@
         position: relative;
         font-size: 18px;
         color: #ccc;
+        margin: 0px 30px;
         margin-top: 30px;
+      
+        width:100%;
         height: 90%; /* Ocupa toda a altura do contêiner pai */
         line-height: 150%;
         background-color: #020202;
@@ -60,11 +64,16 @@
           height: 98vh;
         }
         #pai {
-          width: 95%;
+          width: 96%;
           height: 92vh;
           padding: 10px;
         }
         #paragraph {
+          width: 100%;
+          font-size: 17px;
+          margin: auto;
+        }
+         #paragraph2 {
           width: 100%;
           font-size: 17px;
           margin: auto;
@@ -162,6 +171,12 @@
       let pages = paragraph.textContent;
 
       const textoExemplo = paragraph.innerText;
+      /**
+ * Obtém o número de caracteres que cabem em uma linha de um parágrafo específico.
+ * @param {string} paragrafoId - O ID do elemento do parágrafo no DOM.
+ * @returns {number|string} - Retorna o número de caracteres que cabem em uma linha
+ * no parágrafo. Se o parágrafo não for encontrado, retorna uma mensagem de erro.
+ */
       function calcularCaracteresPorLinha(paragrafoId) {
         // Obtem o elemento do parágrafo
         const paragrafo = document.getElementById(paragrafoId);
@@ -183,7 +198,12 @@
       }
 
       // Função auxiliar para obter a largura de um texto no contexto do parágrafo
-
+/**
+ * Calcula a largura de um texto em pixels, considerando o estilo de fonte do elemento fornecido.
+ * @param {string} texto - O texto a ser medido.
+ * @param {HTMLElement} elemento - O elemento HTML do qual será obtido o estilo de fonte.
+ * @returns {number} - A largura do texto em pixels, no contexto do estilo do elemento.
+ */
       function getTextWidth(texto, elemento) {
         const context = document.createElement("canvas").getContext("2d");
         const estilo = window.getComputedStyle(elemento);
@@ -203,52 +223,79 @@
       //   "O aprendizado de máquina está criando um tremendo valor econômico hoje. Acho que"
       //     .length
       // );
-
+      
+      
+/**
+ * Encontra uma linha de texto de um tamanho específico, cortando o texto na última palavra completa que cabe na linha.
+ * @param {string} texto - O texto completo do qual a linha será extraída.
+ * @param {number} flength - Comprimento desejado da linha em número de caracteres.
+ * @param {number} [start=0] - Posição inicial no texto de onde a linha começa.
+ * @param {number} [erro=0] - Tolerância que permite ajustar o comprimento final da linha se necessário.
+ * @returns {string} - A linha extraída do texto com o comprimento desejado, finalizando em uma palavra completa.
+ */
       function AndlinhaExemplo(texto = String, flength, start = 0, erro = 0) {
-        let fim = flength + start - erro;
-        console.log("paramiters: fim", fim);
-        let linhadeTexto = "";
-        let limit = 0;
-        while (true) {
-          limit++;
+  let fim = flength + start - erro;
+  console.log("paramiters: fim", fim);
+  let linhadeTexto = "";
+  let limit = 0;
 
-          for (let i = 1; i < fim; i++) {
-            if (i + 1 == fim && texto.substring(i - 1, i) == " ") {
-              //console.log("i == flength");
-              linhadeTexto = texto.substring(start, i);
-              //console.log(linhadeTexto);
-              return linhadeTexto;
-            }
-          }
-          fim = fim - 1;
+  // Loop para encontrar o ponto ideal de quebra da linha
+  while (true) {
+    limit++;
 
-          if (limit == 200) {
-            console.log("limit", limit);
-            break;
-          }
-        }
+    // Percorre o intervalo de caracteres para encontrar o ponto de quebra da linha
+    for (let i = 1; i < fim; i++) {
+      if (i + 1 == fim && texto.substring(i - 1, i) == " ") {
+        // Encontra a última posição com espaço antes do limite de comprimento
+        linhadeTexto = texto.substring(start, i);
         return linhadeTexto;
       }
+    }
+    fim = fim - 1;
 
+    // Verifica o limite de tentativas para evitar um loop infinito
+    if (limit == 200) {
+      console.log("limit", limit);
+      break;
+    }
+  }
+  return linhadeTexto;
+}
+/**
+ * Divide o texto em múltiplas linhas com um comprimento máximo especificado,
+ * usando `AndlinhaExemplo` para assegurar que cada linha termina em uma palavra completa.
+ * @param {string} texto - O texto completo a ser dividido em múltiplas linhas.
+ * @param {number} lineLength - Comprimento desejado para cada linha em número de caracteres.
+ * @param {number} [start=0] - Posição inicial no texto de onde a primeira linha começa.
+ * @param {number} [erro=0] - Tolerância que permite ajustar o comprimento das linhas se necessário.
+ * @returns {Array<string>} - Array de strings, onde cada elemento representa uma linha do texto.
+ */
       function Multi_lines(texto, lineLength, start = 0, erro = 0) {
+        console.log("line-size:", lineLength)
+        
         let limit = 0;
         let lines = [];
         let line = null;
         let vr = true;
+        
+          // Loop principal para dividir o texto em múltiplas linhas
         while (true) {
           limit++;
           line = AndlinhaExemplo(texto, lineLength, start, erro);
           lines.push(line);
           start += line.length;
           console.log(start);
+              // Condição para verificar se a divisão foi concluída
           if (line == '  ') {
             console.log("sucesso!!");
             break;
           }
+              // Condição para adicionar espaços se necessário para completar a última linha
           if ((start) => texto.length - lineLength || vr) {
             vr = false;
             texto += "    ";
           }
+              // Verifica o limite de tentativas para evitar um loop infinito
           if (limit >= (texto.length/ (lineLength - erro))) {
             console.log("erro");
             break;

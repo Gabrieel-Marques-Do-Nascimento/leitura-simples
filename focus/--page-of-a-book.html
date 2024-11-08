@@ -307,12 +307,12 @@
         }
         return lines;
       }
-
+      let erro = window.innerWidth < 760? 4 : 1
       let texto_list = Multi_lines(
         textoExemplo,
         caracteresPorLinha,
         (start = 0),
-        (erro = 1)
+        (erro)
       );
       console.log(texto_list);
       paragraph2.innerHTML = "";

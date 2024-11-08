@@ -316,6 +316,12 @@
         (erro)
       );
       console.log(texto_list);
+      let paragrafoHeight = paragraphStyle.height.replace("px","");
+      
+      let paragrafoFontSize = paragraphStyle.fontSize.replace("px","");
+      let lineHeigth = parseInt(paragraphStyle.lineHeight.replace("px",""));
+      let paragraphLines = paragrafoHeight  / lineHeigth;
+      console.log("paragraphLines",paragraphLines);
       paragraph2.innerHTML = "";
       for (let i = 0; i < parseInt(texto_list.length); i++) {
         if (!texto_list[i] == "  ") {

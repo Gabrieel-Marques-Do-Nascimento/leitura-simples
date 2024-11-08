@@ -79,7 +79,16 @@
           margin: auto;
         }
       }
+      
+      span{
+        
+      }
+      
+      @keyframes goPage{
+        
+      }
     </style>
+    
     <div id="pai">
       <p id="paragraph">
         <!-- Aqui você pode adicionar o conteúdo desejado para o parágrafo -->
@@ -322,13 +331,27 @@
       let lineHeigth = parseInt(paragraphStyle.lineHeight.replace("px",""));
       let paragraphLines = paragrafoHeight  / lineHeigth;
       let dif = (1+ parseInt(paragraphLines)) - paragraphLines;
+      paragraphLines = paragraphLines + dif;
       console.log("paragraphLines",paragraphLines);
       paragraph2.innerHTML = "";
-      for (let i = 0; i < parseInt(texto_list.length); i++) {
-        if (!texto_list[i] == "  ") {
-          paragraph2.innerHTML += texto_list[i]; //+ "</br>";
+      let cont = 0;
+      let zIndex = 0;
+      let htmlContent = "";
+for (let i = 0; i < texto_list.length; i++) {
+    if (texto_list[i] !== "  ") {
+        if (cont == 0) {
+          zIndex ++;
+            htmlContent += "<span>";
         }
-      }
+        cont++;
+        htmlContent += texto_list[i];
+        if (cont == paragraphLines) {
+            cont = 0;
+            htmlContent += "</span>";
+        }
+    }
+}
+paragraph2.innerHTML = htmlContent;
       console.log('textoExemplo.length',textoExemplo.length);
 
       // -----------------------------------------------------------------------------

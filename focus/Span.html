@@ -122,8 +122,27 @@
 <script>
     function removeTopPage() {
         const pages = document.querySelectorAll('.page');
+        let tot = 0;
         for (let i = pages.length - 1; i >= 0; i--) {
+          if (pages[i].style.opacity === "0")
+          {
+            tot ++;
+          }
+          if (tot === pages.length){
+            for (let y = 0; y < pages.length +1; y ++)
+            {
+            
+            pages[y].style.opacity = "100";
+              
+            }
+            
+          }
             if (pages[i].style.opacity !== '0') {
+              pages[i].style.transition = "1s linear"
+              // add transition e animacao de pagina
+              pages[i].style.transition = "1s linear";
+              pages[i].style.transform = "rotatez(360deg)"
+              
                 pages[i].style.opacity = '0';
                 break;
             }

@@ -1,0 +1,27 @@
+site-projeto/
+│
+├── index.html              # Página principal do site
+├── about.html              # Página sobre o site
+├── contato.html            # Página de contato
+│
+├── assets/                 # Recursos como imagens e fontes
+│   ├── img/                # Imagens do site
+│   ├── fonts/              # Fontes personalizadas
+│   └── icons/              # Ícones
+│
+├── css/                    # Estilos CSS
+│   ├── style.css           # CSS principal
+│   └── reset.css           # Reset de estilos para consistência
+│
+├── js/                     # Scripts JavaScript
+│   ├── main.js             # JS principal para interatividade
+│   └── utils.js            # Funções e utilidades gerais
+│
+├── api/                    # (Back-end) API para o site (caso seja um site dinâmico)
+│   ├── config/             # Configurações do back-end (ex.: base de dados)
+│   ├── controllers/        # Lógica do sistema (por exemplo, controle de usuários)
+│   ├── models/             # Modelos de dados (ex.: usuário, produtos)
+│   ├── routes/             # Rotas da API (ex.: /login, /register)
+│   └── server.js           # Servidor principal
+│
+└── README.md               # Documentação do projeto

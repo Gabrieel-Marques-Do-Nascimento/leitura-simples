@@ -24,12 +24,19 @@ const filesToCache = [
 
 // Instalando o Service Worker e fazendo o cache dos arquivos
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(cacheName).then((cache) => {
-      return cache.addAll(filesToCache);
-    })
-  );
-});
+    event.waitUntil(
+      caches.open(cacheName).then((cache) => {
+        return Promise.all(
+          filesToCache.map((file) =>
+            cache.add(file).catch((error) => {
+              console.error(`Falha ao adicionar ${file} ao cache`, error); // Log se falhar
+            })
+          )
+        );
+      })
+    );
+  });
+  
 
 // Interceptando as requisições e respondendo com o cache, se disponível
 self.addEventListener('fetch', (event) => {

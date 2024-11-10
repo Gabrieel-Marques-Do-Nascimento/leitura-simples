@@ -5,20 +5,20 @@ const filesToCache = [
     // '/img/cursor-black.svg',
     // '/img/icons8-play-50.png',
     // '/img/livro_web__1__Copyright-removebg-preview.png',
-    '/js/confg.js?v=2',          // Arquivos JavaScript
-    '/js/events.js?v=2',
-    '/js/files.js?v=2',
-    '/js/module.js?v=2',
-    '/js/player.js?v=2',
-    '/js/script.js?v=2',
-    '/js/scroll.js?v=2',
-    '/js/service-worker.js?v=2',
-    '/js/utils.js?v=2',
-    '/css/animation.css?v=2',    // Arquivos CSS
-    '/css/files.css?v=2',
-    '/css/menu.css?v=2',
-    '/css/style.css?v=2',                    
-    '/index.html?v=2'// Página principal
+    '/js/confg.js',          // Arquivos JavaScript
+    '/js/events.js',
+    '/js/files.js',
+    '/js/module.js',
+    '/js/player.js',
+    '/js/script.js',
+    '/js/scroll.js',
+    '/js/service-worker.js',
+    '/js/utils.js',
+    '/css/animation.css',    // Arquivos CSS
+    '/css/files.css',
+    '/css/menu.css',
+    '/css/style.css',                    
+    '/index.html'// Página principal
   ];
   
 
@@ -28,7 +28,7 @@ self.addEventListener('install', (event) => {
       caches.open(cacheName).then((cache) => {
         return Promise.all(
           filesToCache.map((file) =>
-            fetch(file).then((response) => {
+            fetch(file, { mode: 'no-cors' }).then((response) => {
               if (response.ok) {
                 return cache.put(file, response);
               } else {

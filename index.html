@@ -487,6 +487,20 @@
     <script type="module" src="js/events.js"></script>
     <script src="js/service-worker.js"></script>
     <script src="js/Cache-Storage-API.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/js/service-worker.js')  // Caminho para o arquivo do Service Worker
+            .then((registration) => {
+                console.log('Service Worker registrado com sucesso:', registration);
+            })
+            .catch((error) => {
+                console.log('Falha ao registrar o Service Worker:', error);
+            });
+    });
+}
+
+    </script>
     <!-- <css src="confg.js"></css/script> -->
     <!--
     <script src="setas.js"></script>

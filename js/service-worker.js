@@ -1,25 +1,25 @@
 const cacheName = 'site-cache-v2';
 const filesToCache = [
-      '/',                     // Raiz
-      '/index.html',           // Página principal
-      '/img/cursor.svg',       // Arquivos SVG e PNG
-      '/img/cursor-black.svg',
-      '/img/icons8-play-50.png',
-      '/img/livro_web__1__Copyright-removebg-preview.png',
-      '/js/confg.js',          // Arquivos JavaScript
-      '/js/events.js',
-      '/js/files.js',
-      '/js/module.js',
-      '/js/player.js',
-      '/js/script.js',
-      '/js/scroll.js',
-      '/js/service-worker.js',
-      '/js/utils.js',
-      '/css/animation.css',    // Arquivos CSS
-      '/css/files.css',
-      '/css/menu.css',
-      '/css/style.css'
-    ];
+    '/leitura-simples/',         // Raiz   
+    // '/img/cursor.svg',       // Arquivos SVG e PNG
+    // '/img/cursor-black.svg',
+    // '/img/icons8-play-50.png',
+    // '/img/livro_web__1__Copyright-removebg-preview.png',
+    '/leitura-simples/js/confg.js',          // Arquivos JavaScript
+    '/leitura-simples/js/events.js',
+    '/leitura-simples/js/files.js',
+    '/leitura-simples/js/module.js',
+    '/leitura-simples/js/player.js',
+    '/leitura-simples/js/script.js',
+    '/leitura-simples/js/scroll.js',
+    
+    '/leitura-simples/js/utils.js',
+    '/leitura-simples/css/animation.css',    // Arquivos CSS
+    '/leitura-simples/css/files.css',
+    '/leitura-simples/css/menu.css',
+    '/leitura-simples/css/style.css',                    
+    '/leitura-simples/index.html'// Página principal
+  ];
   
 
 // Instalando o Service Worker e fazendo o cache dos arquivos

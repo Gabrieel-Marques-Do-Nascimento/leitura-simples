@@ -2,10 +2,10 @@ const cacheName = 'site-cache-v1';
 const filesToCache = [
     '/',                     // Raiz
     '/index.html',           // Página principal
-    '/img/cursor.svg',       // Arquivos SVG e PNG
-    '/img/cursor-black.svg',
-    '/img/icons8-play-50.png',
-    '/img/livro_web__1__Copyright-removebg-preview.png',
+    // '/img/cursor.svg',       // Arquivos SVG e PNG
+    // '/img/cursor-black.svg',
+    // '/img/icons8-play-50.png',
+    // '/img/livro_web__1__Copyright-removebg-preview.png',
     '/js/confg.js',          // Arquivos JavaScript
     '/js/events.js',
     '/js/files.js',

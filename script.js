@@ -451,6 +451,9 @@ setingbtn.addEventListener("click", () => {
 // ----------------------------------
 // comfiguracoes gerais do Site
 
+/**
+ * hello
+ */
 function activatedate() {
   let data = loadText_json("comfger");
   // Atribuir os valores carregados

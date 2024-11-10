@@ -1,26 +1,26 @@
 const cacheName = 'site-cache-v1';
 const filesToCache = [
-  '/',
-  '../index.html',
-  "../img/cursor.svg",
-  "../img/cursor-black.svg",
-  './script.js',
-  "img/icons8-play-50.png",
-  '../img/livro_web__1__Copyright-removebg-preview.png',
-  "../js/confg.js",
-  "../js/events.js",
-  "../js/files.js",
-  "../js/module.js",
-  "../js/player.js",
-  "../js/script.js",
-  "../js/scroll.js",
-  "../js/service-worker.js",
-  "../js/utils.js",
-  "../css/animation.css",
-  "../css/files.css",
-  "../css/menu.css",
-  "../css/style.css"
-];
+    '/',                     // Raiz
+    '/index.html',           // Página principal
+    '/img/cursor.svg',       // Arquivos SVG e PNG
+    '/img/cursor-black.svg',
+    '/img/icons8-play-50.png',
+    '/img/livro_web__1__Copyright-removebg-preview.png',
+    '/js/confg.js',          // Arquivos JavaScript
+    '/js/events.js',
+    '/js/files.js',
+    '/js/module.js',
+    '/js/player.js',
+    '/js/script.js',
+    '/js/scroll.js',
+    '/js/service-worker.js',
+    '/js/utils.js',
+    '/css/animation.css',    // Arquivos CSS
+    '/css/files.css',
+    '/css/menu.css',
+    '/css/style.css'
+  ];
+  
 
 // Instalando o Service Worker e fazendo o cache dos arquivos
 self.addEventListener('install', (event) => {

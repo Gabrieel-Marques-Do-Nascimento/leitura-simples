@@ -419,7 +419,6 @@ close.addEventListener("click", () => {
   console_log(fonts);
   texto.style.fontSize = fonts + "px";
 
- 
   recarregarPagina();
 
   // Pegando o estado do checkbox (se está marcado ou não)
@@ -514,7 +513,7 @@ window.onload = function () {
     : -Number(paragrafo_style.lineHeight.replace("px", ""));
   console_log("linha " + linha + "" + data["font-size"]);
   let fh = Number(data["font-size"]);
-  highlight.style.height = (fh + (fh/ 2) ) - 2 + 'px'; //fh + (fh / 2) + fh * 0.1 + "px";
+  highlight.style.height = fh + fh / 2 - 2 + "px"; //fh + (fh / 2) + fh * 0.1 + "px";
   highlight.style.background = data["color"];
   if (autoScroll.checked) {
     loadScroll(paragrafo);

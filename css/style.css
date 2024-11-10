@@ -221,7 +221,7 @@ body {
 }
 
 body {
-  cursor: url('./img/cursor.svg'), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */
+  cursor: url('../img/cursor.svg'), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */
   width: 100vw;
   height: 100vh;
 }

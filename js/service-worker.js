@@ -1,6 +1,6 @@
 const cacheName = 'site-cache-v2';
 const filesToCache = [
-    '/',         // Raiz   
+    '/leitura-simples/',         // Raiz   
     // '/img/cursor.svg',       // Arquivos SVG e PNG
     // '/img/cursor-black.svg',
     // '/img/icons8-play-50.png',

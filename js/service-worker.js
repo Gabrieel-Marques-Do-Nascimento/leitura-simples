@@ -12,7 +12,7 @@ const filesToCache = [
     '/js/player.js',
     '/js/script.js',
     '/js/scroll.js',
-    '/js/service-worker.js',
+    
     '/js/utils.js',
     '/css/animation.css',    // Arquivos CSS
     '/css/files.css',

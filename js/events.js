@@ -37,6 +37,3 @@ export function new_page() {
     page.disabled = false;
   }, 1500);
 }
-
-
-

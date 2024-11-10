@@ -27,3 +27,14 @@ for frame in range(1, randomi):
     lista.append(create_image(frame))
 imageio.mimsave('gif/de_0_a_100.gif', lista, duration=0.1)
 print(randomi)
+
+
+from PIL import Image
+import numpy as np
+
+def resize_images(images, target_size):
+    resized_images = []
+    for img in images:
+        resized_img = img.resize(target_size, Image.ANTIALIAS)
+        resized_images.append(np.array(resized_img))
+    return resized_images

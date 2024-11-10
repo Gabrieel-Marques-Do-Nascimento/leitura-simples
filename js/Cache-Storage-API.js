@@ -1,11 +1,26 @@
 const CACHE_NAME = 'meu-site-cache-v1';
 const URLS_TO_CACHE = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/script.js',
-    '/imagem.png'
-];
+    '/',                     // Raiz
+    '/index.html',           // Página principal
+    '/img/cursor.svg',       // Arquivos SVG e PNG
+    '/img/cursor-black.svg',
+    '/img/icons8-play-50.png',
+    '/img/livro_web__1__Copyright-removebg-preview.png',
+    '/js/confg.js',          // Arquivos JavaScript
+    '/js/events.js',
+    '/js/files.js',
+    '/js/module.js',
+    '/js/player.js',
+    '/js/script.js',
+    '/js/scroll.js',
+    '/js/service-worker.js',
+    '/js/utils.js',
+    '/css/animation.css',    // Arquivos CSS
+    '/css/files.css',
+    '/css/menu.css',
+    '/css/style.css'
+  ];
+
 
 // Instalando o Service Worker
 self.addEventListener('install', (event) => {

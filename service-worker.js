@@ -56,7 +56,7 @@ self.addEventListener('fetch', (event) => {
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-      .register('./js/service-worker.js')
+      .register('./service-worker.js')
       .then(() => console.log('Service Worker registrado com sucesso'))
       .catch((error) => console.log('Falha no registro do Service Worker', error));
   }

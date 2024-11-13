@@ -5,6 +5,8 @@ const filesToCache = [
     '/img/cursor.svg',       // Arquivos SVG e PNG
     '/img/cursor-black.svg',
     '/img/icons8-play-50.png',
+    "img/book_page.png",
+    "img/00-47-21-570_512.webp",
     '/img/livro_web__1__Copyright-removebg-preview.png',
     '/js/confg.js',          // Arquivos JavaScript
     '/js/events.js',

@@ -528,6 +528,13 @@ window.onload = function () {
   if (data["theme"] == "black") {
     autoThemeTime(0, true);
   }
+  
+  
+  if (paragrafo_style.display == "none") {
+    
+    console.log("paragraph: ", paragrafo_style.display)
+  }
+  
 };
 
 document.addEventListener("DOMContentLoaded", function () {

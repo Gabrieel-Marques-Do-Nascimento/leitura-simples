@@ -3,8 +3,8 @@ import { fileInput, dropZone } from "./files.js";
 import { loadScroll, autoThemeTime } from "./confg.js";
 import { new_page } from "./events.js";
 
-export const bookmarkColor = document.getElementById("bookmark");
-export const autoScroll = document.getElementById("autoScroll");
+export const $bookmarkColor = document.getElementById("bookmark");
+export const $autoScroll = document.getElementById("autoScroll");
 export const paragrafo = document.getElementById("paragraph");
 export const height = window.innerHeight;
 const window_width = window.innerWidth;
@@ -38,7 +38,6 @@ console_log("pai" + pai_styleTo.width);
 export let $delayelement = document.getElementById("delay");
 
 console_log("line 1 (script.js): " + data ? data : "nao existe");
-const $fileConteiner = document.getElementById("fileConteiner");
 
 // barra que recebe o texto que o usuario quer ler
 
@@ -61,7 +60,7 @@ const lang = document.getElementById("lang");
 // --------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
 // menu de comfiguracoes
-let setings = document.getElementById("setings");
+
 let texto = document.getElementById("paragraph");
 let setingbtn = document.getElementById("setting");
 let close = document.getElementById("close");
@@ -86,14 +85,10 @@ var lineHeight = estilo.lineHeight;
 
 /**
  * funcao responcavel por scrollar ate a distancia em pixels especificada
- * @param {*} s os s que elemento deve mover em relação ao scroll
+ * @param {*} pixels os s que elemento deve mover em relação ao scroll
  * @param {*} so se deve ser aplicado os efeitos
  */
 export function scrollarParagrafo(pixels, so = true) {
-  // paragrafo.scrollTo({
-  //   top: pixels - 55,
-  //   behavior: "smooth",
-  // });
 
   if (so) {
     // com uma animação de 2 segundos
@@ -121,7 +116,7 @@ function style_sec(rstdis, pdis, stdis, inpdis, texto) {
 
   $input.style.display = inpdis;
   paragrafo.innerHTML = texto;
-  $fileConteiner.style.display = inpdis;
+  document.getElementById("fileConteiner").style.display = inpdis;
 }
 
 // retorna uma lista de elementos
@@ -206,7 +201,7 @@ window.onload = loadText("savedText");
  * posição na vertical  do elemento highlight
  */
 export let highlight_top = Number(highlight_estilo.top.replace("px", ""));
-let highlight_height = Number(highlight_estilo.height);
+//let highlight_height = Number(highlight_estilo.height);
 
 console.log(Number(paragrafo_style.width.replace("px", "")));
 export function alterarTop(novoTop, error = 0, line = 0, on = true) {
@@ -414,6 +409,8 @@ paragrafo.style.height = tela[0] + "px";
 console_log("linha " + lineHeight);
 
 close.addEventListener("click", () => {
+  
+  let setings = document.getElementById("setings");
   highlight_status();
   let fonts = Number(font_size.value) > 12 ? font_size.value : 12;
   console_log(fonts);
@@ -432,8 +429,8 @@ close.addEventListener("click", () => {
     "font-size": Number(font_size.value) > 12 ? font_size.value : "12",
     //background_type: backgroundType,
     theme: theme.value,
-    autoScroll: autoScroll.checked,
-    color: bookmarkColor.value,
+    $autoScroll: $autoScroll.checked,
+    color: $bookmarkColor.value,
   };
 
   saveText_json(confger, "comfger");
@@ -463,7 +460,7 @@ function activatedate() {
     font_size.value = data["font-size"];
     // background_type.checked = data["background_type"] == "black" ? true : false;
     theme.value = data["theme"] ? data["theme"] : "auto";
-    autoScroll.checked = data["autoScroll"];
+    $autoScroll.checked = data["$autoScroll"];
     let font = Number(font_size.value);
     texto.style.fontSize = font_size.value + "px";
     // highlight.style.height = font + (font / 2) + "px";
@@ -485,7 +482,7 @@ function loadText_json(name) {
     "font-size": 18,
     //background_type: "white",
     theme: "auto",
-    autoScroll: false,
+    $autoScroll: false,
     color: "#00f000",
   };
   const text = localStorage.getItem(name);
@@ -498,9 +495,9 @@ console_log(data, true);
 document.documentElement.lang = lang.value;
 window.onload = function () {
   let data = loadText_json("comfger");
-  autoScroll.checked = data["autoScroll"];
+  $autoScroll.checked = data["$autoScroll"];
   lang.value = data["lang"] ? data["lang"] : "en";
-  bookmarkColor.value = data["color"];
+  $bookmarkColor.value = data["color"];
   scrollNumberline(false, true, data["font-size"]);
   activatedate();
   highlight_status();
@@ -515,7 +512,7 @@ window.onload = function () {
   let fh = Number(data["font-size"]);
   highlight.style.height = fh + fh / 2 - 2 + "px"; //fh + (fh / 2) + fh * 0.1 + "px";
   highlight.style.background = data["color"];
-  if (autoScroll.checked) {
+  if ($autoScroll.checked) {
     loadScroll(paragrafo);
   }
 

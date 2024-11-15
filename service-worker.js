@@ -27,6 +27,7 @@ const filesToCachegIT = [
     // '/img/icons8-play-50.png',
     // '/img/livro_web__1__Copyright-removebg-preview.png',
     '/leitura-simples/js/confg.js',          // Arquivos JavaScript
+    '/leitura-simples/js/Premium.js',
     '/leitura-simples/js/events.js',
     '/leitura-simples/js/files.js',
     '/leitura-simples/js/module.js',

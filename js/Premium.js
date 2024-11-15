@@ -12,8 +12,8 @@ const Premium = document.querySelectorAll(".premiumitem");
 
 conteiner.appendChild(logo)
 for (let i = 0; i < Premium.length; i++) {
-    let cloneLogo = logo.cloneNode(true);
-
+    // let cloneLogo = logo.cloneNode(true);
+// add o estilo de um elemento a outro
     // let style = window.getComputedStyle(Premium[i]);
 //     for (let propety of style) {
 //         cloneLogo.style[propety] = style.getPropertyValue(propety);

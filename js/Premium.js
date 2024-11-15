@@ -1,10 +1,21 @@
-const $contein_elem_premium = document.createElement("div");
+let logo = document.createElement("div");
+logo.innerText = "Premium"
+// --------- teste bet ------------
+const teste = document.getElementById("marcador");
+teste.classList.add("premiumitem");
 
+//-----------------------------------
+const Premium = document.querySelectorAll(".premiumitem");
 
-$contein_elem_premium.style.width = "200px";
-$contein_elem_premium.style.height = "200px";
-$contein_elem_premium.style.background = "green";
-$contein_elem_premium.style.zIndex = "9";
-$contein_elem_premium.style.position = "relative";
+for (let i = 0; i < Premium.length; i++) {
+    let cloneLogo = logo.cloneNode(true);
 
-document.body.appendChild($contein_elem_premium)
+    let style = window.getComputedStyle(Premium[i]);
+    for (let propety of style) {
+        cloneLogo.style[propety] = style.getPropertyValue(propety);
+    }
+    console.log(style);
+    document.body.appendChild(cloneLogo);
+    Premium[i].style.opacity = 0;
+    Premium[i].style.display = "none";
+}

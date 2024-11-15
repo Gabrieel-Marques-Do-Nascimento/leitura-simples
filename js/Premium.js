@@ -1,4 +1,5 @@
 let logo = document.createElement("div");
+logo.classList.add('premiumLogo')
 logo.innerText = "Premium";
 logo.translate = false;
 // --------- teste bet ------------

@@ -449,7 +449,7 @@ body {
   display: none;
   z-index: 5;
   position: fixed;
-  z-index: 4;
+  
   left: 10%;
   align-items: start;
   color: white;

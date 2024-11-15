@@ -2,3 +2,17 @@
   pointer-events: none;
   color: green;
 }
+.premiumLogo {
+  flex: 1 1 150px; /* Ajuste de largura mínima para responsividade */
+  min-width: 150px; /* Largura mínima */
+  max-width: 300px; /* Largura máxima */
+  box-sizing: border-box;
+  padding: 10px;
+  align-self: center;
+  border: 1px solid #ccc; /* Adiciona uma borda para visualização */
+text-align: center;
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 16px black;
+  
+  font-size: 22px;
+}

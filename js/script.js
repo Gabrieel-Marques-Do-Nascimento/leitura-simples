@@ -1,8 +1,9 @@
+// ------------------------------- Importações de Módulos -------------------------------
 import { buttonstatic, loger, console_log, recarregarPagina } from "./utils.js";
 import { fileInput, dropZone } from "./files.js";
 import { loadScroll, autoThemeTime } from "./confg.js";
 import { new_page } from "./events.js";
-
+// ------------------------------- Elementos do DOM -------------------------------
 export const $bookmarkColor = document.getElementById("bookmark");
 export const $autoScroll = document.getElementById("autoScroll");
 export const paragrafo = document.getElementById("paragraph");
@@ -16,6 +17,7 @@ export let playbt = document.getElementById("play");
 export let pausebt = document.getElementById("pause");
 export let setapb = document.getElementById("setab");
 export let pixels = 0;
+// ------------------------------- Elementos Dinâmicos -------------------------------
 // Criar o elemento de destaque o marcador de texto
 export const highlight = document.createElement("div");
 export let data = loadText_json("comfger");
@@ -27,6 +29,7 @@ export var pai_styleTo = window.getComputedStyle(
 );
 // add o marcador ao elemento pai body
 document.body.appendChild(highlight);
+// ------------------------------- Estilos Computados -------------------------------
 export const highlight_estilo = window.getComputedStyle(highlight);
 // mostra os estilos utilizados no marcador
 
@@ -525,15 +528,11 @@ window.onload = function () {
   if (data["theme"] == "black") {
     autoThemeTime(0, true);
   }
-  
-  
+  // caso o paragrafo for display none desabilita os bottons
   if (paragrafo_style.display == "none") {
-    
     console.log("paragraph: ", paragrafo_style.display)
   }
-  
 };
-
 document.addEventListener("DOMContentLoaded", function () {
   // autura da rolagem do paragrafo
   window._scroll_height = paragrafo.scrollHeight;
@@ -544,27 +543,3 @@ document.addEventListener("DOMContentLoaded", function () {
   console_log("line 478");
   console_log("line 478:  " + tela[0]);
 });
-
-// paragrafo.scrolltop = loadScroll();
-// ----------------------------------------------------------------------
-//-------------------------------------------------------------------------
-//          background color select model
-//---------------------------------------------------------------
-//--------------------------------------------------------------------------
-
-function select_backdround() {
-  // opcoes: auto, black, white
-  // auto: dia = white e noite = black
-}
-
-// ----------------------------------------------------------------------
-//-------------------------------------------------------------------------
-//         file load
-//---------------------------------------------------------------
-//--------------------------------------------------------------------------
-
-// ----------------------------------------------------------------------------------------------------------------------
-// ctrl + tecla : reload page
-
-//----------------------------------------------------------------------------------------------------------------------
-// save posicao atual da pagina auto

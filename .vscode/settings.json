@@ -3,5 +3,6 @@
     "cSpell.words": [
         "hesponcavel",
         "serta"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "standard"
 }

@@ -1,7 +1,7 @@
 let logo = document.createElement("div");
 logo.classList.add('premiumLogo');
 let link = document.createElement("a");
-link.href = "templates/index.html"
+link.href = "templates/register.html"
 link.innerText = "Premium"
 logo.appendChild(link)
 logo.translate = false;

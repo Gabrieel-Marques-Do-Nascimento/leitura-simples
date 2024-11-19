@@ -27,14 +27,17 @@ def register():
 
     # Verifica se usuário já existe
     if User.query.filter_by(username=username).first():
+        # if var=username for encontrado na column=username:
         return jsonify({'error': 'Usuário já existe'}), 400
 
     # Criação de usuário
+    # senha criptografada
     hashed_password = generate_password_hash(password)
+    # cria um novo usuario
     new_user = User(username=username, password=hashed_password)
     db.session.add(new_user)
     db.session.commit()
-
+    # responde com um sucesso
     return jsonify({'message': 'Usuário registrado com sucesso!'}), 201
 
 # Rota para Login de Usuário
@@ -48,8 +51,11 @@ def login():
         return jsonify({'error': 'Faltam dados no login'}), 400
 
     # Busca usuário no banco
+    # user = dados.linha(nome==nome)
     user = User.query.filter_by(username=username).first()
-
+    # busca a linha do banco com o mesmo nome que o usuario esta tentando fazer login
+    
+    # verifica se o user esiste e se a senha esta correta
     if user and check_password_hash(user.password, password):
         return jsonify({'message': 'Login realizado com sucesso!'}), 200
     else:

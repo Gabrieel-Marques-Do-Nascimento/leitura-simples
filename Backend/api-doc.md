@@ -128,6 +128,43 @@ def delete_user(user_id):
 - Permite a exclusão de um usuário baseado no `id` fornecido na URL.
 - Caso o usuário não exista, retorna um erro 404.
 
+
+
+#### 7. **Rota para modificar Usuário (`/update_user/<int:user_id>`)**
+
+```
+
+@app.route('/update_user/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+    user = User.query.get(user_id) 
+    if not user:
+        return jsonify({'error': 'Usuário não encontrado'}), 404
+
+    data = request.get_json()  
+    new_username = data.get('username')
+    new_password = data.get('password')
+
+    if new_username:
+        
+        if User.query.filter_by(username=new_username).first():
+            return jsonify({'error': 'Nome de usuário já em uso'}), 400
+        user.username = new_username
+
+    if new_password:
+        user.password = generate_password_hash(new_password)
+
+    db.session.commit() 
+    return jsonify({'message': 'Usuário atualizado com sucesso'}), 200
+
+
+```
+ - Rota para Modificar Informações do Usuário
+ - Busca o usuário pelo ID
+ - Dados enviados no corpo da requisição
+ - Verifica se o novo nome de usuário já existe
+ - Atualiza a senha, criptografando-a
+ - Salva as alterações no banco de dados
+
 ### Execução da Aplicação
 
 ```python

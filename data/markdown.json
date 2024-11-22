@@ -1,0 +1,92 @@
+[
+  {
+    "markdown": "#### Título 4",
+    "html": "<h4>Título 4</h4>",
+    "css_class": "titulo-4"
+  },
+  {
+    "markdown": "##### Título 5",
+    "html": "<h5>Título 5</h5>",
+    "css_class": "titulo-5"
+  },
+  {
+    "markdown": "###### Título 6",
+    "html": "<h6>Título 6</h6>",
+    "css_class": "titulo-6"
+  },
+  {
+    "markdown": "***Texto em negrito e itálico***",
+    "html": "<strong><em>Texto em negrito e itálico</em></strong>",
+    "css_class": "texto-negrito-italico"
+  },
+  {
+    "markdown": "~~Texto riscado~~",
+    "html": "<del>Texto riscado</del>",
+    "css_class": "texto-riscado"
+  },
+  {
+    "markdown": "[Texto com link e título](https://exemplo.com \"Título do link\")",
+    "html": "<a href=\"https://exemplo.com\" title=\"Título do link\">Texto com link e título</a>",
+    "css_class": "texto-link-titulo"
+  },
+  {
+    "markdown": "1. Item 1\n2. Item 2\n   1. Subitem 1\n   2. Subitem 2",
+    "html": "<ol><li>Item 1</li><li>Item 2<ul><li>Subitem 1</li><li>Subitem 2</li></ul></li></ol>",
+    "css_class": "lista-ordenada-nivelada"
+  },
+  {
+    "markdown": "- Item 1\n  - Subitem 1\n  - Subitem 2",
+    "html": "<ul><li>Item 1<ul><li>Subitem 1</li><li>Subitem 2</li></ul></li></ul>",
+    "css_class": "lista-nao-ordenada-nivelada"
+  },
+  {
+    "markdown": "> Citação com\n> várias linhas",
+    "html": "<blockquote><p>Citação com<br>várias linhas</p></blockquote>",
+    "css_class": "citacao-multilinha"
+  },
+  {
+    "markdown": "Texto normal\n\n---\n\nMais texto",
+    "html": "<p>Texto normal</p><hr><p>Mais texto</p>",
+    "css_class": "texto-com-divisoria"
+  },
+  {
+    "markdown": "![Texto alternativo com título](imagem.png \"Título da imagem\")",
+    "html": "<img src=\"imagem.png\" alt=\"Texto alternativo com título\" title=\"Título da imagem\">",
+    "css_class": "imagem-com-titulo"
+  },
+  {
+    "markdown": "[^nota]: Esta é uma nota de rodapé",
+    "html": "<sup id=\"nota\">Esta é uma nota de rodapé</sup>",
+    "css_class": "nota-rodape"
+  },
+  {
+    "markdown": "Texto com \\*escape\\* de caracteres",
+    "html": "Texto com *escape* de caracteres",
+    "css_class": "texto-escape"
+  },
+  {
+    "markdown": "`$\\sum_{i=1}^n x_i$` (LaTeX inline)",
+    "html": "<code>$\\sum_{i=1}^n x_i$</code>",
+    "css_class": "codigo-math-inline"
+  },
+  {
+    "markdown": "```javascript\nconsole.log('Olá, mundo!');\n```",
+    "html": "<pre><code class=\"language-javascript\">console.log('Olá, mundo!');</code></pre>",
+    "css_class": "bloco-codigo-javascript"
+  },
+  {
+    "markdown": "| Coluna 1 | Coluna 2 |\n|----------|----------|\n| Valor 1  | Valor 2  |\n| Valor 3  | Valor 4  |",
+    "html": "<table><thead><tr><th>Coluna 1</th><th>Coluna 2</th></tr></thead><tbody><tr><td>Valor 1</td><td>Valor 2</td></tr><tr><td>Valor 3</td><td>Valor 4</td></tr></tbody></table>",
+    "css_class": "tabela-multilinhas"
+  },
+  {
+    "markdown": "```diff\n+ Adicionado\n- Removido\n```",
+    "html": "<pre><code class=\"language-diff\">+ Adicionado\n- Removido</code></pre>",
+    "css_class": "bloco-codigo-diff"
+  },
+  {
+    "markdown": "[TOC]",
+    "html": "<div class=\"table-of-contents\"></div>",
+    "css_class": "indice-tabela"
+  }
+]

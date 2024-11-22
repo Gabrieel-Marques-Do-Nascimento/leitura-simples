@@ -84,6 +84,36 @@ def delete_user(user_id):
 
 
 
+# Rota para Modificar Informações do Usuário
+@app.route('/update_user/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+    user = User.query.get(user_id)  # Busca o usuário pelo ID
+    if not user:
+        return jsonify({'error': 'Usuário não encontrado'}), 404
+
+    data = request.get_json()  # Dados enviados no corpo da requisição
+    new_username = data.get('username')
+    new_password = data.get('password')
+
+    if new_username:
+        # Verifica se o novo nome de usuário já existe
+        if User.query.filter_by(username=new_username).first():
+            return jsonify({'error': 'Nome de usuário já em uso'}), 400
+        user.username = new_username
+
+    if new_password:
+        # Atualiza a senha, criptografando-a
+        user.password = generate_password_hash(new_password)
+
+    db.session.commit()  # Salva as alterações no banco de dados
+    return jsonify({'message': 'Usuário atualizado com sucesso'}), 200
+
+
+
+
+
+
+
 # Executa o servidor
 if __name__ == '__main__':
     with app.app_context():

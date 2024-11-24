@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form action="#" method="post">
+        <form id="formulario">
             <div class="input-group">
                 <label for="username">Usuário:</label>
                 <input type="text" id="username" name="username" required>
@@ -22,5 +22,53 @@
             <p class="register-link">Ainda não tem uma conta? <a href="../templates/register.html">Registre-se aqui</a></p>
         </form>
     </div>
+    
+    <script>
+const $password = document.getElementById("password");
+const $username = document.getElementById("username");
+
+const formulario = document.getElementById("formulario");
+
+formulario.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  // Capturando valores dos campos ao enviar o formulário
+  const user = {
+    username: $username.value,
+    password: $password.value
+  };
+
+  try {
+    const response = await fetch("http://192.168.1.17:5000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user)
+    });
+    console.log("status HTTP:", response);
+    
+    const data = await response.json();
+    if (response.ok){
+      if (data["permision"] == "base"){
+        
+      }
+      
+    }
+    if (!response.ok) {
+      const error = await response.json();
+      console.error("erro na API:", error);
+      throw new Error(error.error || "Erro DESCONHECIDO");
+    }
+
+    
+    console.log("Sucesso:", data);
+    alert("Formulário enviado com sucesso!");
+  } catch (error) {
+    console.error("Erro:", error.message);
+    alert("Ocorreu um erro: " + error.message);
+  }
+});
+    </script>
 </body>
 </html>

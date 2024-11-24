@@ -51,7 +51,8 @@ formulario.addEventListener("submit", async function (event) {
     const data = await response.json();
     if (response.ok){
       if (data["permision"] == "base"){
-        
+      // redirect para a pagina de compra da assinatura
+       window.location.href = "" 
       }
       
     }

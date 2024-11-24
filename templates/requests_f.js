@@ -1,1 +1,3 @@
-navigator.Redi
+export async function requests(){
+  
+}

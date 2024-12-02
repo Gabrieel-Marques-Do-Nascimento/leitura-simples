@@ -4,5 +4,9 @@
         "hesponcavel",
         "serta"
     ],
-    "python.analysis.typeCheckingMode": "standard"
+    "python.analysis.typeCheckingMode": "standard",
+    "debug.javascript.terminalOptions": {
+
+    },
+    "prettier.tabWidth": 5
 }

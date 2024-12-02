@@ -18,7 +18,7 @@ export function loadScroll(element = null) {
   }
   return scrollPosition ? scrollPosition : 0;
 }
-
+ 
 let style = document.createElement("style");
 style.type = "text/css";
 

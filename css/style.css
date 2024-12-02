@@ -115,7 +115,7 @@ margin-top: 40%;
     top: 20px;
     left: 10px;
 }
-#setting{
+#settingbutton{
   cursor: none; /* Esconde o cursor */
   position: fixed;
   
@@ -124,7 +124,7 @@ margin-top: 40%;
   background: rgba(0, 0, 0, 0);
   border: none;
 }
-#setting:hover{
+#settingbutton:hover{
   background: black;
 }
 
@@ -225,16 +225,16 @@ body {
   width: 100vw;
   height: 100vh;
 }
-#setab {
+#button_low {
     position: fixed;
     top: 88%;
     left: 90%;
     cursor: none; /* Esconde o cursor */
 }
-#setab:disabled {
+#button_low:disabled {
   background-color: #dc354676;
 }
-#setas {
+#button_up {
     position: fixed;
     top: 70%;
     left: 90%;
@@ -284,7 +284,7 @@ body {
 }
 /*      menu de configurações*/
      /* versão moal */
-     #setings {
+     #setingsmenu {
         display: none;
         z-index: 1;
         position: fixed;
@@ -297,28 +297,28 @@ body {
         height: 80%;
         padding: 10px;
       }
-      #setings , #setings * {
+      #setingsmenu , #setingsmenu * {
         cursor: help;
       }
-      #setings h1 {
+      #setingsmenu h1 {
         background-color: black;
         color: white;
         width: 100%;
         text-align: center;
         margin: auto;
       }
-      #setings #close {
+      #setingsmenu #CloseMenuSettings {
         position: relative;
         background: none;
         left: 90%;
         top: -7%;
       }
-      /* #setings #conteiner {
+      /* #setingsmenu #conteiner {
         display: flex;
         flex-direction: column;
       } */
-      #setings #conteiner input,
-      #setings #conteiner select {
+      #setingsmenu #conteiner input,
+      #setingsmenu #conteiner select {
         width: 90px;
       }
 
@@ -375,7 +375,7 @@ body {
       width: 50px;
       left: 80%;
     }
-    #setab {
+    #button_low {
       z-index: 4;
       align-items: center;
 
@@ -405,7 +405,7 @@ body {
         align-items: center;    /* Centraliza verticalmente */
 
     }
-    #setas {
+    #button_up {
       z-index: 4;
         align-items: center;
         top: 94%;
@@ -437,7 +437,7 @@ body {
         width: 100%;
         top: 20px;
     }
-    #setting{
+    #settingbutton{
   position: fixed;
   left: 90%;
   top: -4px;
@@ -445,7 +445,7 @@ body {
   
   
 }
-#setings {
+#setingsmenu {
   display: none;
   z-index: 5;
   position: fixed;

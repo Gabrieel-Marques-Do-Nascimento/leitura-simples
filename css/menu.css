@@ -79,7 +79,7 @@ input[type="number"] {
     box-sizing: border-box;
 }
 
-/* Remove as setas padrão do input number */
+/* Remove as button_up padrão do input number */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -128,7 +128,7 @@ input[type="color"]:focus {
 
 
 
-/* #setings {
+/* #setingsmenu {
     display: block;
 } */
 #conteiner {
@@ -174,7 +174,7 @@ input[type="color"]:focus {
 /* Media query para dispositivos móveis */
 @media (max-width: 700px) {
 
-    #setings {
+    #setingsmenu {
         height: 100vh;
        
     }

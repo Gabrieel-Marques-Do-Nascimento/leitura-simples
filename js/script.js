@@ -1,6 +1,7 @@
 // ------------------------------- Importações de Módulos -------------------------------
-
+import {texto_teste, add_value} from "./testes.js";
 // ------------------------------- Elementos do DOM -------------------------------
+const inputActived = document.getElementsByClassName("inputClass");
 export const $CloseMenuSettings = document.getElementById("CloseMenuSettings");
 export const $SettingBookMarkColor = document.getElementById("bookmark");
 export const $SettingPageLang = document.getElementById("lang");
@@ -9,11 +10,12 @@ export const $SettingAutoScroll = document.getElementById("autoScroll");
 export const $SettingButton = document.getElementById("settingbutton");
 export const $SettingsMenu = document.getElementById("setingsmenu");
 export const $settingTheme = document.getElementById("theme");
-export const SettingText_marker = document.getElementById("marcador");
+export const $SettingText_marker = document.getElementById("marcador");
 export const $settingsFontSize = document.getElementById("settings-font-size");
 export const $SettingText_type = document.getElementById("text_type");
 // principal screen
 export const $clearButtonFromInput = document.getElementById("clearBtn");
+export const $inputMarkdow = document.getElementById("inputMarkdow");
 export const $input = document.getElementById("ler");
 export const $screen_text = document.getElementById("paragraph");
 export const $pai_das_telas = document.getElementById("pai");
@@ -34,8 +36,9 @@ export const $buttons = document.querySelectorAll(".scrollbt");
 // ------------------------------- Variáveis de Controle e Estado -------------------------------
 export const Cache_json_name = "settings_data";
 export const SettingData = loadText_Cache_json(Cache_json_name);
+export const inputClass = "inputClass";
 // ------------------------------ LOGS---------------------------------------------------------
-
+console.log("SettingData",SettingData);
 // ------------------------------- Funções para Manuseio de Texto -------------------------------
 //================================================
 /**
@@ -63,7 +66,7 @@ export function load_text_from_cache(name) {
      const savedText = localStorage.getItem(name);
      if (savedText) {
           style_sec("block", "block", "none", "none", savedText);
-          $input.value = savedText;
+          inputActived.value = savedText;
           return savedText;
      }
 }
@@ -113,4 +116,37 @@ export function loadText_Cache_json(name) {
 
 // ------------------------------- Funções de Scroll e Movimento -------------------------------
 
-// ------------------------------- Configuração Inicial e Eventos de Interface -------------------------------
+// ------------------------------- Configuração Inicial  -------------------------------
+
+
+
+
+// ---------------------------------    Eventos de Interface         -----------------------------
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Seu código aqui
+   // ------------------------------- area de testes S---------------------------------------------------------
+
+  //inputMarkdow.value = texto_teste;
+ inputActived[0].value = texto_teste; 
+console.log("inputClass",inputMarkdow[0].value);
+
+ 
+    
+    
+    
+    
+    
+    
+});
+// DOMContentLoaded
+$clearButtonFromInput.addEventListener("click", function () {
+  // console.log(inputActived)
+  inputActived[0].value = ""
+});
+
+
+
+
+

@@ -1,4 +1,11 @@
-const cacheName = 'site-cache-v2';
+let cacheName = ""; 
+fetch('./config.json')
+  .then(response => response.json())
+  .then(config => {
+    cacheName = config.service_worker_name
+    console.log(config.API_KEY); // your_api_key
+  });
+
 const filesToCachegIT = [
     '/leitura-simples/',         // Raiz   
     // '/img/cursor.svg',       // Arquivos SVG e PNG

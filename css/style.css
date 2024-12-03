@@ -75,6 +75,12 @@ header {
     width: 80%;
     height: 30px;
 }
+
+.inputmarkdowStyle {
+    margin: 20px 0;
+    width: 80%;
+    height: 30px;
+}
 #clearBtn {
   position: fixed;
   left: 80%;
@@ -187,9 +193,21 @@ body {
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
 }
 
-
+.inputmarkdowStyle  {
+    width: 80%;
+    padding: 10px 15px; /* Espaço interno para melhorar a experiência de digitação */
+    font-size: 18px; /* Aumentar o tamanho da fonte */
+    border: 2px solid #ccc; /* Borda mais visível */
+    border-radius: 8px; /* Bordas arredondadas */
+    outline: none; /* Remove o contorno padrão ao focar */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
+}
 /* Estilo quando o input recebe foco */
 #ler:focus {
+    border-color: #007bff; /* Cor azul ao focar */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
+}
+.inputmarkdowStyle:focus {
     border-color: #007bff; /* Cor azul ao focar */
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
 }
@@ -349,7 +367,13 @@ body {
         font-size: 22px; /* Fonte menor em telas menores */
         padding: 10px;
     }
-
+    .inputmarkdowStyle {
+      z-index: 4;
+        width: 80%; /* O input ocupa toda a largura no celular */
+        height: 40px;
+        font-size: 22px; /* Fonte menor em telas menores */
+        padding: 10px;
+    }
     #start {
       z-index: 4;
         width: 50%; /* O botão ocupa toda a largura disponível */
@@ -449,9 +473,9 @@ body {
   display: none;
   z-index: 5;
   position: fixed;
-  
+  top: 20px;
   left: 10%;
-  align-items: start;
+  align-items: flex-start;
   color: white;
   background-color: rgba(0, 0, 0, 0.819);
   width: 80%;

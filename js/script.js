@@ -1,7 +1,7 @@
 // ------------------------------- Importações de Módulos -------------------------------
 import {texto_teste, add_value} from "./testes.js";
 // ------------------------------- Elementos do DOM -------------------------------
-const inputActived = document.getElementsByClassName("inputClass");
+export const inputActived = document.getElementsByClassName("inputClass");
 export const $CloseMenuSettings = document.getElementById("CloseMenuSettings");
 export const $SettingBookMarkColor = document.getElementById("bookmark");
 export const $SettingPageLang = document.getElementById("lang");
@@ -35,6 +35,7 @@ export const $buttons = document.querySelectorAll(".scrollbt");
 
 // ------------------------------- Variáveis de Controle e Estado -------------------------------
 export const Cache_json_name = "settings_data";
+export const Cache_screen_name = "Cache_screen_name";
 export const SettingData = loadText_Cache_json(Cache_json_name);
 export const inputClass = "inputClass";
 // ------------------------------ LOGS---------------------------------------------------------
@@ -130,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //inputMarkdow.value = texto_teste;
  inputActived[0].value = texto_teste; 
-console.log("inputClass",inputMarkdow[0].value);
+console.log("inputClass",$inputMarkdow.value);
 
  
     

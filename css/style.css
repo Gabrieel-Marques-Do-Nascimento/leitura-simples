@@ -56,7 +56,7 @@ body {
     overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
     border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
     padding: 0px 10px 0 10px; /* Adiciona espaço interno */
-    display: none; /* Inicialmente escondido */
+    display: block; /* Inicialmente escondido */
     margin-top: 0;
     padding-top: 0;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.685);

@@ -1,5 +1,8 @@
 // ------------------------------- Importações de Módulos -------------------------------
 import {texto_teste, add_value} from "./testes.js";
+
+import { save_text_in_cache,
+ load_text_from_cache} from "./utils.js"
 // ------------------------------- Elementos do DOM -------------------------------
 export const inputActived = document.getElementsByClassName("inputClass");
 export const $CloseMenuSettings = document.getElementById("CloseMenuSettings");
@@ -35,7 +38,7 @@ export const $buttons = document.querySelectorAll(".scrollbt");
 
 // ------------------------------- Variáveis de Controle e Estado -------------------------------
 export const Cache_json_name = "settings_data";
-export const Cache_screen_name = "Cache_screen_name";
+export const Cache_screen_name = "Cache_screen_nameV2";
 export const SettingData = loadText_Cache_json(Cache_json_name);
 export const inputClass = "inputClass";
 // ------------------------------ LOGS---------------------------------------------------------
@@ -48,12 +51,7 @@ console.log("SettingData",SettingData);
  * @param {string} data - O texto que será salvo no LocalStorage.
  * @param {string} name - A chave usada para armazenar o texto no LocalStorage.
  */
-export function save_text_in_cache(data, name) {
-     // Pega o texto da área de texto
-     const text = data;
-     // Salva no LocalStorage
-     localStorage.setItem(name, text);
-}
+
 
 //============================================
 /**
@@ -62,15 +60,7 @@ export function save_text_in_cache(data, name) {
  * @param {string} name - A chave usada para recuperar o texto do LocalStorage.
  * @returns {string|undefined} O texto recuperado do LocalStorage ou `undefined` se não existir.
  */
-export function load_text_from_cache(name) {
-     // Carrega o texto salvo do LocalStorage, se existir
-     const savedText = localStorage.getItem(name);
-     if (savedText) {
-          style_sec("block", "block", "none", "none", savedText);
-          inputActived.value = savedText;
-          return savedText;
-     }
-}
+
 
 //===========================================
 /**
@@ -130,17 +120,12 @@ document.addEventListener("DOMContentLoaded", function() {
    // ------------------------------- area de testes S---------------------------------------------------------
 
   //inputMarkdow.value = texto_teste;
- inputActived[0].value = texto_teste; 
-console.log("inputClass",$inputMarkdow.value);
-
- 
-    
-    
-    
-    
-    
-    
+ //inputActived[0].value = texto_teste; 
+// console.log("inputClass",$inputMarkdow.value);
 });
+
+
+
 // DOMContentLoaded
 $clearButtonFromInput.addEventListener("click", function () {
   // console.log(inputActived)

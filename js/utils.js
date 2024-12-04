@@ -1,3 +1,6 @@
+/**
+ * obs: use somente querySelectorAll se for usado getElementsByClassName ocasionara um erro
+ */
 export function buttonstatic(buttons, estado) {
   // loop
   buttons.forEach((button) => {
@@ -28,6 +31,28 @@ export function move_marcador(line) {
   alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha, 8, linha);
   highlight.style.transition = "top 0.1s ease";
 }
+
+export function save_text_in_cache(data, name) {
+     // Pega o texto da área de texto
+     const text = data;
+     // Salva no LocalStorage
+     localStorage.setItem(name, text);
+}
+
+export function load_text_from_cache(name) {
+     // Carrega o texto salvo do LocalStorage, se existir
+     const savedText = localStorage.getItem(name);
+     if (savedText) {
+          return savedText;
+     }
+     return null
+}
+
+
+
+
+
+
 
 // pequena pagina que mostra alguns logs
 const $console_user = document.getElementById("console");

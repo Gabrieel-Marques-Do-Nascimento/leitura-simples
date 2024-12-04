@@ -1,4 +1,5 @@
 {
   "API_KEY": "your_api_key",
-  "service_worker_name":"site-cache-v3"
+  "service_worker_name":"site-cache-v3",
+  "localhost":"http://10.12.148.102:8080/files/escalavel/index.html"
 }

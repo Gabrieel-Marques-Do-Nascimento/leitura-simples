@@ -3,11 +3,16 @@ import {
  $resetButtonn,
  Cache_screen_name,
  inputActived,
- $screen_text
+ $screen_text,
+ winHeight,
+ $pai_das_telas,
+ pai_screen_style,
+ 
 } from "./script.js";
 import {
  save_text_in_cache,
- load_text_from_cache
+ load_text_from_cache,
+ 
 } from "./utils.js";
 import { buttonstatic,
 screen_size_height} from "./utils.js";
@@ -132,7 +137,27 @@ $resetButtonn.addEventListener(
 
 
 //----------------------------------           area de testes ----------------------------------
+console.log("winHeight", winHeight);
+  let margin = parseInt( pai_screen_style.marginBottom.substring(0, pai_screen_style.marginBottom.indexOf("px"))) +
+    parseInt( pai_screen_style.marginTop.substring(0, pai_screen_style.marginTop.indexOf("px")))
+   ;
+//    let border = Number(
+//      paragrafo_style.border.substring(0, paragrafo_style.border.indexOf("px"))
+//    );
+//    let padding = Number(
+//      paragrafo_style.padding.substring(0, paragrafo_style.padding.indexOf("px"))
+//    );
+
+
 let v = screen_size_height(  {font_size:18,
-  height:600,
-  logs: true},4,2,5)
+  height:winHeight,
+  logs: true},100,margin )
+
+console.log('margin',margin)
+console.log(pai_screen_style)
+$screen_text.style.height = v[0] + "px"; 
+$screen_text.style.fontSize = v[2] + "px";
+$pai_das_telas.style.height = v[0] + "px";
+$pai_das_telas.style.lineHeight = v[1] + "px";
+$pai_das_telas.style.fontSize = v[2] + "px";
 console.log(v)

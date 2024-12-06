@@ -35,12 +35,16 @@ export const $buttons = document.querySelectorAll(".scrollbt");
 // ------------------------------- Elementos Dinâmicos -------------------------------
 
 // ------------------------------- Estilos Computados -------------------------------
+export const pai_screen_style = window.getComputedStyle(
+     document.getElementById("pai")
+   );
 
 // ------------------------------- Variáveis de Controle e Estado -------------------------------
 export const Cache_json_name = "settings_data";
 export const Cache_screen_name = "Cache_screen_nameV2";
 export const SettingData = loadText_Cache_json(Cache_json_name);
 export const inputClass = "inputClass";
+export const winHeight = window.outerHeight;
 // ------------------------------ LOGS---------------------------------------------------------
 console.log("SettingData",SettingData);
 // ------------------------------- Funções para Manuseio de Texto -------------------------------

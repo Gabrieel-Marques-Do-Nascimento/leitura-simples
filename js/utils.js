@@ -48,7 +48,32 @@ export function load_text_from_cache(name) {
      return null
 }
 
-
+export function screen_size_height(
+  {font_size,
+  height,
+  logs= true},
+  ...args
+  ){
+    let tot = 0;
+    for (let i = 0; i < args.length; i++){
+      if (logs){
+        console.log(`argumentos: ${i+1}:${args[i]}`);
+      }
+      
+      tot + tot + args[i];
+    }
+    const screenHeight = height - parseInt(args);
+    const fontSize = parseInt(font_size)
+    const line_height = fontSize + (fontSize / 2)
+    
+    const screen_size = screenHeight / line_height;
+    const screen = parseInt((screenHeight / line_height) * line_height)
+   if (logs){
+     console.log(`tela disponivel: ${["screen",screen, "line",line_height]}`)
+   }
+    return [screen, line_height, screen_size]
+    
+  }
 
 
 

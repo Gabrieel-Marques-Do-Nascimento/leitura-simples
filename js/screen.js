@@ -9,7 +9,8 @@ import {
  save_text_in_cache,
  load_text_from_cache
 } from "./utils.js";
-import { buttonstatic } from "./utils.js";
+import { buttonstatic,
+screen_size_height} from "./utils.js";
 
 // ---------------------------------- definicoes globais da tela----------------------------------
 inputActived[0].classList.add(
@@ -126,3 +127,12 @@ $resetButtonn.addEventListener(
   );
  }
 );
+
+
+
+
+//----------------------------------           area de testes ----------------------------------
+let v = screen_size_height(  {font_size:18,
+  height:600,
+  logs: true},4,2,5)
+console.log(v)

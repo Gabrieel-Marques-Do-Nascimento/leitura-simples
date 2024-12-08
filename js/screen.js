@@ -7,7 +7,8 @@ import {
  winHeight,
  $pai_das_telas,
  pai_screen_style,
- 
+ SettingData,
+ $bookmark
 } from "./script.js";
 import {
  save_text_in_cache,
@@ -132,8 +133,10 @@ $resetButtonn.addEventListener(
   );
  }
 );
-
-
+// ---------------------------------marcador devtexto configuracoes ---------------------------------
+  $bookmark.classList.add("highlight")
+  $bookmark.style.height = (SettingData["font-size"] / 2) + SettingData["font-size"] + "px"
+document.body.appendChild($bookmark)
 
 
 //----------------------------------           area de testes ----------------------------------
@@ -149,15 +152,8 @@ console.log("winHeight", winHeight);
 //    );
 
 
-let v = screen_size_height(  {font_size:18,
+let v = screen_size_height(  {font_size:SettingData["font-size"],
   height:winHeight,
-  logs: true},100,margin )
-
-console.log('margin',margin)
-console.log(pai_screen_style)
+  logs: true},70,margin )
 $screen_text.style.height = v[0] + "px"; 
-$screen_text.style.fontSize = v[2] + "px";
-$pai_das_telas.style.height = v[0] + "px";
-$pai_das_telas.style.lineHeight = v[1] + "px";
-$pai_das_telas.style.fontSize = v[2] + "px";
-console.log(v)
+$screen_text.style.fontSize = SettingData["font-size"] + "px";

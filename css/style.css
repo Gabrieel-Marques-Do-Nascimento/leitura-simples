@@ -144,7 +144,7 @@ body {
 
 }
 .highlight {
-    position: absolute;
+    position: fixed;
     top: 10px; /* Altura inicial da linha */
     left: 0;
     right: 0;
@@ -154,7 +154,7 @@ body {
     z-index: -1; /* Coloca atrás do texto */
     
     transition: top 0.2s ease;
-    width: 52%;
+    width: 60%;
     margin: 0 auto;
     /* transition: all 0.9s ease;  Transição suave de 0.5 segundos */
 }
@@ -355,7 +355,20 @@ body {
         
     
     }
-
+      #setingsmenu #CloseMenuSettings {
+        position: relative;
+        background: none;
+        left: 90%;
+        top: -4.25%;
+      }
+            #setingsmenu h1 {
+        background-color: black;
+        color: white;
+        width: 99%;
+        height: 40px;
+        text-align: center;
+        margin: auto;
+      }
     header {
         width: 100%; /* Maximiza o uso da largura da tela */
         padding: 0 10px;
@@ -451,7 +464,9 @@ body {
       /*max-height: calc(88vh - 40px);*/
 
       z-index: 2;
-        width: 95%; /* O parágrafose ajusta à largura da tela */
+      padding:0 15px;
+      margin-top: 20px;
+        width: 93%; /* O parágrafose ajusta à largura da tela */
      /*   font-size: 14px;  Fonte um pouco menor para celular */
   /* Reduz a altura para celulares */
  

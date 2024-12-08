@@ -33,18 +33,20 @@ export const $PauseButton = document.getElementById("pause");
 // retorna uma lista de elementos
 export const $buttons = document.querySelectorAll(".scrollbt");
 // ------------------------------- Elementos Dinâmicos -------------------------------
-
+export const $bookmark = document.createElement("div");
 // ------------------------------- Estilos Computados -------------------------------
-export const pai_screen_style = window.getComputedStyle(
-     document.getElementById("pai")
-   );
-
+export const pai_screen_style = window.getComputedStyle($pai_das_telas)
 // ------------------------------- Variáveis de Controle e Estado -------------------------------
 export const Cache_json_name = "settings_data";
 export const Cache_screen_name = "Cache_screen_nameV2";
 export const SettingData = loadText_Cache_json(Cache_json_name);
 export const inputClass = "inputClass";
-export const winHeight = window.outerHeight;
+export const winHeight = window.innerHeight;
+// Obtém a URL completa
+const urlAtual = window.location.href;
+
+
+
 // ------------------------------ LOGS---------------------------------------------------------
 console.log("SettingData",SettingData);
 // ------------------------------- Funções para Manuseio de Texto -------------------------------
@@ -127,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
  //inputActived[0].value = texto_teste; 
 // console.log("inputClass",$inputMarkdow.value);
 });
-
+console.log(urlAtual); // Exibe a URL no console
 
 
 // DOMContentLoaded

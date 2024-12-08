@@ -1,4 +1,27 @@
-let cacheName = ""; 
+/*
+1. Usando `self.location.origin`:
+```javascript
+// Dentro do service worker
+const BASE_URL = self.location.origin;
+```
+
+2. Usando `location.href`:
+```javascript
+const BASE_URL = location.href.split('/').slice(0, 3).join('/');
+```
+
+3. Método mais robusto com `new URL()`:
+```javascript
+const BASE_URL = new URL('./', self.location).href;
+```
+*/
+
+
+const BASE_URL = new URL('./', self.location).href;
+console.log("service",BASE_URL)
+
+
+let cacheName = "testes"; 
 fetch('./config.json')
   .then(response => response.json())
   .then(config => {
@@ -7,25 +30,25 @@ fetch('./config.json')
   });
 
 const filesToCachegIT = [
-    '/leitura-simples/',         // Raiz   
+    '/',         // Raiz   
     // '/img/cursor.svg',       // Arquivos SVG e PNG
     // '/img/cursor-black.svg',
     // '/img/icons8-play-50.png',
     // '/img/livro_web__1__Copyright-removebg-preview.png',
-    '/leitura-simples/js/confg.js',          // Arquivos JavaScript
-    '/leitura-simples/js/events.js',
-    '/leitura-simples/js/files.js',
-    '/leitura-simples/js/module.js',
-    '/leitura-simples/js/player.js',
-    '/leitura-simples/js/script.js',
-    '/leitura-simples/js/scroll.js',
+    '/js/confg.js',          // Arquivos JavaScript
+    '/events.js',
+    '/files.js',
+    '/js/module.js',
+    '/js/player.js',
+    '/js/script.js',
+    '/js/scroll.js',
     
-    '/leitura-simples/js/utils.js',
-    '/leitura-simples/css/animation.css',    // Arquivos CSS
-    '/leitura-simples/css/files.css',
-    '/leitura-simples/css/menu.css',
-    '/leitura-simples/css/style.css',                    
-    '/leitura-simples/index.html'// Página principal
+    '/js/utils.js',
+    '/css/animation.css',    // Arquivos CSS
+    '/css/files.css',
+    '/css/menu.css',
+    '/css/style.css',                    
+    '/index.html'// Página principal
   ];
   const filesToCache = [
     '/leitura-simples/',         // Raiz   
@@ -58,7 +81,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
       caches.open(cacheName).then((cache) => {
         return Promise.all(
-          filesToCache.map((file) =>
+          filesToCachegIT.map((file) =>
             fetch(file, { mode: 'no-cors' }).then((response) => {
               if (response.ok) {
                 return cache.put(file, response);

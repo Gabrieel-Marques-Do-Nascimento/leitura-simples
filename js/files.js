@@ -1,5 +1,5 @@
-import { $input, inputActived, $screen_text } from "./script.js";
-import { buttonstatic, save_text_in_cache } from "./utils.js";
+import { $input, inputActived, $screen_text, Cache_screen_name } from "./script.js";
+import { buttonstatic, save_text_in_cache, ReadScreen, delay } from "./utils.js";
 
 export const fileInput = document.getElementById("fileInput");
 export const dropZone = document.getElementById("dropZone");
@@ -48,9 +48,13 @@ function readFile(file) {
 dropZone.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", async (e) => {
      try {
+       let value = await readFile(e.target.files[0]);
+       ReadScreen(value)
+       save_text_in_cache(value, Cache_screen_name)
+       delay(1000)
           buttonstatic(document.querySelectorAll(".disabled"), "none");
           buttonstatic(document.querySelectorAll(" .activated"), "block");
-          inputActived[0].value = await readFile(e.target.files[0]);
+          inputActived[0].value = value
      } catch (error) {
           console.error(error);
      }
@@ -67,7 +71,8 @@ dropZone.addEventListener("drop", async (e) => {
           const file = e.dataTransfer.files[0];
           let value = await readFile(file);
          inputActived[0].value = value;
-          let vr = save_text_in_cache(value);
+          let vr = save_text_in_cache(value, Cache_screen_name);
+          ReadScreen(value)
           if (vr) {
   
                buttonstatic(document.querySelectorAll(".disabled"), "none");

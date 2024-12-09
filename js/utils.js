@@ -1,3 +1,4 @@
+
 import {$screen_text,SettingData} from "./script.js"
 
 const winHeight = window.innerHeight;
@@ -177,6 +178,16 @@ export function theme_by_hour_or_auto(hora = 0, fixed = false) {
 
 
 export function ReadScreen(texto){
-     if  (SettingData["screentype"] == 'text')
-     $screen_text.innerHTML = texto
+     if  (SettingData["screentype"] == 'text'){
+       $screen_text.innerText = texto
+     }
+     if (SettingData["screentype"] == "markdow"){
+       $screen_text.style.margin = "0 10px"
+       $screen_text.innerHTML = marked.parse(texto);
+     }
+     
+}
+
+export async function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

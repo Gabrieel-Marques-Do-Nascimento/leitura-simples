@@ -18,6 +18,7 @@ import {
      screen_size_height,
      skip_line,
      change_top,
+     ReadScreen
 } from "./utils.js";
 
 // ---------------------------------- definicoes globais da tela----------------------------------
@@ -29,7 +30,7 @@ if (save_text) {
      buttonstatic(document.querySelectorAll(".disabled"), "none");
      buttonstatic(document.querySelectorAll(" .activated"), "block");
      inputActived[0].value = save_text;
-     $screen_text.innerHTML = save_text;
+      ReadScreen(save_text);
 } else {
      buttonstatic(document.querySelectorAll(".disabled"), "block");
      buttonstatic(document.querySelectorAll(" .activated"), "none");

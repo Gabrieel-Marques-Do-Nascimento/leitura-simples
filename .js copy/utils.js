@@ -1,3 +1,5 @@
+
+
 export function buttonstatic(buttons, estado) {
   // loop
   buttons.forEach((button) => {

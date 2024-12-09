@@ -22,7 +22,7 @@ console.log("service",BASE_URL)
 
 
 let cacheName = "testes"; 
-fetch('./config.json')
+fetch('./-info/config.json')
   .then(response => response.json())
   .then(config => {
     cacheName = config.service_worker_name

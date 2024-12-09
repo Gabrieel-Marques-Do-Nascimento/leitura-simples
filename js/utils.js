@@ -1,3 +1,5 @@
+import {$screen_text,SettingData} from "./script.js"
+
 const winHeight = window.innerHeight;
 
 /**
@@ -49,7 +51,7 @@ export function change_top(
           novoTop = parseInt(father_rect.top); // Não ultrapassa o topo
      }
      if (novoTop > father_height) {
-          novoTop = father_height  + father_rect.top - lineheight; // Não ultrapassa o limite inferior
+          novoTop = father_height + father_rect.top - lineheight; // Não ultrapassa o limite inferior
      }
      return `${novoTop}px`;
 }
@@ -69,10 +71,15 @@ export function skip_line(line, element_move) {
 }
 
 export function save_text_in_cache(data, name) {
-     // Pega o texto da área de texto
-     const text = data;
-     // Salva no LocalStorage
-     localStorage.setItem(name, text);
+     try {
+          // Pega o texto da área de texto
+          const text = data;
+          // Salva no LocalStorage
+          localStorage.setItem(name, text);
+     } catch (error) {
+          return false;
+     }
+     return true;
 }
 
 export function load_text_from_cache(name) {
@@ -127,66 +134,32 @@ export function console_log(text, view = false) {
      }
 }
 
-export async function traduzirTexto(texto, idiomaAlvo) {
-     const url = "https://libretranslate.com/translate";
-
-     const response = await fetch(url, {
-          method: "POST",
-          headers: {
-               "Content-Type": "application/json",
-               Accept: "application/json",
-          },
-          body: JSON.stringify({
-               q: texto,
-               source: "auto", // Detecta automaticamente o idioma de entrada
-               target: idiomaAlvo,
-          }),
-     });
-
-     const data = await response.json();
-     if (data.error) {
-          console.error("Erro na tradução:", data.error);
-          return null;
-     }
-
-     return data.translatedText;
-}
-
-// Exemplo de uso
-// traduzirTexto("Olá, como vai?", "en")
-//    .then(traducao => console.log(traducao))
-//    .catch(error => console.error("Erro:", error));
-
-
-
 /**
  * funcao que define o tema do site
  * @param {*} hora tema automático ou tema escolhido manualmente ex: 12: dia, 0: noite
  * @param {*} fixed false se for tema automático ou true se o tema for manual
  */
-export function theme_by_hour_or_auto(hora=0, fixed=false) {
+export function theme_by_hour_or_auto(hora = 0, fixed = false) {
+     let style = document.createElement("style");
+     style.type = "text/css";
+     let data = new Date();
+     if (!fixed) {
+          hora = data.getHours();
+     }
 
-  let style = document.createElement("style");
-style.type = "text/css";
-  let data = new Date();
-if (!fixed) {
-    hora = data.getHours();
-}
-
-
-  if (hora >= 6 && hora <= 18) {
-    // tema dia
-    style.innerText = `
+     if (hora >= 6 && hora <= 18) {
+          // tema dia
+          style.innerText = `
  body {
        background-color: #ffff;}
 #pai {
 
         background-color: rgba(255,255,255,.80);}
 `;
-  }
-  if (hora < 6 || hora > 18) {
-    // tema noite
-    style.innerText = `
+     }
+     if (hora < 6 || hora > 18) {
+          // tema noite
+          style.innerText = `
  body {
        background-color:  #000;
    cursor: url('./img/cursor-black.svg'), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */ 
@@ -198,8 +171,12 @@ if (!fixed) {
 
   
 `;
-  }
-document.body.appendChild(style);  
+     }
+     document.body.appendChild(style);
 }
 
 
+export function ReadScreen(texto){
+     if  (SettingData["screentype"] == 'text')
+     $screen_text.innerHTML = texto
+}

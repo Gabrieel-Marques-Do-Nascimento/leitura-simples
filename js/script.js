@@ -34,6 +34,9 @@ export const $PauseButton = document.getElementById("pause");
 export const $buttons = document.querySelectorAll(".scrollbt");
 // ------------------------------- Elementos Dinâmicos -------------------------------
 export const $bookmark = document.createElement("div");
+
+
+
 // ------------------------------- Estilos Computados -------------------------------
 export const pai_screen_style = window.getComputedStyle($pai_das_telas)
 // ------------------------------- Variáveis de Controle e Estado -------------------------------

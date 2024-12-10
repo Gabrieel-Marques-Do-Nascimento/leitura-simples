@@ -9,11 +9,16 @@
   "icons": [
     {
       "src": "img/00-47-21-570_512.webp",
-      "sizes": "192x192",
+      "sizes": "288x385",
       "type": "image/png"
     },
     {
       "src": "/img/livro_web__1__Copyright-removebg-preview.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "img/book_page.png",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -17,6 +17,7 @@ import {
      $input,
      $inputMarkdow,
      $bookmark,
+     $SettingText_marker_move,
 } from "./script.js";
 import { log_list } from "./testes.js";
 import { recarregarPagina, theme_by_hour_or_auto } from "./utils.js";
@@ -60,6 +61,7 @@ $SettingButton.addEventListener("click", () => {
      $SettingAutoScroll.checked = SettingData["$autoScroll"];
      $SettingText_type.value = SettingData["screentype"];
      $settingTheme.value = SettingData["theme"];
+     $SettingText_marker_move.value = SettingData["markmove"];
 });
 
 // fecha o menu de configurações e atualiza as config
@@ -74,7 +76,7 @@ $CloseMenuSettings.addEventListener("click", () => {
      const confger = {
           lang: $SettingPageLang.value,
           delay: Number($SettingDelay.value),
-          marcador: $SettingBookMarkColor.value,
+          markmove: $SettingText_marker_move.value,
           "font-size":
                Number($settingsFontSize.value) > 12
                     ? $settingsFontSize.value

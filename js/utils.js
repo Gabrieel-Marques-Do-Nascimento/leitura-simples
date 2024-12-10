@@ -30,7 +30,8 @@ export function change_top(
      lineheight = 0,
      Transition = true,
      element_move,
-     father
+     father,
+     addtop = false,
 ) {
      const father_style = window.getComputedStyle(father);
      const father_rect = father.getBoundingClientRect(); // Posição e tamanho do pai
@@ -53,6 +54,10 @@ export function change_top(
      if (novoTop > father_height) {
           novoTop = father_height + father_rect.top - lineheight; // Não ultrapassa o limite inferior
      }
+if (addtop) {
+     element_move.style.top = `${novoTop}px`;
+}
+
      return `${novoTop}px`;
 }
 

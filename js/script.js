@@ -13,7 +13,7 @@ export const $SettingAutoScroll = document.getElementById("autoScroll");
 export const $SettingButton = document.getElementById("settingbutton");
 export const $SettingsMenu = document.getElementById("setingsmenu");
 export const $settingTheme = document.getElementById("theme");
-export const $SettingText_marker = document.getElementById("marcador");
+export const $SettingText_marker_move = document.getElementById("marcador");
 export const $settingsFontSize = document.getElementById("settings-font-size");
 export const $SettingText_type = document.getElementById("text_type");
 // principal screen
@@ -98,7 +98,7 @@ export function loadText_Cache_json(name) {
      const padrao = {
           lang: "en",
           delay: 2000,
-          marcador: "button",
+          markmove: "button",
           "font-size": 18,
           //background_type: "white",
           theme: "auto",

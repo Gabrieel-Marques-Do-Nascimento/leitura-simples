@@ -1,5 +1,4 @@
-
-import {$screen_text,SettingData} from "./script.js"
+import { loadText_Cache_json, $screen_text } from "./script.js";
 
 const winHeight = window.innerHeight;
 
@@ -176,18 +175,41 @@ export function theme_by_hour_or_auto(hora = 0, fixed = false) {
      document.body.appendChild(style);
 }
 
-
-export function ReadScreen(texto){
-     if  (SettingData["screentype"] == 'text'){
-       $screen_text.innerText = texto
+export function ReadScreen(texto) {
+     if (SettingData["screentype"] == "text") {
+          $screen_text.innerText = texto;
      }
-     if (SettingData["screentype"] == "markdow"){
-       $screen_text.style.margin = "0 10px"
-       $screen_text.innerHTML = marked.parse(texto);
+     if (SettingData["screentype"] == "markdow") {
+          $screen_text.style.margin = "0 10px";
+          $screen_text.innerHTML = marked.parse(texto);
      }
-     
 }
 
 export async function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+     return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+// --------------------------------------------------------  auto scroll -------------------------------------------------------
+let SettingData = loadText_Cache_json("settings_data");
+
+export function loadScroll(element = null) {
+     // Restaurar posição do scroll
+     const scrollPosition = localStorage.getItem("$autoScroll");
+     console_log("scrollPosition: " + scrollPosition, true);
+     if (scrollPosition && element) {
+          element.scrollTo({
+               top: scrollPosition,
+               behavior: "smooth",
+          });
+     }
+     return scrollPosition ? scrollPosition : 0;
+}
+window.addEventListener("beforeunload", function () {
+     // Você pode salvar outras informações, como posição do scroll
+     localStorage.setItem("$autoScroll", $screen_text.scrollTop);
+});
+window.onload = function () {
+     if (SettingData["$autoScroll"]) {
+          let l = loadScroll($screen_text);
+     }
+};

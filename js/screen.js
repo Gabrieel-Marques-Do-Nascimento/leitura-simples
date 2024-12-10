@@ -12,7 +12,7 @@ import {
      $button_low,
      $button_up,
 } from "./script.js";
-import { save_text_in_cache, load_text_from_cache } from "./utils.js";
+import { save_text_in_cache, load_text_from_cache, loadScroll } from "./utils.js";
 import {
      buttonstatic,
      screen_size_height,
@@ -22,6 +22,10 @@ import {
 } from "./utils.js";
 
 // ---------------------------------- definicoes globais da tela----------------------------------
+
+
+
+
 inputActived[0].classList.add("disabled");
 
 const save_text = load_text_from_cache(Cache_screen_name);

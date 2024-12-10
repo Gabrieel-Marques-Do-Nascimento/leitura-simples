@@ -1,6 +1,9 @@
 import { paragrafo, paragrafo_style } from "./script.js";
 import { console_log } from "./utils.js";
 
+
+
+
 window.addEventListener("beforeunload", function () {
   // Você pode salvar outras informações, como posição do scroll
   localStorage.setItem("scrollPosition", paragrafo.scrollTop);

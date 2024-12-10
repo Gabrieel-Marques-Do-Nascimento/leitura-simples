@@ -12,7 +12,7 @@ import {
      $button_low,
      $button_up,
      loadText_Cache_json,
-     Cache_json_name
+     Cache_json_name,
 } from "./script.js";
 import {
      save_text_in_cache,
@@ -28,7 +28,7 @@ import {
 } from "./utils.js";
 
 // ---------------------------------- definições globais da tela----------------------------------
-const SettingData = loadText_Cache_json(Cache_json_name);   
+const SettingData = loadText_Cache_json(Cache_json_name);
 inputActived[0].classList.add("disabled");
 
 const save_text = load_text_from_cache(Cache_screen_name);
@@ -105,142 +105,82 @@ $button_up.addEventListener("click", () => {
           $screen_text
      );
 });
+let actionExecuted = false; // Variável de controle
 document.addEventListener("keyup", (e) => {
-  if (e.key === "w" || e.key === "s") {
-    console_log(e.key);
-    actionExecuted = false; // Libera a ação ao soltar a tecla
-  }
+     if (e.key === "w" || e.key === "s") {
+          actionExecuted = false; // Libera a ação ao soltar a tecla
+     }
 });
 document.addEventListener("keydown", (e) => {
-  if (!actionExecuted) {
-    // Executa apenas se a ação ainda não foi realizada
-    actionExecuted = true; // Define como true para impedir execuções adicionais enquanto a tecla está pressionada
-    if (e.key === "w") {
-      $bookmark.style.top = change_top(
-          -(
-               parseInt(SettingData["font-size"]) / 2 +
-               parseInt(SettingData["font-size"])
-          ),
-          true,
-          $bookmark,
-          $screen_text
-     );
-    }
-    console_log(e.key, actionExecuted);
-    if (e.key === "s") {
-      $bookmark.style.top = change_top(
-          parseInt(SettingData["font-size"]) / 2 +
-               parseInt(SettingData["font-size"]),
-          true,
-          $bookmark,
-          $screen_text
-     );
-    }
-  }
+     if (!actionExecuted) {
+          // Executa apenas se a ação ainda não foi realizada
+          actionExecuted = true; // Define como true para impedir execuções adicionais enquanto a tecla está pressionada
+          if (e.key === "w") {
+               $bookmark.style.top = change_top(
+                    -(
+                         parseInt(SettingData["font-size"]) / 2 +
+                         parseInt(SettingData["font-size"])
+                    ),
+                    true,
+                    $bookmark,
+                    $screen_text
+               );
+          }
+          if (e.key === "s") {
+               $bookmark.style.top = change_top(
+                    parseInt(SettingData["font-size"]) / 2 +
+                         parseInt(SettingData["font-size"]),
+                    true,
+                    $bookmark,
+                    $screen_text
+               );
+          }
+     }
 });
 // --------------------------------------------- mark move ---------------------------------------------
 
-
-
-
-
-export function alterarTop(novoTop, error = 0, line = 0, on = true) {
-     let styleheight = Number(paragrafo_style.height.replace("px", ""));
-     console_log("-------------------------------------------------");
-     console_log("alterarTop function: " + novoTop + "" + styleheight, true);
-     console_log("erro:" + error, true);
-     console_log("line:" + line, true);
-     console_log("-------------------------------------------------", true);
-     console_log("    ", true);
-     let end_line = tela[1];
-     if (on) {
-       highlight.style.transition = "top 0.1s ease";
-     }
-     let largura = window_width;
-   
-     if (largura <= 750) {
-       if (novoTop < highlight_top) {
-         novoTop = highlight_top;
-       }
-       if (novoTop > styleheight) {
-         novoTop = styleheight - 10;
-       }
-     }
-     if (largura > 750) {
-       if (novoTop < highlight_top) {
-         novoTop = highlight_top;
-       }
-       if (novoTop > styleheight) {
-         novoTop = styleheight - (line - error);
-       }
-     }
-     // if (novoTop < highlight_top) {
-     //   novoTop = highlight_top;
-     // }
-     // if (novoTop > styleheight) {
-     //   novoTop = styleheight - (line - error);
-     // }
-     highlight.style.top = novoTop + "px";
-   }
-
-
-
-
-
-
-
-  // se o marcador for igual a mouse
-  if (SettingData['markmove'] == "mouse") {
-     console.log("mouse");
-     let cont = 0;
-     // desativa os botoes
-
-     // add um evento para posicionar o marcador onde estiver o mouse
+// se o marcador for igual a mouse
+if (SettingData['markmove'] === "mouse") {
+     // Usa requestAnimationFrame para atualizações de tela mais suaves
+     let rafId = null;
+  
      document.addEventListener("mousemove", function (event) {
-       // obtem a posicao atual do mouse
-       const y = event.clientY;
-       // altera  a position_top do marcador para onde estiver o mouse
-       // dentro limites do elemento paragraph
-       console.log(y);
-       setInterval(() => {
-          // $bookmark.style.top  = 
-          change_top(y, true, $bookmark, $screen_text, true);   
-       }, 500);
-       
+       // Cancela a animação anterior se existir
+       if (rafId) {
+         cancelAnimationFrame(rafId);
+       }
+  
+       // Agenda uma nova atualização no próximo quadro de renderização
+       rafId = requestAnimationFrame(() => {
+         const mouseY = event.clientY;
+         $bookmark.style.top = `${mouseY}px`;
+       });
      });
- 
-   }
-   // se o marcador for igual a button
-   if ($bookmark.value == "button") {
-   
-     // contador menor que 1
-     if (cont < 1) {
-       // cont = 1
-       cont++;
-       // recarrega a page
-       recarregarPagina();
-     }
-   }
- 
-   if (SettingData["screen"]) {
+  }
 
+
+// se o marcador for igual a button
+if (SettingData["markmove"] == "button") {
+}
+
+if (SettingData["markmove"] == "screen") {
      let telaHeight = tela[0];
      // tela / 2= result
      // top  < result = para cima
      // top > result = para baixo
- 
+
      document.addEventListener("mousemove", function (event) {
-       // body...
-       const y = event.clientY;
-       if (y < telaHeight / 2) {
-         scrollNumberline(true, false, data["font-size"]);
-       }
-       if (y > telaHeight / 2) {
-         scrollNumberline(true, true, data["font-size"]);
-       }
+          // body...
+          const y = event.clientY;
+          if (y < telaHeight / 2) {
+               scrollNumberline(true, false, data["font-size"]);
+          }
+          if (y > telaHeight / 2) {
+               scrollNumberline(true, true, data["font-size"]);
+          }
      });
-   }
- 
+}
+
 //------------------------------------- pular de pagina do book ---------------------------------
 // ---------------------------------scroll da tela ---------------------------------
 $ButtonScrollPage.addEventListener("click", () => {

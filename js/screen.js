@@ -105,7 +105,39 @@ $button_up.addEventListener("click", () => {
           $screen_text
      );
 });
-
+document.addEventListener("keyup", (e) => {
+  if (e.key === "w" || e.key === "s") {
+    console_log(e.key);
+    actionExecuted = false; // Libera a ação ao soltar a tecla
+  }
+});
+document.addEventListener("keydown", (e) => {
+  if (!actionExecuted) {
+    // Executa apenas se a ação ainda não foi realizada
+    actionExecuted = true; // Define como true para impedir execuções adicionais enquanto a tecla está pressionada
+    if (e.key === "w") {
+      $bookmark.style.top = change_top(
+          -(
+               parseInt(SettingData["font-size"]) / 2 +
+               parseInt(SettingData["font-size"])
+          ),
+          true,
+          $bookmark,
+          $screen_text
+     );
+    }
+    console_log(e.key, actionExecuted);
+    if (e.key === "s") {
+      $bookmark.style.top = change_top(
+          parseInt(SettingData["font-size"]) / 2 +
+               parseInt(SettingData["font-size"]),
+          true,
+          $bookmark,
+          $screen_text
+     );
+    }
+  }
+});
 // --------------------------------------------- mark move ---------------------------------------------
 
 

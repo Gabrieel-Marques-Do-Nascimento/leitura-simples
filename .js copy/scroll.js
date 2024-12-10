@@ -45,3 +45,5 @@ document.body.appendChild($scroll_top);
 // Comparar os tamanhos
 console_log("Largura da janela: " + larguraJanela + "px");
 console_log("Altura da janela: " + alturaJanela + "px");
+
+

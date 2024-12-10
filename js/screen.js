@@ -5,6 +5,8 @@ import {
      Cache_screen_name,
      inputActived,
      $screen_text,
+     $PauseButton,
+     $PlayButton,
      winHeight,
      $pai_das_telas,
      pai_screen_style,
@@ -37,6 +39,7 @@ if (save_text) {
      buttonstatic(document.querySelectorAll(".disabled"), "none");
      buttonstatic(document.querySelectorAll(" .activated"), "block");
      inputActived[0].value = save_text;
+     $PauseButton.style.display = "none";
      ReadScreen(save_text);
 } else {
      buttonstatic(document.querySelectorAll(".disabled"), "block");
@@ -241,7 +244,7 @@ let margin =
 //      paragrafo_style.padding.substring(0, paragrafo_style.padding.indexOf("px"))
 //    );
 
-let v = screen_size_height(
+export let v = screen_size_height(
      { font_size: SettingData["font-size"], height: winHeight, logs: true },
      70,
      margin

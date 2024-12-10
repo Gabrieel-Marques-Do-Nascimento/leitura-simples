@@ -1,6 +1,48 @@
-import { loadText_Cache_json, $screen_text } from "./script.js";
+import {
+     loadText_Cache_json,
+     $screen_text,
+     $button_low,
+     $button_up,
+     $PlayButton,
+     $PauseButton,
+} from "./script.js";
 
 const winHeight = window.innerHeight;
+
+/**
+ * Exemplo para ocultar botões
+*  ScreenButtons('none', 'none', 'block', 'none', 'display');
+
+*  Exemplo para desabilitar botões
+*  ScreenButtons(true, false, true, false, 'disabled');
+
+ * @param {*} ButtonLow 
+ * @param {*} ButtonUp 
+ * @param {*} PlayButton 
+ * @param {*} PauseButton 
+ * @param {*} type 
+ */
+export function ScreenButtons(
+     ButtonLow,
+     ButtonUp,
+     PlayButton,
+     PauseButton,
+     type
+) {
+     if (type === "display") {
+          $button_low.style.display = ButtonLow;
+          $button_up.style.display = ButtonUp;
+          $PlayButton.style.display = PlayButton;
+          $PauseButton.style.display = PauseButton;
+     } else if (type === "disabled") {
+          $button_low.disabled = ButtonLow;
+          $button_up.disabled = ButtonUp;
+          $PlayButton.disabled = PlayButton;
+          $PauseButton.disabled = PauseButton;
+     } else {
+          console.error("Invalid type passed to ScreenButtons: " + type);
+     }
+}
 
 /**
  * obs: use somente querySelectorAll se for usado getElementsByClassName ocasionara um erro
@@ -31,7 +73,7 @@ export function change_top(
      Transition = true,
      element_move,
      father,
-     addtop = false,
+     addtop = false
 ) {
      const father_style = window.getComputedStyle(father);
      const father_rect = father.getBoundingClientRect(); // Posição e tamanho do pai
@@ -54,9 +96,9 @@ export function change_top(
      if (novoTop > father_height) {
           novoTop = father_height + father_rect.top - lineheight; // Não ultrapassa o limite inferior
      }
-if (addtop) {
-     element_move.style.top = `${novoTop}px`;
-}
+     if (addtop) {
+          element_move.style.top = `${novoTop}px`;
+     }
 
      return `${novoTop}px`;
 }

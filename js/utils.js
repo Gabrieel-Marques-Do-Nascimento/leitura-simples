@@ -109,7 +109,7 @@ export function skip_line(line, element_move) {
           ? Number(paragrafo_style.lineHeight.replace("px", ""))
           : -Number(paragrafo_style.lineHeight.replace("px", ""));
 
-     alterarTop(
+     change_top(
           Number(highlight_estilo.top.replace("px", "")) + linha,
           8,
           linha

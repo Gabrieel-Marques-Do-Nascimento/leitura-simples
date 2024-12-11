@@ -30,7 +30,30 @@ import {
 } from "./utils.js";
 
 // ---------------------------------- definições globais da tela----------------------------------
+let margin =
+     parseInt(
+          pai_screen_style.marginBottom.substring(
+               0,
+               pai_screen_style.marginBottom.indexOf("px")
+          )
+     ) +
+     parseInt(
+          pai_screen_style.marginTop.substring(
+               0,
+               pai_screen_style.marginTop.indexOf("px")
+          )
+     );
 const SettingData = loadText_Cache_json(Cache_json_name);
+export let v = screen_size_height(
+     { font_size: SettingData["font-size"], height: winHeight, logs: true },
+     70,
+     margin
+);
+$screen_text.style.height = v[0] + "px";
+$screen_text.style.fontSize = SettingData["font-size"] + "px";
+
+
+
 inputActived[0].classList.add("disabled");
 
 const save_text = load_text_from_cache(Cache_screen_name);
@@ -167,7 +190,7 @@ if (SettingData["markmove"] == "button") {
 }
 
 if (SettingData["markmove"] == "screen") {
-     let telaHeight = tela[0];
+     let telaHeight = v[0];
      // tela / 2= result
      // top  < result = para cima
      // top > result = para baixo
@@ -224,30 +247,6 @@ console.log(
 );
 //----------------------------------           area de testes ----------------------------------
 console.log("winHeight", winHeight);
-let margin =
-     parseInt(
-          pai_screen_style.marginBottom.substring(
-               0,
-               pai_screen_style.marginBottom.indexOf("px")
-          )
-     ) +
-     parseInt(
-          pai_screen_style.marginTop.substring(
-               0,
-               pai_screen_style.marginTop.indexOf("px")
-          )
-     );
-//    let border = Number(
-//      paragrafo_style.border.substring(0, paragrafo_style.border.indexOf("px"))
-//    );
-//    let padding = Number(
-//      paragrafo_style.padding.substring(0, paragrafo_style.padding.indexOf("px"))
-//    );
 
-export let v = screen_size_height(
-     { font_size: SettingData["font-size"], height: winHeight, logs: true },
-     70,
-     margin
-);
-$screen_text.style.height = v[0] + "px";
-$screen_text.style.fontSize = SettingData["font-size"] + "px";
+
+

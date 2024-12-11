@@ -18,6 +18,9 @@ import {} from "./module.js";
 import { v } from "./screen.js";
 export let highlight_top = Number(marker_style.top.replace("px", ""));
 const _scroll_height = $screen_text.scrollHeight;
+
+const bookmark_rect = $bookmark.getBoundingClientRect(); // Posição e tamanho do elemento a ser movido
+
 export let highlight_top_erd = pai_screen_style.marginTop; //highlight_estilo.top;
 function buttons_state(buttons, state) {
      for (let i = 0; i < buttons.length; i++) {
@@ -118,7 +121,7 @@ async function aut_page() {
 
      // Altura total do documento
      const scrollHeight = $screen_text.scrollHeight;
-     console_log("scrollHeight " + scrollHeight);
+     console_log("scrollHeight " + scrollHeight,true);
      // Altura da janela visível
      const clientHeight = $screen_text.clientHeight;
      console_log("clientHeight " + clientHeight);
@@ -168,8 +171,8 @@ async function play(
                await delay(2000);
                // Verifica se aut_line() retorna true
                let delay_al = SettingData["delay"];
-               let highlighttop = Number(marker_style.top.replace("px", ""));
-               console_log(parseInt((v[0] - highlighttop) / line_heght));
+               let highlighttop = parseInt(bookmark_style.top.replace("px", ""));
+               console.log(parseInt((v[0] - highlighttop) / line_heght));
                let line_size = parseInt(v[0] / line_heght);
                if (
                     highlighttop >
@@ -178,6 +181,9 @@ async function play(
                     line_size =
                          parseInt((v[0] - highlighttop) / line_heght) + 1;
                }
+               console.log("line_size: " + line_size);
+               console.log("highlighttop: " + highlighttop);
+               console.log("highlight_top_erd: " + highlight_top_erd);
                for (let i = 0; i < line_size; i++) {
                     // Verifica o estado de pausa antes de cada iteração
                     if (window.pause) {

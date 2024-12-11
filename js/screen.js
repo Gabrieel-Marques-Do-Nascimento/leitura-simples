@@ -199,10 +199,26 @@ if (SettingData["markmove"] == "screen") {
           // body...
           const y = event.clientY;
           if (y < telaHeight / 2) {
-               scrollNumberline(true, false, data["font-size"]);
+               $bookmark.style.top = change_top(
+                    -(
+                         parseInt(SettingData["font-size"]) / 2 +
+                         parseInt(SettingData["font-size"])
+                    ),
+                    true,
+                    $bookmark,
+                    $screen_text
+               );
           }
           if (y > telaHeight / 2) {
-               scrollNumberline(true, true, data["font-size"]);
+               $bookmark.style.top = change_top(
+                    (
+                         parseInt(SettingData["font-size"]) / 2 +
+                         parseInt(SettingData["font-size"])
+                    ),
+                    true,
+                    $bookmark,
+                    $screen_text
+               );
           }
      });
 }
@@ -210,9 +226,40 @@ if (SettingData["markmove"] == "screen") {
 //------------------------------------- pular de pagina do book ---------------------------------
 // ---------------------------------scroll da tela ---------------------------------
 $ButtonScrollPage.addEventListener("click", () => {
+     let inic = false;
+     let fim = false;
      let scrolltop = $screen_text.scrollTop;
+     console.log(scrolltop);
+     const scrollHeight = $screen_text.scrollHeight;
+     const clientHeight = $screen_text.clientHeight;
+     let scrollbotton = scrolltop + clientHeight;
      let heightp = parseInt($screen_text.style.height.replace("px", ""));
-     let pixels = heightp + scrolltop;
+     if (scrollbotton + 1 >= scrollHeight) {
+          console.log("Chegou ao final da página!");
+          fim = true;
+          inic = false;
+     }
+     if (scrolltop <= 0) {
+          console.log("Chegou ao topo da página!");
+          inic = true;
+          fim = false;
+     }
+     let pixels = 0 // heightp + scrolltop;
+     if (inic) {
+          pixels = heightp + scrolltop;
+     }
+     if (fim) {
+          if (scrolltop < heightp){
+               console.log("maior");
+               let maior = heightp - scrolltop;
+               pixels = heightp -  maior;
+
+          }
+          else{
+               pixels = scrolltop - heightp;
+          }
+     }
+     
      $screen_text.scrollTop = pixels;
      $ButtonScrollPage.disabled = true;
      setTimeout(function () {

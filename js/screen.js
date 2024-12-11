@@ -20,7 +20,6 @@ import {
      save_text_in_cache,
      load_text_from_cache,
      loadScroll,
-     
 } from "./utils.js";
 import {
      buttonstatic,
@@ -52,8 +51,6 @@ export let v = screen_size_height(
 );
 $screen_text.style.height = v[0] + "px";
 $screen_text.style.fontSize = SettingData["font-size"] + "px";
-
-
 
 inputActived[0].classList.add("disabled");
 
@@ -111,27 +108,6 @@ $resetButtonn.addEventListener("click", () => {
      buttonstatic(document.querySelectorAll(".disabled"), "block");
      buttonstatic(document.querySelectorAll(" .activated"), "none");
 });
-
-$button_low.addEventListener("click", () => {
-     $bookmark.style.top = change_top(
-          parseInt(SettingData["font-size"]) / 2 +
-               parseInt(SettingData["font-size"]),
-          true,
-          $bookmark,
-          $screen_text
-     );
-});
-$button_up.addEventListener("click", () => {
-     $bookmark.style.top = change_top(
-          -(
-               parseInt(SettingData["font-size"]) / 2 +
-               parseInt(SettingData["font-size"])
-          ),
-          true,
-          $bookmark,
-          $screen_text
-     );
-});
 let actionExecuted = false; // Variável de controle
 document.addEventListener("keyup", (e) => {
      if (e.key === "w" || e.key === "s") {
@@ -167,113 +143,141 @@ document.addEventListener("keydown", (e) => {
 // --------------------------------------------- mark move ---------------------------------------------
 
 // se o marcador for igual a mouse
-if (SettingData['markmove'] === "mouse") {
+if (SettingData["markmove"] === "mouse") {
      // Usa requestAnimationFrame para atualizações de tela mais suaves
      let rafId = null;
-  
-     document.addEventListener("mousemove", function (event) {
-       // Cancela a animação anterior se existir
-       if (rafId) {
-         cancelAnimationFrame(rafId);
-       }
-  
-       // Agenda uma nova atualização no próximo quadro de renderização
-       rafId = requestAnimationFrame(() => {
-         const mouseY = event.clientY;
-         $bookmark.style.top = `${mouseY}px`;
-       });
-     });
-  }
 
+     document.addEventListener("mousemove", function (event) {
+          // Cancela a animação anterior se existir
+          if (rafId) {
+               cancelAnimationFrame(rafId);
+          }
+
+          // Agenda uma nova atualização no próximo quadro de renderização
+          rafId = requestAnimationFrame(() => {
+               const mouseY = event.clientY;
+               $bookmark.style.top = `${mouseY}px`;
+          });
+     });
+}
 
 // se o marcador for igual a button
 if (SettingData["markmove"] == "button") {
+     $button_low.style.display = "block";
+     $button_up.style.display = "block";
+     $button_low.addEventListener("click", () => {
+          $bookmark.style.top = change_top(
+               parseInt(SettingData["font-size"]) / 2 +
+                    parseInt(SettingData["font-size"]),
+               true,
+               $bookmark,
+               $screen_text
+          );
+     });
+     $button_up.addEventListener("click", () => {
+          $bookmark.style.top = change_top(
+               -(
+                    parseInt(SettingData["font-size"]) / 2 +
+                    parseInt(SettingData["font-size"])
+               ),
+               true,
+               $bookmark,
+               $screen_text
+          );
+     });
 }
 
 if (SettingData["markmove"] == "screen") {
-     let telaHeight = v[0];
-     // tela / 2= result
-     // top  < result = para cima
-     // top > result = para baixo
-
+     $button_low.style.display = "none";
+     $button_up.style.display = "none"; 
      document.addEventListener("mousemove", function (event) {
-          // body...
-          const y = event.clientY;
-          if (y < telaHeight / 2) {
-               $bookmark.style.top = change_top(
-                    -(
-                         parseInt(SettingData["font-size"]) / 2 +
-                         parseInt(SettingData["font-size"])
-                    ),
-                    true,
-                    $bookmark,
-                    $screen_text
-               );
-          }
-          if (y > telaHeight / 2) {
-               $bookmark.style.top = change_top(
-                    (
-                         parseInt(SettingData["font-size"]) / 2 +
-                         parseInt(SettingData["font-size"])
-                    ),
-                    true,
-                    $bookmark,
-                    $screen_text
-               );
-          }
+          const x = event.clientX;
+          const media_screen_width = document.documentElement.clientWidth / 2;
+
+          document.body.addEventListener("click", function (event) {
+               if (
+                    event.target.tagName.toLowerCase() !== "button" &&
+                    event.target.tagName.toLowerCase() !== "a" &&
+                    !(
+                         event.target.tagName.toLowerCase() === "input" &&
+                         event.target.type === "button"
+                    )
+               ) {
+                    if (x < media_screen_width) {
+                         $bookmark.style.top = change_top(
+                              -(
+                                   parseInt(SettingData["font-size"]) / 2 +
+                                   parseInt(SettingData["font-size"])
+                              ),
+                              true,
+                              $bookmark,
+                              $screen_text
+                         );
+                    }
+                    if (x > media_screen_width) {
+                         $bookmark.style.top = change_top(
+                              parseInt(SettingData["font-size"]) / 2 +
+                                   parseInt(SettingData["font-size"]),
+                              true,
+                              $bookmark,
+                              $screen_text
+                         );
+                    }
+               }
+          });
      });
 }
 
 //------------------------------------- pular de pagina do book ---------------------------------
 // ---------------------------------scroll da tela ---------------------------------
-     let inic = false;
-     let fim = false;
-     
+let inic = false;
+let fim = false;
+
 $ButtonScrollPage.addEventListener("click", () => {
-      let pixels = 0;
+     let pixels = 0;
      let scrolltop = $screen_text.scrollTop;
-     console.log(scrolltop);
+     // console.log(scrolltop);
      const scrollHeight = $screen_text.scrollHeight;
      const clientHeight = $screen_text.clientHeight;
      let scrollbotton = scrolltop + clientHeight;
-     
+
      let heightp = parseInt($screen_text.style.height.replace("px", ""));
-     
-     console.log("_______________")
-     console.log("scrollbotton",scrollbotton)
-    console.log("scrollHeight",scrollHeight)
-        
+
+     // console.log("_______________");
+     // console.log("scrollbotton", scrollbotton);
+     // console.log("scrollHeight", scrollHeight);
+
      if (scrollbotton + 1 >= scrollHeight) {
-          console.log("Chegou ao final da página!");
-          console.log(scrollbotton)
-          console.log(scrollHeight)
+          // console.log("Chegou ao final da página!");
+          // console.log(scrollbotton);
+          // console.log(scrollHeight);
           fim = true;
           inic = false;
      }
      // else if (scrolltop <= 0) {
-//           console.log("Chegou ao topo da página!");
-//           inic = true;
-//           fim = false;
-//      }
+     //           console.log("Chegou ao topo da página!");
+     //           inic = true;
+     //           fim = false;
+     //      }
      else {
-       inic = true;
-       fim = false;
-       fim
-       console.log("inicio")
+          inic = true;
+          fim = false;
+          fim;
+          // console.log("inicio");
      }
-     
+
      if (inic) {
-       console.log("inicio")
+          // console.log("inicio");
           pixels = heightp + scrolltop;
-          if ( scrollHeight - scrollbotton < heightp){
-            pixels = (scrollHeight - scrollbotton ) + scrolltop;
+          if (scrollHeight - scrollbotton < heightp) {
+               pixels = scrollHeight - scrollbotton + scrolltop;
           }
      }
      if (fim) {
-       console.log("fim")
-      pixels = 0;
+          // console.log("fim");
+          pixels = 0;
      }
-     
+
      $screen_text.scrollTop = pixels;
      $ButtonScrollPage.disabled = true;
      setTimeout(function () {
@@ -300,14 +304,11 @@ $bookmark.style.height =
      "px";
 
 document.body.appendChild($bookmark);
-console.log(
-     "height",
-     parseInt(SettingData["font-size"]) / 2 +
-          parseInt(SettingData["font-size"]) +
-          "px"
-);
+// console.log(
+//      "height",
+//      parseInt(SettingData["font-size"]) / 2 +
+//           parseInt(SettingData["font-size"]) +
+//           "px"
+// );
 //----------------------------------           area de testes ----------------------------------
-console.log("winHeight", winHeight);
-
-
-
+// console.log("winHeight", winHeight);

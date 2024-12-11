@@ -1,0 +1,7 @@
+  // Limpa o cache do navegador para o site atual
+caches.keys().then(function(names) {
+    for (let name of names) {
+        caches.delete(name);
+    }
+    console.log("Cache limpo!");
+});

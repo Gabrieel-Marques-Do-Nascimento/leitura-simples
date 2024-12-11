@@ -20,6 +20,7 @@ import {
      save_text_in_cache,
      load_text_from_cache,
      loadScroll,
+     
 } from "./utils.js";
 import {
      buttonstatic,
@@ -225,46 +226,59 @@ if (SettingData["markmove"] == "screen") {
 
 //------------------------------------- pular de pagina do book ---------------------------------
 // ---------------------------------scroll da tela ---------------------------------
-$ButtonScrollPage.addEventListener("click", () => {
      let inic = false;
      let fim = false;
+     
+$ButtonScrollPage.addEventListener("click", () => {
+      let pixels = 0;
      let scrolltop = $screen_text.scrollTop;
      console.log(scrolltop);
      const scrollHeight = $screen_text.scrollHeight;
      const clientHeight = $screen_text.clientHeight;
      let scrollbotton = scrolltop + clientHeight;
+     
      let heightp = parseInt($screen_text.style.height.replace("px", ""));
+     
+     console.log("_______________")
+     console.log("scrollbotton",scrollbotton)
+    console.log("scrollHeight",scrollHeight)
+        
      if (scrollbotton + 1 >= scrollHeight) {
           console.log("Chegou ao final da página!");
+          console.log(scrollbotton)
+          console.log(scrollHeight)
           fim = true;
           inic = false;
      }
-     if (scrolltop <= 0) {
-          console.log("Chegou ao topo da página!");
-          inic = true;
-          fim = false;
+     // else if (scrolltop <= 0) {
+//           console.log("Chegou ao topo da página!");
+//           inic = true;
+//           fim = false;
+//      }
+     else {
+       inic = true;
+       fim = false;
+       fim
+       console.log("inicio")
      }
-     let pixels = 0 // heightp + scrolltop;
+     
      if (inic) {
+       console.log("inicio")
           pixels = heightp + scrolltop;
+          if ( scrollHeight - scrollbotton < heightp){
+            pixels = (scrollHeight - scrollbotton ) + scrolltop;
+          }
      }
      if (fim) {
-          if (scrolltop < heightp){
-               console.log("maior");
-               let maior = heightp - scrolltop;
-               pixels = heightp -  maior;
-
-          }
-          else{
-               pixels = scrolltop - heightp;
-          }
+       console.log("fim")
+      pixels = 0;
      }
      
      $screen_text.scrollTop = pixels;
      $ButtonScrollPage.disabled = true;
      setTimeout(function () {
           $ButtonScrollPage.disabled = false;
-     }, 1500);
+     }, 500);
 });
 document.addEventListener("keydown", function (e) {
      if (e.key === "q") {

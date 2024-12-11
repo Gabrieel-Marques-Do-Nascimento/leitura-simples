@@ -39,6 +39,9 @@ export const $bookmark = document.createElement("div");
 
 // ------------------------------- Estilos Computados -------------------------------
 export const pai_screen_style = window.getComputedStyle($pai_das_telas)
+export const $screen_text_style = window.getComputedStyle($screen_text)    
+export const marker_style = window.getComputedStyle($SettingText_marker_move)
+export const bookmark_style = window.getComputedStyle($bookmark)
 // ------------------------------- Variáveis de Controle e Estado -------------------------------
 export const Cache_json_name = "settings_data";
 export const Cache_screen_name = "Cache_screen_nameV2";

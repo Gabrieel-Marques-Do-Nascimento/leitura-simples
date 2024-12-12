@@ -50,6 +50,8 @@ export let v = screen_size_height(
      margin
 );
 $screen_text.style.height = v[0] + "px";
+$screen_text.style.textAlign = 'justify';
+$pai_das_telas.style.height = v[0]  + "px";
 $screen_text.style.fontSize = SettingData["font-size"] + "px";
 
 inputActived[0].classList.add("disabled");
@@ -65,6 +67,7 @@ if (save_text) {
 } else {
      buttonstatic(document.querySelectorAll(".disabled"), "block");
      buttonstatic(document.querySelectorAll(" .activated"), "none");
+     $bookmark.style.display = "none";
 }
 
 // ---------------------------------- eventos relacionados a tela -----------------------------------
@@ -107,6 +110,7 @@ $startButton.addEventListener("click", () => {
 $resetButtonn.addEventListener("click", () => {
      buttonstatic(document.querySelectorAll(".disabled"), "block");
      buttonstatic(document.querySelectorAll(" .activated"), "none");
+     $bookmark.style.display = "none";
 });
 let actionExecuted = false; // Variável de controle
 document.addEventListener("keyup", (e) => {
@@ -285,10 +289,22 @@ $ButtonScrollPage.addEventListener("click", () => {
      }, 500);
 });
 document.addEventListener("keydown", function (e) {
-     if (e.key === "q") {
+     if (e.key === "a") {
           let scrolltop = $screen_text.scrollTop;
           let heightp = parseInt($screen_text.style.height.replace("px", ""));
           let pixels = heightp + scrolltop;
+          $screen_text.scrollTop = pixels;
+          $ButtonScrollPage.disabled = true;
+          setTimeout(function () {
+               $ButtonScrollPage.disabled = false;
+          }, 1500);
+     }
+});
+document.addEventListener("keydown", function (e) {
+     if (e.key === "q") {
+          let scrolltop = $screen_text.scrollTop;
+          let heightp = parseInt($screen_text.style.height.replace("px", ""));
+          let pixels = scrolltop - heightp;
           $screen_text.scrollTop = pixels;
           $ButtonScrollPage.disabled = true;
           setTimeout(function () {

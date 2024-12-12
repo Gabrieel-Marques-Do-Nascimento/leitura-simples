@@ -92,13 +92,13 @@ $CloseMenuSettings.addEventListener("click", () => {
 });
 
 // ------------------------------------------------------------------                      temas ------------------------------------------------------------------
-if (SettingData["theme"] == 'black'){
+if (SettingData["theme"] == "black") {
      theme_by_hour_or_auto(0, true);
 }
-if (SettingData["theme"] == 'white'){
+if (SettingData["theme"] == "white") {
      theme_by_hour_or_auto(12, true);
 }
-if (SettingData["theme"] == 'auto'){
+if (SettingData["theme"] == "auto") {
      theme_by_hour_or_auto();
 }
 // ------------------------------- area de testes -------------------------------

@@ -1,8 +1,7 @@
 // ------------------------------- Importações de Módulos -------------------------------
-import {texto_teste, add_value} from "./testes.js";
+import { texto_teste, add_value } from "./testes.js";
 
-import { save_text_in_cache,
- load_text_from_cache} from "./utils.js"
+import { save_text_in_cache, load_text_from_cache } from "./utils.js";
 // ------------------------------- Elementos do DOM -------------------------------
 export const inputActived = document.getElementsByClassName("inputClass");
 export const $CloseMenuSettings = document.getElementById("CloseMenuSettings");
@@ -35,13 +34,11 @@ export const $buttons = document.querySelectorAll(".scrollbt");
 // ------------------------------- Elementos Dinâmicos -------------------------------
 export const $bookmark = document.createElement("div");
 
-
-
 // ------------------------------- Estilos Computados -------------------------------
-export const pai_screen_style = window.getComputedStyle($pai_das_telas)
-export const $screen_text_style = window.getComputedStyle($screen_text)    
-export const marker_style = window.getComputedStyle($SettingText_marker_move)
-export const bookmark_style = window.getComputedStyle($bookmark)
+export const pai_screen_style = window.getComputedStyle($pai_das_telas);
+export const $screen_text_style = window.getComputedStyle($screen_text);
+export const marker_style = window.getComputedStyle($SettingText_marker_move);
+export const bookmark_style = window.getComputedStyle($bookmark);
 // ------------------------------- Variáveis de Controle e Estado -------------------------------
 export const Cache_json_name = "settings_data";
 export const Cache_screen_name = "Cache_screen_nameV2";
@@ -51,10 +48,8 @@ export const winHeight = window.innerHeight;
 // Obtém a URL completa
 const urlAtual = window.location.href;
 
-
-
 // ------------------------------ LOGS---------------------------------------------------------
-console.log("SettingData",SettingData);
+console.log("SettingData", SettingData);
 // ------------------------------- Funções para Manuseio de Texto -------------------------------
 //================================================
 /**
@@ -64,7 +59,6 @@ console.log("SettingData",SettingData);
  * @param {string} name - A chave usada para armazenar o texto no LocalStorage.
  */
 
-
 //============================================
 /**
  * Carrega uma string salva no LocalStorage e aplica estilos se existir.
@@ -72,7 +66,6 @@ console.log("SettingData",SettingData);
  * @param {string} name - A chave usada para recuperar o texto do LocalStorage.
  * @returns {string|undefined} O texto recuperado do LocalStorage ou `undefined` se não existir.
  */
-
 
 //===========================================
 /**
@@ -107,7 +100,7 @@ export function loadText_Cache_json(name) {
           theme: "auto",
           $autoScroll: false,
           color: "#00f000",
-          screentype: "text",
+          screentype: "markdow",
      };
      const text = localStorage.getItem(name);
      // Verifica se o item existe e converte de volta para um objeto
@@ -121,30 +114,19 @@ export function loadText_Cache_json(name) {
 
 // ------------------------------- Configuração Inicial  -------------------------------
 
-
-
-
 // ---------------------------------    Eventos de Interface         -----------------------------
 
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // Seu código aqui
-   // ------------------------------- area de testes S---------------------------------------------------------
-
-  //inputMarkdow.value = texto_teste;
- //inputActived[0].value = texto_teste; 
-// console.log("inputClass",$inputMarkdow.value);
+document.addEventListener("DOMContentLoaded", function () {
+     // Seu código aqui
+     // ------------------------------- area de testes S---------------------------------------------------------
+     //inputMarkdow.value = texto_teste;
+     //inputActived[0].value = texto_teste;
+     // console.log("inputClass",$inputMarkdow.value);
 });
 console.log(urlAtual); // Exibe a URL no console
 
-
 // DOMContentLoaded
 $clearButtonFromInput.addEventListener("click", function () {
-  // console.log(inputActived)
-  inputActived[0].value = ""
+     // console.log(inputActived)
+     inputActived[0].value = "";
 });
-
-
-
-
-

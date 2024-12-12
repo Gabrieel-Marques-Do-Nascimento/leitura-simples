@@ -1,5 +1,5 @@
 import { $input, inputActived, $screen_text, Cache_screen_name } from "./script.js";
-import { buttonstatic, save_text_in_cache, ReadScreen, delay } from "./utils.js";
+import { buttonstatic, save_text_in_cache, ReadScreen, delay, recarregarPagina } from "./utils.js";
 
 export const fileInput = document.getElementById("fileInput");
 export const dropZone = document.getElementById("dropZone");
@@ -55,6 +55,7 @@ fileInput.addEventListener("change", async (e) => {
           buttonstatic(document.querySelectorAll(".disabled"), "none");
           buttonstatic(document.querySelectorAll(" .activated"), "block");
           inputActived[0].value = value
+          recarregarPagina()
      } catch (error) {
           console.error(error);
      }

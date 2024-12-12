@@ -50,8 +50,8 @@ export let v = screen_size_height(
      margin
 );
 $screen_text.style.height = v[0] + "px";
-$screen_text.style.textAlign = 'justify';
-$pai_das_telas.style.height = v[0]  + "px";
+$screen_text.style.textAlign = "justify";
+$pai_das_telas.style.height = v[0] + "px";
 $screen_text.style.fontSize = SettingData["font-size"] + "px";
 
 inputActived[0].classList.add("disabled");
@@ -193,7 +193,7 @@ if (SettingData["markmove"] == "button") {
 
 if (SettingData["markmove"] == "screen") {
      $button_low.style.display = "none";
-     $button_up.style.display = "none"; 
+     $button_up.style.display = "none";
      document.addEventListener("mousemove", function (event) {
           const x = event.clientX;
           const media_screen_width = document.documentElement.clientWidth / 2;
@@ -234,6 +234,11 @@ if (SettingData["markmove"] == "screen") {
 
 //------------------------------------- pular de pagina do book ---------------------------------
 // ---------------------------------scroll da tela ---------------------------------
+$screen_text.addEventListener("scroll", function () {
+     $bookmark.style.top =
+          parseInt($screen_text.getBoundingClientRect().top) + "px";
+});
+
 let inic = false;
 let fim = false;
 
@@ -257,13 +262,7 @@ $ButtonScrollPage.addEventListener("click", () => {
           // console.log(scrollHeight);
           fim = true;
           inic = false;
-     }
-     // else if (scrolltop <= 0) {
-     //           console.log("Chegou ao topo da página!");
-     //           inic = true;
-     //           fim = false;
-     //      }
-     else {
+     } else {
           inic = true;
           fim = false;
           fim;
@@ -312,6 +311,7 @@ document.addEventListener("keydown", function (e) {
           }, 1500);
      }
 });
+
 // ---------------------------------marcador de texto configurações ---------------------------------
 $bookmark.classList.add("highlight");
 $bookmark.style.height =
@@ -320,11 +320,3 @@ $bookmark.style.height =
      "px";
 
 document.body.appendChild($bookmark);
-// console.log(
-//      "height",
-//      parseInt(SettingData["font-size"]) / 2 +
-//           parseInt(SettingData["font-size"]) +
-//           "px"
-// );
-//----------------------------------           area de testes ----------------------------------
-// console.log("winHeight", winHeight);

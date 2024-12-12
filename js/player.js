@@ -106,7 +106,7 @@ $PauseButton.addEventListener("click", function () {
 
      setTimeout(function () {
           $PlayButton.disabled = false;
-     }, 600); //, ((tela[0] / tela[1]) * data["delay"]) + 500);
+     }, 600); 
 });
 
 // player function
@@ -121,7 +121,7 @@ async function aut_page() {
 
      // Altura total do documento
      const scrollHeight = $screen_text.scrollHeight;
-     console_log("scrollHeight " + scrollHeight,true);
+     console_log("scrollHeight " + scrollHeight, true);
      // Altura da janela visível
      const clientHeight = $screen_text.clientHeight;
      console_log("clientHeight " + clientHeight);
@@ -171,7 +171,9 @@ async function play(
                await delay(2000);
                // Verifica se aut_line() retorna true
                let delay_al = SettingData["delay"];
-               let highlighttop = parseInt(bookmark_style.top.replace("px", ""));
+               let highlighttop = parseInt(
+                    bookmark_style.top.replace("px", "")
+               );
                console.log(parseInt((v[0] - highlighttop) / line_heght));
                let line_size = parseInt(v[0] / line_heght);
                if (
@@ -187,44 +189,43 @@ async function play(
                for (let i = 0; i < line_size; i++) {
                     // Verifica o estado de pausa antes de cada iteração
                     if (window.pause) {
-                        break;
+                         break;
                     }
-                    
+
                     // Aguarda o atraso, mas permite interrupção durante a espera
                     await Promise.race([
-                        delay(delay_al),
-                        new Promise((_, reject) => {
-                            const checkPause = setInterval(() => {
-                                if (window.pause) {
-                                    clearInterval(checkPause);
-                                    reject(new Error("Pausado"));
-                                }
-                            }, 10); // Verifica a pausa a cada 10ms
-                        })
+                         delay(delay_al),
+                         new Promise((_, reject) => {
+                              const checkPause = setInterval(() => {
+                                   if (window.pause) {
+                                        clearInterval(checkPause);
+                                        reject(new Error("Pausado"));
+                                   }
+                              }, 10); // Verifica a pausa a cada 10ms
+                         }),
                     ]).catch((err) => {
-                        console_log(err.message); // Opcional: log de depuração
-                    //     break;
+                         console_log(err.message); // Opcional: log de depuração
+                         //     break;
                     });
-                    
+
                     // Verifica novamente após o atraso
                     if (window.pause) {
-                        break;
+                         break;
                     }
-                
+
                     await alterarTop_local(
-                        marcador_top,
-                        lineScrollParams[1],
-                        lineScrollParams[2],
-                        false
+                         marcador_top,
+                         lineScrollParams[1],
+                         lineScrollParams[2],
+                         false
                     );
-                
+
                     console_log("marcador_top: " + marcador_top, true);
                     console_log(lineScrollParams[1]);
                     console_log(lineScrollParams[2]);
-                
+
                     marcador_top += lineScrollParams[2];
-                }
-                
+               }
 
                if (window.pause) {
                     // if responcavel por pausar o loop
@@ -281,12 +282,7 @@ export function alterarTop(novoTop, error = 0, line = 0, on = true) {
                novoTop = styleheight - (line - error);
           }
      }
-     // if (novoTop < highlight_top) {
-     //   novoTop = highlight_top;
-     // }
-     // if (novoTop > styleheight) {
-     //   novoTop = styleheight - (line - error);
-     // }
+
      $bookmark.style.top = novoTop + "px";
 }
 

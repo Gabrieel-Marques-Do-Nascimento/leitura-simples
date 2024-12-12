@@ -17,7 +17,7 @@
                href="img\livro_web__1__Copyright-removebg-preview.png"
                type="image/x-icon"
           />
-          <link rel="stylesheet" href="css/markdown.css">
+          <link rel="stylesheet" href="css/markdown.css" />
           <link rel="stylesheet" href="css/style.css" />
           <link rel="stylesheet" href="css/files.css" />
           <link rel="stylesheet" href="css/menu.css" />
@@ -26,10 +26,9 @@
      </head>
 
      <body>
-
           <header>
-              <textarea class=" inputmarkdowStyle" id="inputMarkdow"></textarea>
-               <input type="text" name="ler" id="ler"  aria-label="ler" />
+               <textarea class="inputmarkdowStyle" id="inputMarkdow"></textarea>
+               <input type="text" name="ler" id="ler" aria-label="ler" />
                <button class="disabled" id="clearBtn">
                     <svg
                          viewBox="0 0 100 100"
@@ -417,6 +416,8 @@
                reset
           </button>
 
+          <div id="profile"><a href="templates\profile.html"><img src="/img/social-media-profile.svg" alt="profile"></a></div>
+
           <button
                class="scrollbt buttons"
                id="settingbutton"
@@ -490,16 +491,12 @@
                id="play"
                title="tudo no altomatico"
           >
-               <img
-                    src="img\image.png"
-                    alt="play image"
-                    height="20px"
-               />
+               <img src="img\image.png" alt="play image" height="20px" />
 
                <!-- play and pause // vai ser um elemento estilizado em css com animation de girar quando ativo -->
           </button>
           <button
-               class="arrogante scrollbt buttons "
+               class="arrogante scrollbt buttons"
                id="pause"
                title="tudo no altomatico"
           >
@@ -517,7 +514,6 @@
           </button>
 
           <div id="pai" class="activated">
-            
                <p id="paragraph">hello world</p>
           </div>
           <style>
@@ -541,21 +537,18 @@
                     explorador
                </div>
           </div>
-          <script type="module"src="js/marked.min.js"></script>
+          <script type="module" src="js/marked.min.js"></script>
           <script type="module" src="js/testes.js"></script>
           <script src="js/Premium.js"></script>
           <script type="module" src="js/script.js"></script>
-          <script type="module" src="js/module.js"></script>
           <script type="module" src="js/files.js"></script>
           <script type="module" src="js/settings.js"></script>
           <script type="module" src="js/scroll.js"></script>
-
           <script type="module" src="js/utils.js"></script>
           <script type="module" src="js/player.js"></script>
-          <script type="module" src="js/events.js"></script>
           <script src="service-worker.js"></script>
           <script type="module" src="js/screen.js"></script>
-         <!--  <script>
+          <!--  <script>
            
                if ("serviceWorker" in navigator && local) {
                     window.addEventListener("load", () => {
@@ -576,12 +569,7 @@
                     });
                }
           </script> -->
-          
-          
-          
-          
-          
-          
+
           <!-- <css src="confg.js"></css/script> -->
           <!--
     <script src="button_up.js"></script>
@@ -602,8 +590,7 @@
                gtag("config", "G-T2TED6653R");
           </script>
           <link rel="manifest" href="/manifest.json" />
-          
-          
+
           <!-- https://github.com/Gabrieel-Marques-Do-Nascimento -->
      </body>
 </html>

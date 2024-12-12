@@ -33,11 +33,12 @@ document.body.appendChild(style);
 $scroll_top.classList.add("scroll_top");
 
 $screen_text.addEventListener("scroll", () => {
-  let vertical =
-    ($screen_text.scrollTop / ($screen_text.scrollHeight - $screen_text.clientHeight)) *
-    100;
-  let horizontal = (vertical / 100) * window.innerWidth;
-  $scroll_top.style.width = horizontal + 2 + "px";
+     let vertical =
+          ($screen_text.scrollTop /
+               ($screen_text.scrollHeight - $screen_text.clientHeight)) *
+          100;
+     let horizontal = (vertical / 100) * window.innerWidth;
+     $scroll_top.style.width = horizontal + 2 + "px";
 });
 
 document.body.appendChild($scroll_top);

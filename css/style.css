@@ -127,7 +127,7 @@ margin-top: 40%;
   cursor: none; /* Esconde o cursor */
   position: fixed;
   border-radius: 40%;
-  left: 90.3%;
+  left: 91%;
   top: 52%;
   background: rgba(0, 0, 0, 0);
   border: none;
@@ -244,6 +244,17 @@ body {
   cursor: url('../img/cursor.svg'), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */
   width: 100vw;
   height: 100vh;
+}
+
+#profile {
+  background-color: #0056b3;
+  display: block;
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  top: 40%;
+  left: 91%;
+  cursor: none; /* Esconde o cursor */
 }
 #button_low {
     position: fixed;

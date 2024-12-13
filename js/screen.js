@@ -33,20 +33,6 @@ import {
 
 
 
-function MenuAnburguer(type){
-     // Remove o atributo 'id'
-if ($ButtonMenuAnburger) {
-     $ButtonMenuAnburger.removeAttribute("id");
-     
- } else {
-    console.error("Elemento com o ID 'ButtonMenuAnburger' não encontrado.");
- }
-}
-
-
-
-
-
 
 
 // ---------------------------------- definições globais da tela----------------------------------

@@ -131,3 +131,15 @@ $clearButtonFromInput.addEventListener("click", function () {
      // console.log(inputActived)
      inputActived[0].value = "";
 });
+
+
+// ------------------------------------------------------ menu de iteração ------------------------------------------------------
+const $menuburger = document.getElementById('menuAnburger')
+$ButtonMenuAnburger.addEventListener("click", () => {
+    if ($menuburger.classList.contains('active')) {
+     $menuburger.classList.remove('active');
+    }
+    else {
+     $menuburger.classList.add('active');
+    }
+});

@@ -34,544 +34,570 @@ body {
 }
  */
 * {
-  margin: 0;
-  padding: 0;
+     margin: 0;
+     padding: 0;
 }
 #pai {
-  width: 60%;
-  margin: 10px auto;
-  height: 98vh;
-  
+     width: 60%;
+     margin: 10px auto;
+     height: 98vh;
 }
 #paragraph {
-    position: relative;
-    /* text-align: justify; */
-    margin: 0px auto;
-    line-height: 150%;
-    top: 0 ;
-    /* border: 1px solid black; */
-    font-size: 18px;
-    word-break: break-word;
-    max-height: calc(100vh - 50px);
+     position: relative;
+     /* text-align: justify; */
+     margin: 0px auto;
+     line-height: 150%;
+     top: 0;
+     /* border: 1px solid black; */
+     font-size: 18px;
+     word-break: break-word;
+     max-height: calc(100vh - 50px);
      /* Limita a altura considerando a margem */
-    overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
-    border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
-    padding: 0px 10px 0 10px; /* Adiciona espaço interno */
-    display: block; /* Inicialmente escondido */
-    margin-top: 0;
-    padding-top: 0;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.685);
-
+     overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
+     border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
+     padding: 0px 10px 0 10px; /* Adiciona espaço interno */
+     display: block; /* Inicialmente escondido */
+     margin-top: 0;
+     padding-top: 0;
+     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.685);
 }
-#ButtonMenuAnburger{
-  display: none;
+#ButtonMenuAnburger {
+     display: none;
 }
 header {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 80%;
-    align-items: center;
+     display: flex;
+     flex-direction: column;
+     margin: auto;
+     width: 80%;
+     align-items: center;
 }
 
 #ler {
-    margin: 20px 0;
-    width: 80%;
-    height: 30px;
+     margin: 20px 0;
+     width: 80%;
+     height: 30px;
 }
 
 .inputmarkdowStyle {
-    margin: 20px 0;
-    width: 80%;
-    height: 30px;
-    z-index: 2;
+     margin: 20px 0;
+     width: 80%;
+     height: 30px;
+     z-index: 2;
 }
 #clearBtn {
-  position: fixed;
-  left: 80%;
-  top: 31px;
-  width: 30px;
-  background: none;
-  border: none;
+     position: fixed;
+     left: 80%;
+     top: 31px;
+     width: 30px;
+     background: none;
+     border: none;
 
-  z-index: 5;
+     z-index: 5;
 }
 #clearBtn:hover {
-  /* top: 39px; */
-  background: rgba(100,100,28,0);
-  animation: all 1.5 linear;
-  
+     /* top: 39px; */
+     background: rgba(100, 100, 28, 0);
+     animation: all 1.5 linear;
 }
 #clearBtn svg {
-  margin: 0;
-  width:30px;
-  height:30px;
+     margin: 0;
+     width: 30px;
+     height: 30px;
 }
 #clearBtn:hover svg {
-  
-  cursor: pointer;
-  background: #cececf53;
-  width: 32px;
-  height: 32px;
+     cursor: pointer;
+     background: #cececf53;
+     width: 32px;
+     height: 32px;
 
-  animation: girar 2s linear infinite; /* duração de 2 segundos, movimento linear, looping infinito */
+     animation: girar 2s linear infinite; /* duração de 2 segundos, movimento linear, looping infinito */
 }
-#start{
-  position: absolute;
-margin-top: 40%;
+#start {
+     position: absolute;
+     margin-top: 40%;
 }
 #reset {
-    display: none;
-    position: fixed;
-    top: 20px;
-    left: 10px;
+     display: none;
+     position: fixed;
+     top: 20px;
+     left: 10px;
 }
-#settingbutton{
-  cursor: none; /* Esconde o cursor */
-  position: fixed;
-  border-radius: 40%;
-  left: 91%;
-  top: 52%;
-  background: rgba(0, 0, 0, 0);
-  border: none;
+#settingbutton {
+     cursor: none; /* Esconde o cursor */
+     position: fixed;
+     border-radius: 40%;
+     left: 91%;
+     top: 52%;
+     background: rgba(0, 0, 0, 0);
+     border: none;
 }
-#settingbutton:hover{
-  background: black;
+#settingbutton:hover {
+     background: black;
 }
 
 body {
-    position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
-    justify-content: center;
-    overflow: hidden;
-  
-
-
+     position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
+     justify-content: center;
+     overflow: hidden;
 }
 .highlight {
-    position: fixed;
-    top: 10px; /* Altura inicial da linha */
-    left: 0;
-    right: 0;
+     position: fixed;
+     top: 10px; /* Altura inicial da linha */
+     left: 0;
+     right: 0;
 
-    background-color: rgb(247, 247, 8); /* Cor de destaque */
-    border: solid rgba(42, 41, 41, 0.238) 2px;
-    z-index: -1; /* Coloca atrás do texto */
-    
-    transition: top 0.2s ease;
-    width: 60%;
-    margin: 0 auto;
-    /* transition: all 0.9s ease;  Transição suave de 0.5 segundos */
+     background-color: rgb(247, 247, 8); /* Cor de destaque */
+     border: solid rgba(42, 41, 41, 0.238) 2px;
+     z-index: -1; /* Coloca atrás do texto */
+
+     transition: top 0.2s ease;
+     width: 60%;
+     margin: 0 auto;
+     /* transition: all 0.9s ease;  Transição suave de 0.5 segundos */
 }
 
-
 .arrogante {
-    background-color: #282625; /* Cor vibrante */
-    color: white; /* Texto branco */
-    font-size: 18px; /* Tamanho da fonte grande */
-    padding: 7px 15px; /* Espaçamento interno */
-    border: none; /* Sem bordas */
-    border-radius: 8px; /* Cantos arredondados */
-    cursor: pointer; /* Mão ao passar o mouse */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transições suaves */
-    cursor: pointer;
+     background-color: #282625; /* Cor vibrante */
+     color: white; /* Texto branco */
+     font-size: 18px; /* Tamanho da fonte grande */
+     padding: 7px 15px; /* Espaçamento interno */
+     border: none; /* Sem bordas */
+     border-radius: 8px; /* Cantos arredondados */
+     cursor: pointer; /* Mão ao passar o mouse */
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+     transition: transform 0.3s, box-shadow 0.3s; /* Transições suaves */
+     cursor: pointer;
 }
 
 .arrogante:hover {
-    transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
-    background-color: #0056b3;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5); /* Aumenta a sombra */
+     transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
+     background-color: #0056b3;
+     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5); /* Aumenta a sombra */
 }
 
 .arrogante:active {
-    transform: scale(0.95); /* Diminui o tamanho ao clicar */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Diminui a sombra */
+     transform: scale(0.95); /* Diminui o tamanho ao clicar */
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Diminui a sombra */
 }
 
 #ler {
-    width: 80%;
-    padding: 10px 15px; /* Espaço interno para melhorar a experiência de digitação */
-    font-size: 18px; /* Aumentar o tamanho da fonte */
-    border: 2px solid #ccc; /* Borda mais visível */
-    border-radius: 8px; /* Bordas arredondadas */
-    outline: none; /* Remove o contorno padrão ao focar */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
+     width: 80%;
+     padding: 10px 15px; /* Espaço interno para melhorar a experiência de digitação */
+     font-size: 18px; /* Aumentar o tamanho da fonte */
+     border: 2px solid #ccc; /* Borda mais visível */
+     border-radius: 8px; /* Bordas arredondadas */
+     outline: none; /* Remove o contorno padrão ao focar */
+     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
 }
 
-.inputmarkdowStyle  {
-    width: 80%;
-    padding: 10px 15px; /* Espaço interno para melhorar a experiência de digitação */
-    font-size: 18px; /* Aumentar o tamanho da fonte */
-    border: 2px solid #ccc; /* Borda mais visível */
-    border-radius: 8px; /* Bordas arredondadas */
-    outline: none; /* Remove o contorno padrão ao focar */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
+.inputmarkdowStyle {
+     width: 80%;
+     padding: 10px 15px; /* Espaço interno para melhorar a experiência de digitação */
+     font-size: 18px; /* Aumentar o tamanho da fonte */
+     border: 2px solid #ccc; /* Borda mais visível */
+     border-radius: 8px; /* Bordas arredondadas */
+     outline: none; /* Remove o contorno padrão ao focar */
+     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
 }
 /* Estilo quando o input recebe foco */
 #ler:focus {
-    border-color: #007bff; /* Cor azul ao focar */
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
+     border-color: #007bff; /* Cor azul ao focar */
+     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
 }
 .inputmarkdowStyle:focus {
-    border-color: #007bff; /* Cor azul ao focar */
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
+     border-color: #007bff; /* Cor azul ao focar */
+     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
 }
 /* Efeito hover no botão */
 #start:hover {
-    background-color: #0056b3;
+     background-color: #0056b3;
 }
 
 /* Reset button styling */
 #reset {
-    display: none;
-    position: fixed;
-    top: 54%;
-    left: 10px;
-    font-weight: bold;
-    padding: 10px 20px;
-    background-color: #dc3545;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+     display: none;
+     position: fixed;
+     top: 54%;
+     left: 10px;
+     font-weight: bold;
+     padding: 10px 20px;
+     background-color: #dc3545;
+     color: #ffffff;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 16px;
+     transition: background-color 0.3s ease;
 }
 
 /* Efeito hover no botão reset */
 #reset:hover {
-    background-color: #c82333;
+     background-color: #c82333;
 }
 
 body {
-  cursor: url('../img/cursor.svg'), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */
-  width: 100vw;
-  height: 100vh;
+     cursor: url("../img/cursor.svg"), auto; /* Substitua 'seu-cursor.png' pelo caminho da sua imagem */
+     width: 100vw;
+     height: 100vh;
 }
 
 #profile {
-  background-color: #0056b3;
-  display: block;
-  position: fixed;
-  height: 30px;
-  width: 30px;
-  top: 40%;
-  left: 91%;
-  cursor: none; /* Esconde o cursor */
+     background-color: #0056b3;
+     display: block;
+     position: fixed;
+     height: 30px;
+     width: 30px;
+     top: 40%;
+     left: 91%;
+     cursor: none; /* Esconde o cursor */
 }
 #button_low {
-    position: fixed;
-    top: 88%;
-    left: 90%;
-    cursor: none; /* Esconde o cursor */
+     position: fixed;
+     top: 88%;
+     left: 90%;
+     cursor: none; /* Esconde o cursor */
 }
 #button_low:disabled {
-  background-color: #dc354676;
+     background-color: #dc354676;
 }
 #button_up {
-    position: fixed;
-    top: 70%;
-    left: 90%;
-    cursor: none; /* Esconde o cursor */
+     position: fixed;
+     top: 70%;
+     left: 90%;
+     cursor: none; /* Esconde o cursor */
 }
 .buttons:disabled {
-  background-color: #dc354676;
+     background-color: #dc354676;
 }
 
 #play {
-  
-    position: fixed;
-    top: 78.5%;
-    left: 89.8%;
-    background-color: #282625;
-    cursor: none; /* Esconde o cursor */
+     position: fixed;
+     top: 78.5%;
+     left: 89.8%;
+     background-color: #282625;
+     cursor: none; /* Esconde o cursor */
 }
 
 #pause {
-  width: 40px;
-  height: 40px;
-  display: none;
-  position: fixed;
-  top: 78.5%;
-  left: 90.5%;
-  cursor: none; /* Esconde o cursor */
-
+     width: 40px;
+     height: 40px;
+     display: none;
+     position: fixed;
+     top: 78.5%;
+     left: 90.5%;
+     cursor: none; /* Esconde o cursor */
 }
 #play:disabled {
-  background-color: #dc354676;
+     background-color: #dc354676;
 }
 
 #page {
-    /* substituto para a seta */
-  position: fixed;
-   top: 60%;
-    width: 50px;
-    left: 90%;
-    cursor: none; /* Esconde o cursor */
-  }
+     /* substituto para a seta */
+     position: fixed;
+     top: 60%;
+     width: 50px;
+     left: 90%;
+     cursor: none; /* Esconde o cursor */
+}
 /* Oculta a barra de rolagem no Chrome/Safari */
 #paragraph ::-webkit-scrollbar {
-    display: none; /* Esconde a barra de rolagem */
+     display: none; /* Esconde a barra de rolagem */
 }
 
 /* Oculta a barra de rolagem no Firefox */
-#paragraph{
-    scrollbar-width: none; /* Esconde a barra de rolagem */
+#paragraph {
+     scrollbar-width: none; /* Esconde a barra de rolagem */
 }
 /*      menu de configurações*/
-     /* versão moal */
-     #setingsmenu {
-        display: none;
-        z-index: 1;
-        position: fixed;
-        
-        left: 10%;
-        align-items: start;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.819);
-        width: 80%;
-        height: 80%;
-        padding: 10px;
-      }
-      #setingsmenu , #setingsmenu * {
-        cursor: help;
-      }
-      #setingsmenu h1 {
-        background-color: black;
-        color: white;
-        width: 100%;
-        text-align: center;
-        margin: auto;
-      }
-      #setingsmenu #CloseMenuSettings {
-        position: relative;
-        background: none;
-        left: 90%;
-        top: -7%;
-      }
-      /* #setingsmenu #conteiner {
+/* versão moal */
+#setingsmenu {
+     display: none;
+     z-index: 1;
+     position: fixed;
+
+     left: 10%;
+     align-items: start;
+     color: white;
+     background-color: rgba(0, 0, 0, 0.819);
+     width: 80%;
+     height: 80%;
+     padding: 10px;
+}
+#setingsmenu,
+#setingsmenu * {
+     cursor: help;
+}
+#setingsmenu h1 {
+     background-color: black;
+     color: white;
+     width: 100%;
+     text-align: center;
+     margin: auto;
+}
+#setingsmenu #CloseMenuSettings {
+     position: relative;
+     background: none;
+     left: 90%;
+     top: -7%;
+}
+/* #setingsmenu #conteiner {
         display: flex;
         flex-direction: column;
       } */
-      #setingsmenu #conteiner input,
-      #setingsmenu #conteiner select {
-        width: 90px;
-      }
+#setingsmenu #conteiner input,
+#setingsmenu #conteiner select {
+     width: 90px;
+}
 
 @media (max-width: 768px) {
-  * {
-    margin: 0;
-    padding: 0;
-    
+     * {
+          margin: 0;
+          padding: 0;
+     }
+     body {
+          width: 94vw;
+          height: 94vh;
+          padding: 0px;
+          overflow: hidden;
+     }
+     #setingsmenu #CloseMenuSettings {
+          position: relative;
+          background: none;
+          left: 90%;
+          top: -4.25%;
+     }
+     #setingsmenu h1 {
+          background-color: black;
+          color: white;
+          width: 99%;
+          height: 40px;
+          text-align: center;
+          margin: auto;
+     }
+     header {
+          width: 100%; /* Maximiza o uso da largura da tela */
+          padding: 0 10px;
+     }
+
+     #ler {
+          z-index: 4;
+          width: 80%; /* O input ocupa toda a largura no celular */
+          height: 40px;
+          font-size: 22px; /* Fonte menor em telas menores */
+          padding: 10px;
+     }
+     .inputmarkdowStyle {
+          z-index: 4;
+          width: 80%; /* O input ocupa toda a largura no celular */
+          height: 40px;
+          font-size: 22px; /* Fonte menor em telas menores */
+          padding: 10px;
+     }
+     #start {
+          z-index: 4;
+          width: 50%; /* O botão ocupa toda a largura disponível */
+          bottom: 10%;
+          font-size: 14px;
+          padding: 10px;
+     }
+
+     #reset {
+          z-index: 4;
+          width: 50px;
+          height: 40px;
+          top: 94%;
+          left: 9%;
+          padding: 5px;
+          font-size: 12px;
+     }
+     #page {
+          z-index: 4;
+          /* substituto para a seta */
+          position: fixed;
+          top: 94%;
+          width: 50px;
+          left: 80%;
+     }
+     #button_low {
+          z-index: 4;
+          align-items: center;
+
+          top: 94%;
+          height: 40px;
+          width: 40px;
+          left: 30%;
+     }
+     #play {
+          z-index: 4;
+          position: fixed;
+          width: 40px;
+          top: 94%;
+          left: 45%;
+          display: flex;
+          justify-content: center; /* Centraliza horizontalmente */
+          align-items: center; /* Centraliza verticalmente */
+     }
+     #pause {
+          display: none;
+          z-index: 4;
+          position: fixed;
+          width: 40px;
+          top: 94%;
+          left: 45%;
+          justify-content: center; /* Centraliza horizontalmente */
+          align-items: center; /* Centraliza verticalmente */
+     }
+     #button_up {
+          z-index: 4;
+          align-items: center;
+          top: 94%;
+          height: 40px;
+          width: 40px;
+          left: 60%;
+     }
+     #pai {
+          margin-top: 20px;
+
+          width: 98vw;
+          height: 86vh;
+     }
+     #paragraph {
+          /*max-height: calc(88vh - 40px);*/
+
+          z-index: 2;
+          padding: 0 15px;
+          margin-top: 20px;
+          width: 93%; /* O parágrafose ajusta à largura da tela */
+          /*   font-size: 14px;  Fonte um pouco menor para celular */
+          /* Reduz a altura para celulares */
+     }
+     .highlight {
+          z-index: -1;
+          width: 100%;
+          top: 20px;
+     }
+
+     #menuAnburger {
+          position: fixed;
+          width: 70%;
+          height: 150px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 4;
+          background: #868585;
+          color: #000000;
+          border-radius: 20px;
+          display: none;
+          align-items: center;
+          padding: 0 25px;
+          box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+     }
+     #menuAnburger::before {
+          content: "";
+          position: absolute;
+          height: 65px;
+          width: 50px;
+          background: #868585;
+          z-index: 2;
+          top: -15px;
+          left: 225px;
+          transform: rotate(45deg) skewY(50deg);
+
+          /* transform-origin: 100% 100% ; */
+     }
+     #menuAnburger.active {
+          display: flex;
+     }
+
+     #ButtonMenuAnburger {
+          background-color: white;
+          border: 1px solid rgb(182, 180, 180);
+          position: fixed;
+          display: block;
+          top: 25px;
+          height: 20px;
+          width: 40px;
+          color: black;
+          transform: rotate(90deg) scale(1.5);
+     }
+     #ButtonMenuAnburger:hover {
+      transform: scale(2);
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
   }
-    body {
-      width: 94vw;
-      height: 94vh;
-        padding: 0px;
-        overflow: hidden;
-        
-    
-    }
-      #setingsmenu #CloseMenuSettings {
-        position: relative;
-        background: none;
-        left: 90%;
-        top: -4.25%;
-      }
-            #setingsmenu h1 {
-        background-color: black;
-        color: white;
-        width: 99%;
-        height: 40px;
-        text-align: center;
-        margin: auto;
-      }
-    header {
-        width: 100%; /* Maximiza o uso da largura da tela */
-        padding: 0 10px;
-    }
-
-    #ler {
-      z-index: 4;
-        width: 80%; /* O input ocupa toda a largura no celular */
-        height: 40px;
-        font-size: 22px; /* Fonte menor em telas menores */
-        padding: 10px;
-    }
-    .inputmarkdowStyle {
-      z-index: 4;
-        width: 80%; /* O input ocupa toda a largura no celular */
-        height: 40px;
-        font-size: 22px; /* Fonte menor em telas menores */
-        padding: 10px;
-    }
-    #start {
-      z-index: 4;
-        width: 50%; /* O botão ocupa toda a largura disponível */
-        bottom: 10%;
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    #reset {
-      z-index: 4;
-        width: 50px;
-        height: 40px;
-         top: 94%;
-        left: 9%;
-        padding: 5px;
-        font-size: 12px;
-    }
-    #page {
-      z-index: 4;
-      /* substituto para a seta */
-    position: fixed;
-     top: 94%;
-      width: 50px;
-      left: 80%;
-    }
-    #button_low {
-      z-index: 4;
-      align-items: center;
-
-      top: 94%;
-        height: 40px;
-        width: 40px;
-        left: 30%;
-    }
-    #play {
-      z-index: 4;
-        position: fixed;
-        width: 40px;
-        top: 94%;
-        left: 45%;
-        display: flex;
-        justify-content: center; /* Centraliza horizontalmente */
-        align-items: center;    /* Centraliza verticalmente */
-    }
-    #pause {
-      display: none;
-      z-index: 4;
-        position: fixed;
-        width: 40px;
-        top: 94%;
-        left: 45%;
-        justify-content: center; /* Centraliza horizontalmente */
-        align-items: center;    /* Centraliza verticalmente */
-
-    }
-    #button_up {
-      z-index: 4;
-        align-items: center;
-        top: 94%;
-        height: 40px;
-        width: 40px;
-        left: 60%;
-      }
-      #pai {
-   margin-top: 20px;   
-   
-  width: 98vw;
-  height: 86vh;
-  
-
-  
+  #ButtonMenuAnburger:hover span  , #ButtonMenuAnburger:hover{
+    transition: all 0.5s;
 }
-    #paragraph {
-      /*max-height: calc(88vh - 40px);*/
-
-      z-index: 2;
-      padding:0 15px;
-      margin-top: 20px;
-        width: 93%; /* O parágrafose ajusta à largura da tela */
-     /*   font-size: 14px;  Fonte um pouco menor para celular */
-  /* Reduz a altura para celulares */
- 
+  #ButtonMenuAnburger:hover span:nth-child(1) {
+    transform: rotateX(30deg) scale(1.5) skew(-10deg);
   
-    }
-    .highlight{
-      z-index: -1;
-        width: 100%;
-        top: 20px;
-    }
-
-    #menuAnburger {
-      position: fixed;
-      width: 250px;
-      height: 150px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 4;
-      background: #868585;
-      color: #000000;
-      border-radius: 20px;
-      display: none;
-      align-items: center;
-      padding: 0 25px;
-      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-     
-
-    }
-    #menuAnburger::before {
-      content: '';
-      position: absolute;
-      height: 65px;
-      width: 50px;
-      background: #868585;
-     z-index: 2;
-      top: -15px;
-      left: 225px;
-      transform: rotate(45deg) skewY(50deg);
-
-      /* transform-origin: 100% 100% ; */
-  }
-
-
-    #ButtonMenuAnburger{
-      position: fixed;
-      display: block;
-      top: 5px;
-      height: 60px;
-      width: 15px;
-      color: black;
-    }
-    #ButtonMenuAnburger.ButtonMenuAnburgerTXTon {
-      left: 88%;
-      top: -20px;
-      z-index: 4;
-      transform: rotate(90deg);
-    }
-
-  #profile {
-    display: block;
-    position: relative;
-    left: 48%;
-    top: 19%;
-    transform: translate(-50%, -50%);
-  }
-  #settingbutton{
-    position: relative;
-      display: block;
-      left: 51%;
-      top: 20%;
-      transform: translate(-50%, -50%);
-      
-  z-index: 4;
-  
-  
+    background-color: #000000;
+    border: none;
 }
-#setingsmenu {
-  display: none;
-  z-index: 5;
-  position: fixed;
-  top: 20px;
-  left: 10%;
-  align-items: flex-start;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.819);
-  width: 80%;
-  height: 80%;
-  padding: 10px;
+#ButtonMenuAnburger:hover span:nth-child(2) {
+  transform: rotateX(-30deg) scale(1.4);
+  padding: 2px;
+  margin: 2px;
+  background-color: #000000;
+  border: none;
 }
+#ButtonMenuAnburger:hover span:nth-child(3) {
+  transform: rotateX(30deg) scale(1.5);
+
+  background-color: #000000;
+  border: none;
+}
+     #ButtonMenuAnburger.ButtonMenuAnburgerTXTon {
+          left: 88%;
+          top: -20px;
+          z-index: 4;
+          height: 60px;
+          width: 15px;
+          transform: rotate(90deg);
+     }
+
+  
+     #profile {
+          display: block;
+          position: relative;
+          left: 48%;
+          top: 19%;
+          height: 60px;
+          width: 60px;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          z-index: 5;
+     }
+     #profile img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+     }
+
+     #settingbutton {
+          position: relative;
+          display: block;
+          left: 51%;
+          top: 20%;
+          transform: translate(-50%, -50%);
+          z-index: 4;
+     }
+     #settingbutton svg {
+          width: 50px;
+          height: 50px;
+     }
+     #setingsmenu {
+          display: none;
+          z-index: 5;
+          position: fixed;
+          top: 20px;
+          left: 10%;
+          align-items: flex-start;
+          color: white;
+          background-color: rgba(0, 0, 0, 0.819);
+          width: 80%;
+          height: 80%;
+          padding: 10px;
+     }
 }

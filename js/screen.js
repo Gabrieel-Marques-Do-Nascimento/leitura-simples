@@ -15,6 +15,7 @@ import {
      $button_up,
      loadText_Cache_json,
      Cache_json_name,
+     $ButtonMenuAnburger
 } from "./script.js";
 import {
      save_text_in_cache,
@@ -28,6 +29,25 @@ import {
      change_top,
      ReadScreen,
 } from "./utils.js";
+
+
+
+
+function MenuAnburguer(type){
+     // Remove o atributo 'id'
+if ($ButtonMenuAnburger) {
+     $ButtonMenuAnburger.removeAttribute("id");
+     
+ } else {
+    console.error("Elemento com o ID 'ButtonMenuAnburger' não encontrado.");
+ }
+}
+
+
+
+
+
+
 
 // ---------------------------------- definições globais da tela----------------------------------
 let margin =
@@ -64,10 +84,12 @@ if (save_text) {
      inputActived[0].value = save_text;
      $PauseButton.style.display = "none";
      ReadScreen(save_text);
+     $ButtonMenuAnburger.classList.add("ButtonMenuAnburgerTXTon");
 } else {
      buttonstatic(document.querySelectorAll(".disabled"), "block");
      buttonstatic(document.querySelectorAll(" .activated"), "none");
      $bookmark.style.display = "none";
+     $ButtonMenuAnburger.classList.remove("ButtonMenuAnburgerTXTon");
 }
 
 // ---------------------------------- eventos relacionados a tela -----------------------------------
@@ -94,6 +116,7 @@ inputActived[0].addEventListener("keydown", function (event) {
 $startButton.addEventListener("click", () => {
      buttonstatic(document.querySelectorAll(".disabled"), "none");
      buttonstatic(document.querySelectorAll(" .activated"), "block");
+     $ButtonMenuAnburger.classList.add("ButtonMenuAnburgerTXTon");
 
      let value = inputActived[0].value;
      if (value) {
@@ -108,6 +131,7 @@ $startButton.addEventListener("click", () => {
 });
 
 $resetButtonn.addEventListener("click", () => {
+     $ButtonMenuAnburger.classList.remove("ButtonMenuAnburgerTXTon");
      buttonstatic(document.querySelectorAll(".disabled"), "block");
      buttonstatic(document.querySelectorAll(" .activated"), "none");
      $bookmark.style.display = "none";

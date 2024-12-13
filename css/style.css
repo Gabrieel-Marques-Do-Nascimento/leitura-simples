@@ -63,6 +63,9 @@ body {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.685);
 
 }
+#ButtonMenuAnburger{
+  display: none;
+}
 header {
     display: flex;
     flex-direction: column;
@@ -491,10 +494,69 @@ body {
         width: 100%;
         top: 20px;
     }
-    #settingbutton{
-  position: fixed;
-  left: 90%;
-  top: -4px;
+
+    #menuAnburger {
+      position: fixed;
+      width: 250px;
+      height: 150px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      background: #868585;
+      color: #000000;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      padding: 0 25px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+     
+
+    }
+    #menuAnburger::before {
+      content: '';
+      position: absolute;
+      height: 65px;
+      width: 50px;
+      background: #868585;
+     z-index: 2;
+      top: -15px;
+      left: 225px;
+      transform: rotate(45deg) skewY(50deg);
+
+      /* transform-origin: 100% 100% ; */
+  }
+
+
+    #ButtonMenuAnburger{
+      position: fixed;
+      display: block;
+      top: 5px;
+      height: 60px;
+      width: 15px;
+      color: black;
+    }
+    #ButtonMenuAnburger.ButtonMenuAnburgerTXTon {
+      left: 88%;
+      top: -20px;
+      z-index: 4;
+      transform: rotate(90deg);
+    }
+
+  #profile {
+    display: block;
+    position: relative;
+    left: 48%;
+    top: 19%;
+    transform: translate(-50%, -50%);
+  }
+  #settingbutton{
+    position: relative;
+      display: block;
+      left: 51%;
+      top: 20%;
+      transform: translate(-50%, -50%);
+      
   z-index: 4;
   
   

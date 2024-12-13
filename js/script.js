@@ -22,6 +22,7 @@ export const $input = document.getElementById("ler");
 export const $screen_text = document.getElementById("paragraph");
 export const $pai_das_telas = document.getElementById("pai");
 // principal screen  buttons
+export const $ButtonMenuAnburger = document.getElementById("ButtonMenuAnburger");
 export const $ButtonScrollPage = document.getElementById("page");
 export const $button_low = document.getElementById("button_low");
 export const $button_up = document.getElementById("button_up");

@@ -14,7 +14,6 @@ import {
      bookmark_style,
 } from "./script.js";
 import { console_log, delay } from "./utils.js";
-import {} from "./module.js";
 import { v } from "./screen.js";
 export let highlight_top = Number(marker_style.top.replace("px", ""));
 const _scroll_height = $screen_text.scrollHeight;

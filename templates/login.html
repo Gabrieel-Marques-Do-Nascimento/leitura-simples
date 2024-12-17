@@ -22,8 +22,9 @@
             <p class="register-link">Ainda não tem uma conta? <a href="../templates/register.html">Registre-se aqui</a></p>
         </form>
     </div>
-    <script src="requests_f.js"></script>
-    <script>
+    <!-- <script src="requests_f.js"></script> -->
+    <script type="module">
+      import { save_json_to_cache } from '../js/global.js'
 const $password = document.getElementById("password");
 const $username = document.getElementById("username");
 
@@ -33,42 +34,41 @@ formulario.addEventListener("submit", async function (event) {
   event.preventDefault();
 
 
-  // // Capturando valores dos campos ao enviar o formulário
-  // const user = {
-  //   username: $username.value,
-  //   password: $password.value
-  // };
+  // Capturando valores dos campos ao enviar o formulário
+  const user = {
+    username: $username.value,
+    password: $password.value
+  };
 
-  // try {
-  //   const response = await fetch("http://127.0.0.1:5000/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(user)
-  //   });
-  //   console.log("status HTTP:", response);
+  try {
+    const response = await fetch("http://127.0.0.1:5000/modulo1/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user)
+    });
+    console.log("status HTTP:", response);
     
-  //   const data = await response.json();
-  //   if (response.ok){
-  //     if (data["permision"] == "base"){
-        
-  //     }
-      
-  //   }
-  //   if (!response.ok) {
-  //     const error = await response.json();
-  //     console.error("erro na API:", error);
-  //     throw new Error(error.error || "Erro DESCONHECIDO");
-  //   }
+    const data = await response.json();
+    if (response.ok){
+      console.log("Token:", data['token']);
+      save_json_to_cache( data['token'],"TOKEN");
+      save_json_to_cache( data['litbookmarkID'],"LITBOOKMARKID");
+    }
+    // if (!response.ok) {
+    //   const error = await response.json();
+    //   console.error("erro na API:", error);
+    //   throw new Error(error.error || "Erro DESCONHECIDO");
+    // }
 
     
-  //   console.log("Sucesso:", data);
-  //   alert("Formulário enviado com sucesso!");
-  // } catch (error) {
-  //   console.error("Erro:", error.message);
-  //   alert("Ocorreu um erro: " + error.message);
-  // }
+    console.log("Sucesso:", data);
+    alert("Formulário enviado com sucesso!");
+  } catch (error) {
+    console.error("Erro:", error.message);
+    alert("Ocorreu um erro: " + error.message);
+  }
 });
     </script>
 </body>

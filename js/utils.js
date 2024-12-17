@@ -1,11 +1,12 @@
 import {
-     loadText_Cache_json,
+     
      $screen_text,
      $button_low,
      $button_up,
      $PlayButton,
      $PauseButton,
 } from "./script.js";
+import {loadText_Cache_json} from './global.js';
 
 const winHeight = window.innerHeight;
 

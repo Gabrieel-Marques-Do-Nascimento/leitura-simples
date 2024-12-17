@@ -2,6 +2,10 @@
 import { texto_teste, add_value } from "./testes.js";
 
 import { save_text_in_cache, load_text_from_cache } from "./utils.js";
+import {
+     loadText_Cache_json,
+     
+} from "./global.js";
 // ------------------------------- Elementos do DOM -------------------------------
 export const inputActived = document.getElementsByClassName("inputClass");
 export const $CloseMenuSettings = document.getElementById("CloseMenuSettings");
@@ -47,7 +51,7 @@ export const SettingData = loadText_Cache_json(Cache_json_name);
 export const inputClass = "inputClass";
 export const winHeight = window.innerHeight;
 // Obtém a URL completa
-const urlAtual = window.location.href;
+export const urlAtual = window.location.href;
 
 // ------------------------------ LOGS---------------------------------------------------------
 console.log("SettingData", SettingData);
@@ -69,44 +73,9 @@ console.log("SettingData", SettingData);
  */
 
 //===========================================
-/**
- * Salva um objeto JSON no LocalStorage como uma string.
- *
- * @param {Object} data - O objeto que será salvo no formato JSON.
- * @param {string} name - A chave usada para armazenar o objeto no LocalStorage.
- */
-export function save_json_to_cache(data, name) {
-     // Converte o objeto para uma string JSON
-     const text = JSON.stringify(data);
-     // Salva no LocalStorage
-     localStorage.setItem(name, text);
-}
+
 
 //===========================================
-/**
- * Carrega um objeto JSON armazenado no LocalStorage.
- * Se o item não existir, retorna um objeto padrão.
- *
- * @param {string} name - A chave usada para recuperar o objeto do LocalStorage.
- * @returns {Object} O objeto JSON recuperado ou um objeto padrão caso não exista.
- */
-export function loadText_Cache_json(name) {
-     // Pega o texto do LocalStorage
-     const padrao = {
-          lang: "en",
-          delay: 2000,
-          markmove: "button",
-          "font-size": 18,
-          //background_type: "white",
-          theme: "auto",
-          $autoScroll: false,
-          color: "#00f000",
-          screentype: "markdow",
-     };
-     const text = localStorage.getItem(name);
-     // Verifica se o item existe e converte de volta para um objeto
-     return text ? JSON.parse(text) : padrao;
-}
 //===================================================
 
 // ------------------------------- Funções de Estilização e Atualização da Interface -------------------------------
@@ -143,3 +112,4 @@ $ButtonMenuAnburger.addEventListener("click", () => {
      $menuburger.classList.add('active');
     }
 });
+

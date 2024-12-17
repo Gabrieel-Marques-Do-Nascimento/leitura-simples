@@ -13,7 +13,6 @@ import {
      $bookmark,
      $button_low,
      $button_up,
-     loadText_Cache_json,
      Cache_json_name,
      $ButtonMenuAnburger
 } from "./script.js";
@@ -29,6 +28,7 @@ import {
      change_top,
      ReadScreen,
 } from "./utils.js";
+import {loadText_Cache_json} from './global.js'
 
 
 

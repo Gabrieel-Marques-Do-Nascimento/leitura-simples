@@ -3,9 +3,7 @@ import {
      $SettingsMenu,
      $CloseMenuSettings,
      $settingsFontSize,
-     save_json_to_cache,
      Cache_json_name,
-     loadText_Cache_json,
      $SettingText_type,
      $SettingBookMarkColor,
      $SettingDelay,
@@ -21,6 +19,7 @@ import {
 } from "./script.js";
 import { log_list } from "./testes.js";
 import { recarregarPagina, theme_by_hour_or_auto } from "./utils.js";
+import {loadText_Cache_json, save_json_to_cache} from './global.js';
 // ------------------------------- Configuração Inicial e tipo de tela -------------------------------
 
 let SettingData = loadText_Cache_json(Cache_json_name);

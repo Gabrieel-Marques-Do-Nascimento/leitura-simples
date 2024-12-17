@@ -17,7 +17,7 @@ const confg_json = {
  * @param {*} confg as configurações `{method: POST, headers: {json}, body: user}`
  */
 async function requests_api(
-  api = "http://192.168.0.102:5000//login",
+  api = "http://192.168.0.102:5000/modulo1/login",
   type_api = "login",
   confg = confg_json
 ) {

@@ -109,7 +109,7 @@
                    alert("Formulário enviado com sucesso!");
                    save_json_to_cache( data['token'],"TOKEN");
                    save_json_to_cache( data['litbookmarkID'],"LITBOOKMARKID");
-
+                   window.location.href = "../templates/profile.html";
 
                  })
                  .catch((error) => {

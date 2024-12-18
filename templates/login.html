@@ -55,6 +55,7 @@ formulario.addEventListener("submit", async function (event) {
       console.log("Token:", data['token']);
       save_json_to_cache( data['token'],"TOKEN");
       save_json_to_cache( data['litbookmarkID'],"LITBOOKMARKID");
+      window.location.href = "../templates/profile.html";
     }
     // if (!response.ok) {
     //   const error = await response.json();

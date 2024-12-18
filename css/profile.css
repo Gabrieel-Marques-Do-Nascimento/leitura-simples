@@ -111,3 +111,15 @@ main a {
         width: 100%;
     }
 }
+
+
+
+.link{
+    text-align: start;
+    border-radius: 10px;
+    box-shadow: inset 4px 4px 10px #000000;
+    text-shadow: #000000c7 2px 0px 0px;
+    padding: 10px;
+    color: blueviolet;
+    text-decoration: underline;
+}

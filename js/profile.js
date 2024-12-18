@@ -31,12 +31,17 @@ if (user == null || id == null) {
         })
         .then(data => {
           console.log(data);
+          username.innerHTML = data.name;
+          email.innerHTML = data.email;
+          genero.innerHTML = data.genero;
+          idioma.innerHTML = data.idioma;
+          plano.innerHTML = data.permision;
+          plano.classList.add("link");
+          plano.addEventListener("click", function() {
+            window.location.href = "plano.html";
+          });
         })
         .catch(error => {
           console.error('There has been a problem with your fetch operation:', error);
-        });
-        
-
-
-        
+        });       
 }

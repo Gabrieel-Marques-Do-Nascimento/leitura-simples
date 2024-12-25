@@ -76,42 +76,42 @@ const filesToCachegIT = [
 
 
 
-// // Instalando o Service Worker e fazendo o cache dos arquivos
-// self.addEventListener('install', (event) => {
-//     event.waitUntil(
-//       caches.open(cacheName).then((cache) => {
-//         return Promise.all(
-//           filesToCachegIT.map((file) =>
-//             fetch(file, { mode: 'no-cors' }).then((response) => {
-//               if (response.ok) {
-//                 return cache.put(file, response);
-//               } else {
-//                 console.error(`Falha ao buscar ${file} para cache, status: ${response.status}`);
-//               }
-//             }).catch((error) => {
-//               console.error(`Erro ao buscar ${file} para cache`, error);
-//             })
-//           )
-//         );
-//       })
-//     );
-//   });
+// Instalando o Service Worker e fazendo o cache dos arquivos
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+      caches.open(cacheName).then((cache) => {
+        return Promise.all(
+          filesToCachegIT.map((file) =>
+            fetch(file, { mode: 'no-cors' }).then((response) => {
+              if (response.ok) {
+                return cache.put(file, response);
+              } else {
+                console.error(`Falha ao buscar ${file} para cache, status: ${response.status}`);
+              }
+            }).catch((error) => {
+              console.error(`Erro ao buscar ${file} para cache`, error);
+            })
+          )
+        );
+      })
+    );
+  });
   
   
 
-// // Interceptando as requisições e respondendo com o cache, se disponível
-// self.addEventListener('fetch', (event) => {
-//   event.respondWith(
-//     caches.match(event.request).then((response) => {
-//       return response || fetch(event.request);
-//     })
-//   );
-// });
+// Interceptando as requisições e respondendo com o cache, se disponível
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
+});
 
-// if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker
-//       .register('./service-worker.js')
-//       .then(() => console.log('Service Worker registrado com sucesso'))
-//       .catch((error) => console.log('Falha no registro do Service Worker', error));
-//   }
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('./service-worker.js')
+      .then(() => console.log('Service Worker registrado com sucesso'))
+      .catch((error) => console.log('Falha no registro do Service Worker', error));
+  }
   

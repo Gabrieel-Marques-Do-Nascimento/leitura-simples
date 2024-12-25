@@ -21,7 +21,7 @@ const BASE_URL = new URL('./', self.location).href;
 console.log("service",BASE_URL)
 
 
-let cacheName = "testes"; 
+let cacheName = "OFFLINE"; 
 fetch('./-info/config.json')
   .then(response => response.json())
   .then(config => {

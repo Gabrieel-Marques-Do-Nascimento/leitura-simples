@@ -1,3 +1,5 @@
+export url_api = "http://127.0.0.1:5000";
+
 
 /**
  * Carrega um objeto JSON armazenado no LocalStorage.
@@ -39,4 +41,23 @@ export function save_json_to_cache(data, name) {
     const text = JSON.stringify(data);
     // Salva no LocalStorage
     localStorage.setItem(name, text);
+}
+
+/**
+ * 
+ * @param {*} name ex: name: /moduloN/login
+ * @returns 
+ */
+export async function requestGET(name) {
+     url = url_api + name;
+  try {
+          const response = await fetch(url);
+          if (!response.ok) {
+               throw new Error(`Erro na solicitação: ${response.status}`);
+          }
+          return await response.json();
+     } catch (error) {
+          console.error("Erro na solicitação:", error);
+          throw error;
+     }
 }

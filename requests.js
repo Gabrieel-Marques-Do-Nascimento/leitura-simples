@@ -1,7 +1,7 @@
 const user = {
-    "username": 'gabriel55',
+    "username": 'biu',
     "password": 123456,
-    "email": 'gabriel@gmail.com',
+    "email": 'contato@gabrieelmarquees.website',
   };
 
   fetch("http://127.0.0.1:5000/modulo1/register", {

@@ -16,3 +16,75 @@ text-align: center;
   
   font-size: 22px;
 }
+
+
+
+.buy_premium {
+  display: none;
+  flex-direction:column;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f5f9f3f5;
+  border: #71f13e 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  height: 200px;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 10px #71f13eac;
+  z-index: 8;
+}
+.buy_premium button {
+  background-color: #9aff42ac;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  text-transform: none;
+  text-shadow: black 0px 0px 5px;
+  box-shadow: inset 0 0 10px #020401ac;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+}
+.buy_premium button:hover {
+  background-color: #71f13eac;
+  color: white;
+  box-shadow: inset 0 0 10px #020401ac;
+}
+.buy_premium h1 {
+  color: #71f13eac;
+  text-shadow: black 0 0 5px;
+  text-align: center;
+}
+.buy_premium h4 {
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #020401ac;
+  text-align: center;
+}
+.buy_premium ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #020401ac;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.buy_premium ul li {
+  margin-bottom: 10px;
+}
+.buy_premium ul li::before {
+  content:
+  "•";
+  color: #71f13eac;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+}

@@ -1,4 +1,4 @@
-const user = { username: "Gabriel2", password: "20211613" };
+const user = { username: "biu", password: "123456" };
 
 const confg_json = {
   // envia os dados e recebe o resultado
@@ -17,7 +17,7 @@ const confg_json = {
  * @param {*} confg as configurações `{method: POST, headers: {json}, body: user}`
  */
 async function requests_api(
-  api = "http://192.168.0.102:5000/modulo1/login",
+  api = "http://127.0.0.1:5000/modulo1/login",
   type_api = "login",
   confg = confg_json
 ) {
@@ -43,10 +43,13 @@ async function requests_api(
     })
     .then((data) => {
       console.log("sucesso:", data);
-      alert("Formulario enviado com sucesso!");
+      // alert("Formulario enviado com sucesso!");
     })
     .catch((erro) => {
       console.error("error:", erro.message);
-      alert("Ocorreu um erro:" + erro.message);
+      // alert("Ocorreu um erro:" + erro.message);
     });
 }
+
+
+requests_api();

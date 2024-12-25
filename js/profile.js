@@ -43,5 +43,6 @@ if (user == null || id == null) {
         })
         .catch(error => {
           console.error('There has been a problem with your fetch operation:', error);
+          window.location.href = "login.html";
         });       
 }

@@ -15,6 +15,9 @@ const BASE_URL = location.href.split('/').slice(0, 3).join('/');
 ```javascript
 const BASE_URL = new URL('./', self.location).href;
 ```
+
+
+
 */
 
 

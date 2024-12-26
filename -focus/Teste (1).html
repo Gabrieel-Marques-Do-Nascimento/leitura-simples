@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Interactive Modal</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: rgb(26, 25, 25);
+            }
+            #buy { 
+                display: none;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #71f13e0f;
+                border: #71f13eac 1px solid;
+                padding: 10px;
+                border-radius: 10px;
+                height: 200px;
+                width: 400px;
+                align-items: center;
+                justify-content: center;
+                box-shadow: inset 0 0 10px #71f13eac;
+            }
+            #buy h1 {
+                background-color: #71f13eac;
+                padding: 10px;
+                color: white;
+                border-radius: 10px;
+                text-transform: none;
+                text-shadow: black 0 0 10px;
+                box-shadow: inset 0 0 10px #71f13eac;
+                
+            }
+            #item {
+                background-color: rgb(14, 14, 14);
+                width: 100px;
+                height: 100px;
+                border-radius: 10px;
+                box-shadow: inset 0 0 10px #71f13eac;
+                cursor: pointer;
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                transform: translate(-50%, -20%);
+            }
+            #item:hover {
+                box-shadow: inset 0 0 10px #71f13eac;
+            }
+            #item:active {
+                box-shadow: inset 0 0 10px #71f13eac;
+            }
+            #item:hover ~ #buy {
+                display: flex;
+            }
+            #buy:hover {
+                display: flex;
+            }
+            .premiumitem{
+
+            }
+            .premiumitem:hover ~ #buy{
+                display: flex;
+            }
+            .premiumitem:hover #title{
+                display: flex;
+            }
+        </style>
+    </head>
+    <body>         <label for="bookmark">bookmark</label>
+            <input
+                 type="color"
+                 class="premiumitem"
+                 id="bookmark"
+                 name="color"
+                 value="#Ffff00"
+                 disabled="true"
+            />
+        <div id="item"></div>
+        <div id="buy">
+   
+            <h1 id="title" translate="no">PREMIUM</h1>
+        </div>
+        <script>
+            // const $item = document.getElementById("item");
+            // const $buy = document.getElementById("buy");
+            // $buy.style.display = "none";
+            // // Toggle `#buy` visibility when clicking on `#item`
+            // $item.addEventListener("click", function (event) {
+            //     event.stopPropagation(); // Prevent bubbling to the body
+            //     $buy.style.display = "flex"; // Show the modal
+            // });
+
+            // // Hide `#buy` when clicking outside of it
+            // document.addEventListener("click", function (event) {
+            //     if (!$buy.contains(event.target) && event.target !== $item) {
+            //         $buy.style.display = "none"; // Hide the modal
+            //     }
+            // });
+
+            // // Prevent bubbling from clicks inside `#buy`
+            // $buy.addEventListener("click", function (event) {
+            //     event.stopPropagation();
+            // });
+        </script>
+    </body>
+</html>

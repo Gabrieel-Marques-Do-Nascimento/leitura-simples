@@ -1,0 +1,848 @@
+diff --git a/--melhorias-pendentes--.md b/--melhorias-pendentes--.md
+deleted file mode 100644
+index db7ada3..0000000
+--- a/--melhorias-pendentes--.md
++++ /dev/null
+@@ -1,36 +0,0 @@
+-
+-
+-### 1. **Organização e Modularização**
+-
+-   - **Funções Utilitárias**: Separar funções auxiliares em arquivos específicos pode ajudar a tornar o código mais organizado. Como algumas funções de estilo e configuração se repetem, considere movê-las para módulos específicos como `styleUtils.js`, `scrollUtils.js`, etc.
+-   - **Separação de Responsabilidades**: Algumas funções misturam lógica de manipulação de DOM, animação e cálculos de layout. Tente dividir essas funções para que cada uma trate apenas de um aspecto (por exemplo, `calcularAlturaLinha`, `atualizarEstiloHighlight`, `ajustarMarcador`).
+-
+-### 2. **Uso de Variáveis e Constantes**
+-   
+-   - **Constantes para Valores Fixo**: Utilize constantes para valores que não mudam, como `const MARGEM_ERRO = 8` ou `const ALTURA_TELA = 500`. Isso facilita o ajuste futuro desses valores.
+-   - **Declarar Variáveis Próximas ao Uso**: Variáveis como `cont` e `mousemove` poderiam ser declaradas mais próximas ao lugar onde são usadas. Além disso, evite variáveis globais sempre que possível para prevenir efeitos colaterais indesejados.
+-
+-### 3. **Comentários Explicativos**
+-   
+-   - **Documentação das Funções**: Para cada função, um breve comentário explicando o que ela faz e quais parâmetros espera seria útil, especialmente em funções mais complexas, como `scrollarParagrafo` e `alterarTop`.
+-   - **Explicação para Condições**: Dentro de blocos `if`, comente a lógica por trás de cada condição para facilitar a leitura e compreensão do comportamento específico.
+-
+-### 4. **Simplificação da Lógica de Evento**
+-
+-   - **Eventos Repetitivos**: Evite múltiplos `addEventListener` para o mesmo tipo de evento, como `mousemove` ou `keydown`, ao máximo. Isso pode tornar o código menos eficiente. Combine eventos semelhantes em uma única função sempre que possível.
+-   - **Funções Debounce/Throttle**: Para melhorar a performance ao lidar com eventos como `mousemove` e `scroll`, considere implementar uma função `debounce` ou `throttle` para limitar a frequência de execução desses eventos.
+-
+-### 5. **Armazenamento Local (LocalStorage)**
+-
+-   - **Validação de Dados**: Sempre que for buscar dados do `localStorage`, valide se as informações existem e estão no formato esperado. Um mecanismo de fallback para valores padrão pode ser útil em casos de inconsistência.
+-
+-### 6. **Estilo CSS**
+-
+-   - **Uso de Classes CSS para Estado**: Ao invés de manipular `display` e `opacity` diretamente no JavaScript, considere usar classes CSS com estilos predefinidos e alterná-las através de `classList.add/remove` para uma manutenção mais fácil.
+-   - **Separação de Estilos**: Se possível, mova estilos diretamente aplicados no JavaScript para um arquivo CSS, especialmente para estilos de transição e animações.
+-
+-### 7. **Melhoria de Funções Complexas**
+-
+-   - **Refatoração de Funções**: Algumas funções, como `highlight_status`, têm lógica extensa e complexa. Divida essas funções em partes menores e mais específicas, e dê nomes claros para cada uma.
+-   - **Nomeação Descritiva**: Nomear variáveis e funções de forma que descrevam sua finalidade clara ajuda a entender o código rapidamente. Evite abreviações que podem confundir, como `rstdis`, `pdis`, `stdis`, `inpdis`.
+-
+diff --git a/config.json b/config.json
+deleted file mode 100644
+index 72e91f1..0000000
+--- a/config.json
++++ /dev/null
+@@ -1,5 +0,0 @@
+-{
+-  "API_KEY": "your_api_key",
+-  "service_worker_name":"site-cache-v3",
+-  "localhost":"http://10.12.148.102:8080/files/escalavel/index.html"
+-}
+\ No newline at end of file
+diff --git a/diff_output.txt b/diff_output.txt
+deleted file mode 100644
+index d5c9208..0000000
+--- a/diff_output.txt
++++ /dev/null
+@@ -1,788 +0,0 @@
+-diff --git a/config.json b/config.json
+-index d1eb8d9..72e91f1 100644
+---- a/config.json
+-+++ b/config.json
+-@@ -1,4 +1,5 @@
+- {
+-   "API_KEY": "your_api_key",
+--  "service_worker_name":"site-cache-v3"
+-+  "service_worker_name":"site-cache-v3",
+-+  "localhost":"http://10.12.148.102:8080/files/escalavel/index.html"
+- }
+-\ No newline at end of file
+-diff --git a/css/style.css b/css/style.css
+-index a988889..b0143b4 100644
+---- a/css/style.css
+-+++ b/css/style.css
+-@@ -56,7 +56,7 @@ body {
+-     overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
+-     border: 1px solid #ccc; /* Adiciona uma borda para visualizar o elemento */
+-     padding: 0px 10px 0 10px; /* Adiciona espaço interno */
+--    display: none; /* Inicialmente escondido */
+-+    display: block; /* Inicialmente escondido */
+-     margin-top: 0;
+-     padding-top: 0;
+-     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.685);
+-diff --git a/diff_output.txt b/diff_output.txt
+-index a836efe..e69de29 100644
+---- a/diff_output.txt
+-+++ b/diff_output.txt
+-@@ -1,386 +0,0 @@
+--diff --git a/css/style.css b/css/style.css
+--index 9b4d75e..a988889 100644
+----- a/css/style.css
+--+++ b/css/style.css
+--@@ -75,6 +75,12 @@ header {
+--     width: 80%;
+--     height: 30px;
+-- }
+--+
+--+.inputmarkdowStyle {
+--+    margin: 20px 0;
+--+    width: 80%;
+--+    height: 30px;
+--+}
+-- #clearBtn {
+--   position: fixed;
+--   left: 80%;
+--@@ -187,12 +193,24 @@ body {
+--     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
+-- }
+-- 
+---
+--+.inputmarkdowStyle  {
+--+    width: 80%;
+--+    padding: 10px 15px; /* Espaço interno para melhorar a experiência de digitação */
+--+    font-size: 18px; /* Aumentar o tamanho da fonte */
+--+    border: 2px solid #ccc; /* Borda mais visível */
+--+    border-radius: 8px; /* Bordas arredondadas */
+--+    outline: none; /* Remove o contorno padrão ao focar */
+--+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves ao focar */
+--+}
+-- /* Estilo quando o input recebe foco */
+-- #ler:focus {
+--     border-color: #007bff; /* Cor azul ao focar */
+--     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
+-- }
+--+.inputmarkdowStyle:focus {
+--+    border-color: #007bff; /* Cor azul ao focar */
+--+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra azul ao redor */
+--+}
+-- /* Efeito hover no botão */
+-- #start:hover {
+--     background-color: #0056b3;
+--@@ -349,7 +367,13 @@ body {
+--         font-size: 22px; /* Fonte menor em telas menores */
+--         padding: 10px;
+--     }
+---
+--+    .inputmarkdowStyle {
+--+      z-index: 4;
+--+        width: 80%; /* O input ocupa toda a largura no celular */
+--+        height: 40px;
+--+        font-size: 22px; /* Fonte menor em telas menores */
+--+        padding: 10px;
+--+    }
+--     #start {
+--       z-index: 4;
+--         width: 50%; /* O botão ocupa toda a largura disponível */
+--@@ -449,9 +473,9 @@ body {
+--   display: none;
+--   z-index: 5;
+--   position: fixed;
+---  
+--+  top: 20px;
+--   left: 10%;
+---  align-items: start;
+--+  align-items: flex-start;
+--   color: white;
+--   background-color: rgba(0, 0, 0, 0.819);
+--   width: 80%;
+--diff --git a/index.html b/index.html
+--index d965a63..423f8b4 100644
+----- a/index.html
+--+++ b/index.html
+--@@ -53,6 +53,7 @@
+--                <p id="console-text"></p>
+--           </div>
+--           <header>
+--+              <textarea class="inputmarkdowStyle" id="inputMarkdow"></textarea>
+--                <input type="text" name="ler" id="ler" aria-label="ler" />
+--                <button id="clearBtn">
+--                     <svg
+--@@ -316,7 +317,7 @@
+--                               style="font-size: 12px"
+--                               translate="no"
+--                               name="type"
+---                              id="type"
+--+                              id="text_type"
+--                          >
+--                               <option value="markdow">markdow</option>
+--                               <option value="text">text</option>
+--@@ -564,12 +565,14 @@
+--                     explorador
+--                </div>
+--           </div>
+--+          <script type="module" src="js/testes.js"></script>
+--           <script src="js/Premium.js"></script>
+--           <script type="module" src="js/script.js"></script>
+--           <script type="module" src="js/module.js"></script>
+--           <script type="module" src="js/files.js"></script>
+--           <script type="module" src="js/settings.js"></script>
+--           <script type="module" src="js/scroll.js"></script>
+--+
+--           <script type="module" src="js/utils.js"></script>
+--           <script type="module" src="js/player.js"></script>
+--           <script type="module" src="js/events.js"></script>
+--diff --git a/js/script.js b/js/script.js
+--index 678d7b0..d8d1ca9 100644
+----- a/js/script.js
+--+++ b/js/script.js
+--@@ -1,6 +1,7 @@
+-- // ------------------------------- Importações de Módulos -------------------------------
+---
+--+import {texto_teste, add_value} from "./testes.js";
+-- // ------------------------------- Elementos do DOM -------------------------------
+--+const inputActived = document.getElementsByClassName("inputClass");
+-- export const $CloseMenuSettings = document.getElementById("CloseMenuSettings");
+-- export const $SettingBookMarkColor = document.getElementById("bookmark");
+-- export const $SettingPageLang = document.getElementById("lang");
+--@@ -9,11 +10,12 @@ export const $SettingAutoScroll = document.getElementById("autoScroll");
+-- export const $SettingButton = document.getElementById("settingbutton");
+-- export const $SettingsMenu = document.getElementById("setingsmenu");
+-- export const $settingTheme = document.getElementById("theme");
+---export const SettingText_marker = document.getElementById("marcador");
+--+export const $SettingText_marker = document.getElementById("marcador");
+-- export const $settingsFontSize = document.getElementById("settings-font-size");
+-- export const $SettingText_type = document.getElementById("text_type");
+-- // principal screen
+-- export const $clearButtonFromInput = document.getElementById("clearBtn");
+--+export const $inputMarkdow = document.getElementById("inputMarkdow");
+-- export const $input = document.getElementById("ler");
+-- export const $screen_text = document.getElementById("paragraph");
+-- export const $pai_das_telas = document.getElementById("pai");
+--@@ -34,8 +36,9 @@ export const $buttons = document.querySelectorAll(".scrollbt");
+-- // ------------------------------- Variáveis de Controle e Estado -------------------------------
+-- export const Cache_json_name = "settings_data";
+-- export const SettingData = loadText_Cache_json(Cache_json_name);
+--+export const inputClass = "inputClass";
+-- // ------------------------------ LOGS---------------------------------------------------------
+---
+--+console.log("SettingData",SettingData);
+-- // ------------------------------- Funções para Manuseio de Texto -------------------------------
+-- //================================================
+-- /**
+--@@ -63,7 +66,7 @@ export function load_text_from_cache(name) {
+--      const savedText = localStorage.getItem(name);
+--      if (savedText) {
+--           style_sec("block", "block", "none", "none", savedText);
+---          $input.value = savedText;
+--+          inputActived.value = savedText;
+--           return savedText;
+--      }
+-- }
+--@@ -113,4 +116,37 @@ export function loadText_Cache_json(name) {
+-- 
+-- // ------------------------------- Funções de Scroll e Movimento -------------------------------
+-- 
+---// ------------------------------- Configuração Inicial e Eventos de Interface -------------------------------
+--+// ------------------------------- Configuração Inicial  -------------------------------
+--+
+--+
+--+
+--+
+--+// ---------------------------------    Eventos de Interface         -----------------------------
+--+
+--+document.addEventListener("DOMContentLoaded", function() {
+--+    
+--+    // Seu código aqui
+--+   // ------------------------------- area de testes S---------------------------------------------------------
+--+
+--+  //inputMarkdow.value = texto_teste;
+--+ inputActived[0].value = texto_teste; 
+--+console.log("inputClass",inputMarkdow[0].value);
+--+
+--+ 
+--+    
+--+    
+--+    
+--+    
+--+    
+--+    
+--+});
+--+// DOMContentLoaded
+--+$clearButtonFromInput.addEventListener("click", function () {
+--+  // console.log(inputActived)
+--+  inputActived[0].value = ""
+--+});
+--+
+--+
+--+
+--+
+--+
+--diff --git a/js/settings.js b/js/settings.js
+--index 24d9085..4e4b8f1 100644
+----- a/js/settings.js
+--+++ b/js/settings.js
+--@@ -4,19 +4,47 @@ import {
+--      $CloseMenuSettings,
+--      $settingsFontSize,
+--      save_json_to_cache,
+---     loadText_Cache_json,
+--      Cache_json_name,
+--+     loadText_Cache_json,
+--      $SettingText_type,
+---     SettingData,
+--      $SettingBookMarkColor,
+--      $SettingDelay,
+--      $SettingAutoScroll,
+--      $settingTheme,
+---    
+--+     inputClass,
+--      $screen_text,
+---     $SettingPageLang
+--+     $SettingPageLang,
+--+     $input,
+--+     $inputMarkdow,
+--+     
+-- } from "./script.js";
+--+import {log_list} from "./testes.js";
+--+import {recarregarPagina} from "./utils.js";
+--+// ------------------------------- Configuração Inicial e tipo de tela -------------------------------
+--+let SettingData = loadText_Cache_json(Cache_json_name)
+--+if (SettingData["screentype"] === "text"){
+--+   
+--+   $input.style.display = "block";
+--+   $input.classList.add(inputClass);
+--+   $inputMarkdow.classList.remove(inputClass);
+--+   $inputMarkdow.style.display = "none";
+--+   
+--+ }
+--+if ( SettingData["screentype"] === "markdow"){
+--+  
+--+  $input.style.display = "none";
+--+  $input.classList.remove(inputClass)
+--+   $inputMarkdow.style.display = "block";
+--+   $inputMarkdow.classList.add(inputClass)
+--+}
+-- 
+--+document.addEventListener("DOMContentLoaded", function () {
+--+  
+--+// function onload
+--+});
+--+
+--+// ------------------------------- Variáveis de Controle e Estado -------------------------------
+--+export const $inpuClear = document.getElementsByClassName(inputClass)
+-- // ------------------------------- Configuração Inicial e Eventos de Interface -------------------------------
+-- 
+-- // abre o menu de configurações
+--@@ -40,7 +68,7 @@ $CloseMenuSettings.addEventListener("click", () => {
+--      $SettingButton.style.display = "block";
+--      let font_size =
+--           Number($settingsFontSize.value) > 12 ? $settingsFontSize.value : 12;
+---     console.log(font_size);
+--+     console.log("font_size",font_size);
+--      $screen_text.style.fontSize = font_size + "px";
+--     // salva os dados de configurações
+--     const confger = {
+--@@ -52,6 +80,15 @@ $CloseMenuSettings.addEventListener("click", () => {
+--         theme: $settingTheme.value,
+--         $autoScroll: $SettingAutoScroll.checked,
+--         color: $SettingBookMarkColor.value,
+---        "screentype": $settscree
+--+        "screentype": $SettingText_type.value
+--       };
+--+      save_json_to_cache(confger, Cache_json_name)
+--+      recarregarPagina()
+-- });
+--+
+--+
+--+
+--+
+--+
+--+
+--+// ------------------------------- area de testes -------------------------------
+--\ No newline at end of file
+--diff --git a/js/utils.js b/js/utils.js
+--index e69de29..ab87e4a 100644
+----- a/js/utils.js
+--+++ b/js/utils.js
+--@@ -0,0 +1,88 @@
+--+export function buttonstatic(buttons, estado) {
+--+  // loop
+--+  buttons.forEach((button) => {
+--+    button.style.display = estado;
+--+  });
+--+}
+--+
+--+export function scrollarline(pixel) {
+--+  highlight.scrollTo({
+--+    top: pixel,
+--+    behavior: "smooth",
+--+  });
+--+}
+--+
+--+/**
+--+ * recarregar a pagina
+--+ */
+--+export function recarregarPagina() {
+--+  location.reload();
+--+}
+--+
+--+export function move_marcador(line) {
+--+  // Pegue o valor do line-height
+--+  var linha = line
+--+    ? Number(paragrafo_style.lineHeight.replace("px", ""))
+--+    : -Number(paragrafo_style.lineHeight.replace("px", ""));
+--+
+--+  alterarTop(Number(highlight_estilo.top.replace("px", "")) + linha, 8, linha);
+--+  highlight.style.transition = "top 0.1s ease";
+--+}
+--+
+--+// pequena pagina que mostra alguns logs
+--+const $console_user = document.getElementById("console");
+--+const $console_text = document.getElementById("console-text");
+--+$console_user.addEventListener("click", function () {
+--+  $console_text.style.display = "block";
+--+  $console_user.style = `top: 100px;
+--+                        left: 10%;
+--+                        height:50%;
+--+                        width: 80%;`;
+--+});
+--+$console_user.addEventListener("dblclick", function () {
+--+  $console_user.style = `        top: 0px;           
+--+                                height: 18px;
+--+                                width: 40px;`;
+--+  $console_text.style.display = "none";
+--+});
+--+
+--+export function loger(text) {
+--+  $console_text.innerHTML += text + "</br>";
+--+}
+--+
+--+export function console_log(text, view = false) {
+--+  if (view) {
+--+    console.log(text);
+--+  }
+--+}
+--+
+--+
+--+export async function traduzirTexto(texto, idiomaAlvo) {
+--+    const url = "https://libretranslate.com/translate";
+--+
+--+    const response = await fetch(url, {
+--+        method: "POST",
+--+        headers: {
+--+            "Content-Type": "application/json",
+--+            "Accept": "application/json"
+--+        },
+--+        body: JSON.stringify({
+--+            q: texto,
+--+            source: "auto", // Detecta automaticamente o idioma de entrada
+--+            target: idiomaAlvo
+--+        }),
+--+    });
+--+
+--+    const data = await response.json();
+--+    if (data.error) {
+--+        console.error("Erro na tradução:", data.error);
+--+        return null;
+--+    }
+--+    
+--+    return data.translatedText;
+--+}
+--+
+--+// Exemplo de uso
+--+// traduzirTexto("Olá, como vai?", "en")
+--+//    .then(traducao => console.log(traducao))
+--+//    .catch(error => console.error("Erro:", error));
+--\ No newline at end of file
+--diff --git a/service-worker.js b/service-worker.js
+--index 6c4e370..ff7a839 100644
+----- a/service-worker.js
+--+++ b/service-worker.js
+--@@ -1,4 +1,11 @@
+---const cacheName = 'site-cache-v2';
+--+let cacheName = ""; 
+--+fetch('./config.json')
+--+  .then(response => response.json())
+--+  .then(config => {
+--+    cacheName = config.service_worker_name
+--+    console.log(config.API_KEY); // your_api_key
+--+  });
+--+
+-- const filesToCachegIT = [
+--     '/leitura-simples/',         // Raiz   
+--     // '/img/cursor.svg',       // Arquivos SVG e PNG
+-diff --git a/index.html b/index.html
+-index 423f8b4..ed710df 100644
+---- a/index.html
+-+++ b/index.html
+-@@ -53,9 +53,9 @@
+-                <p id="console-text"></p>
+-           </div>
+-           <header>
+--              <textarea class="inputmarkdowStyle" id="inputMarkdow"></textarea>
+--               <input type="text" name="ler" id="ler" aria-label="ler" />
+--               <button id="clearBtn">
+-+              <textarea class=" inputmarkdowStyle" id="inputMarkdow"></textarea>
+-+               <input type="text" name="ler" id="ler"  aria-label="ler" />
+-+               <button class="disabled" id="clearBtn">
+-                     <svg
+-                          viewBox="0 0 100 100"
+-                          xmlns="http://www.w3.org/2000/svg"
+-@@ -84,7 +84,7 @@
+-                     </svg>
+-                </button>
+-                <button
+--                    class="arrogante buttons"
+-+                    class="arrogante buttons disabled"
+-                     id="start"
+-                     lang="pt-BR"
+-                     title="iniciar o livro"
+-@@ -434,7 +434,7 @@
+- 
+-           <button
+-                translate="no"
+--               class="arrogante buttons"
+-+               class="arrogante buttons activated"
+-                id="reset"
+-                lang="pt-BR"
+-                title="desfazer o livro"
+-@@ -461,7 +461,7 @@
+-           </button>
+-           <button
+-                translate="yes"
+--               class="arrogante scrollbt buttons"
+-+               class="activated arrogante scrollbt buttons"
+-                id="page"
+-                title="next page of the book with the `Q` key"
+-           >
+-@@ -473,7 +473,7 @@
+-           </button>
+- 
+-           <button
+--               class="arrogante scrollbt buttons"
+-+               class="activated arrogante scrollbt buttons"
+-                id="button_up"
+-                title="move up with the `w` key"
+-           >
+-@@ -492,7 +492,7 @@
+-           </button>
+- 
+-           <button
+--               class="arrogante scrollbt buttons"
+-+               class="arrogante scrollbt buttons activated"
+-                id="button_low"
+-                title="move down with the `s` key"
+-           >
+-@@ -511,7 +511,7 @@
+-           </button>
+- 
+-           <button
+--               class="arrogante scrollbt buttons"
+-+               class="arrogante scrollbt buttons activated"
+-                id="play"
+-                title="tudo no altomatico"
+-           >
+-@@ -524,7 +524,7 @@
+-                <!-- play and pause // vai ser um elemento estilizado em css com animation de girar quando ativo -->
+-           </button>
+-           <button
+--               class="arrogante scrollbt buttons"
+-+               class="arrogante scrollbt buttons activated"
+-                id="pause"
+-                title="tudo no altomatico"
+-           >
+-@@ -541,7 +541,8 @@
+-                <!-- play and pause // vai ser um elemento estilizado em css com animation de girar quando ativo -->
+-           </button>
+- 
+--          <div id="pai">
+-+          <div id="pai" class="activated">
+-+            
+-                <p id="paragraph">hello world</p>
+-           </div>
+-           <style>
+-@@ -551,7 +552,7 @@
+-                     top: 20%;
+-                }
+-           </style>
+--          <div class="file_conteiner" id="fileConteiner">
+-+          <div class="file_conteiner disabled" id="fileConteiner">
+-                <h1>arraste e Selecione o Arquivo de texto</h1>
+-                <input
+-                     type="file"
+-@@ -577,7 +578,7 @@
+-           <script type="module" src="js/player.js"></script>
+-           <script type="module" src="js/events.js"></script>
+-           <script src="service-worker.js"></script>
+--          <script src="js/Cache-Storage-API.js"></script>
+-+          <script type="module" src="js/screen.js"></script>
+-           <script>
+-                if ("serviceWorker" in navigator) {
+-                     window.addEventListener("load", () => {
+-diff --git a/js/screen.js b/js/screen.js
+-index 801c8c0..01a2baf 100644
+---- a/js/screen.js
+-+++ b/js/screen.js
+-@@ -1,18 +1,128 @@
+- import {
+--     $startButton,
+--     save_text_in_cache,
+--     load_text_from_cache,
+--     Cache_screen_name,
+--     inputActived,
+--     $screen_text,
+-+ $startButton,
+-+ $resetButtonn,
+-+ Cache_screen_name,
+-+ inputActived,
+-+ $screen_text
+- } from "./script.js";
+-+import {
+-+ save_text_in_cache,
+-+ load_text_from_cache
+-+} from "./utils.js";
+-+import { buttonstatic } from "./utils.js";
+-+
+-+// ---------------------------------- definicoes globais da tela----------------------------------
+-+inputActived[0].classList.add(
+-+ "disabled"
+-+);
+-+
+-+const save_text =
+-+ load_text_from_cache(
+-+  Cache_screen_name
+-+ );
+-+
+-+if (save_text) {
+-+ buttonstatic(
+-+  document.querySelectorAll(
+-+   ".disabled"
+-+  ),
+-+  "none"
+-+ );
+-+ buttonstatic(
+-+  document.querySelectorAll(
+-+   " .activated"
+-+  ),
+-+  "block"
+-+ );
+-+ inputActived[0].value =
+-+  save_text;
+-+ $screen_text.innerHTML =
+-+  save_text;
+-+} else {
+-+ buttonstatic(
+-+  document.querySelectorAll(
+-+   ".disabled"
+-+  ),
+-+  "block"
+-+ );
+-+ buttonstatic(
+-+  document.querySelectorAll(
+-+   " .activated"
+-+  ),
+-+  "none"
+-+ );
+-+}
+-+
+-+// ---------------------------------- eventos relacionados a tela -----------------------------------
+-+console.log(
+-+ document.querySelectorAll(
+-+  ".disabled"
+-+ )
+-+);
+-+$startButton.addEventListener(
+-+ "click",
+-+ () => {
+-+  buttonstatic(
+-+   document.querySelectorAll(
+-+    ".disabled"
+-+   ),
+-+   "none"
+-+  );
+-+  buttonstatic(
+-+   document.querySelectorAll(
+-+    " .activated"
+-+   ),
+-+   "block"
+-+  );
+-+  let value =
+-+   inputActived[0]
+-+    .value;
+-+  if (!value) {
+-+   value =
+-+    load_text_from_cache(
+-+     Cache_screen_name
+-+    );
+-+  }
+-+
+-+  // salva o texto e inicia a tela
+-+  console.log(
+-+   "click startbutton"
+-+  );
+-+  // console.log(
+-+  //    "value: ",
+-+  //    [value]
+-+  //   );
+-+  if (value) {
+-+   console.log(
+-+    "started"
+-+   );
+-+
+-+   save_text_in_cache(
+-+    value,
+-+    Cache_screen_name
+-+   );
+-+   let texto =
+-+    value;
+-+   $screen_text.innerHTML =
+-+    texto;
+-+  }
+-+ }
+-+);
+- 
+--const value = inputActived[0].value ? inputActived[0].value : ""; // valor do arquivo select
+--// salva o texto e inicia a tela
+--$startButton.addEventListener("click", () => {
+--     if (value) {
+--          save_text_in_cache(value, Cache_screen_name);
+--          let texto = load_text_from_cache(Cache_screen_name);
+--          $screen_text.innerHTML = texto;
+--     }
+--});
+-+$resetButtonn.addEventListener(
+-+ "click",
+-+ () => {
+-+  buttonstatic(
+-+   document.querySelectorAll(
+-+    ".disabled"
+-+   ),
+-+   "block"
+-+  );
+-+  buttonstatic(
+-+   document.querySelectorAll(
+-+    " .activated"
+-+   ),
+-+   "none"
+-+  );
+-+ }
+-+);
+-diff --git a/js/script.js b/js/script.js
+-index 312263d..74d0b21 100644
+---- a/js/script.js
+-+++ b/js/script.js
+-@@ -1,5 +1,8 @@
+- // ------------------------------- Importações de Módulos -------------------------------
+- import {texto_teste, add_value} from "./testes.js";
+-+
+-+import { save_text_in_cache,
+-+ load_text_from_cache} from "./utils.js"
+- // ------------------------------- Elementos do DOM -------------------------------
+- export const inputActived = document.getElementsByClassName("inputClass");
+- export const $CloseMenuSettings = document.getElementById("CloseMenuSettings");
+-@@ -35,7 +38,7 @@ export const $buttons = document.querySelectorAll(".scrollbt");
+- 
+- // ------------------------------- Variáveis de Controle e Estado -------------------------------
+- export const Cache_json_name = "settings_data";
+--export const Cache_screen_name = "Cache_screen_name";
+-+export const Cache_screen_name = "Cache_screen_nameV2";
+- export const SettingData = loadText_Cache_json(Cache_json_name);
+- export const inputClass = "inputClass";
+- // ------------------------------ LOGS---------------------------------------------------------
+-@@ -48,12 +51,7 @@ console.log("SettingData",SettingData);
+-  * @param {string} data - O texto que será salvo no LocalStorage.
+-  * @param {string} name - A chave usada para armazenar o texto no LocalStorage.
+-  */
+--export function save_text_in_cache(data, name) {
+--     // Pega o texto da área de texto
+--     const text = data;
+--     // Salva no LocalStorage
+--     localStorage.setItem(name, text);
+--}
+-+
+- 
+- //============================================
+- /**
+-@@ -62,15 +60,7 @@ export function save_text_in_cache(data, name) {
+-  * @param {string} name - A chave usada para recuperar o texto do LocalStorage.
+-  * @returns {string|undefined} O texto recuperado do LocalStorage ou `undefined` se não existir.
+-  */
+--export function load_text_from_cache(name) {
+--     // Carrega o texto salvo do LocalStorage, se existir
+--     const savedText = localStorage.getItem(name);
+--     if (savedText) {
+--          style_sec("block", "block", "none", "none", savedText);
+--          inputActived.value = savedText;
+--          return savedText;
+--     }
+--}
+-+
+- 
+- //===========================================
+- /**
+-@@ -130,17 +120,12 @@ document.addEventListener("DOMContentLoaded", function() {
+-    // ------------------------------- area de testes S---------------------------------------------------------
+- 
+-   //inputMarkdow.value = texto_teste;
+-- inputActived[0].value = texto_teste; 
+--console.log("inputClass",$inputMarkdow.value);
+--
+-- 
+--    
+--    
+--    
+--    
+--    
+--    
+-+ //inputActived[0].value = texto_teste; 
+-+// console.log("inputClass",$inputMarkdow.value);
+- });
+-+
+-+
+-+
+- // DOMContentLoaded
+- $clearButtonFromInput.addEventListener("click", function () {
+-   // console.log(inputActived)
+-diff --git a/js/utils.js b/js/utils.js
+-index ab87e4a..c03762b 100644
+---- a/js/utils.js
+-+++ b/js/utils.js
+-@@ -1,3 +1,6 @@
+-+/**
+-+ * obs: use somente querySelectorAll se for usado getElementsByClassName ocasionara um erro
+-+ */
+- export function buttonstatic(buttons, estado) {
+-   // loop
+-   buttons.forEach((button) => {
+-@@ -29,6 +32,28 @@ export function move_marcador(line) {
+-   highlight.style.transition = "top 0.1s ease";
+- }
+- 
+-+export function save_text_in_cache(data, name) {
+-+     // Pega o texto da área de texto
+-+     const text = data;
+-+     // Salva no LocalStorage
+-+     localStorage.setItem(name, text);
+-+}
+-+
+-+export function load_text_from_cache(name) {
+-+     // Carrega o texto salvo do LocalStorage, se existir
+-+     const savedText = localStorage.getItem(name);
+-+     if (savedText) {
+-+          return savedText;
+-+     }
+-+     return null
+-+}
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+- // pequena pagina que mostra alguns logs
+- const $console_user = document.getElementById("console");
+- const $console_text = document.getElementById("console-text");

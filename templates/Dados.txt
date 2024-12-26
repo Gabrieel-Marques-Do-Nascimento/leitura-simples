@@ -1,0 +1,16 @@
+o banco de dados vai gerar um token que espira a cada 7 dias
+
+backup dos dados de users, por seguranca
+
+
+
+estrutura:
+
+≠=============≠====================
+token jwt: memoria, local storege ou cookies
+refresh token: local storege ou cookies
+
+
+type cookies: 
+signed: disponivel via document.cookies
+httponly: nao acessivel a client side

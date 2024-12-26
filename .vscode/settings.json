@@ -3,5 +3,10 @@
     "cSpell.words": [
         "hesponcavel",
         "serta"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "standard",
+    "debug.javascript.terminalOptions": {
+
+    },
+    "prettier.tabWidth": 5
 }

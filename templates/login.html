@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../templates/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="formulario">
+            <div class="input-group">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Entrar</button>
+            <p class="register-link">Ainda não tem uma conta? <a href="../templates/register.html">Registre-se aqui</a></p>
+        </form>
+    </div>
+    <!-- <script src="requests_f.js"></script> -->
+    <script type="module">
+      import { save_json_to_cache } from '../js/global.js'
+const $password = document.getElementById("password");
+const $username = document.getElementById("username");
+
+const formulario = document.getElementById("formulario");
+
+formulario.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+
+  // Capturando valores dos campos ao enviar o formulário
+  const user = {
+    username: $username.value,
+    password: $password.value
+  };
+
+  try {
+    const response = await fetch("http://127.0.0.1:5000/modulo1/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user)
+    });
+    console.log("status HTTP:", response);
+    
+    const data = await response.json();
+    if (response.ok){
+      console.log("Token:", data['token']);
+      save_json_to_cache( data['token'],"TOKEN");
+      save_json_to_cache( data['litbookmarkID'],"LITBOOKMARKID");
+      window.location.href = "../templates/profile.html";
+    }
+    // if (!response.ok) {
+    //   const error = await response.json();
+    //   console.error("erro na API:", error);
+    //   throw new Error(error.error || "Erro DESCONHECIDO");
+    // }
+
+    
+    console.log("Sucesso:", data);
+    alert("Formulário enviado com sucesso!");
+  } catch (error) {
+    console.error("Erro:", error.message);
+    alert("Ocorreu um erro: " + error.message);
+  }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagens com URL Base Automática</title>
+    <script>
+        // Função para adicionar URL base automaticamente
+        function processarImagens() {
+            // Seleciona todas as imagens com atributo data-src
+            const imagens = document.querySelectorAll('img[data-src]');
+            
+            // Obtém a URL base do site
+            const baseURL = window.location.origin;
+            
+            // Processa cada imagem
+            imagens.forEach(img => {
+                // Obtém o caminho relativo da imagem
+                const caminhoRelativo = img.getAttribute('data-src');
+                
+                // Cria a URL completa
+                const urlCompleta = `${baseURL}/${caminhoRelativo}`;
+                
+                // Define o src com a URL completa
+                img.src = urlCompleta;
+            });
+        }
+
+        // Executa quando a página carrega
+        window.onload = processarImagens;
+    </script>
+</head>
+<body>
+    <h1>Exemplo de Imagens com URL Base</h1>
+
+    <!-- Imagens usando data-src em vez de src -->
+    <img data-src="focus/img/Premium3.png" alt="Logo">
+    <img data-src="imagens/banner.jpg" alt="Banner">
+    <img data-src="imagens/produto.png" alt="Produto">
+</body>
+</html>

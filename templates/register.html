@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+     <head>
+          <meta charset="UTF-8" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <title>Registro</title>
+          <link rel="stylesheet" href="../templates/style.css" />
+     </head>
+     <body>
+          <div class="container">
+               <h2>Registro</h2>
+               <form id="formulario" method="POST" autocomplete="true">
+                    <div class="input-group">
+                         <label for="username">Nome de Usuário:</label>
+                         <input
+                              type="text"
+                              id="username"
+                              name="username"
+                              required
+                         />
+                    </div>
+                    <div class="input-group">
+                         <label for="email">Email:</label>
+                         <input type="email" id="email" name="email" required />
+                    </div>
+                    <div class="input-group">
+                         <label for="password">Senha:</label>
+                         <input
+                              type="password"
+                              id="password"
+                              name="password"
+                              required
+                         />
+                    </div>
+                    <div class="input-group">
+                         <label for="confirm-password">Confirmar Senha:</label>
+                         <input
+                              type="password"
+                              id="confirm-password"
+                              name="confirm-password"
+                              required
+                         />
+                    </div>
+                    <button type="submit" class="btn">Registrar</button>
+                    <p class="login-link">
+                         Já tem uma conta?
+                         <a href="../templates/login.html">Faça login aqui</a>
+                    </p>
+               </form>
+          </div>
+          <script type="module" src="../js/global.js"></script>
+          <script type="module">
+                   import {save_json_to_cache} from '../js/global.js'
+                 // a senha digitada
+               const $password = document.getElementById("password");
+               // vonfirmacao da senha
+               const $confirmPassword = document.getElementById("confirm-password");
+
+               // o formulario, evento de submit
+               document.getElementById("formulario").addEventListener("submit", function (event) {
+                 // desativa o comportamento padrao do formulario
+                 event.preventDefault();
+                 // os dados do user
+                 // nome, senha email
+                 const user = {
+                   "username": document.getElementById("username").value,
+                   "password": $password.value,
+                   "email": document.getElementById("email").value,
+                 };
+
+                 // checka se as senhas nao sao iguais
+                 if ($password.value !== $confirmPassword.value) {
+                   // mensagem de erro
+                   alert("Passwords do not match!");
+                   // para o script nessa parte
+                   return;
+                 }
+
+                 // Make POST request
+                 // registra um novo usuario
+                 fetch("http://127.0.0.1:5000/modulo1/register", {
+               // envia os dados e recebe o resultado
+                 method: "POST",
+                 // tipo de dado
+                 headers: {
+                   "Content-Type": "application/json",
+                 },
+                 // o dado transformado em uma string
+                 body: JSON.stringify(user),
+               })
+                 .then((response) => {
+                   // mostra o status da requesicao
+                   console.log("Status HTTP:", response.status);
+                 // se der erro
+                   if (!response.ok) {
+                     return response.json().then((error) => {
+                       // exibe na tela o erro da api
+                       console.error("Erro da API:", error);
+                       throw new Error(error.error || "Erro desconhecido");
+                     });
+                   }
+                   return response.json();
+                 })
+                 .then((data) => {
+                   console.log("Sucesso:", data);
+                   alert("Formulário enviado com sucesso!");
+                   save_json_to_cache( data['token'],"TOKEN");
+                   save_json_to_cache( data['litbookmarkID'],"LITBOOKMARKID");
+                   window.location.href = "../templates/profile.html";
+
+                 })
+                 .catch((error) => {
+                   console.error("Erro:", error.message);
+                   alert("Ocorreu um erro: " + error.message);
+                 });
+               });
+          </script>
+     </body>
+</html>

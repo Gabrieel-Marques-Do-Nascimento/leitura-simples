@@ -1,0 +1,3 @@
+git diff > "-info/diff_comit.diff"
+
+git diff > "-info/nome_do_arquivo.diff"

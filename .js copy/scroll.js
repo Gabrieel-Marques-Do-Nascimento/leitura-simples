@@ -1,5 +1,5 @@
-import { $screen_text, winHeight } from "./script.js";
-// import { console_log } from "./utils.js";
+import { paragrafo, height } from "./script.js";
+import { console_log } from "./utils.js";
 
 export let $scroll_top = document.createElement("div");
 
@@ -7,7 +7,7 @@ export let $scroll_top = document.createElement("div");
 
 // Obter o tamanho da janela (viewport)
 var larguraJanela = window.innerWidth;
-var alturaJanela = winHeight;
+var alturaJanela = height;
 
 let style = document.createElement("style");
 style.type = "text/css";
@@ -32,13 +32,18 @@ document.body.appendChild(style);
 
 $scroll_top.classList.add("scroll_top");
 
-$screen_text.addEventListener("scroll", () => {
-     let vertical =
-          ($screen_text.scrollTop /
-               ($screen_text.scrollHeight - $screen_text.clientHeight)) *
-          100;
-     let horizontal = (vertical / 100) * window.innerWidth;
-     $scroll_top.style.width = horizontal + 2 + "px";
+paragrafo.addEventListener("scroll", () => {
+  let vertical =
+    (paragrafo.scrollTop / (paragrafo.scrollHeight - paragrafo.clientHeight)) *
+    100;
+  let horizontal = (vertical / 100) * window.innerWidth;
+  $scroll_top.style.width = horizontal + 2 + "px";
 });
 
 document.body.appendChild($scroll_top);
+
+// Comparar os tamanhos
+console_log("Largura da janela: " + larguraJanela + "px");
+console_log("Altura da janela: " + alturaJanela + "px");
+
+

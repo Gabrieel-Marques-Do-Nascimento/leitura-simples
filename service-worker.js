@@ -1,3 +1,4 @@
+
 /*
 1. Usando `self.location.origin`:
 ```javascript
@@ -38,11 +39,14 @@ const filesToCachegIT = [
     '/js/confg.js',          // Arquivos JavaScript
     '/events.js',
     '/files.js',
+
     '/js/module.js',
     '/js/player.js',
     '/js/script.js',
     '/js/scroll.js',
+
     
+
     '/js/utils.js',
     '/css/animation.css',    // Arquivos CSS
     '/css/files.css',
@@ -114,4 +118,5 @@ const filesToCachegIT = [
 //       .then(() => console.log('Service Worker registrado com sucesso'))
 //       .catch((error) => console.log('Falha no registro do Service Worker', error));
 //   }
+
   

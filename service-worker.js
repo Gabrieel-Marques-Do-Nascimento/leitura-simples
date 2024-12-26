@@ -1,3 +1,4 @@
+
 /*
 1. Usando `self.location.origin`:
 ```javascript
@@ -38,15 +39,12 @@ const filesToCachegIT = [
     '/js/confg.js',          // Arquivos JavaScript
     '/events.js',
     '/files.js',
-    '/js/module.js',
-    '/js/player.js',
-    '/js/script.js',
-    '/js/scroll.js',
-    
+
     '/js/utils.js',
     '/css/animation.css',    // Arquivos CSS
     '/css/files.css',
     '/css/menu.css',
+
     '/css/style.css',                    
     '/index.html'// Página principal
   ];
@@ -97,7 +95,7 @@ self.addEventListener('install', (event) => {
     );
   });
   
-  
+
 
 // Interceptando as requisições e respondendo com o cache, se disponível
 self.addEventListener('fetch', (event) => {

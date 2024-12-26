@@ -557,7 +557,7 @@
           <script type="module" src="js/beta.js"></script>
            <script>
            
-               if ("serviceWorker" in navigator && local) {
+               if ("serviceWorker" in navigator) {
                     window.addEventListener("load", () => {
                          navigator.serviceWorker
                               .register("/leitura-simples/service-worker.js") // Caminho para o arquivo do Service Worker

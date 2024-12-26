@@ -189,6 +189,7 @@ export function console_log(text, view = false) {
  */
 export function theme_by_hour_or_auto(hora = 0, fixed = false) {
      let style = document.createElement("style");
+     let backgtound = null;
      style.type = "text/css";
      let data = new Date();
      if (!fixed) {
@@ -204,6 +205,7 @@ export function theme_by_hour_or_auto(hora = 0, fixed = false) {
 
         background-color: rgba(255,255,255,.80);}
 `;
+backgtound = "#000";
      }
      if (hora < 6 || hora > 18) {
           // tema noite
@@ -219,8 +221,10 @@ export function theme_by_hour_or_auto(hora = 0, fixed = false) {
 
   
 `;
+backgtound = "#ffff";
      }
      document.body.appendChild(style);
+     return backgtound;
 }
 
 export function ReadScreen(texto) {

@@ -16,10 +16,11 @@ import {
      $inputMarkdow,
      $bookmark,
      $SettingText_marker_move,
+     $ButtonMenuAnburger,
 } from "./script.js";
 import { log_list } from "./testes.js";
 import { recarregarPagina, theme_by_hour_or_auto } from "./utils.js";
-import {loadText_Cache_json, save_json_to_cache} from './global.js';
+import { loadText_Cache_json, save_json_to_cache } from "./global.js";
 // ------------------------------- Configuração Inicial e tipo de tela -------------------------------
 
 let SettingData = loadText_Cache_json(Cache_json_name);
@@ -91,13 +92,25 @@ $CloseMenuSettings.addEventListener("click", () => {
 });
 
 // ------------------------------------------------------------------                      temas ------------------------------------------------------------------
+export let backgtound = `#ffff`;
 if (SettingData["theme"] == "black") {
-     theme_by_hour_or_auto(0, true);
+     backgtound = theme_by_hour_or_auto(0, true);
 }
 if (SettingData["theme"] == "white") {
-     theme_by_hour_or_auto(12, true);
+     backgtound = theme_by_hour_or_auto(12, true);
 }
 if (SettingData["theme"] == "auto") {
-     theme_by_hour_or_auto();
+     backgtound = theme_by_hour_or_auto();
 }
 // ------------------------------- area de testes -------------------------------
+// ------------------------------------------------------ menu de iteração ------------------------------------------------------
+
+$ButtonMenuAnburger.style.color = backgtound;
+const $menuburger = document.getElementById("menuAnburger");
+$ButtonMenuAnburger.addEventListener("click", () => {
+     if ($menuburger.classList.contains("active")) {
+          $menuburger.classList.remove("active");
+     } else {
+          $menuburger.classList.add("active");
+     }
+});

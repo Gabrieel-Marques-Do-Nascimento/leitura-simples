@@ -4,8 +4,9 @@ import { texto_teste, add_value } from "./testes.js";
 import { save_text_in_cache, load_text_from_cache } from "./utils.js";
 import {
      loadText_Cache_json,
-     
+
 } from "./global.js";
+
 // ------------------------------- Elementos do DOM -------------------------------
 export const inputActived = document.getElementsByClassName("inputClass");
 export const $CloseMenuSettings = document.getElementById("CloseMenuSettings");
@@ -102,14 +103,5 @@ $clearButtonFromInput.addEventListener("click", function () {
 });
 
 
-// ------------------------------------------------------ menu de iteração ------------------------------------------------------
-const $menuburger = document.getElementById('menuAnburger')
-$ButtonMenuAnburger.addEventListener("click", () => {
-    if ($menuburger.classList.contains('active')) {
-     $menuburger.classList.remove('active');
-    }
-    else {
-     $menuburger.classList.add('active');
-    }
-});
+
 

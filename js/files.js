@@ -8,7 +8,7 @@ export const dropZone = document.getElementById("dropZone");
 // Função para ler o conteúdo do arquivo
 function readFile(file) {
      return new Promise((resolve, reject) => {
-          if (file && file.type === "text/plain") {
+          if (file && [ "text/plain","text/markdown"].includes(file.type)|| /\.(txt|md)$/i.test(file.name)) {
                const reader = new FileReader();
                reader.onload = function (e) {
                     // Resolve the promise with the file content
@@ -24,7 +24,7 @@ function readFile(file) {
           } else {
                dropZone.style.color = "red";
                dropZone.textContent =
-                    "Por favor, escolha um arquivo de texto (.txt) válido.";
+                    "Por favor, escolha um arquivo de texto (.txt, .md) válido.";
                // Reject the promise if file is invalid
                reject("Arquivo inválido");
           }
@@ -51,7 +51,7 @@ fileInput.addEventListener("change", async (e) => {
        let value = await readFile(e.target.files[0]);
        ReadScreen(value)
        save_text_in_cache(value, Cache_screen_name)
-       delay(1000)
+       await delay(1000)
           buttonstatic(document.querySelectorAll(".disabled"), "none");
           buttonstatic(document.querySelectorAll(" .activated"), "block");
           inputActived[0].value = value

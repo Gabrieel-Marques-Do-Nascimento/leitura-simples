@@ -1,6 +1,9 @@
-if (process.env.NODE_ENV !== "production") {
-     require("dotenv").config();
-}
+import {config} from "./env-config.js";
+
+document.addEventListener('DOMContentLoaded', () => {
+     console.log('teste das variaveis de ambiente:', config);
+});
+
 
 
 

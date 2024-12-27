@@ -9,3 +9,4 @@
 .env
 
 js/env-config.js
+data/config.json

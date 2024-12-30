@@ -1,0 +1,15 @@
+{
+  "name": "leitura-simples",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "requests.js",
+  "scripts": {
+    "start": "node netlify/functions/env.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}

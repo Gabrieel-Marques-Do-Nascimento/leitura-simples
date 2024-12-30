@@ -4,10 +4,12 @@ import { getConfig } from "./env-config.js";
 const url = getConfig().env.URL_API;
      console.log("Carregando...");          
      const user = loadText_Cache_json(getConfig().env.TOKEN, null);
-          const id = loadText_Cache_json(getConfig().env.USERID, null);
-
+     const id = loadText_Cache_json(getConfig().env.USERID, null);
+     console.log(`user: ${user}, id: ${id}`);
 
           if (user == null || id == null) {
+
+               console.log("Usuário não encontrado. Redirecionando para a página de login.");
                window.location.href = "login.html";
           } else {
                const username = document.getElementById("name");
@@ -18,6 +20,7 @@ const url = getConfig().env.URL_API;
                const plano = document.getElementById("plano");
 
                // Fazer a requisição GET com um corpo JSON
+               console.log("Carregando...");
                fetch(`${url}/modulo2/info`, {
                     method: "GET",
                     headers: {

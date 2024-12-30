@@ -15,7 +15,9 @@ exports.handler = async function (event, context) {
           body: JSON.stringify({
                SECRET_API_KEY: process.env.SECRET_API_KEY,
                apiKey: process.env.apiKey,
-               URL_API: process.env.URL_API
+               URL_API: process.env.URL_API,
+               USERID: process.env.USERID,
+               TOKEN: process.env.TOKEN,  
           }),
      };
 };

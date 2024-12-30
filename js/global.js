@@ -1,23 +1,24 @@
 
 
-let env = null;
+// let env = null;
 
-export async function initializeConfig() {
-    try {
-        const response = await fetch('/.netlify/functions/env');
-        const data = await response.json();
-        env = data;
-        console.log('API Key carregada', env);
-    } catch (error) {
-        console.error('Erro ao carregar API Key:', error);
-    }
-}
-initializeConfig();
-export function getConfig() {
-    return {
-        env
-    };
-}
+// export async function initializeConfig() {
+//     try {
+//         const response = await fetch('/.netlify/functions/env');
+//         const data = await response.json();
+//         env = data;
+//         console.log('API Key carregada', env);
+//         return data;
+//     } catch (error) {
+//         console.error('Erro ao carregar API Key:', error);
+//     }
+// }
+// initializeConfig();
+// export function getConfig() {
+//     return {
+//         env
+//     };
+// }
 // env = getConfig()
 
 /**

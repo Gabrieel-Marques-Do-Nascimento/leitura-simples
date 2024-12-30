@@ -1,16 +1,12 @@
 import { loadText_Cache_json } from "./global.js";
-import { getURLAPi } from "./env-config.js";
+import { getConfig } from "./env-config.js";
 
-const url = await getURLAPi();
+const url = getConfig().env.URL_API;
+     console.log("Carregando...");          
+     const user = loadText_Cache_json(getConfig().env.TOKEN, null);
+          const id = loadText_Cache_json(getConfig().env.USERID, null);
 
-document.addEventListener("DOMContentLoaded", () => {
-     document.body.style.display = "none";
-     setTimeout(() => {
-          document.body.style.display = "block";
-          const user = loadText_Cache_json("TOKEN", null);
-          const id = loadText_Cache_json("LITBOOKMARKID", null);
-          console.log(id);
-          console.log(user);
+
           if (user == null || id == null) {
                window.location.href = "login.html";
           } else {
@@ -22,8 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
                const plano = document.getElementById("plano");
 
                // Fazer a requisição GET com um corpo JSON
-         
-              console.log(`${url}/modulo2/info`);
                fetch(`${url}/modulo2/info`, {
                     method: "GET",
                     headers: {
@@ -42,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                          return response.json();
                     })
                     .then((data) => {
-                         console.log(data);
+                         // console.log(data);
                          username.innerHTML = data.name;
                          email.innerHTML = data.email;
                          genero.innerHTML = data.genero;
@@ -58,8 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
                               "There has been a problem with your fetch operation:",
                               error
                          );
-                        //  window.location.href = "login.html";
+                        window.location.href = "login.html";
                     });
           }
-     }, 2000);
-});
+     

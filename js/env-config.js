@@ -37,21 +37,18 @@ export async function initializeConfig() {
         const response = await fetch('/.netlify/functions/env');
         const data = await response.json();
         env = data;
-        console.log('API Key carregada', env);
+        console.log('API ENV carregada');
     } catch (error) {
         console.error('Erro ao carregar API Key:', error);
     }
 }
-onload = async () => {
+
     await initializeConfig();
-};
+   
+
 export function getConfig() {
     return {
         env
     };
 }
 
-
-export function getURLAPi() {
-    return getConfig().env.URL_API;
-}

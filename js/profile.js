@@ -1,11 +1,11 @@
-import { loadText_Cache_json } from "./global.js";
+import { loadText_Cache_json , url, token_name, id_name} from "./global.js";
 import { getConfig } from "./env-config.js";
 
-const url = getConfig().env.URL_API;
+// const url = getConfig().env.URL_API;
      console.log("Carregando...");          
-     const user = loadText_Cache_json(getConfig().env.TOKEN, null);
-     const id = loadText_Cache_json(getConfig().env.USERID, null);
-     console.log(`user: ${user}, id: ${id}`);
+     const user = loadText_Cache_json(token_name, null);
+     const id = loadText_Cache_json(id_name, null);
+     // console.log(`user: ${user}, id: ${id}`);
 
           if (user == null || id == null) {
 

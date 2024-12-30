@@ -24,7 +24,7 @@
     </div>
     <!-- <script src="requests_f.js"></script> -->
     <script type="module">
-      import { save_json_to_cache } from '../js/global.js'
+      import { save_json_to_cache, url } from '../js/global.js'
 const $password = document.getElementById("password");
 const $username = document.getElementById("username");
 
@@ -41,7 +41,7 @@ formulario.addEventListener("submit", async function (event) {
   };
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/modulo1/login", {
+    const response = await fetch(`${url}/modulo1/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

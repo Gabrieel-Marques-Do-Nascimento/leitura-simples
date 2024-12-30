@@ -1,25 +1,9 @@
+import { getConfig } from "./env-config.js";
 
-
-// let env = null;
-
-// export async function initializeConfig() {
-//     try {
-//         const response = await fetch('/.netlify/functions/env');
-//         const data = await response.json();
-//         env = data;
-//         console.log('API Key carregada', env);
-//         return data;
-//     } catch (error) {
-//         console.error('Erro ao carregar API Key:', error);
-//     }
-// }
-// initializeConfig();
-// export function getConfig() {
-//     return {
-//         env
-//     };
-// }
-// env = getConfig()
+console.log('global  -  ',getConfig());
+export const url = getConfig().env.URL_API;
+export const id_name = getConfig().env.USERID; 
+export const token_name = getConfig().env.TOKEN;
 
 /**
  * Carrega um objeto JSON armazenado no LocalStorage.

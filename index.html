@@ -27,7 +27,7 @@
           <link rel="stylesheet" href="css/ultils.css" />
      </head>
 
-     <body onload="initializeConfig()">
+     <body>
           <header>
                <textarea class="inputmarkdowStyle" id="inputMarkdow"></textarea>
                <input type="text" name="ler" id="ler" aria-label="ler" />
@@ -560,12 +560,12 @@
           <script type="module" src="js/screen.js"></script>
           <script type="module" src="js/beta.js"></script>
       
-          <!--  <script>
+           <script>
            
-               if ("serviceWorker" in navigator && local) {
+               if ("serviceWorker" in navigator) {
                     window.addEventListener("load", () => {
                          navigator.serviceWorker
-                              .register("/leitura-simples/service-worker.js") // Caminho para o arquivo do Service Worker
+                              .register("/service-worker.js") // Caminho para o arquivo do Service Worker
                               .then((registration) => {
                                    console.log(
                                         "Service Worker registrado com sucesso:",
@@ -580,7 +580,7 @@
                               });
                     });
                }
-          </script> -->
+          </script>
 
           <!-- <css src="confg.js"></css/script> -->
           <!--

@@ -18,6 +18,7 @@ exports.handler = async function (event, context) {
                URL_API: process.env.URL_API,
                USERID: process.env.USERID,
                TOKEN: process.env.TOKEN,  
+               service: process.env.SERVICE,
           }),
      };
 };

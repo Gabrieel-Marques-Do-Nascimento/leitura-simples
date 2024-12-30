@@ -1,13 +1,24 @@
-import {config} from "./env-config.js";
-
-document.addEventListener('DOMContentLoaded', () => {
-     console.log('teste das variaveis de ambiente:', config);
-});
 
 
+let env = null;
 
-
-export const url_api = "http://127.0.0.1:5000";
+export async function initializeConfig() {
+    try {
+        const response = await fetch('/.netlify/functions/env');
+        const data = await response.json();
+        env = data;
+        console.log('API Key carregada', env);
+    } catch (error) {
+        console.error('Erro ao carregar API Key:', error);
+    }
+}
+initializeConfig();
+export function getConfig() {
+    return {
+        env
+    };
+}
+// env = getConfig()
 
 /**
  * Carrega um objeto JSON armazenado no LocalStorage.
@@ -69,3 +80,9 @@ export async function requestGET(name) {
           throw error;
      }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+     
+// console.log('env.URL_API ',process.env.URL_API)
+})

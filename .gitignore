@@ -9,3 +9,6 @@
 .env
 
 data/config.json
+
+# Local Netlify folder
+.netlify

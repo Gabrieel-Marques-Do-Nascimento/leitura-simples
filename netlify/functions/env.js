@@ -3,6 +3,7 @@ require("dotenv").config();
 exports.handler = async function (event, context) {
      const baseUrl = process.env.FUNCTION_BASE_URL || "http://localhost:8888/";
      const origin = event.headers.origin || event.headers.referer;
+     console.log("Origin:", origin);
      if (!origin || !origin.startsWith(baseUrl)) {
           return {
                statusCode: 403,

@@ -23,6 +23,7 @@ async function fetchEnvironment() {
         const response = await fetch('/.netlify/functions/env');
         const data = await response.json();
         env = data;
+        console.log('API Key carregada--:', env);
         console.log('API ENV carregada');
     } catch (error) {
         console.error('Erro ao carregar API Key:', error);

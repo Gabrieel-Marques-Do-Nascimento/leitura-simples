@@ -53,7 +53,7 @@
           </div>
           <script type="module" src="../js/global.js"></script>
           <script type="module">
-                   import {save_json_to_cache} from '../js/global.js'
+                   import {save_json_to_cache, url} from '../js/global.js'
                  // a senha digitada
                const $password = document.getElementById("password");
                // vonfirmacao da senha
@@ -81,7 +81,7 @@
 
                  // Make POST request
                  // registra um novo usuario
-                 fetch("http://127.0.0.1:5000/modulo1/register", {
+                 fetch(`${url}/modulo1/register`, {
                // envia os dados e recebe o resultado
                  method: "POST",
                  // tipo de dado

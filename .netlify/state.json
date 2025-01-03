@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Caetanos",
+			"country": {
+				"code": "BR",
+				"name": "Brazil"
+			},
+			"subdivision": {
+				"code": "BA",
+				"name": "Bahia"
+			},
+			"timezone": "America/Bahia",
+			"latitude": -14.3379,
+			"longitude": -40.9074,
+			"postalCode": "45256"
+		},
+		"timestamp": 1735690370432
+	}
+}

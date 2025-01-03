@@ -7,4 +7,18 @@
 .env
 .env
 .env
+\fake
+\excluido
+\exmplos
+\focus
+\-info\diff_comit.diff
+-info/diff_comit.diff
+.env
+.env
+.env
 
+data/config.json
+
+# Local Netlify folder
+.netlify
+/node_modules

@@ -79,7 +79,7 @@ if (save_text) {
 }
 
 // ---------------------------------- eventos relacionados a tela -----------------------------------
-console.log(document.querySelectorAll(".disabled"));
+// console.log(document.querySelectorAll(".disabled"));
 
 // apos add o texto ao $input penas com um enter ele mostra o texto
 inputActived[0].addEventListener("keydown", function (event) {

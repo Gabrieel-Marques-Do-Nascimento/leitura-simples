@@ -54,7 +54,7 @@ export const winHeight = window.innerHeight;
 export const urlAtual = window.location.href;
 
 // ------------------------------ LOGS---------------------------------------------------------
-console.log("SettingData", SettingData);
+// console.log("SettingData", SettingData);
 // ------------------------------- Funções para Manuseio de Texto -------------------------------
 //================================================
 /**
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
      //inputActived[0].value = texto_teste;
      // console.log("inputClass",$inputMarkdow.value);
 });
-console.log(urlAtual); // Exibe a URL no console
+// console.log(urlAtual); // Exibe a URL no console
 
 // DOMContentLoaded
 $clearButtonFromInput.addEventListener("click", function () {

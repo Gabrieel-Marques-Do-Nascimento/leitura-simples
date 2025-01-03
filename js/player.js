@@ -39,11 +39,11 @@ async function alterarTop_local(novoTop, error = 0, line = 0, on = true) {
       *  autura da pagina em pixels
       */
      let styleheight = Number($screen_text_style.height.replace("px", ""));
-     console_log("-------------------------------------------------");
-     console_log("alterarTop function: " + novoTop + "" + styleheight);
-     console_log("erro:" + error);
-     console_log("line:" + line);
-     console_log("-------------------------------------------------");
+     // console_log("-------------------------------------------------");
+     // console_log("alterarTop function: " + novoTop + "" + styleheight);
+     // console_log("erro:" + error);
+     // console_log("line:" + line);
+     // console_log("-------------------------------------------------");
      let end_line = v[1];
      if (on) {
           // define a transição da altura do elementos caso seja add um algum valor muito alto
@@ -120,24 +120,24 @@ async function aut_page() {
 
      // Altura total do documento
      const scrollHeight = $screen_text.scrollHeight;
-     console_log("scrollHeight " + scrollHeight, true);
+     // console_log("scrollHeight " + scrollHeight, true);
      // Altura da janela visível
      const clientHeight = $screen_text.clientHeight;
-     console_log("clientHeight " + clientHeight);
+     // console_log("clientHeight " + clientHeight);
      // Distância rolada pelo usuário
      let scrollTop = $screen_text.scrollTop;
      let scrollbotton = scrollTop + clientHeight;
-     console_log("scrollbotton " + scrollbotton);
-     console_log("scrollTop " + scrollTop);
+     // console_log("scrollbotton " + scrollbotton);
+     // console_log("scrollTop " + scrollTop);
      // Verifica se a rolagem chegou ao final
      if (scrollbotton + 1 >= scrollHeight) {
-          console_log("Chegou ao final da página!");
+          // console_log("Chegou ao final da página!");
 
           the_end = true;
      }
 
      scrollarParagrafo(v[0] + scrollTop, false);
-     console_log("the_end " + the_end);
+     // console_log("the_end " + the_end);
      return the_end;
 }
 
@@ -161,7 +161,7 @@ async function play(
       * quantidade de linhas visíveis na tela
       */
 
-     console_log("line_size: " + parseInt(v[0] / line_heght));
+     // console_log("line_size: " + parseInt(v[0] / line_heght));
 
      async function runner() {
           let end = false;
@@ -173,7 +173,7 @@ async function play(
                let highlighttop = parseInt(
                     bookmark_style.top.replace("px", "")
                );
-               console.log(parseInt((v[0] - highlighttop) / line_heght));
+               // console.log(parseInt((v[0] - highlighttop) / line_heght));
                let line_size = parseInt(v[0] / line_heght);
                if (
                     highlighttop >
@@ -182,9 +182,9 @@ async function play(
                     line_size =
                          parseInt((v[0] - highlighttop) / line_heght) + 1;
                }
-               console.log("line_size: " + line_size);
-               console.log("highlighttop: " + highlighttop);
-               console.log("highlight_top_erd: " + highlight_top_erd);
+               // console.log("line_size: " + line_size);
+               // console.log("highlighttop: " + highlighttop);
+               // console.log("highlight_top_erd: " + highlight_top_erd);
                for (let i = 0; i < line_size; i++) {
                     // Verifica o estado de pausa antes de cada iteração
                     if (window.pause) {
@@ -219,9 +219,9 @@ async function play(
                          false
                     );
 
-                    console_log("marcador_top: " + marcador_top, true);
-                    console_log(lineScrollParams[1]);
-                    console_log(lineScrollParams[2]);
+                    // console_log("marcador_top: " + marcador_top, true);
+                    // console_log(lineScrollParams[1]);
+                    // console_log(lineScrollParams[2]);
 
                     marcador_top += lineScrollParams[2];
                }
@@ -253,12 +253,12 @@ export function _lineheight_(font_size) {
 
 export function alterarTop(novoTop, error = 0, line = 0, on = true) {
      let styleheight = Number($screen_text_style.height.replace("px", ""));
-     console_log("-------------------------------------------------");
-     console_log("alterarTop function: " + novoTop + "" + styleheight, true);
-     console_log("erro:" + error, true);
-     console_log("line:" + line, true);
-     console_log("-------------------------------------------------", true);
-     console_log("    ", true);
+     // console_log("-------------------------------------------------");
+     // console_log("alterarTop function: " + novoTop + "" + styleheight, true);
+     // console_log("erro:" + error, true);
+     // console_log("line:" + line, true);
+     // console_log("-------------------------------------------------", true);
+     // console_log("    ", true);
      let end_line = v[1];
      if (on) {
           $bookmark.style.transition = "top 0.1s ease";

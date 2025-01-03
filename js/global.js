@@ -1,6 +1,6 @@
 import { getConfig } from "./env-config.js";
 
-console.log('global  -  ',getConfig());
+
 export const url = getConfig().env.URL_API;
 export const id_name = getConfig().env.USERID; 
 export const token_name = getConfig().env.TOKEN;

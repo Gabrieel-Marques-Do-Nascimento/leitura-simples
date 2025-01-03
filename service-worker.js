@@ -23,10 +23,10 @@ async function fetchEnvironment() {
         const response = await fetch('/.netlify/functions/env');
         const data = await response.json();
         env = data;
-        console.log('API Key carregada--:', env);
-        console.log('API ENV carregada');
+        // console.log('API Key carregada--:', env);
+        // console.log('API ENV carregada');
     } catch (error) {
-        console.error('Erro ao carregar API Key:', error);
+        console.error('Erro ao carregar API env:', error);
     }
 }
 
@@ -34,7 +34,7 @@ async function fetchEnvironment() {
 
 
 const BASE_URL = new URL('./', self.location).href;
-console.log("service",BASE_URL)
+// console.log("service",BASE_URL)
 
 
 let cacheName =  "testes"; 
@@ -45,7 +45,7 @@ fetchEnvironment().then(() => {
 });
 
 
-console.log("cacheName",cacheName)
+// console.log("cacheName",cacheName)
 
 const filesToCachegIT = [
     '/',         // Raiz   

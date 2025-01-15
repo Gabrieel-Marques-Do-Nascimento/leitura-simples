@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title translate="no">LitBookMark</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen">
+        <!-- Header com banner e foto -->
+        <div class="relative bg-blue-600 h-48">
+            <div class="absolute bottom-0 left-0 w-full">
+                <div class="container mx-auto px-4">
+                    <div class="relative -bottom-16 flex items-end">
+                        <div class="relative">
+                            <img src="/api/placeholder/150/150" alt="profile" class="w-32 h-32 rounded-full border-4 border-white bg-white"/>
+                            <div class="absolute bottom-0 right-0 flex gap-2">
+                                <button class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm hover:bg-blue-600 transition">
+                                    Mudar foto
+                                </button>
+                                <button class="bg-red-500 text-white px-3 py-1 rounded-full text-sm hover:bg-red-600 transition">
+                                    Remover
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="container mx-auto px-4 pt-20">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <!-- Informações básicas -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Informações Pessoais</h2>
+                        
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-600">Username</label>
+                            <div class="flex items-center">
+                                <span id="name" class="text-lg font-medium text-gray-800">Gabriel</span>
+                                <button class="ml-2 text-blue-500 hover:text-blue-600">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-600">Email</label>
+                            <div id="email" class="text-lg font-medium text-gray-800">email@exemplo.com</div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-600">Gênero</label>
+                            <select id="genero" class="w-full p-2 border rounded-lg">
+                                <option value="">Selecione</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="outro">Outro</option>
+                                <option value="prefiro-nao-dizer">Prefiro não dizer</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Preferências</h2>
+                        
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-600">Idioma</label>
+                            <select id="idioma" class="w-full p-2 border rounded-lg">
+                                <option value="pt-BR">Português (Brasil)</option>
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-600">Tema</label>
+                            <select class="w-full p-2 border rounded-lg">
+                                <option value="light">Claro</option>
+                                <option value="dark">Escuro</option>
+                                <option value="system">Sistema</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-600">Plano atual</label>
+                            <div class="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                                <span id="plano" class="font-medium">Base</span>
+                                <a href="" class="text-blue-500 hover:text-blue-600 font-medium">Fazer upgrade</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Novas seções -->
+                <div class="mt-8 pt-6 border-t">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Notificações</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-medium">Emails de marketing</h3>
+                                <p class="text-sm text-gray-500">Receba novidades e promoções</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-medium">Notificações do sistema</h3>
+                                <p class="text-sm text-gray-500">Atualizações importantes sobre sua conta</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões de ação -->
+                <div class="mt-8 flex justify-end space-x-4">
+                    <button class="px-4 py-2 text-gray-600 hover:text-gray-800 transition">Cancelar</button>
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Salvar alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/env-config.js"></script>
+    <script type="module" src="../js/global.js"></script>
+    <script type="module" src="../js/profile.js"></script>
+</body>
+</html>

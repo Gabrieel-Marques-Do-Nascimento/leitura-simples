@@ -1,29 +1,29 @@
 /* Reset CSS - Uniformização de elementos */
 
 /* Reset base para todos os elementos */
-* {
+#paragraph * {
     margin: 0;
     padding: 0;
     /* box-sizing: border-box; */
     border: none;
-    font-size: 18px;
+    font-size: inherit;
     line-height: 1.5;
 }
 
 /* Elementos de bloco */
-html, body, div, header, nav, main, section, article, 
-aside, footer, form, fieldset, legend, figcaption {
+#paragraph > html,#paragraph > body,#paragraph >  div,#paragraph >  header,#paragraph >  nav,#paragraph > main,#paragraph >  section, #paragraph > article, #paragraph > 
+aside,#paragraph >  footer,#paragraph > form,#paragraph > fieldset,#paragraph >  legend,#paragraph >  figcaption {
     width: 100%;
-    font-size: 18px;
+    font-size: inherit;
     line-height: 1.5;
     margin: 0;
     padding: 0;
 }
 
 /* Elementos de texto */
-h1, h2, h3, h4, h5, h6, p, span, a, strong, em, 
-small, b, i, u, strike, sub, sup, time {
-    font-size: 18px;
+#paragraph > h1,#paragraph >  h2,#paragraph >  br,#paragraph >  h3,#paragraph >  h4,#paragraph >  h5,#paragraph >  h6,#paragraph >  p,#paragraph >  span,#paragraph >  a,#paragraph >  strong,#paragraph >  em,#paragraph >  
+small,#paragraph >  b,#paragraph >  i,#paragraph >  u,#paragraph >  strike,#paragraph >  sub, sup,#paragraph >  time {
+    font-size: inherit;
     line-height: 1.5;
     margin: 0;
     padding: 0;
@@ -32,14 +32,15 @@ small, b, i, u, strike, sub, sup, time {
     margin-block-start: 0;
     margin-block-end: 0;
 }
-h1, h2, h3, h4, h5, h6 {
+#paragraph > h1,#paragraph >  h2,#paragraph >  h3,#paragraph >  h4,#paragraph >  h5,#paragraph >  h6 {
     font-weight: bold;
     text-align: center;
     text-decoration: underline;
+    font-size: inherit;
 }
 /* Listas */
-ul, ol, li, dl, dt, dd {
-    font-size: 18px;
+#paragraph > ul,#paragraph >  ol,#paragraph >  li,#paragraph >  dl,#paragraph >  dt,#paragraph >  dd {
+    font-size: inherit;
     line-height: 1.5;
     margin: 0;
     padding: 0;
@@ -47,8 +48,8 @@ ul, ol, li, dl, dt, dd {
 }
 
 /* Tabelas */
-table, caption, tbody, tfoot, thead, tr, th, td {
-    font-size: 18px;
+#paragraph > table,#paragraph >  caption,#paragraph >  tbody,#paragraph >  tfoot,#paragraph >  thead,#paragraph >  tr,#paragraph > th,#paragraph >  td {
+    font-size: inherit;
     line-height: 1.5;
     margin: 0;
     padding: 0;
@@ -57,7 +58,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 
 /* Formulários */
 /* input, textarea, select, button, option, label {
-    font-size: 18px;
+    font-size: inherit;
     line-height: 1.5;
     margin: 0;
     padding: 0;
@@ -74,9 +75,17 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 } */
 
 /* Outros elementos */
-figure, pre, code, blockquote, q {
-    font-size: 18px;
+#paragraph > #paragraph > figure,#paragraph > #paragraph >  pre,#paragraph > #paragraph >  code,#paragraph > #paragraph >  blockquote,#paragraph > #paragraph >  q {
+    font-size: inherit;
     line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+#paragraph > pre {
+    font-size: inherit;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    overflow: auto;
     margin: 0;
     padding: 0;
 }

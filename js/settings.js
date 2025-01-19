@@ -54,7 +54,15 @@ $SettingButton.addEventListener("click", () => {
      $SettingButton.style.display = "none";
      $SettingsMenu.style.display = "block";
      // carrega os dados salvos nas configurações
-     $settingsFontSize.value =  parseInt(SettingData["font-size"]) % 2 === 0 ? parseInt(SettingData["font-size"]) : parseInt(SettingData["font-size"]) + 1;
+     let temp =  parseInt(SettingData["font-size"])
+     while (true){
+          if (temp % 5 === 0) {
+               $settingsFontSize.value = temp;
+               break;
+          }
+          temp++;
+     }
+     //$settingsFontSize.value =  parseInt(SettingData["font-size"]) //% 2 === 0 ? parseInt(SettingData["font-size"]) : parseInt(SettingData["font-size"]) + 1;
      $SettingPageLang.value = SettingData["lang"];
      $SettingBookMarkColor.value = SettingData["color"];
      $SettingDelay.value = SettingData["delay"];

@@ -51,10 +51,11 @@ let margin =
      );
 const SettingData = loadText_Cache_json(Cache_json_name);
 export let v = screen_size_height(
-     { font_size: SettingData["font-size"], height: winHeight, logs: true },
+     { font_size: SettingData["font-size"], height: parseInt(winHeight), logs: true },
      70,
-     margin
+     parseInt(margin)
 );
+console.log('heith', v)
 $screen_text.style.height = v[0] + "px";
 $screen_text.style.textAlign = "justify";
 $pai_das_telas.style.height = v[0] + "px";
@@ -254,8 +255,8 @@ let fim = false;
 
 $ButtonScrollPage.addEventListener("click", () => {
      let pixels = 0;
-     let scrolltop = $screen_text.scrollTop;
-     // console.log(scrolltop);
+     let scrolltop = Math.ceil($screen_text.scrollTop)
+     //console.log(scrolltop);
      const scrollHeight = $screen_text.scrollHeight;
      const clientHeight = $screen_text.clientHeight;
      let scrollbotton = scrolltop + clientHeight;
@@ -290,8 +291,8 @@ $ButtonScrollPage.addEventListener("click", () => {
           // console.log("fim");
           pixels = 0;
      }
-
-     $screen_text.scrollTop = pixels;
+     console.log(pixels)
+     $screen_text.scrollTop = pixels ;
      $ButtonScrollPage.disabled = true;
      setTimeout(function () {
           $ButtonScrollPage.disabled = false;
@@ -299,10 +300,13 @@ $ButtonScrollPage.addEventListener("click", () => {
 });
 document.addEventListener("keydown", function (e) {
      if (e.key === "a") {
-          let scrolltop = $screen_text.scrollTop;
+          let scrolltop = Math.ceil($screen_text.scrollTop)
           let heightp = parseInt($screen_text.style.height.replace("px", ""));
           let pixels = heightp + scrolltop;
+          console.log('scrolltop',scrolltop)
           $screen_text.scrollTop = pixels;
+          console.log('heightp',heightp)
+          console.log('pixels',pixels)
           $ButtonScrollPage.disabled = true;
           setTimeout(function () {
                $ButtonScrollPage.disabled = false;
@@ -311,7 +315,7 @@ document.addEventListener("keydown", function (e) {
 });
 document.addEventListener("keydown", function (e) {
      if (e.key === "q") {
-          let scrolltop = $screen_text.scrollTop;
+          let scrolltop = Math.ceil($screen_text.scrollTop)
           let heightp = parseInt($screen_text.style.height.replace("px", ""));
           let pixels = scrolltop - heightp;
           $screen_text.scrollTop = pixels;

@@ -38,6 +38,7 @@ if (SettingData["screentype"] === "markdow") {
      $input.classList.remove(inputClass);
      $inputMarkdow.style.display = "block";
      $inputMarkdow.classList.add(inputClass);
+     
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -53,7 +54,7 @@ $SettingButton.addEventListener("click", () => {
      $SettingButton.style.display = "none";
      $SettingsMenu.style.display = "block";
      // carrega os dados salvos nas configurações
-     $settingsFontSize.value = SettingData["font-size"];
+     $settingsFontSize.value =  parseInt(SettingData["font-size"]) % 2 === 0 ? parseInt(SettingData["font-size"]) : parseInt(SettingData["font-size"]) + 1;
      $SettingPageLang.value = SettingData["lang"];
      $SettingBookMarkColor.value = SettingData["color"];
      $SettingDelay.value = SettingData["delay"];

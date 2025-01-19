@@ -228,8 +228,16 @@ export function ReadScreen(texto) {
           $screen_text.innerText = texto;
      }
      if (SettingData["screentype"] == "markdow") {
-          $screen_text.style.margin = "0 10px";
-          $screen_text.innerHTML = marked.parse(texto);
+          $screen_text.style.margin = "0 0";
+          let markdown = marked.parse(texto)
+          var replaceChars = {'<code class="':'<code class="hljs ','<code>':'<code class="hljs">', '<h1>': '<br>  <h1>', '<h2>': '<br>  <h2>', '<h3': '<br>  <h3'}
+          // Realiza a substituição usando replace para cada chave do objeto.
+          Object.keys(replaceChars).forEach(function(key) {
+               markdown = markdown.replace(new RegExp(key, 'g'), replaceChars[key]);
+          });
+
+          $screen_text.innerHTML = markdown;
+          hljs.highlightAll();
      }
 }
 

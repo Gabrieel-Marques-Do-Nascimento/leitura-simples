@@ -1,0 +1,82 @@
+/* Reset CSS - Uniformização de elementos */
+
+/* Reset base para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    border: none;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Elementos de bloco */
+html, body, div, header, nav, main, section, article, 
+aside, footer, form, fieldset, legend, figcaption {
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Elementos de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, em, 
+small, b, i, u, strike, sub, sup, time {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    text-decoration: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+/* Listas */
+ul, ol, li, dl, dt, dd {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Tabelas */
+table, caption, tbody, tfoot, thead, tr, th, td {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+/* Formulários */
+/* input, textarea, select, button, option, label {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+} */
+
+/* Elementos multimídia */
+/* img, video, audio, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+} */
+
+/* Outros elementos */
+figure, pre, code, blockquote, q {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}

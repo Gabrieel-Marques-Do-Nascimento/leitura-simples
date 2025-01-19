@@ -19,6 +19,7 @@
   }
   
   #dropZone {
+    box-sizing: border-box;
     margin-top: 15px;
     padding: 30px;
     border: 2px dashed #aaa;

@@ -467,7 +467,7 @@ body {
      }
      #pai {
           margin-top: 20px;
-
+          top:0px;
           width: 98vw;
           height: 86vh;
      }

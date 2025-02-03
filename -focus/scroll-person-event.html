@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Personalizado</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden; /* Impede a rolagem padrão */
+    }
+    .section {
+      height: 100vh; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3em;
+      transition: transform 0.8s ease-in-out;
+    }
+    .one { background: #4CAF50; }
+    .two { background: #2196F3; }
+    .three { background: #FF5722; }
+  </style>
+</head>
+<body>
+  <div class="section one">Seção 1</div>
+  <div class="section two">Seção 2</div>
+  <div class="section three">Seção 3</div>
+
+  <script>
+    let currentSection = 0;
+    const sections = document.querySelectorAll('.section');
+
+    // Função para navegar entre as seções
+    function scrollToSection(index) {
+      if (index >= 0 && index < sections.length) {
+        sections.forEach((section, i) => {
+          section.style.transform = `translateY(-${index * 100}vh)`;
+        });
+        currentSection = index;
+      }
+    }
+
+    // Captura o evento de rolagem e personaliza
+    window.addEventListener('wheel', (event) => {
+      event.preventDefault(); // Impede o scroll padrão
+      
+      if (event.deltaY > 0) {
+        // Scroll para baixo
+        scrollToSection(currentSection + 1);
+      } else {
+        // Scroll para cima
+        scrollToSection(currentSection - 1);
+      }
+    }, { passive: false }); // O passive:false permite o preventDefault funcionar
+  </script>
+</body>
+</html>

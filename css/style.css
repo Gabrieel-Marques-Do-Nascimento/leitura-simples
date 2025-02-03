@@ -466,8 +466,9 @@ body {
           left: 60%;
      }
      #pai {
-          margin-top: 20px;
           webkit-margin-top: 30px;
+          margin-top: 20px;
+          
           top:0px;
           width: 98vw;
           height: 86vh;

@@ -366,7 +366,7 @@ body {
   }
   body {
     width: 94vw;
-    height: 94vh;
+    height: 100dvh;
     padding: 0px;
     overflow: hidden;
   }

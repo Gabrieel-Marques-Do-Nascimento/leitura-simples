@@ -1,5 +1,0 @@
-# Instalar Netlify CLI globalmente
-npm install -g netlify-cli
-
-# Rodar o servidor local do Netlify
-netlify dev

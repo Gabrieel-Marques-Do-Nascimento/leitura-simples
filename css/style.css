@@ -470,7 +470,9 @@ body {
     left: 60%;
   }
   @supports (-webkit-touch-callout: none) {
-    margin-top: 30px;
+  	#pai{
+  		margin-top: 30px;
+  	}
   }
   #pai {
     margin-top: 20px;

@@ -1,0 +1,5 @@
+/* fire fox */
+@-moz-document url-prefix() { /* CSS no qua queira utilizar somente nesse navegador */ }
+@supports (-ms-ime-align:auto) {
+  /* CSS no qua queira utilizar somente nesse navegador edge */
+ }

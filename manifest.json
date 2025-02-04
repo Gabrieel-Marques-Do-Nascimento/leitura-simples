@@ -23,7 +23,6 @@
       "type": "image/png"
     }
   ],
-"display": "standalone",
   "file_handlers": [
     {
       "action": "/abrir",
@@ -36,19 +35,3 @@
 
 }
 
-
-{
-  "name": "Meu App Web",
-  "short_name": "MeuApp",
-  "start_url": "/",
-  "display": "standalone",
-  "file_handlers": [
-    {
-      "action": "/abrir",
-      "accept": {
-        "application/pdf": [".pdf"],
-        "text/plain": [".txt"]
-      }
-    }
-  ]
-}

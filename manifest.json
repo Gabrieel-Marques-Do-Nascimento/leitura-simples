@@ -22,5 +22,33 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+"display": "standalone",
+  "file_handlers": [
+    {
+      "action": "/abrir",
+      "accept": {
+        "application/md": [".md"],
+        "text/plain": [".txt", ".md"]
+      }
+    }
+  ]
+
+}
+
+
+{
+  "name": "Meu App Web",
+  "short_name": "MeuApp",
+  "start_url": "/",
+  "display": "standalone",
+  "file_handlers": [
+    {
+      "action": "/abrir",
+      "accept": {
+        "application/pdf": [".pdf"],
+        "text/plain": [".txt"]
+      }
+    }
   ]
 }

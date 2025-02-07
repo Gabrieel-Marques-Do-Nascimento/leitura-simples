@@ -27,7 +27,7 @@
     {
       "action": "/abrir",
       "accept": {
-        "application/md": [".md"],
+        "text/markdown": [".md"],
         "text/plain": [".txt", ".md"]
       }
     }

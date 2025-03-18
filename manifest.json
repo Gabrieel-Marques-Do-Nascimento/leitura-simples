@@ -25,12 +25,17 @@
   ],
 
 "file_handlers": [
-  {
-    "action": "templates/abrir",
-    "accept": {
-      "text/markdown": [".md"],
-      "text/plain": [".txt"]
-    }
+    {
+      "action": "templates/abrir",
+      "accept": {
+        "text/markdown": [".md"],
+        "text/plain": [".txt"],
+        "application/json": [".json"],
+        "text/javascript": [".js"],
+        "text/css": [".css"],
+        "text/x-c": [".c"],
+        "text/x-python": [".py"]
+      }
   }
 ]
 }

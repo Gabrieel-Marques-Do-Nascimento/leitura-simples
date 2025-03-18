@@ -8,7 +8,7 @@ export const dropZone = document.getElementById("dropZone");
 // Função para ler o conteúdo do arquivo
 function readFile(file) {
      return new Promise((resolve, reject) => {
-          if (file && [ "text/plain","text/markdown"].includes(file.type)|| /\.(txt|md)$/i.test(file.name)) {
+          if (file && [ "text/plain","text/markdown"].includes(file.type)|| /\.(txt|md|css|js|c|json)$/i.test(file.name)) {
                const reader = new FileReader();
                reader.onload = function (e) {
                     // Resolve the promise with the file content

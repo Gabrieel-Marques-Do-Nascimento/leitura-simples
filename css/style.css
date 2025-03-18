@@ -138,7 +138,28 @@ header {
 #settingbutton:hover {
   background: black;
 }
-
+#install {
+  width: 40px;
+  cursor: none; /* Esconde o cursor */
+  position: fixed;
+  border-radius: 40%;
+  left: 91%;
+  top: 30%;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+}
+#install:hover svg{
+  background: black;
+  border-radius: 50%;
+}
+#install button {
+  background: none;
+  border: none;
+}
+#install svg {
+  width: 30px;
+  height: 30px;
+}
 body {
   position: relative; /* Para que o pseudo-elemento posicione-se corretamente */
   justify-content: center;
@@ -605,6 +626,23 @@ body {
     z-index: 4;
   }
   #settingbutton svg {
+    width: 50px;
+    height: 50px;
+  }
+  div#install {
+    width: 40px;
+    position: relative;
+    display: block;
+    left: 40%;
+    top: 18%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    
+  }
+  #install> button {
+    border-radius: 50%;
+  }
+  #install> button > svg {
     width: 50px;
     height: 50px;
   }

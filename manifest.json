@@ -23,15 +23,15 @@
       "type": "image/png"
     }
   ],
-  "file_handlers": [
-    {
-      "action": "/abrir",
-      "accept": {
-        "text/markdown": [".md"],
-        "text/plain": [".txt", ".md"]
-      }
-    }
-  ]
 
+"file_handlers": [
+  {
+    "action": "templates/abrir",
+    "accept": {
+      "text/markdown": [".md"],
+      "text/plain": [".txt"]
+    }
+  }
+]
 }
 

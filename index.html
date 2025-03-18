@@ -27,6 +27,7 @@
           <link rel="stylesheet" href="css/menu.css" />
           <link rel="stylesheet" href="css/animation.css" />
           <link rel="stylesheet" href="css/ultils.css" />
+
      </head>
 
      <body>
@@ -423,6 +424,16 @@
      <span>|</span><span>|</span><span>|</span>
 </button>
 <div id="menuAnburger">
+     <div id="install"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <!-- Outer circle -->
+          <circle cx="50" cy="50" r="45" fill="#f0f0f0" stroke="#2c3e50" stroke-width="2"/>
+          
+          <!-- Download arrow -->
+          <path d="M50 20 L50 60 M35 45 L50 60 L65 45" stroke="#2c3e50" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          
+          <!-- Bottom line representing destination -->
+          <path d="M30 70 L70 70" stroke="#2c3e50" stroke-width="5" stroke-linecap="round"/>
+        </svg></button></div>
      
                <div id="profile"><a href="templates\profile.html"><img src="/img/social-media-profile.svg" alt="profile"></a></div>
      
@@ -561,7 +572,7 @@
           <!-- <script src="service-worker.js"></script> -->
           <script type="module" src="js/screen.js"></script>
           <script type="module" src="js/beta.js"></script>
-      
+          <script src="js/install.js"></script>
            <script>
            
                if ("serviceWorker" in navigator) {

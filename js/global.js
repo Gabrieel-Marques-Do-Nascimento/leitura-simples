@@ -1,9 +1,9 @@
 import { getConfig } from "./env-config.js";
 
 
-export const url = getConfig().env.URL_API;
-export const id_name = getConfig().env.USERID; 
-export const token_name = getConfig().env.TOKEN;
+export const url = getConfig().env ? getConfig().env.URL_API : 'http://localhost:9000';
+export const id_name = getConfig().env ?getConfig().env.USERID : 0; 
+export const token_name = getConfig().env ? getConfig().env.TOKEN : 'token';
 
 /**
  * Carrega um objeto JSON armazenado no LocalStorage.
